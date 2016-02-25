@@ -37,8 +37,7 @@ public final class PermissionsHelper {
 	 * @param context
 	 * 		the {@code Context} to query
 	 * @param permissions
-	 * 		a {@code String} array of permissions, sourced from {@link android.Manifest
-	 * 		.permission}.
+	 * 		a {@code String} array of permissions, sourced from {@link android.Manifest}.
 	 * @return true if all of the specified permissions have been granted, false otherwise
 	 */
 	public static boolean permissionsAreGranted(final Context context, final String[]
