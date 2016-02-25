@@ -1,6 +1,8 @@
 #AndroidUtilities
 Miscellaneous utilities for Android development.
 
+To use this library, add `compile 'com.matthew-tamlin:android-utilities-library:1.0.1'` to your build.gradle file.
+
 ###AudioFocusHelper
 Utilities for obtaining and abandoning audio focus without boilerplate code.
 
