@@ -3,20 +3,23 @@ Miscellaneous utilities for Android development.
 
 To use this library, add `compile 'com.matthew-tamlin:android-utilities-library:1.0.1'` to your build.gradle file.
 
-###AudioFocusHelper
+### ArrayListWithCallbacks
+An array list which dispatches callback events to registered listeners whenever the list is changed.
+
+### AudioFocusHelper
 Utilities for obtaining and abandoning audio focus without boilerplate code.
 
-###BitmapHelper 
+### BitmapHelper 
 Utilities for decoding bitmap images efficiently.
 
-###ColorHelper
+### ColorHelper
 Utilities for blending colors.
 
-###PermissionsHelper
+### PermissionsHelper
 Utilities for working with permissions without boilderplate code.
 
-###ScreenSizeHelper
+### ScreenSizeHelper
 Utilities for querying information about the device screen size.
 
-###SemiFullScreenHelper
+### SemiFullScreenHelper
 Utilities for drawing behind the status bar.
