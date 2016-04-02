@@ -16,7 +16,12 @@
 
 package com.matthewtamlin.android_utilities_library.helpers;
 
+import android.content.Context;
+import android.content.res.TypedArray;
 import android.graphics.Color;
+import android.util.TypedValue;
+
+import com.matthewtamlin.android_utilities_library.R;
 
 /**
  * Static utility class for working with colors.
@@ -39,7 +44,8 @@ public final class ColorHelper {
 	 * @param color2
 	 * 		ARGB hex code for the second colour to blend
 	 * @param ratio
-	 * 		the proportion of {@code color1} to use in the blended result, between 0 and 1 (inclusive)
+	 * 		the proportion of {@code color1} to use in the blended result, between 0 and 1
+	 * 		(inclusive)
 	 * @return the ARGB code for the blended colour
 	 * @throws IllegalArgumentException
 	 * 		if ratio is not between 0 and 1 (inclusive)
@@ -55,5 +61,52 @@ public final class ColorHelper {
 		final float b = (Color.blue(color1) * ratio) + (Color.blue(color2) * (1f - ratio));
 
 		return Color.argb((int) a, (int) r, (int) g, (int) b);
+	}
+
+	/**
+	 * Extracts the primary color from a theme.
+	 *
+	 * @param context
+	 * 		the context to get the theme of
+	 * @param defaultColor
+	 * 		the color to return if no primary color is found, as an ARGB hex code
+	 * @return the primary color or the default if not found
+	 */
+	public static int getPrimaryColor(Context context, int defaultColor) {
+		return getColor(context, defaultColor, R.attr.colorPrimary);
+	}
+
+	/**
+	 * Extracts the primary dark color from a theme.
+	 *
+	 * @param context
+	 * 		the context to get the theme of
+	 * @param defaultColor
+	 * 		the color to return if no primary dark color is found, as an ARGB hex code
+	 * @return the primary dark color or the default if not found
+	 */
+	public static int getPrimaryDarkColor(Context context, int defaultColor) {
+		return getColor(context, defaultColor, R.attr.colorPrimaryDark);
+	}
+
+	/**
+	 * Extracts the accent color from a theme.
+	 *
+	 * @param context
+	 * 		the context to get the theme of
+	 * @param defaultColor
+	 * 		the color to return if no accent color is found, as an ARGB hex code
+	 * @return the accent color or the default if not found
+	 */
+	public static int getAccentColor(Context context, int defaultColor) {
+		return getColor(context, defaultColor, R.attr.colorAccent);
+	}
+
+	private static int getColor(Context context, int defaultColor, int colorAttr) {
+		final TypedValue v = new TypedValue();
+		final TypedArray a = context.obtainStyledAttributes(v.data, new int[]{colorAttr});
+		final int color = a.getColor(0, defaultColor);
+		a.recycle();
+		return color;
 	}
 }
