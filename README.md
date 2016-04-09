@@ -16,3 +16,8 @@ There is currently only one class in the collections package: `ArrayListWithCall
 
 Consider a scenario where an `ArrayList` of names is displayed to the user with a `RecyclerView`. The adapter which takes the names and displays them in the UI must be notified whenever the list is changed, which requires additional boilerplate code. This approach can cause problems and may lead to difficult to find bugs on two accounts: It is easy to forget to notify the adapter when coding, and the UI thread may not always be visible to the modifying component. By using an `ArrayListWithCallbacks`, it is impossible to forget to notify the adapter since the action of modifying the collection automatically triggers the notification. The activity which manages the adapter simply has to register to receive callbacks, and then use the UI thread to notify the adapter.
 
+## Licensing
+This library is licenced under the Apache v2.0 licence. Have a look at [the license](LICENSE) for details.
+
+## Compatibility
+This library is compatible with Android 11 and up.
