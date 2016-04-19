@@ -4,16 +4,9 @@ import android.content.Context;
 import android.util.TypedValue;
 
 /**
- * A helper class for converting complex units to pixels.
+ * Utilities for converting complex units to pixels.
  */
-public final class DimensionHelper {
-	/**
-	 * To prevent instantiation, this constructor is private and throws an exception when invoked.
-	 */
-	private DimensionHelper() {
-		throw new UnsupportedOperationException("DimensionHelper cannot be instantiated");
-	}
-
+public abstract class DimensionHelper {
 	/**
 	 * Converts a dimension from display-independent pixels (dp) to pixels (px).
 	 *

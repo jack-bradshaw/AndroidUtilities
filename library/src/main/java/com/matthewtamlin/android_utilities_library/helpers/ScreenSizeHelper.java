@@ -24,14 +24,7 @@ import android.view.WindowManager;
 /**
  * Static utility class for querying the screen size.
  */
-public final class ScreenSizeHelper {
-	/**
-	 * To prevent instantiation, this constructor is private and throws an exception when invoked.
-	 */
-	private ScreenSizeHelper() {
-		throw new UnsupportedOperationException("ScreenSizeHelper cannot be instantiated");
-	}
-
+public abstract class ScreenSizeHelper {
 	/**
 	 * @param res
 	 * 		a {@code Resource} object which allows the device configuration to be queried

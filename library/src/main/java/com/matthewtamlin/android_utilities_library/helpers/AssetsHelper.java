@@ -27,20 +27,13 @@ import java.io.InputStream;
 import java.io.OutputStream;
 
 /**
- * Static utility class for working with assets.
+ * Utilities for working with assets.
  */
-public class AssetsHelper {
+public abstract class AssetsHelper {
 	/**
 	 * Used during debugging to identify this class.
 	 */
 	private static final String TAG = "[AssetsHelper]";
-
-	/**
-	 * To prevent instantiation, this constructor is private and throws an exception when invoked.
-	 */
-	private AssetsHelper() {
-		throw new UnsupportedOperationException("AssetsHelper cannot be instantiated");
-	}
 
 	/**
 	 * Copies files from assets to another directory.

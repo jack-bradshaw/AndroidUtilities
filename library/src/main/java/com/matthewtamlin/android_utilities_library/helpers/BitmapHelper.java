@@ -23,16 +23,9 @@ import android.graphics.BitmapFactory;
 import java.io.File;
 
 /**
- * Static utility class for decoding {@code Bitmap} images efficiently.
+ * Utilities for decoding {@code Bitmap} images efficiently.
  */
-public final class BitmapHelper {
-	/**
-	 * To prevent instantiation, this constructor is private and throws an exception when invoked.
-	 */
-	private BitmapHelper() {
-		throw new UnsupportedOperationException("BitmapHelper cannot be instantiated");
-	}
-
+public abstract class BitmapHelper {
 	/**
 	 * Calculates the largest sampling rate which is a power of two and keeps the scaled height and
 	 * width greater than the requested height and width.
