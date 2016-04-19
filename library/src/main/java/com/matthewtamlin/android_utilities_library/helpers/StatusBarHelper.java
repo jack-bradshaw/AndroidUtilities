@@ -25,7 +25,7 @@ import android.view.WindowManager;
 /**
  * A utility class for hiding and showing the status bar.
  */
-public class StatusBarHelper {
+public abstract class StatusBarHelper {
 	/**
 	 * Flag for showing the status bar.
 	 */

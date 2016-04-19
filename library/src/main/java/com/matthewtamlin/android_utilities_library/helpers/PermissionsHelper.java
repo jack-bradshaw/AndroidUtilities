@@ -23,14 +23,7 @@ import android.support.v4.app.ActivityCompat;
 /**
  * Static utility for querying permission status.
  */
-public final class PermissionsHelper {
-	/**
-	 * To prevent instantiation, this constructor is private and throws an exception when invoked.
-	 */
-	private PermissionsHelper() {
-		throw new UnsupportedOperationException("PermissionsHelper cannot be instantiated");
-	}
-
+public abstract class PermissionsHelper {
 	/**
 	 * Determines if the supplied {@code Context} has been granted the specified permissions.
 	 *
