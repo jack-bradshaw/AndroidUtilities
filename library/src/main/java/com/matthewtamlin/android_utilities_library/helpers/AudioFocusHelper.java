@@ -21,7 +21,7 @@ import android.media.AudioManager;
 import android.media.AudioManager.OnAudioFocusChangeListener;
 
 /**
- * Static utility class for obtaining and abandoning audio focus.
+ * Utilities for obtaining and abandoning audio focus.
  */
 public abstract class AudioFocusHelper {
 	/**

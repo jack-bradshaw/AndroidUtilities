@@ -21,7 +21,7 @@ import android.content.pm.PackageManager;
 import android.support.v4.app.ActivityCompat;
 
 /**
- * Static utility for querying permission status.
+ * Utilities for working with permissions.
  */
 public abstract class PermissionsHelper {
 	/**

@@ -4,7 +4,7 @@ import android.content.Context;
 import android.util.TypedValue;
 
 /**
- * A helper class for converting complex units to pixels.
+ * Utilities for converting complex units to pixels.
  */
 public abstract class DimensionHelper {
 	/**

@@ -23,7 +23,7 @@ import android.graphics.BitmapFactory;
 import java.io.File;
 
 /**
- * Static utility class for decoding {@code Bitmap} images efficiently.
+ * Utilities for decoding {@code Bitmap} images efficiently.
  */
 public abstract class BitmapHelper {
 	/**

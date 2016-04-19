@@ -23,7 +23,7 @@ import android.view.Window;
 import android.view.WindowManager;
 
 /**
- * A utility class for hiding and showing the status bar.
+ * Utilities for hiding and showing the status bar.
  */
 public abstract class StatusBarHelper {
 	/**
