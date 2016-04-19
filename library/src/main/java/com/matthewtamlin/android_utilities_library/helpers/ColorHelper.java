@@ -26,14 +26,7 @@ import com.matthewtamlin.android_utilities_library.R;
 /**
  * Static utility class for working with colors.
  */
-public final class ColorHelper {
-	/**
-	 * To prevent instantiation, this constructor is private and throws an exception when invoked.
-	 */
-	private ColorHelper() {
-		throw new UnsupportedOperationException("ColorHelper cannot be instantiated");
-	}
-
+public abstract class ColorHelper {
 	/**
 	 * Blends two colours to produce a single output colour. No check is done to ensure the
 	 * provided colors are valid ARGB hex codes. Providing invalid codes will result in an
