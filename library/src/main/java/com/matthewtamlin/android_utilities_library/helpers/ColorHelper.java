@@ -24,7 +24,7 @@ import android.util.TypedValue;
 import com.matthewtamlin.android_utilities_library.R;
 
 /**
- * Static utility class for working with colors.
+ * Utilities for working with colors.
  */
 public abstract class ColorHelper {
 	/**

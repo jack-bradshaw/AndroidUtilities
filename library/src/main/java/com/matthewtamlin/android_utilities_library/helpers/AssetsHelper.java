@@ -27,7 +27,7 @@ import java.io.InputStream;
 import java.io.OutputStream;
 
 /**
- * Static utility class for working with assets.
+ * Utilities for working with assets.
  */
 public abstract class AssetsHelper {
 	/**
