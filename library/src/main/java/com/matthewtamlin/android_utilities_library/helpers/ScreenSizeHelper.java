@@ -26,8 +26,10 @@ import android.view.WindowManager;
  */
 public abstract class ScreenSizeHelper {
 	/**
+	 * Returns the screen size as an enum constant.
+	 *
 	 * @param res
-	 * 		a {@code Resource} object which allows the device configuration to be queried
+	 * 		a Resource object which allows the device configuration to be queried
 	 * @return the size of the device screen
 	 */
 	public static ScreenSize getScreenSize(final Resources res) {
@@ -51,7 +53,7 @@ public abstract class ScreenSizeHelper {
 	 * in {@link Configuration}.
 	 *
 	 * @param res
-	 * 		a {@code Resource} object which allows the device configuration to be queried
+	 * 		a Resource object which allows the device configuration to be queried
 	 * @return true if the screen size is undefined, false otherwise
 	 */
 	public static boolean screenIsUndefined(final Resources res) {
@@ -60,11 +62,11 @@ public abstract class ScreenSizeHelper {
 	}
 
 	/**
-	 * Determines if the device configuration specifies the screen size as extra-large, as
-	 * specified in {@link Configuration}.
+	 * Determines if the device configuration specifies the screen size as extra-large, as specified
+	 * in {@link Configuration}.
 	 *
 	 * @param res
-	 * 		a {@code Resource} object which allows the device configuration to be queried
+	 * 		a Resource object which allows the device configuration to be queried
 	 * @return true if the screen size is extra-large, false otherwise
 	 */
 	public static boolean screenIsXLarge(final Resources res) {
@@ -77,7 +79,7 @@ public abstract class ScreenSizeHelper {
 	 * {@link Configuration}.
 	 *
 	 * @param res
-	 * 		a {@code Resource} object which allows the device configuration to be queried
+	 * 		a Resource object which allows the device configuration to be queried
 	 * @return true if the screen size is large, false otherwise
 	 */
 	public static boolean screenIsLarge(final Resources res) {
@@ -90,7 +92,7 @@ public abstract class ScreenSizeHelper {
 	 * {@link Configuration}.
 	 *
 	 * @param res
-	 * 		a {@code Resource} object which allows the device configuration to be queried
+	 * 		a Resource object which allows the device configuration to be queried
 	 * @return true if the screen size is normal, false otherwise
 	 */
 	public static boolean screenIsNormal(final Resources res) {
@@ -103,7 +105,7 @@ public abstract class ScreenSizeHelper {
 	 * {@link Configuration}.
 	 *
 	 * @param res
-	 * 		a {@code Resource} object which allows the device configuration to be queried
+	 * 		a Resource object which allows the device configuration to be queried
 	 * @return true if the screen size is small, false otherwise
 	 */
 	public static boolean screenIsSmall(final Resources res) {
@@ -115,7 +117,11 @@ public abstract class ScreenSizeHelper {
 	 * Enumerates the possible screen sizes, as specified in {@link Configuration}.
 	 */
 	public enum ScreenSize {
-		SMALL, NORMAL, LARGE, XLARGE, UNDEFINED;
+		SMALL,
+		NORMAL,
+		LARGE,
+		XLARGE,
+		UNDEFINED;
 	}
 
 	/**
