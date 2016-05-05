@@ -28,17 +28,15 @@ import com.matthewtamlin.android_utilities_library.R;
  */
 public abstract class ColorHelper {
 	/**
-	 * Blends two colours to produce a single output colour. No check is done to ensure the
-	 * provided colors are valid ARGB hex codes. Providing invalid codes will result in an
-	 * undefined result.
+	 * Blends two colours to produce a single output colour. No check is done to ensure the provided
+	 * colors are valid ARGB hex codes. Providing invalid codes will result in an undefined result.
 	 *
 	 * @param color1
 	 * 		ARGB hex code for the first colour to blend
 	 * @param color2
 	 * 		ARGB hex code for the second colour to blend
 	 * @param ratio
-	 * 		the proportion of {@code color1} to use in the blended result, between 0 and 1
-	 * 		(inclusive)
+	 * 		the proportion of {@code color1} to use in the blended result, between 0 and 1 (inclusive)
 	 * @return the ARGB code for the blended colour
 	 * @throws IllegalArgumentException
 	 * 		if ratio is not between 0 and 1 (inclusive)
