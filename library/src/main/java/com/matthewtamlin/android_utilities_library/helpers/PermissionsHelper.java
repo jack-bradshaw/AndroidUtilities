@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
- 
+
 package com.matthewtamlin.android_utilities_library.helpers;
 
 import android.content.Context;
@@ -25,12 +25,12 @@ import android.support.v4.app.ActivityCompat;
  */
 public abstract class PermissionsHelper {
 	/**
-	 * Determines if the supplied {@code Context} has been granted the specified permissions.
+	 * Determines if the supplied Context has been granted the specified permissions.
 	 *
 	 * @param context
-	 * 		the {@code Context} to query
+	 * 		the Context to query
 	 * @param permissions
-	 * 		a {@code String} array of permissions, sourced from {@link android.Manifest}.
+	 * 		a String array of permissions, sourced from {@link android.Manifest}.
 	 * @return true if all of the specified permissions have been granted, false otherwise
 	 */
 	public static boolean permissionsAreGranted(final Context context, final String[]
