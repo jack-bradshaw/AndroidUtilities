@@ -28,9 +28,9 @@ public abstract class AudioFocusHelper {
 	 * Requests stream music audio focus for the supplied {@code listener}.
 	 *
 	 * @param context
-	 * 		the {@code Context} in which {@code listener} is operating
+	 * 		the Context in which {@code listener} is operating
 	 * @param listener
-	 * 		the {@code OnAudioFocusChangeListener} to receive the audio focus
+	 * 		the OnAudioFocusChangeListener to receive the audio focus
 	 * @return true if audio focus is granted, false otherwise
 	 */
 	public static boolean requestStreamMusicFocus(final Context context,
@@ -42,12 +42,12 @@ public abstract class AudioFocusHelper {
 	}
 
 	/**
-	 * Abandons audio focus from the supplied {@code listener}.
+	 * Abandons audio focus.
 	 *
 	 * @param context
-	 * 		the {@code Context} in which {@code listener} is operating
+	 * 		the Context in which {@code listener} is operating
 	 * @param listener
-	 * 		the {@code OnAudioFocusChangeListener} to abandon audio focus
+	 * 		the OnAudioFocusChangeListener to abandon audio focus
 	 */
 	public static void abandonFocus(final Context context,
 			final OnAudioFocusChangeListener listener) {

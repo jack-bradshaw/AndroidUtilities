@@ -23,7 +23,7 @@ import android.graphics.BitmapFactory;
 import java.io.File;
 
 /**
- * Utilities for decoding {@code Bitmap} images efficiently.
+ * Utilities for decoding Bitmap images efficiently.
  */
 public abstract class BitmapHelper {
 	/**
@@ -38,8 +38,8 @@ public abstract class BitmapHelper {
 	 * 		the desired width of the image after scaling
 	 * @param desHeight
 	 * 		the desired height of the image after scaling
-	 * @return the sampling rate which can be used to decode an image from the raw dimensions to
-	 * the desired dimensions
+	 * @return the sampling rate which can be used to decode an image from the raw dimensions to the
+	 * desired dimensions
 	 */
 	private static int calculateInSampleSize(final int rawWidth, final int rawHeight,
 			final int desWidth, final int desHeight) {
@@ -59,18 +59,18 @@ public abstract class BitmapHelper {
 	}
 
 	/**
-	 * Efficiently loads an image from a resource. The width and height of the returned {@code
-	 * Bitmap} are guaranteed to be at least as large as the desired values.
+	 * Efficiently loads an image from a resource. The width and height of the returned Bitmap are
+	 * guaranteed to be at least as large as the desired values.
 	 *
 	 * @param res
-	 * 		a {@code Resource} object which grants access to the resource at {@code resId}
+	 * 		a Resource object which grants access to the resource at {@code resId}
 	 * @param resId
 	 * 		the resource ID of the image to decode
 	 * @param desWidth
-	 * 		the desired width of the returned {@code Bitmap}
+	 * 		the desired width of the returned Bitmap
 	 * @param desHeight
-	 * 		the desired height of the returned {@code Bitmap}
-	 * @return the scaled {@code Bitmap}
+	 * 		the desired height of the returned Bitmap
+	 * @return the scaled Bitmap
 	 */
 	public static Bitmap decodeSampledBitmapFromResource(final Resources res, final int resId,
 			final int desWidth, final int desHeight) {
@@ -89,8 +89,8 @@ public abstract class BitmapHelper {
 	}
 
 	/**
-	 * Efficiently decodes an image from a byte array. The height and width of the returned {@code
-	 * Bitmap} are guaranteed to be at least as large as the desired values.
+	 * Efficiently decodes an image from a byte array. The height and width of the returned Bitmap
+	 * are guaranteed to be at least as large as the desired values.
 	 *
 	 * @param data
 	 * 		a byte array of compressed image data
@@ -99,10 +99,10 @@ public abstract class BitmapHelper {
 	 * @param length
 	 * 		the number of bytes at parse, beginning at {@code offset}
 	 * @param desWidth
-	 * 		the desired width of the returned {@code Bitmap}
+	 * 		the desired width of the returned Bitmap
 	 * @param desHeight
-	 * 		the desired height of the returned {@code Bitmap}
-	 * @return the scaled {@code Bitmap}
+	 * 		the desired height of the returned Bitmap
+	 * @return the scaled Bitmap
 	 */
 	public static Bitmap decodeSampledBitmapFromByteArray(final byte[] data, final int offset,
 			final int length, final int desWidth, final int desHeight) {
@@ -120,16 +120,16 @@ public abstract class BitmapHelper {
 	}
 
 	/**
-	 * Efficiently decodes an image from a {@code File}. The height and width of the returned
-	 * {@code Bitmap} are guaranteed to be at least as large as the desired values.
+	 * Efficiently decodes an image from a File. The height and width of the returned Bitmap are
+	 * guaranteed to be at least as large as the desired values.
 	 *
 	 * @param file
-	 * 		the {@code File} to decode
+	 * 		the File to decode
 	 * @param desWidth
-	 * 		the desired width of the returned {@code Bitmap}
+	 * 		the desired width of the returned Bitmap
 	 * @param desHeight
-	 * 		the desired height of the returned {@code Bitmap}
-	 * @return the scaled {@code Bitmap}
+	 * 		the desired height of the returned Bitmap
+	 * @return the scaled Bitmap
 	 */
 	public static Bitmap decodeSampledBitmapFromFile(final File file, final int desWidth,
 			final int desHeight) {

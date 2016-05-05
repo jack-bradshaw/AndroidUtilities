@@ -24,21 +24,18 @@ import java.util.HashSet;
 import java.util.Iterator;
 
 /**
- * An ArrayList which dispatches callback events to registered listeners whenever the {@code
- * Collection} is modified.
+ * An ArrayList which dispatches callback events to registered listeners whenever the Collection is
+ * modified.
  *
  * @param <T>
- * 		the type of objects contained within this {@code collection}
+ * 		the type of objects contained within this Collection
  */
 public class ArrayListWithCallbacks<T> extends ArrayList<T> {
 	/**
-	 * The listeners to receive callbacks when an item is added to this {@code Collection}. The
-	 * listeners must be called if a call to one of the following methods results in one or more
-	 * elements being added to the {@code Collection}:<p/>
-	 * <li>{@link #add(Object)}</li>
-	 * <li>{@link #add(int, Object)}</li>
-	 * <li>{@link #addAll(Collection)}</li>
-	 * <li>{@link #addAll(int, Collection)}</li>
+	 * The listeners to receive callbacks when an item is added to this Collection. The listeners
+	 * must be called if a call to one of the following methods results in one or more elements
+	 * being added to the Collection:<p/> <li>{@link #add(Object)}</li> <li>{@link #add(int,
+	 * Object)}</li> <li>{@link #addAll(Collection)}</li> <li>{@link #addAll(int, Collection)}</li>
 	 * <li>{@link #set(int, Object)}</li>
 	 * <p/>
 	 * Each added element must have a separate callback invocation.
@@ -46,36 +43,33 @@ public class ArrayListWithCallbacks<T> extends ArrayList<T> {
 	private Collection<OnItemAddedListener> onItemAddedListeners = new HashSet<>();
 
 	/**
-	 * The listeners to receive callbacks when an item is removed from this {@code Collection}. The
+	 * The listeners to receive callbacks when an item is removed from this Collection. The
 	 * listeners must be called if a call to one of the following methods results in one or more
-	 * elements being removed from the {@code Collection}:<p/>
-	 * <li>{@link #remove(int)}</li>
-	 * <li>{@link #remove(Object)}</li>
-	 * <li>{@link #removeAll(Collection)}</li>
-	 * <li>{@link #set(int, Object)}</li>
-	 * <li>{@link #retainAll(Collection)}</li>
+	 * elements being removed from the Collection:<p/> <li>{@link #remove(int)}</li> <li>{@link
+	 * #remove(Object)}</li> <li>{@link #removeAll(Collection)}</li> <li>{@link #set(int,
+	 * Object)}</li> <li>{@link #retainAll(Collection)}</li>
 	 * <p/>
 	 * Each removed element must have a separate callback invocation.
 	 */
 	private Collection<OnItemRemovedListener> onItemRemovedListeners = new HashSet<>();
 
 	/**
-	 * The listeners to receive callbacks when this {@code Collection} is cleared. The listeners
-	 * must be called each time {@link #clear()} is invoked, even if the {@code Collection} was
-	 * empty at the time of invocation.
+	 * The listeners to receive callbacks when this Collection is cleared. The listeners must be
+	 * called each time {@link #clear()} is invoked, even if the Collection was empty at the time of
+	 * invocation.
 	 */
 	private Collection<OnListClearedListener> onListClearedListeners = new HashSet<>();
 
 	/**
-	 * Constructs a new instance of {@code ArrayListWithCallbacks}.
+	 * Constructs a new instance of ArrayListWithCallbacks.
 	 */
 	public ArrayListWithCallbacks() {
 		super();
 	}
 
 	/**
-	 * Constructs a new instance of {@code ArrayListWithCallbacks} containing the elements of the
-	 * specified collection. This method will not invoke callbacks.
+	 * Constructs a new instance of ArrayListWithCallbacks containing the elements of the specified
+	 * collection. This method will not invoke callbacks.
 	 *
 	 * @param collection
 	 * 		the collection of elements to add
@@ -183,16 +177,16 @@ public class ArrayListWithCallbacks<T> extends ArrayList<T> {
 	}
 
 	/**
-	 * Interface definition for callbacks to be invoked whenever an item is added to an {@code
-	 * ArrayListWithCallbacks}.
+	 * Interface definition for callbacks to be invoked whenever an item is added to an
+	 * ArrayListWithCallbacks.
 	 */
 	public interface OnItemAddedListener {
 		/**
-		 * Invoked whenever an item is added to an {@code ArrayListWithCallbacks} which this
-		 * listener is registered to.
+		 * Invoked whenever an item is added to an ArrayListWithCallbacks which this listener is
+		 * registered to.
 		 *
 		 * @param list
-		 * 		the {@code ArrayListWithCallbacks} which was modified
+		 * 		the ArrayListWithCallbacks which was modified
 		 * @param itemAdded
 		 * 		the item which was added
 		 * @param index
@@ -203,15 +197,15 @@ public class ArrayListWithCallbacks<T> extends ArrayList<T> {
 
 	/**
 	 * Interface definition for callbacks to be received whenever an item is removed from an
-	 * {@code ArrayListWithCallbacks}.
+	 * ArrayListWithCallbacks.
 	 */
 	public interface OnItemRemovedListener {
 		/**
-		 * Invoked whenever an item is removed from an {@code ArrayListWithCallbacks} which this
-		 * listener is registered to.
+		 * Invoked whenever an item is removed from an ArrayListWithCallbacks which this listener is
+		 * registered to.
 		 *
 		 * @param list
-		 * 		the {@code ArrayListWithCallbacks} which was modified
+		 * 		the ArrayListWithCallbacks which was modified
 		 * @param itemRemoved
 		 * 		the item which was removed
 		 * @param index
@@ -221,30 +215,30 @@ public class ArrayListWithCallbacks<T> extends ArrayList<T> {
 	}
 
 	/**
-	 * Interface definition for callbacks to be received whenever an {@code ArrayListWithCallbacks}
-	 * is cleared.
+	 * Interface definition for callbacks to be received whenever an ArrayListWithCallbacks is
+	 * cleared.
 	 */
 	public interface OnListClearedListener {
 		/**
-		 * Invoked whenever an {@code ArrayListWithCallbacks} which this listener is registered to
-		 * is cleared.
+		 * Invoked whenever an ArrayListWithCallbacks which this listener is registered to is
+		 * cleared.
 		 *
 		 * @param list
-		 * 		the {@code ArrayListWithCallbacks} which was modified
+		 * 		the ArrayListWithCallbacks which was modified
 		 */
 		void onListCleared(ArrayListWithCallbacks list);
 	}
 
 	/**
-	 * Interface definition for callbacks to be received whenever an {@code ArrayListWithCallbacks}
-	 * is modified.
+	 * Interface definition for callbacks to be received whenever an ArrayListWithCallbacks is
+	 * modified.
 	 */
 	public interface OnListChangedListener extends OnItemAddedListener, OnItemRemovedListener,
 			OnListClearedListener {}
 
 	/**
-	 * Adds an {@code OnItemAddedListener} to this {@code ArrayListWithCallbacks}. This method has
-	 * no effect if null is supplied, or if the listener is already registered.
+	 * Adds an OnItemAddedListener to this ArrayListWithCallbacks. This method has no effect if null
+	 * is supplied, or if the listener is already registered.
 	 *
 	 * @param listener
 	 * 		the listener to add
@@ -256,8 +250,8 @@ public class ArrayListWithCallbacks<T> extends ArrayList<T> {
 	}
 
 	/**
-	 * Adds an {@code OnItemRemovedListener} to this {@code ArrayListWithCallbacks}. This method
-	 * has no effect if null is supplied, or if the listener is already registered.
+	 * Adds an OnItemRemovedListener to this ArrayListWithCallbacks. This method has no effect if
+	 * null is supplied, or if the listener is already registered.
 	 *
 	 * @param listener
 	 * 		the listener to add
@@ -269,8 +263,8 @@ public class ArrayListWithCallbacks<T> extends ArrayList<T> {
 	}
 
 	/**
-	 * Adds an {@code OnListClearedListener} to this {@code ArrayListWithCallbacks}. This method
-	 * has no effect if null is supplied or if the listener is already registered.
+	 * Adds an OnListClearedListener to this ArrayListWithCallbacks. This method has no effect if
+	 * null is supplied or if the listener is already registered.
 	 *
 	 * @param listener
 	 * 		the listener to add
@@ -282,8 +276,8 @@ public class ArrayListWithCallbacks<T> extends ArrayList<T> {
 	}
 
 	/**
-	 * Adds an {@code OnListChangedListener} to this {@code ArrayListWithCallbacks}. this method
-	 * has no effect if null is supplied or if the listener is already registered.
+	 * Adds an OnListChangedListener to this ArrayListWithCallbacks. this method has no effect if
+	 * null is supplied or if the listener is already registered.
 	 *
 	 * @param listener
 	 * 		the listener to add
@@ -295,8 +289,8 @@ public class ArrayListWithCallbacks<T> extends ArrayList<T> {
 	}
 
 	/**
-	 * Removes an {@code OnItemAddedListener} from this {@code ArrayListWithCallbacks}. This method
-	 * has no effect if null is supplied, or if the listener is not registered.
+	 * Removes an OnItemAddedListener from this ArrayListWithCallbacks. This method has no effect if
+	 * null is supplied, or if the listener is not registered.
 	 *
 	 * @param listener
 	 * 		the listener to remove
@@ -306,8 +300,8 @@ public class ArrayListWithCallbacks<T> extends ArrayList<T> {
 	}
 
 	/**
-	 * Removes an {@code OnItemRemovedListener} from this {@code ArrayListWithCallbacks}. This
-	 * method has no effect if null is supplied or if the listener is not registered.
+	 * Removes an OnItemRemovedListener from this ArrayListWithCallbacks. This method has no effect
+	 * if null is supplied or if the listener is not registered.
 	 *
 	 * @param listener
 	 * 		the listener to remove
@@ -317,8 +311,8 @@ public class ArrayListWithCallbacks<T> extends ArrayList<T> {
 	}
 
 	/**
-	 * Removes an {@code OnListClearedListener} from this {@code ArrayListWithCallbacks}. This
-	 * method has no effect if null is supplied or if the listener is not registered.
+	 * Removes an OnListClearedListener from this ArrayListWithCallbacks. This method has no effect
+	 * if null is supplied or if the listener is not registered.
 	 *
 	 * @param listener
 	 * 		the listener to remove
@@ -328,10 +322,11 @@ public class ArrayListWithCallbacks<T> extends ArrayList<T> {
 	}
 
 	/**
-	 * Removed an {@code OnListChangedListener} from this {@code ArrayListWithCallbacks}. This
-	 * method has no effect if null is supplied or if the listener is not registered.
+	 * Removed an OnListChangedListener from this ArrayListWithCallbacks. This method has no effect
+	 * if null is supplied or if the listener is not registered.
 	 *
-	 * @param listener the listener to remove
+	 * @param listener
+	 * 		the listener to remove
 	 */
 	public void removeOnListChangedListener(OnListChangedListener listener) {
 		removeOnItemAddedListener(listener);
@@ -340,10 +335,10 @@ public class ArrayListWithCallbacks<T> extends ArrayList<T> {
 	}
 
 	/**
-	 * Calls each registered {@code OnItemAddedListener}.
+	 * Calls each registered OnItemAddedListener.
 	 *
 	 * @param itemAdded
-	 * 		the item which was added to the {@code ArrayListWithCallbacks}
+	 * 		the item which was added to the ArrayListWithCallbacks
 	 * @param index
 	 * 		the index of the added item
 	 */
@@ -355,10 +350,10 @@ public class ArrayListWithCallbacks<T> extends ArrayList<T> {
 	}
 
 	/**
-	 * Calls each registered {@code OnItemRemovedListener}.
+	 * Calls each registered OnItemRemovedListener.
 	 *
 	 * @param itemRemoved
-	 * 		the item which was removed from the {@code ArrayListWithCallbacks}
+	 * 		the item which was removed from the ArrayListWithCallbacks
 	 * @param index
 	 * 		the index of the removed item
 	 */
@@ -369,7 +364,7 @@ public class ArrayListWithCallbacks<T> extends ArrayList<T> {
 	}
 
 	/**
-	 * Calls each registered {@code OnListClearedListener}.
+	 * Calls each registered OnListClearedListener.
 	 */
 	private void callOnListClearedListeners() {
 		for (OnListClearedListener l : onListClearedListeners) {
