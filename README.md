@@ -1,5 +1,5 @@
 #AndroidUtilities
-This library contains various utilities for use in Android development. The library is split into two packages: helpers and collections. The helpers package contains simple classes with useful static methods. The collections package only contains one class currently. To use this library, add `compile 'com.matthew-tamlin:android-utilities-library:1.3.1'` to your build.gradle file. Older versions are available in the [maven repo](https://bintray.com/matthewtamlin/maven/AndroidUtilities/view).
+This library contains various utilities for use in Android development. The library is split into two packages: helpers and collections. The helpers package contains simple classes with useful static methods. The collections package only contains one class currently. To use this library, add `compile 'com.matthew-tamlin:android-utilities-library:1.4.1'` to your build.gradle file. Older versions are available in the [maven repo](https://bintray.com/matthewtamlin/maven/AndroidUtilities/view).
 
 ## Helper classes
 The helpers package contains several simple classes. The classes cannot be instantiated, instead they provide functionality by means of static methods. The following helpers are available for use:
