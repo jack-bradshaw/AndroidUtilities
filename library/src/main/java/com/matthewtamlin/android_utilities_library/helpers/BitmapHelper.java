@@ -120,6 +120,23 @@ public abstract class BitmapHelper {
 	}
 
 	/**
+	 * Efficiently decodes an image from a byte array. The height and width of the returned Bitmap
+	 * are guaranteed to be at least as large as the desired values.
+	 *
+	 * @param data
+	 * 		a byte array of compressed image data
+	 * @param desWidth
+	 * 		the desired width of the returned Bitmap
+	 * @param desHeight
+	 * 		the desired height of the returned Bitmap
+	 * @return the scaled Bitmap
+	 */
+	public static Bitmap decodeSampledBitmapFromByteArray(final byte[] data, final int desWidth,
+			final int desHeight) {
+		return decodeSampledBitmapFromByteArray(data, 0, data.length, desWidth, desHeight);
+	}
+
+	/**
 	 * Efficiently decodes an image from a File. The height and width of the returned Bitmap are
 	 * guaranteed to be at least as large as the desired values.
 	 *
