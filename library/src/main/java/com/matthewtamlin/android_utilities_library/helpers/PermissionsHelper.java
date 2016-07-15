@@ -17,23 +17,27 @@
 package com.matthewtamlin.android_utilities_library.helpers;
 
 import android.content.Context;
-import android.content.pm.PackageManager;
 import android.support.v4.app.ActivityCompat;
 
+import static android.content.pm.PackageManager.PERMISSION_GRANTED;
+
 /**
- * Utilities for working with permissions.
+ * Helper class for working with permissions.
  */
 public abstract class PermissionsHelper {
 	/**
-	 * Determines if the supplied Context has been granted the specified permissions.
+	 * Determines if the supplied Context has already been granted the specified permissions. For a
+	 * list of possible permissions, see {@link android.Manifest}.
 	 *
 	 * @param context
-	 * 		the Context to query
+	 * 		the Context to check the permission status of, not null
 	 * @param permissions
-	 * 		a String array of permissions, sourced from {@link android.Manifest}.
+	 * 		the permissions to check, not null
 	 * @return true if all of the specified permissions have been granted, false otherwise
+	 * @throws IllegalArgumentException
+	 * 		if {@code context} is null, or if {@code permissions} is null
 	 */
-	public static boolean permissionsAreGranted(final Context context, final String[]
+	public static boolean permissionsAlreadyGranted(final Context context, final String[]
 			permissions) {
 		if (context == null) {
 			throw new IllegalArgumentException("context cannot be null");
@@ -41,17 +45,20 @@ public abstract class PermissionsHelper {
 			throw new IllegalArgumentException("permissions cannot be null");
 		}
 
-		for (final String requiredPermission : permissions) {
-			final boolean permGranted =
-					(ActivityCompat.checkSelfPermission(context, requiredPermission) ==
-							PackageManager.PERMISSION_GRANTED);
+		// Record of how many permission are granted, for comparison with how many were requested
+		int countPermissionsGranted = 0;
 
-			if (!permGranted) {
-				return false;
+		// Check each requested permission and record the result
+		for (final String permission : permissions) {
+			if (ActivityCompat.checkSelfPermission(context, permission) == PERMISSION_GRANTED) {
+				countPermissionsGranted++;
+			} else {
+				// No point checking the rest if one has already failed
+				break;
 			}
 		}
 
-		// Execution only reaches here if all permissions are granted
-		return true;
+		// Only return true if every requested permission is granted
+		return (permissions.length == countPermissionsGranted);
 	}
 }
