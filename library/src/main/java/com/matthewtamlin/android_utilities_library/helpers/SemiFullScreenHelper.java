@@ -23,8 +23,9 @@ import android.view.Window;
 import android.view.WindowManager;
 
 /**
- * A utility class for drawing behind the status bar. This class is deprecated, use {@link
- * StatusBarHelper} instead.
+ * A utility class for drawing behind the status bar.
+ *
+ * @deprecated use {@link StatusBarHelper} instead.
  */
 @Deprecated
 public final class SemiFullScreenHelper {
@@ -37,8 +38,7 @@ public final class SemiFullScreenHelper {
 
 	/**
 	 * Hides the status bar and allows views to draw behind it. If the API level is 21 or higher,
-	 * the status bar will become entirely transparent. If the API level is 19 or 20, the status
-	 * bar
+	 * the status bar will become entirely transparent. If the API level is 19 or 20, the status bar
 	 * will become tinted. If the API level is less than 19, this method will have no effect. Note
 	 * that views must still specify {@code android:fitsSystemWindows="false"} to draw under the
 	 * status bar. This method is deprecated, use {@link StatusBarHelper#hideStatusBar(Window)}
