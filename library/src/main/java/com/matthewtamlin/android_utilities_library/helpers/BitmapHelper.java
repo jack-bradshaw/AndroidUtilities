@@ -24,7 +24,10 @@ import java.io.File;
 
 /**
  * Utilities for decoding Bitmap images efficiently.
+ *
+ * @deprecated use {@link BitmapEfficiencyHelper} instead
  */
+@Deprecated
 public abstract class BitmapHelper {
 	/**
 	 * Calculates the largest sampling rate which is a power of two and keeps the scaled height and
