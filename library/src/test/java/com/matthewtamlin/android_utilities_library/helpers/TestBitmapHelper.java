@@ -19,9 +19,12 @@ import static org.hamcrest.MatcherAssert.assertThat;
 
 /**
  * Unit tests for the BitmapHelper class.
+ *
+ * @deprecated class under test is deprecated
  */
 @RunWith(RobolectricGradleTestRunner.class)
 @Config(sdk = 18, constants = BuildConfig.class)
+@Deprecated
 public class TestBitmapHelper {
 	@Test
 	public void decodeSampledBitmapFromFile_usingQuarterScale_shouldReduceSize() {
