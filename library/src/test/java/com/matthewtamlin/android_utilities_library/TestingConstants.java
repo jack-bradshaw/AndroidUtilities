@@ -13,11 +13,4 @@ public class TestingConstants {
 	 * Filename of a large png file in the BASE_PATH folder.
 	 */
 	public static final String LARGE_PNG_FILENAME = "large.png";
-
-	/**
-	 * Constructor is private and throws an exception to prevent instantiation.
-	 */
-	private TestingConstants() {
-		throw new RuntimeException("TestingConstants class cannot be instantiated");
-	}
 }
