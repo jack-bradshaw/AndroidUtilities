@@ -5,6 +5,7 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 
 import java.io.File;
+import java.io.InputStream;
 
 /**
  * Helper class for efficiently decoding Bitmap images.
@@ -19,17 +20,23 @@ public class BitmapEfficiencyHelper {
 	 * constraints, a sampling rate of 1 is returned.
 	 *
 	 * @param rawWidth
-	 * 		the inherent width of the image before scaling
+	 * 		the inherent width of the image before scaling, measured in pixels, not less than zero
 	 * @param rawHeight
-	 * 		the inherent height of the image before scaling
+	 * 		the inherent height of the image before scaling, measured in pixels, not less than zero
 	 * @param desWidth
-	 * 		the desired width of the image after scaling
+	 * 		the desired width of the image after scaling, measured in pixels, not less than zero
 	 * @param desHeight
-	 * 		the desired height of the image after scaling
-	 * @return the sampling rate
+	 * 		the desired height of the image after scaling, measured in pixels, not less than zero
+	 * @return the sampling rate to sub-sample with
+	 * @throws IllegalArgumentException
+	 * 		if any argument is less than zero
 	 */
 	public static int calculateSamplingRate(final int rawWidth, final int rawHeight, final int
 			desWidth, final int desHeight) {
+		if (rawWidth < 0 || rawHeight < 0 || desWidth < 0 || desHeight < 0) {
+			throw new IllegalArgumentException("dimensions cannot be less than zero");
+		}
+
 		// Use division by two to satisfy the power-of-two requirement
 		final boolean scalingIsPossible = (rawWidth / 2 > desWidth) && (rawHeight / 2 > desHeight);
 
@@ -98,8 +105,8 @@ public class BitmapEfficiencyHelper {
 	 * 		the desired height of the returned image, measured in pixels, not less than zero
 	 * @return the scaled image, null if the image could not be decoded
 	 * @throws IllegalArgumentException
-	 * 		if {@code data} is null, or if {@code offset}, {@code length}, or either desired dimension
-	 * 		is less than zero
+	 * 		if {@code data} is null, or if {@code offset}, {@code length}, or if either desired
+	 * 		dimension is less than zero
 	 */
 	public static Bitmap decodeByteArray(final byte[] data, final int offset, final int length,
 			final int desWidth, final int desHeight) {
@@ -140,7 +147,7 @@ public class BitmapEfficiencyHelper {
 	 * 		the desired height of the returned image, measured in pixels, not less than zero
 	 * @return the scaled Bitmap, null if the image could not be decoded
 	 * @throws IllegalArgumentException
-	 * 		if {@code data} is null, or either desired dimension is less than zero
+	 * 		if {@code data} is null, or if either desired dimension is less than zero
 	 */
 	public static Bitmap decodeByteArray(final byte[] data, final int desWidth,
 			final int desHeight) {
@@ -160,7 +167,7 @@ public class BitmapEfficiencyHelper {
 	 * 		the desired height of the returned image, measured in pixels, not less than zero
 	 * @return the scaled Bitmap, null if the image could not be decoded
 	 * @throws IllegalArgumentException
-	 * 		if {@code data} is null, or either desired dimension is less than zero
+	 * 		if {@code data} is null, or if either desired dimension is less than zero
 	 */
 	public static Bitmap decodeFile(final File file, final int desWidth, final int desHeight) {
 		if (file == null) {
@@ -181,5 +188,42 @@ public class BitmapEfficiencyHelper {
 		options.inJustDecodeBounds = false;
 		options.inScaled = false;
 		return BitmapFactory.decodeFile(file.getAbsolutePath(), options);
+	}
+
+	/**
+	 * Decodes an image from an inputStream. The memory consumed by the image is reduced by matching
+	 * the image dimensions to the desired dimensions as best as possible. The dimensions of the
+	 * returned image always exceed or match the supplied dimensions.
+	 *
+	 * @param inputStream
+	 * 		the stream of raw image data to decode, not null
+	 * @param desWidth
+	 * 		the desired width of the returned image, measured in pixels, not less than zero
+	 * @param desHeight
+	 * 		the desired height of the returned image, measured in pixels, not less than zero
+	 * @return the scaled Bitmap, null if the image could not be decoded
+	 * @throws IllegalArgumentException
+	 * 		if {@code inputStream} is null, or if either desired dimension is less than zero
+	 */
+	public static Bitmap decodeStream(final InputStream inputStream, final int desWidth, final
+	int desHeight) {
+		if (inputStream == null) {
+			throw new IllegalArgumentException("inputStream cannot be null");
+		} else if (desWidth < 0 || desHeight < 0) {
+			throw new IllegalArgumentException("the desired dimensions cannot be less than zero");
+		}
+
+		// Decode only the boundaries of the bitmap to get its dimensions
+		final BitmapFactory.Options options = new BitmapFactory.Options();
+		options.inJustDecodeBounds = true;
+		BitmapFactory.decodeStream(inputStream);
+
+		// Decode the full image using sub-sampling
+		final int rawWidth = options.outWidth;
+		final int rawHeight = options.outHeight;
+		options.inSampleSize = calculateSamplingRate(rawWidth, rawHeight, desWidth, desHeight);
+		options.inJustDecodeBounds = false;
+		options.inScaled = false;
+		return BitmapFactory.decodeStream(inputStream);
 	}
 }
