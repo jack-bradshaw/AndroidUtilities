@@ -343,7 +343,7 @@ public class ArrayListWithCallbacks<T> extends ArrayList<T> {
 	 * 		the index of the added item
 	 */
 	private void callOnItemAddedListeners(Object itemAdded, int index) {
-		for (OnItemAddedListener l : onItemAddedListeners) {
+		for (final OnItemAddedListener l : onItemAddedListeners) {
 			l.onItemAdded(this, itemAdded, index);
 		}
 
@@ -358,7 +358,7 @@ public class ArrayListWithCallbacks<T> extends ArrayList<T> {
 	 * 		the index of the removed item
 	 */
 	private void callOnItemRemovedListeners(Object itemRemoved, int index) {
-		for (OnItemRemovedListener l : onItemRemovedListeners) {
+		for (final OnItemRemovedListener l : onItemRemovedListeners) {
 			l.onItemRemoved(this, itemRemoved, index);
 		}
 	}
@@ -367,7 +367,7 @@ public class ArrayListWithCallbacks<T> extends ArrayList<T> {
 	 * Calls each registered OnListClearedListener.
 	 */
 	private void callOnListClearedListeners() {
-		for (OnListClearedListener l : onListClearedListeners) {
+		for (final OnListClearedListener l : onListClearedListeners) {
 			l.onListCleared(this);
 		}
 	}
