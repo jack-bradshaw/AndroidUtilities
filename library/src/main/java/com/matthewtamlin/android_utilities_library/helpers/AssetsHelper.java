@@ -18,6 +18,7 @@ package com.matthewtamlin.android_utilities_library.helpers;
 
 import android.content.Context;
 import android.content.res.AssetManager;
+import android.support.annotation.RequiresPermission;
 import android.util.Log;
 
 import java.io.Closeable;
@@ -51,6 +52,7 @@ public class AssetsHelper {
 	 * @throws IllegalArgumentException
 	 * 		if either {@code context}, {@code assetFiles} or {@code targetDirectory} is null
 	 */
+	@RequiresPermission(allOf = android.Manifest.permission.WRITE_EXTERNAL_STORAGE)
 	public static void copyAssetsToDirectory(final Context context, final String[] assetFiles,
 			final File targetDirectory) throws IOException {
 		if (context == null) {
