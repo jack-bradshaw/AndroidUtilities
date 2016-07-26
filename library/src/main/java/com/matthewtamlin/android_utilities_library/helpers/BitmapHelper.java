@@ -115,8 +115,8 @@ public abstract class BitmapHelper {
 		BitmapFactory.decodeByteArray(data, offset, length, options);
 
 		// Sample the image to produce a bitmap of the required dimensions
-		options.inSampleSize =
-				calculateInSampleSize(options.outHeight, options.outWidth, desWidth, desHeight);
+		options.inSampleSize = calculateInSampleSize(options.outWidth, options.outHeight,
+				desWidth, desHeight);
 		options.inJustDecodeBounds = false;
 		options.inScaled = false;
 		return BitmapFactory.decodeByteArray(data, offset, length, options);
