@@ -37,7 +37,8 @@ public class BitmapEfficiencyHelper {
 		}
 
 		// Based on the power-of-two requirement
-		final boolean scalingIsPossible = (rawWidth / 2 > desWidth) && (rawHeight / 2 > desHeight);
+		final boolean scalingIsPossible = (rawWidth / 2 >= desWidth) &&
+				(rawHeight / 2 >= desHeight);
 
 		// Recursively double the sampling rate
 		if (scalingIsPossible) {
