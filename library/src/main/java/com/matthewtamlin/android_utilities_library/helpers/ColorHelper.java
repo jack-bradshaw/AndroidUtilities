@@ -26,14 +26,15 @@ public abstract class ColorHelper {
 	 * Blends two colours to produce a single output colour. No check is done to ensure the provided
 	 * colors are valid ARGB hex codes, and providing invalid codes will result in an undefined
 	 * result. The blend works individually combining the ARGB components of the supplied colors and
-	 * then synthesising the components into one color.
+	 * then synthesising the components back into one color.
 	 *
 	 * @param color1
 	 * 		the first colour to blend, as an ARGB hex code
 	 * @param color2
 	 * 		the second colour to blend, as an ARGB hex code
 	 * @param ratio
-	 * 		the proportion of {@code color1} to use in the blended result, between 0 and 1 (inclusive)
+	 * 		the proportion of {@code color2} to use in the blended result, between 0 and 1
+	 * 		(inclusive)
 	 * @return the ARGB code for the blended colour
 	 * @throws IllegalArgumentException
 	 * 		if {@code ratio} is not between 0 and 1 (inclusive)
@@ -47,12 +48,12 @@ public abstract class ColorHelper {
 		final float inverseRatio = 1f - ratio;
 
 		// Combine the colors using the ARGB components
-		final float a = (Color.alpha(color1) * ratio) + (Color.alpha(color2) * inverseRatio);
-		final float r = (Color.red(color1) * ratio) + (Color.red(color2) * inverseRatio);
-		final float g = (Color.green(color1) * ratio) + (Color.green(color2) * inverseRatio);
-		final float b = (Color.blue(color1) * ratio) + (Color.blue(color2) * inverseRatio);
+		final float a = (Color.alpha(color1) * inverseRatio) + (Color.alpha(color2) * ratio);
+		final float r = (Color.red(color1) * inverseRatio) + (Color.red(color2) * ratio);
+		final float g = (Color.green(color1) * inverseRatio) + (Color.green(color2) * ratio);
+		final float b = (Color.blue(color1) * inverseRatio) + (Color.blue(color2) * ratio);
 
-		// Compose the result from the combined ARGB components
+		// Compose the result from by combining the ARGB components
 		return Color.argb((int) a, (int) r, (int) g, (int) b);
 	}
 }
