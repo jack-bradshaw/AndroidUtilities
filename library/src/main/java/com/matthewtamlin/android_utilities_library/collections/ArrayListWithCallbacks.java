@@ -171,63 +171,6 @@ public final class ArrayListWithCallbacks<T> extends ArrayList<T> {
 	}
 
 	/**
-	 * Interface definition for callbacks to be delivered whenever an item is added to an
-	 * ArrayListWithCallbacks.
-	 */
-	public interface OnItemAddedListener {
-		/**
-		 * Invoked when an item is added to an ArrayListWithCallbacks.
-		 *
-		 * @param list
-		 * 		the ArrayListWithCallbacks which was modified, not null
-		 * @param itemAdded
-		 * 		the item which was added
-		 * @param index
-		 * 		the index of the item which was added
-		 */
-		void onItemAdded(ArrayListWithCallbacks list, Object itemAdded, int index);
-	}
-
-	/**
-	 * Interface definition for callbacks to be received whenever an item is removed from an
-	 * ArrayListWithCallbacks.
-	 */
-	public interface OnItemRemovedListener {
-		/**
-		 * Invoked when an item is removed from an ArrayListWithCallbacks.
-		 *
-		 * @param list
-		 * 		the ArrayListWithCallbacks which was modified, not null
-		 * @param itemRemoved
-		 * 		the item which was removed
-		 * @param index
-		 * 		the index of the item which was removed
-		 */
-		void onItemRemoved(ArrayListWithCallbacks list, Object itemRemoved, int index);
-	}
-
-	/**
-	 * Interface definition for callbacks to be received whenever an ArrayListWithCallbacks is
-	 * cleared.
-	 */
-	public interface OnListClearedListener {
-		/**
-		 * Invoked when an ArrayListWithCallbacks is cleared.
-		 *
-		 * @param list
-		 * 		the ArrayListWithCallbacks which was modified, not null
-		 */
-		void onListCleared(ArrayListWithCallbacks list);
-	}
-
-	/**
-	 * Interface definition for callbacks to be received whenever an ArrayListWithCallbacks is
-	 * modified.
-	 */
-	public interface OnListChangedListener extends OnItemAddedListener, OnItemRemovedListener,
-			OnListClearedListener {}
-
-	/**
 	 * Registers an OnItemAddedListener. This method has no effect if null is supplied, or if the
 	 * supplied listener is already registered.
 	 *
@@ -333,7 +276,7 @@ public final class ArrayListWithCallbacks<T> extends ArrayList<T> {
 	 * @param index
 	 * 		the index of the added item
 	 */
-	private final void callOnItemAddedListeners(final Object itemAdded, final int index) {
+	private void callOnItemAddedListeners(final Object itemAdded, final int index) {
 		for (final OnItemAddedListener l : onItemAddedListeners) {
 			l.onItemAdded(this, itemAdded, index);
 		}
@@ -348,7 +291,7 @@ public final class ArrayListWithCallbacks<T> extends ArrayList<T> {
 	 * @param index
 	 * 		the index of the removed item
 	 */
-	private final void callOnItemRemovedListeners(final Object itemRemoved, final int index) {
+	private void callOnItemRemovedListeners(final Object itemRemoved, final int index) {
 		for (final OnItemRemovedListener l : onItemRemovedListeners) {
 			l.onItemRemoved(this, itemRemoved, index);
 		}
@@ -357,9 +300,66 @@ public final class ArrayListWithCallbacks<T> extends ArrayList<T> {
 	/**
 	 * Calls each registered OnListClearedListener.
 	 */
-	private final void callOnListClearedListeners() {
+	private void callOnListClearedListeners() {
 		for (final OnListClearedListener l : onListClearedListeners) {
 			l.onListCleared(this);
 		}
 	}
+
+	/**
+	 * Interface definition for callbacks to be delivered whenever an item is added to an
+	 * ArrayListWithCallbacks.
+	 */
+	public interface OnItemAddedListener {
+		/**
+		 * Invoked when an item is added to an ArrayListWithCallbacks.
+		 *
+		 * @param list
+		 * 		the ArrayListWithCallbacks which was modified, not null
+		 * @param itemAdded
+		 * 		the item which was added
+		 * @param index
+		 * 		the index of the item which was added
+		 */
+		void onItemAdded(ArrayListWithCallbacks list, Object itemAdded, int index);
+	}
+
+	/**
+	 * Interface definition for callbacks to be received whenever an item is removed from an
+	 * ArrayListWithCallbacks.
+	 */
+	public interface OnItemRemovedListener {
+		/**
+		 * Invoked when an item is removed from an ArrayListWithCallbacks.
+		 *
+		 * @param list
+		 * 		the ArrayListWithCallbacks which was modified, not null
+		 * @param itemRemoved
+		 * 		the item which was removed
+		 * @param index
+		 * 		the index of the item which was removed
+		 */
+		void onItemRemoved(ArrayListWithCallbacks list, Object itemRemoved, int index);
+	}
+
+	/**
+	 * Interface definition for callbacks to be received whenever an ArrayListWithCallbacks is
+	 * cleared.
+	 */
+	public interface OnListClearedListener {
+		/**
+		 * Invoked when an ArrayListWithCallbacks is cleared.
+		 *
+		 * @param list
+		 * 		the ArrayListWithCallbacks which was modified, not null
+		 */
+		void onListCleared(ArrayListWithCallbacks list);
+	}
+
+	/**
+	 * Interface definition for callbacks to be received whenever an ArrayListWithCallbacks is
+	 * modified.
+	 */
+	public interface OnListChangedListener extends OnItemAddedListener, OnItemRemovedListener,
+			OnListClearedListener {}
 }
