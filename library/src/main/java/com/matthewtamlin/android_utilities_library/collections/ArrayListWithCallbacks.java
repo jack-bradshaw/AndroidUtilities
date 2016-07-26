@@ -111,8 +111,7 @@ public final class ArrayListWithCallbacks<T> extends ArrayList<T> {
 	public final boolean remove(final Object object) {
 		if (contains(object)) {
 			final int index = indexOf(object);
-			remove(index);
-			callOnItemRemovedListeners(object, index);
+			remove(index); // Handles callbacks
 			return true;
 		} else {
 			return false;
