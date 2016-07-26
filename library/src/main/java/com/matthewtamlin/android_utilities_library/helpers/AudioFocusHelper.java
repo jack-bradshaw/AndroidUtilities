@@ -25,7 +25,7 @@ import android.media.AudioManager.OnAudioFocusChangeListener;
  */
 public class AudioFocusHelper {
 	/**
-	 * Requests stream music audio-focus for the supplied {@code listener}.
+	 * Requests stream music audio-focus for the supplied listener.
 	 *
 	 * @param context
 	 * 		the Context which {@code listener} is operating in, not null
