@@ -31,6 +31,6 @@ limitations under the License.
 		android:supportsRtl="true"
 		tools:ignore="GoogleAppIndexingWarning,MissingApplicationIcon">
 
-		<activity android:name=".TestThemeColorHelperActivity"/>
+		<activity android:name=".TestActivity"/>
 	</application>
 </manifest>
