@@ -39,10 +39,8 @@ public abstract class StatusBarHelper {
 
 	/**
 	 * Hides the status bar and allows views to draw behind it. If the API level is 21 or higher,
-	 * the status bar will become entirely transparent. If the API level is 19 or 20, the status
-	 * bar
-	 * will become tinted. Note that views must still specify {@code
-	 * android:fitsSystemWindows="false"}
+	 * the status bar will become entirely transparent. If the API level is 19 or 20, the status bar
+	 * will become tinted. Note that views must still specify {@code android:fitsSystemWindows="false"}
 	 * to draw under the status bar.
 	 *
 	 * @param window
