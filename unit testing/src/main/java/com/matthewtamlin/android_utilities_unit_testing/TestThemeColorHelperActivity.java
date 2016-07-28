@@ -20,7 +20,7 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 
 /**
- * An Activity which for use in {@link TestThemeColorHelperActivity}.
+ * An Activity for use in {@link TestThemeColorHelperActivity}.
  */
 public final class TestThemeColorHelperActivity extends AppCompatActivity {
 	@Override
