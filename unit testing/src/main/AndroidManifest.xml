@@ -26,7 +26,8 @@ limitations under the License.
 
 	<application
 		android:allowBackup="false"
-		android:label="Test Android Utilities"
+		android:icon="@mipmap/ic_launcher"
+		android:label="Unit Testing"
 		android:supportsRtl="true"
 		tools:ignore="GoogleAppIndexingWarning,MissingApplicationIcon">
 
