@@ -2,7 +2,6 @@ package com.matthewtamlin.android_utilities_unit_testing;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.view.View;
 import android.widget.LinearLayout;
 
 /**
