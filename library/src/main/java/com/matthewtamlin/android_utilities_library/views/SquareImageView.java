@@ -18,7 +18,7 @@ public class SquareImageView extends ImageView {
 	private static final String TAG = "[SquareImageView]";
 
 	/**
-	 * The dependent dimension to use if none is supplied.
+	 * The derived dimension to use if none is supplied.
 	 */
 	private static final DerivedDimension DEFAULT_DERIVED_DIMENSION = DerivedDimension.HEIGHT;
 
