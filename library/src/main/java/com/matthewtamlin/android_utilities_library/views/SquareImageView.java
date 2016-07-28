@@ -8,8 +8,8 @@ import android.widget.ImageView;
 import com.matthewtamlin.android_utilities_library.R;
 
 /**
- * An ImageView where one dimension is forced to equal the other. By default, the height is
- * derived from the width.
+ * An ImageView where one dimension is forced to equal the other. By default, the height is derived
+ * from the width.
  */
 public class SquareImageView extends ImageView {
 	/**
@@ -50,6 +50,16 @@ public class SquareImageView extends ImageView {
 	public SquareImageView(final Context context, final AttributeSet attrs) {
 		super(context, attrs);
 		init(attrs, 0, 0);
+	}
+
+	public SquareImageView(Context context, AttributeSet attrs, int defStyleAttr) {
+		super(context, attrs, defStyleAttr);
+		init(attrs, defStyleAttr, 0);
+	}
+
+	public SquareImageView(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
+		super(context, attrs, defStyleAttr);
+		init(attrs, defStyleAttr, defStyleRes);
 	}
 
 	/**
