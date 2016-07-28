@@ -2,6 +2,7 @@ package com.matthewtamlin.android_utilities_unit_testing;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
 
 /**
  * An Activity for use in instrumented unit testing.
@@ -12,5 +13,12 @@ public class TestActivity extends AppCompatActivity {
 		setTheme(R.style.TestTheme);
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_test);
+	}
+
+	/**
+	 * @return the root view of the activity, null if {@link #onCreate(Bundle)} has not yet run
+	 */
+	public View getRootView() {
+		return findViewById(R.id.activity_test_root);
 	}
 }
