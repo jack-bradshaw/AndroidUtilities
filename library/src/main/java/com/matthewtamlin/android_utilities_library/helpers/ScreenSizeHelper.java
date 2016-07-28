@@ -16,27 +16,35 @@
 
 package com.matthewtamlin.android_utilities_library.helpers;
 
+import android.content.Context;
 import android.content.res.Configuration;
 import android.content.res.Resources;
 import android.util.DisplayMetrics;
 import android.view.WindowManager;
 
 /**
- * Static utility class for querying the screen size.
+ * Helper class for working with screen sizes.
  */
 public abstract class ScreenSizeHelper {
 	/**
 	 * Returns the screen size as an enum constant.
 	 *
-	 * @param res
-	 * 		a Resource object which allows the device configuration to be queried
-	 * @return the size of the device screen
+	 * @param context
+	 * 		a Context object which gives access to the current device configuration, not null
+	 * @return the size of the device screen according to the current configuration
 	 */
-	public static ScreenSize getScreenSize(final Resources res) {
+	public static ScreenSize getScreenSize(final Context context) {
+		if (context == null) {
+			throw new IllegalArgumentException("context cannot be null");
+		}
+
+		// Getting the config requires a bitwise AND operation (Wow! Such OOP! Many good design!)
+		final Resources res = context.getResources();
 		int config = res.getConfiguration().screenLayout & Configuration.SCREENLAYOUT_SIZE_MASK;
 
+		// Convert the configuration to an enum constant
 		if (config == Configuration.SCREENLAYOUT_SIZE_XLARGE) {
-			return ScreenSize.XLARGE;
+			return ScreenSize.EXTRA_LARGE;
 		} else if (config == Configuration.SCREENLAYOUT_SIZE_LARGE) {
 			return ScreenSize.LARGE;
 		} else if (config == Configuration.SCREENLAYOUT_SIZE_NORMAL) {
@@ -49,104 +57,151 @@ public abstract class ScreenSizeHelper {
 	}
 
 	/**
-	 * Determines if the device configuration specifies the screen size as undefined, as specified
-	 * in {@link Configuration}.
+	 * Determines if the screen size is undefined.
 	 *
-	 * @param res
-	 * 		a Resource object which allows the device configuration to be queried
+	 * @param context
+	 * 		a Context object which gives access to the current device configuration, not null
 	 * @return true if the screen size is undefined, false otherwise
 	 */
-	public static boolean screenIsUndefined(final Resources res) {
-		int config = res.getConfiguration().screenLayout & Configuration.SCREENLAYOUT_SIZE_MASK;
-		return config == Configuration.SCREENLAYOUT_SIZE_UNDEFINED;
+	public static boolean screenSizeIsUndefined(final Context context) {
+		if (context == null) {
+			throw new IllegalArgumentException("context cannot be null");
+		}
+
+		return getScreenSize(context) == ScreenSize.UNDEFINED;
 	}
 
 	/**
-	 * Determines if the device configuration specifies the screen size as extra-large, as specified
-	 * in {@link Configuration}.
+	 * Determines if the screen size is extra-large.
 	 *
-	 * @param res
-	 * 		a Resource object which allows the device configuration to be queried
+	 * @param context
+	 * 		a Context object which gives access to the current device configuration, not null
 	 * @return true if the screen size is extra-large, false otherwise
 	 */
-	public static boolean screenIsXLarge(final Resources res) {
-		int config = res.getConfiguration().screenLayout & Configuration.SCREENLAYOUT_SIZE_MASK;
-		return config == Configuration.SCREENLAYOUT_SIZE_XLARGE;
+	public static boolean screenSizeIsExtraLarge(final Context context) {
+		if (context == null) {
+			throw new IllegalArgumentException("context cannot be null");
+		}
+
+		return getScreenSize(context) == ScreenSize.EXTRA_LARGE;
 	}
 
 	/**
-	 * Determines if the device configuration specifies the screen size as large, as specified in
-	 * {@link Configuration}.
+	 * Determines if the screen size is large.
 	 *
-	 * @param res
-	 * 		a Resource object which allows the device configuration to be queried
+	 * @param context
+	 * 		a Context object which gives access to the current device configuration, not null
 	 * @return true if the screen size is large, false otherwise
 	 */
-	public static boolean screenIsLarge(final Resources res) {
-		int config = res.getConfiguration().screenLayout & Configuration.SCREENLAYOUT_SIZE_MASK;
-		return config == Configuration.SCREENLAYOUT_SIZE_LARGE;
+	public static boolean screenSizeIsLarge(final Context context) {
+		if (context == null) {
+			throw new IllegalArgumentException("context cannot be null");
+		}
+
+		return getScreenSize(context) == ScreenSize.LARGE;
 	}
 
 	/**
-	 * Determines if the device configuration specifies the screen size as normal, as specified in
-	 * {@link Configuration}.
+	 * Determines if the screen size is normal.
 	 *
-	 * @param res
-	 * 		a Resource object which allows the device configuration to be queried
+	 * @param context
+	 * 		a Context object which gives access to the current device configuration, not null
 	 * @return true if the screen size is normal, false otherwise
 	 */
-	public static boolean screenIsNormal(final Resources res) {
-		int config = res.getConfiguration().screenLayout & Configuration.SCREENLAYOUT_SIZE_MASK;
-		return config == Configuration.SCREENLAYOUT_SIZE_NORMAL;
+	public static boolean screenSizeIsNormal(final Context context) {
+		if (context == null) {
+			throw new IllegalArgumentException("context cannot be null");
+		}
+
+		return getScreenSize(context) == ScreenSize.NORMAL;
 	}
 
 	/**
-	 * Determines if the device configuration specifies the screen size as small, as specified in
-	 * {@link Configuration}.
+	 * Determines if the screen size is small.
 	 *
-	 * @param res
-	 * 		a Resource object which allows the device configuration to be queried
+	 * @param context
+	 * 		a Context object which gives access to the current device configuration, not null
 	 * @return true if the screen size is small, false otherwise
 	 */
-	public static boolean screenIsSmall(final Resources res) {
-		int config = res.getConfiguration().screenLayout & Configuration.SCREENLAYOUT_SIZE_MASK;
-		return config == Configuration.SCREENLAYOUT_SIZE_SMALL;
+	public static boolean screenSizeIsSmall(final Context context) {
+		if (context == null) {
+			throw new IllegalArgumentException("context cannot be null");
+		}
+
+		return getScreenSize(context) == ScreenSize.SMALL;
+	}
+
+	/**
+	 * Returns the approximate width of this device's screen, measured in pixels.
+	 *
+	 * @param context
+	 * 		a Context object which gives access to the current device configuration, not null
+	 * @return the width of the screen, measured in pixels
+	 * @throws IllegalArgumentException if {@code context} is null
+	 */
+	public static int getScreenWidthPx(final Context context) {
+		if (context == null) {
+			throw new IllegalArgumentException("context cannot be null");
+		}
+
+		// Pass a DisplayMetrics object into a WindowManager to receive display information
+		final DisplayMetrics metrics = new DisplayMetrics();
+		final WindowManager wm = (WindowManager) context.getSystemService(Context.WINDOW_SERVICE);
+		wm.getDefaultDisplay().getMetrics(metrics);
+
+		// Query the DisplayMetrics object to obtain the approximate screen width
+		return metrics.widthPixels;
+	}
+
+	/**
+	 * Returns the approximate height of this device's screen, measured in pixels.
+	 *
+	 * @param context
+	 * 		a Context object which gives access to the current device configuration, not null
+	 * @return the height of the screen, measured in pixels
+	 * @throws IllegalArgumentException if {@code context} is null
+	 */
+	public static int getScreenHeightPx(final Context context) {
+		if (context == null) {
+			throw new IllegalArgumentException("context cannot be null");
+		}
+
+		// Pass a DisplayMetrics object into a WindowManager to receive display information
+		final DisplayMetrics metrics = new DisplayMetrics();
+		final WindowManager wm = (WindowManager) context.getSystemService(Context.WINDOW_SERVICE);
+		wm.getDefaultDisplay().getMetrics(metrics);
+
+		// Query the DisplayMetrics object to obtain the approximate screen height
+		return metrics.heightPixels;
 	}
 
 	/**
 	 * Enumerates the possible screen sizes, as specified in {@link Configuration}.
 	 */
 	public enum ScreenSize {
+		/**
+		 * The screen width is approximately 320dp and the screen height is approximately 426dp.
+		 */
 		SMALL,
+
+		/**
+		 * The screen width is approximately 320dp and the screen height is approximately 470dp.
+		 */
 		NORMAL,
+
+		/**
+		 * The screen width is approximately 480dp and the screen height is approximately 640dp.
+		 */
 		LARGE,
-		XLARGE,
-		UNDEFINED;
-	}
 
-	/**
-	 * Returns the absolute width of this device's screen, measured in pixels.
-	 *
-	 * @param windowManager
-	 * 		the window manager for the calling application
-	 * @return the width of the screen, measured in pixels
-	 */
-	public static int getScreenWidth(final WindowManager windowManager) {
-		DisplayMetrics metrics = new DisplayMetrics();
-		windowManager.getDefaultDisplay().getMetrics(metrics);
-		return metrics.widthPixels;
-	}
+		/**
+		 * The screen width is approximately 720dp and the screen height is approximately 960dp.=
+		 */
+		EXTRA_LARGE,
 
-	/**
-	 * Returns the absolute height of this device's screen, measured in pixels.
-	 *
-	 * @param windowManager
-	 * 		the window manager for the calling application
-	 * @return the height of the screen in pixels
-	 */
-	public static int getScreenHeight(final WindowManager windowManager) {
-		DisplayMetrics metrics = new DisplayMetrics();
-		windowManager.getDefaultDisplay().getMetrics(metrics);
-		return metrics.heightPixels;
+		/**
+		 * The screen size is undefined.
+		 */
+		UNDEFINED
 	}
 }

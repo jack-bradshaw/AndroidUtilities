@@ -16,8 +16,6 @@
 
 package com.matthewtamlin.android_utilities_library.collections;
 
-import android.support.annotation.NonNull;
-
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashSet;
@@ -30,38 +28,27 @@ import java.util.Iterator;
  * @param <T>
  * 		the type of objects contained within this Collection
  */
-public class ArrayListWithCallbacks<T> extends ArrayList<T> {
+public final class ArrayListWithCallbacks<T> extends ArrayList<T> {
 	/**
-	 * The listeners to receive callbacks when an item is added to this Collection. The listeners
-	 * must be called if a call to one of the following methods results in one or more elements
-	 * being added to the Collection:<p/> <li>{@link #add(Object)}</li> <li>{@link #add(int,
-	 * Object)}</li> <li>{@link #addAll(Collection)}</li> <li>{@link #addAll(int, Collection)}</li>
-	 * <li>{@link #set(int, Object)}</li>
-	 * <p/>
-	 * Each added element must have a separate callback invocation.
+	 * Callback events are delivered to these listeners whenever one or more items are added to this
+	 * Collections.
 	 */
-	private Collection<OnItemAddedListener> onItemAddedListeners = new HashSet<>();
+	private final Collection<OnItemAddedListener> onItemAddedListeners = new HashSet<>();
 
 	/**
-	 * The listeners to receive callbacks when an item is removed from this Collection. The
-	 * listeners must be called if a call to one of the following methods results in one or more
-	 * elements being removed from the Collection:<p/> <li>{@link #remove(int)}</li> <li>{@link
-	 * #remove(Object)}</li> <li>{@link #removeAll(Collection)}</li> <li>{@link #set(int,
-	 * Object)}</li> <li>{@link #retainAll(Collection)}</li>
-	 * <p/>
-	 * Each removed element must have a separate callback invocation.
+	 * Callback events are delivered to these listeners whenever one or more items are removed from
+	 * this Collection.
 	 */
-	private Collection<OnItemRemovedListener> onItemRemovedListeners = new HashSet<>();
+	private final Collection<OnItemRemovedListener> onItemRemovedListeners = new HashSet<>();
 
 	/**
-	 * The listeners to receive callbacks when this Collection is cleared. The listeners must be
-	 * called each time {@link #clear()} is invoked, even if the Collection was empty at the time of
-	 * invocation.
+	 * Callback events are delivered to these listeners whenever this Collection is cleared
+	 * (including cases where the Collection was already empty).
 	 */
-	private Collection<OnListClearedListener> onListClearedListeners = new HashSet<>();
+	private final Collection<OnListClearedListener> onListClearedListeners = new HashSet<>();
 
 	/**
-	 * Constructs a new instance of ArrayListWithCallbacks.
+	 * Constructs an empty instance of ArrayListWithCallbacks.
 	 */
 	public ArrayListWithCallbacks() {
 		super();
@@ -69,62 +56,62 @@ public class ArrayListWithCallbacks<T> extends ArrayList<T> {
 
 	/**
 	 * Constructs a new instance of ArrayListWithCallbacks containing the elements of the specified
-	 * collection. This method will not invoke callbacks.
+	 * collection. No callbacks are triggered by this constructor. Elements are inserted into the
+	 * new Collection in the order defined by the supplied Collection's iterator.
 	 *
 	 * @param collection
-	 * 		the collection of elements to add
+	 * 		the Collection of elements to add
 	 */
-	public ArrayListWithCallbacks(Collection<T> collection) {
+	public ArrayListWithCallbacks(final Collection<T> collection) {
 		super(collection);
 	}
 
 	@Override
-	public boolean add(T object) {
+	public final boolean add(final T object) {
 		super.add(object);
 		callOnItemAddedListeners(object, indexOf(object));
 		return true;
 	}
 
 	@Override
-	public void add(int index, T object) {
+	public final void add(final int index, final T object) {
 		super.add(index, object);
 		callOnItemAddedListeners(object, index);
 	}
 
 	@Override
-	public boolean addAll(Collection<? extends T> collection) {
-		for (T t : collection) {
-			add(t);
+	public final boolean addAll(final Collection<? extends T> collection) {
+		for (final T t : collection) {
+			add(t); // Handles callbacks
 		}
 
 		return true;
 	}
 
 	@Override
-	public boolean addAll(int index, Collection<? extends T> collection) {
-		int workingIndex = index;
+	public final boolean addAll(final int index, final Collection<? extends T> collection) {
+		int insertionPosition = index;
 
-		for (T t : collection) {
-			add(workingIndex, t);
-			workingIndex++;
+		for (final T t : collection) {
+			add(insertionPosition, t);
+			insertionPosition++;
 		}
 
 		return true;
 	}
 
 	@Override
-	public T remove(int index) {
-		T removedItem = super.remove(index);
+	public final T remove(final int index) {
+		final T removedItem = super.remove(index);
 		callOnItemRemovedListeners(removedItem, index);
 		return removedItem;
 	}
 
 	@Override
-	public boolean remove(Object object) {
-		int potentialIndexOfRemoved = indexOf(object); // will be -1 if no object isn't in list
-
-		if (super.remove(object)) {
-			callOnItemRemovedListeners(object, potentialIndexOfRemoved);
+	public final boolean remove(final Object object) {
+		if (contains(object)) {
+			final int index = indexOf(object);
+			remove(index); // Handles callbacks
 			return true;
 		} else {
 			return false;
@@ -132,14 +119,17 @@ public class ArrayListWithCallbacks<T> extends ArrayList<T> {
 	}
 
 	@Override
-	public boolean removeAll(@NonNull Collection<?> collection) {
+	public final boolean removeAll(final Collection<?> collection) {
 		boolean thisCollectionWasModified = false;
+		final Iterator<T> thisIterator = this.iterator();
 
-		for (Iterator<T> i = this.iterator(); i.hasNext(); ) {
-			T nextElement = i.next();
+		// Iterate over the elements of this Collection
+		while (thisIterator.hasNext()) {
+			final T nextElementInThis = thisIterator.next();
 
-			if (collection.contains(nextElement)) {
-				i.remove();
+			// Remove any elements which are in both this Collection and the supplied Collection
+			if (collection.contains(nextElementInThis)) {
+				thisIterator.remove(); // Handles callbacks
 				thisCollectionWasModified = true;
 			}
 		}
@@ -148,45 +138,183 @@ public class ArrayListWithCallbacks<T> extends ArrayList<T> {
 	}
 
 	@Override
-	public T set(int index, T object) {
-		T removedItem = remove(index);
-		add(index, object);
+	public final T set(final int index, final T object) {
+		final T removedItem = remove(index); // Handles remove callbacks
+		add(index, object); // Handles add callbacks
 		return removedItem;
 	}
 
 	@Override
-	public void clear() {
+	public final void clear() {
 		super.clear();
 		callOnListClearedListeners();
 	}
 
 	@Override
-	public boolean retainAll(@NonNull Collection<?> collection) {
-		boolean collectionWasModified = false;
+	public final boolean retainAll(final Collection<?> collection) {
+		boolean thisCollectionWasModified = false;
+		final Iterator<T> thisIterator = this.iterator();
 
-		for (Iterator<T> i = this.iterator(); i.hasNext(); ) {
-			T nextElementInThis = i.next();
+		// Iterate over the elements in this Collection
+		while (thisIterator.hasNext()) {
+			final T nextElementInThis = thisIterator.next();
 
+			// Remove any elements which are not in both this Collection and the supplied Collection
 			if (!collection.contains(nextElementInThis)) {
-				i.remove();
-				collectionWasModified = true;
+				thisIterator.remove(); // Handles callbacks
+				thisCollectionWasModified = true;
 			}
 		}
 
-		return collectionWasModified;
+		return thisCollectionWasModified;
 	}
 
 	/**
-	 * Interface definition for callbacks to be invoked whenever an item is added to an
+	 * Registers an OnItemAddedListener. This method has no effect if null is supplied, or if the
+	 * supplied listener is already registered.
+	 *
+	 * @param listener
+	 * 		the listener to add
+	 */
+	public final void addOnItemAddedListener(final OnItemAddedListener listener) {
+		if (listener != null) {
+			onItemAddedListeners.add(listener);
+		}
+	}
+
+	/**
+	 * Registers an OnItemRemovedListener. This method has no effect if null is supplied, or if the
+	 * supplied listener is already registered.
+	 *
+	 * @param listener
+	 * 		the listener to add
+	 */
+	public final void addOnItemRemovedListener(final OnItemRemovedListener listener) {
+		if (listener != null) {
+			onItemRemovedListeners.add(listener);
+		}
+	}
+
+	/**
+	 * Registers an OnListCleared. This method has no effect if null is supplied or if the supplied
+	 * listener is already registered.
+	 *
+	 * @param listener
+	 * 		the listener to add
+	 */
+	public final void addOnListClearedListener(final OnListClearedListener listener) {
+		if (listener != null) {
+			onListClearedListeners.add(listener);
+		}
+	}
+
+	/**
+	 * Registers an OnListChanged. This method has no effect if null is supplied or if the listener
+	 * is already registered.
+	 *
+	 * @param listener
+	 * 		the listener to add
+	 */
+	public final void addOnListChangedListener(final OnListChangedListener listener) {
+		addOnItemAddedListener(listener);
+		addOnItemRemovedListener(listener);
+		addOnListClearedListener(listener);
+	}
+
+	/**
+	 * Unregisters an OnItemAddedListener. This method has no effect if null is supplied, or if the
+	 * supplied listener is not registered.
+	 *
+	 * @param listener
+	 * 		the listener to remove
+	 */
+	public final void removeOnItemAddedListener(final OnItemAddedListener listener) {
+		onItemAddedListeners.remove(listener);
+	}
+
+	/**
+	 * Unregisters an OnItemRemovedListener. This method has no effect if null is supplied or if the
+	 * supplied listener is not registered.
+	 *
+	 * @param listener
+	 * 		the listener to remove
+	 */
+	public final void removeOnItemRemovedListener(final OnItemRemovedListener listener) {
+		onItemRemovedListeners.remove(listener);
+	}
+
+	/**
+	 * Unregisters an OnListClearedListener. This method has no effect if null is supplied or if the
+	 * supplied listener is not registered.
+	 *
+	 * @param listener
+	 * 		the listener to remove
+	 */
+	public final void removeOnListClearedListener(final OnListClearedListener listener) {
+		onListClearedListeners.remove(listener);
+	}
+
+	/**
+	 * Unregisters an OnListChangedListener. This method has no effect if null is supplied or if the
+	 * supplied listener is not registered.
+	 *
+	 * @param listener
+	 * 		the listener to remove
+	 */
+	public final void removeOnListChangedListener(final OnListChangedListener listener) {
+		removeOnItemAddedListener(listener);
+		removeOnItemRemovedListener(listener);
+		removeOnListClearedListener(listener);
+	}
+
+	/**
+	 * Calls each registered OnItemAddedListener.
+	 *
+	 * @param itemAdded
+	 * 		the item which was added to the ArrayListWithCallbacks
+	 * @param index
+	 * 		the index of the added item
+	 */
+	private void callOnItemAddedListeners(final Object itemAdded, final int index) {
+		for (final OnItemAddedListener l : onItemAddedListeners) {
+			l.onItemAdded(this, itemAdded, index);
+		}
+
+	}
+
+	/**
+	 * Calls each registered OnItemRemovedListener.
+	 *
+	 * @param itemRemoved
+	 * 		the item which was removed from the ArrayListWithCallbacks
+	 * @param index
+	 * 		the index of the removed item
+	 */
+	private void callOnItemRemovedListeners(final Object itemRemoved, final int index) {
+		for (final OnItemRemovedListener l : onItemRemovedListeners) {
+			l.onItemRemoved(this, itemRemoved, index);
+		}
+	}
+
+	/**
+	 * Calls each registered OnListClearedListener.
+	 */
+	private void callOnListClearedListeners() {
+		for (final OnListClearedListener l : onListClearedListeners) {
+			l.onListCleared(this);
+		}
+	}
+
+	/**
+	 * Interface definition for callbacks to be delivered whenever an item is added to an
 	 * ArrayListWithCallbacks.
 	 */
 	public interface OnItemAddedListener {
 		/**
-		 * Invoked whenever an item is added to an ArrayListWithCallbacks which this listener is
-		 * registered to.
+		 * Invoked when an item is added to an ArrayListWithCallbacks.
 		 *
 		 * @param list
-		 * 		the ArrayListWithCallbacks which was modified
+		 * 		the ArrayListWithCallbacks which was modified, not null
 		 * @param itemAdded
 		 * 		the item which was added
 		 * @param index
@@ -201,11 +329,10 @@ public class ArrayListWithCallbacks<T> extends ArrayList<T> {
 	 */
 	public interface OnItemRemovedListener {
 		/**
-		 * Invoked whenever an item is removed from an ArrayListWithCallbacks which this listener is
-		 * registered to.
+		 * Invoked when an item is removed from an ArrayListWithCallbacks.
 		 *
 		 * @param list
-		 * 		the ArrayListWithCallbacks which was modified
+		 * 		the ArrayListWithCallbacks which was modified, not null
 		 * @param itemRemoved
 		 * 		the item which was removed
 		 * @param index
@@ -220,11 +347,10 @@ public class ArrayListWithCallbacks<T> extends ArrayList<T> {
 	 */
 	public interface OnListClearedListener {
 		/**
-		 * Invoked whenever an ArrayListWithCallbacks which this listener is registered to is
-		 * cleared.
+		 * Invoked when an ArrayListWithCallbacks is cleared.
 		 *
 		 * @param list
-		 * 		the ArrayListWithCallbacks which was modified
+		 * 		the ArrayListWithCallbacks which was modified, not null
 		 */
 		void onListCleared(ArrayListWithCallbacks list);
 	}
@@ -235,140 +361,4 @@ public class ArrayListWithCallbacks<T> extends ArrayList<T> {
 	 */
 	public interface OnListChangedListener extends OnItemAddedListener, OnItemRemovedListener,
 			OnListClearedListener {}
-
-	/**
-	 * Adds an OnItemAddedListener to this ArrayListWithCallbacks. This method has no effect if null
-	 * is supplied, or if the listener is already registered.
-	 *
-	 * @param listener
-	 * 		the listener to add
-	 */
-	public void addOnItemAddedListener(OnItemAddedListener listener) {
-		if (listener != null) {
-			onItemAddedListeners.add(listener);
-		}
-	}
-
-	/**
-	 * Adds an OnItemRemovedListener to this ArrayListWithCallbacks. This method has no effect if
-	 * null is supplied, or if the listener is already registered.
-	 *
-	 * @param listener
-	 * 		the listener to add
-	 */
-	public void addOnItemRemovedListener(OnItemRemovedListener listener) {
-		if (listener != null) {
-			onItemRemovedListeners.add(listener);
-		}
-	}
-
-	/**
-	 * Adds an OnListClearedListener to this ArrayListWithCallbacks. This method has no effect if
-	 * null is supplied or if the listener is already registered.
-	 *
-	 * @param listener
-	 * 		the listener to add
-	 */
-	public void addOnListClearedListener(OnListClearedListener listener) {
-		if (listener != null) {
-			onListClearedListeners.add(listener);
-		}
-	}
-
-	/**
-	 * Adds an OnListChangedListener to this ArrayListWithCallbacks. this method has no effect if
-	 * null is supplied or if the listener is already registered.
-	 *
-	 * @param listener
-	 * 		the listener to add
-	 */
-	public void addOnListChangedListener(OnListChangedListener listener) {
-		addOnItemAddedListener(listener);
-		addOnItemRemovedListener(listener);
-		addOnListClearedListener(listener);
-	}
-
-	/**
-	 * Removes an OnItemAddedListener from this ArrayListWithCallbacks. This method has no effect if
-	 * null is supplied, or if the listener is not registered.
-	 *
-	 * @param listener
-	 * 		the listener to remove
-	 */
-	public void removeOnItemAddedListener(OnItemAddedListener listener) {
-		onItemAddedListeners.remove(listener);
-	}
-
-	/**
-	 * Removes an OnItemRemovedListener from this ArrayListWithCallbacks. This method has no effect
-	 * if null is supplied or if the listener is not registered.
-	 *
-	 * @param listener
-	 * 		the listener to remove
-	 */
-	public void removeOnItemRemovedListener(OnItemRemovedListener listener) {
-		onItemRemovedListeners.remove(listener);
-	}
-
-	/**
-	 * Removes an OnListClearedListener from this ArrayListWithCallbacks. This method has no effect
-	 * if null is supplied or if the listener is not registered.
-	 *
-	 * @param listener
-	 * 		the listener to remove
-	 */
-	public void removeOnListClearedListener(OnListClearedListener listener) {
-		onListClearedListeners.remove(listener);
-	}
-
-	/**
-	 * Removed an OnListChangedListener from this ArrayListWithCallbacks. This method has no effect
-	 * if null is supplied or if the listener is not registered.
-	 *
-	 * @param listener
-	 * 		the listener to remove
-	 */
-	public void removeOnListChangedListener(OnListChangedListener listener) {
-		removeOnItemAddedListener(listener);
-		removeOnItemRemovedListener(listener);
-		removeOnListClearedListener(listener);
-	}
-
-	/**
-	 * Calls each registered OnItemAddedListener.
-	 *
-	 * @param itemAdded
-	 * 		the item which was added to the ArrayListWithCallbacks
-	 * @param index
-	 * 		the index of the added item
-	 */
-	private void callOnItemAddedListeners(Object itemAdded, int index) {
-		for (OnItemAddedListener l : onItemAddedListeners) {
-			l.onItemAdded(this, itemAdded, index);
-		}
-
-	}
-
-	/**
-	 * Calls each registered OnItemRemovedListener.
-	 *
-	 * @param itemRemoved
-	 * 		the item which was removed from the ArrayListWithCallbacks
-	 * @param index
-	 * 		the index of the removed item
-	 */
-	private void callOnItemRemovedListeners(Object itemRemoved, int index) {
-		for (OnItemRemovedListener l : onItemRemovedListeners) {
-			l.onItemRemoved(this, itemRemoved, index);
-		}
-	}
-
-	/**
-	 * Calls each registered OnListClearedListener.
-	 */
-	private void callOnListClearedListeners() {
-		for (OnListClearedListener l : onListClearedListeners) {
-			l.onListCleared(this);
-		}
-	}
 }
