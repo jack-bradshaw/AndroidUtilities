@@ -25,10 +25,58 @@ import android.media.AudioManager.OnAudioFocusChangeListener;
  */
 public class AudioFocusHelper {
 	/**
+	 * Requests stream alarm audio-focus for the supplied listener.
+	 *
+	 * @param context
+	 * 		the Context in which {@code listener} is operating, not null
+	 * @param listener
+	 * 		the OnAudioFocusChangeListener to receive the audio focus, not null
+	 * @return true if audio focus is granted, false otherwise
+	 * @throws IllegalArgumentException
+	 * 		if {@code context} or {@code listener} is null
+	 */
+	public static boolean requestStreamAlarmFocus(final Context context,
+			final OnAudioFocusChangeListener listener) {
+		return requestStreamAudioFocus(context, listener, AudioManager.STREAM_ALARM);
+	}
+
+	/**
+	 * Requests stream DTMF audio-focus for the supplied listener.
+	 *
+	 * @param context
+	 * 		the Context in which {@code listener} is operating, not null
+	 * @param listener
+	 * 		the OnAudioFocusChangeListener to receive the audio focus, not null
+	 * @return true if audio focus is granted, false otherwise
+	 * @throws IllegalArgumentException
+	 * 		if {@code context} or {@code listener} is null
+	 */
+	public static boolean requestStreamDtmfFocus(final Context context,
+			final OnAudioFocusChangeListener listener) {
+		return requestStreamAudioFocus(context, listener, AudioManager.STREAM_DTMF);
+	}
+
+	/**
+	 * Requests stream notification audio-focus for the supplied listener.
+	 *
+	 * @param context
+	 * 		the Context in which {@code listener} is operating, not null
+	 * @param listener
+	 * 		the OnAudioFocusChangeListener to receive the audio focus, not null
+	 * @return true if audio focus is granted, false otherwise
+	 * @throws IllegalArgumentException
+	 * 		if {@code context} or {@code listener} is null
+	 */
+	public static boolean requestStreamNotificationFocus(final Context context,
+			final OnAudioFocusChangeListener listener) {
+		return requestStreamAudioFocus(context, listener, AudioManager.STREAM_NOTIFICATION);
+	}
+
+	/**
 	 * Requests stream music audio-focus for the supplied listener.
 	 *
 	 * @param context
-	 * 		the Context which {@code listener} is operating in, not null
+	 * 		the Context in which {@code listener} is operating, not null
 	 * @param listener
 	 * 		the OnAudioFocusChangeListener to receive the audio focus, not null
 	 * @return true if audio focus is granted, false otherwise
@@ -37,16 +85,55 @@ public class AudioFocusHelper {
 	 */
 	public static boolean requestStreamMusicFocus(final Context context,
 			final OnAudioFocusChangeListener listener) {
-		if (context == null) {
-			throw new IllegalArgumentException("context cannot be null");
-		} else if (listener == null) {
-			throw new IllegalArgumentException("listener cannot be null");
-		}
+		return requestStreamAudioFocus(context, listener, AudioManager.STREAM_MUSIC);
+	}
 
-		final AudioManager am = (AudioManager) context.getSystemService(Context.AUDIO_SERVICE);
-		final int result = am.requestAudioFocus(listener, AudioManager.STREAM_MUSIC,
-				AudioManager.AUDIOFOCUS_GAIN);
-		return result == AudioManager.AUDIOFOCUS_REQUEST_GRANTED;
+	/**
+	 * Requests stream ring audio-focus for the supplied listener.
+	 *
+	 * @param context
+	 * 		the Context in which {@code listener} is operating, not null
+	 * @param listener
+	 * 		the OnAudioFocusChangeListener to receive the audio focus, not null
+	 * @return true if audio focus is granted, false otherwise
+	 * @throws IllegalArgumentException
+	 * 		if {@code context} or {@code listener} is null
+	 */
+	public static boolean requestStreamRingFocus(final Context context,
+			final OnAudioFocusChangeListener listener) {
+		return requestStreamAudioFocus(context, listener, AudioManager.STREAM_RING);
+	}
+
+	/**
+	 * Requests stream system audio-focus for the supplied listener.
+	 *
+	 * @param context
+	 * 		the Context in which {@code listener} is operating, not null
+	 * @param listener
+	 * 		the OnAudioFocusChangeListener to receive the audio focus, not null
+	 * @return true if audio focus is granted, false otherwise
+	 * @throws IllegalArgumentException
+	 * 		if {@code context} or {@code listener} is null
+	 */
+	public static boolean requestStreamSystemFocus(final Context context,
+			final OnAudioFocusChangeListener listener) {
+		return requestStreamAudioFocus(context, listener, AudioManager.STREAM_SYSTEM);
+	}
+
+	/**
+	 * Requests stream voice call audio-focus for the supplied listener.
+	 *
+	 * @param context
+	 * 		the Context in which {@code listener} is operating, not null
+	 * @param listener
+	 * 		the OnAudioFocusChangeListener to receive the audio focus, not null
+	 * @return true if audio focus is granted, false otherwise
+	 * @throws IllegalArgumentException
+	 * 		if {@code context} or {@code listener} is null
+	 */
+	public static boolean requestStreamVoiceCallFocus(final Context context,
+			final OnAudioFocusChangeListener listener) {
+		return requestStreamAudioFocus(context, listener, AudioManager.STREAM_VOICE_CALL);
 	}
 
 	/**
@@ -69,5 +156,18 @@ public class AudioFocusHelper {
 
 		final AudioManager am = (AudioManager) context.getSystemService(Context.AUDIO_SERVICE);
 		am.abandonAudioFocus(listener);
+	}
+
+	private static boolean requestStreamAudioFocus(final Context context, final
+			OnAudioFocusChangeListener listener, final int streamType) {
+		if (context == null) {
+			throw new IllegalArgumentException("context cannot be null");
+		} else if (listener == null) {
+			throw new IllegalArgumentException("listener cannot be null");
+		}
+
+		final AudioManager am = (AudioManager) context.getSystemService(Context.AUDIO_SERVICE);
+		final int result = am.requestAudioFocus(listener, streamType, AudioManager.AUDIOFOCUS_GAIN);
+		return (result == AudioManager.AUDIOFOCUS_REQUEST_GRANTED);
 	}
 }
