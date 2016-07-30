@@ -71,22 +71,53 @@ public class TestAudioFocusHelper {
 
 	/**
 	 * Test to verify that the correct exception is thrown when the {@code context} argument of
-	 * {@link AudioFocusHelper#requestStreamMusicFocus(Context, OnAudioFocusChangeListener)} is
+	 * {@link AudioFocusHelper#requestStreamAlarmFocus(Context, OnAudioFocusChangeListener)} is
 	 * null.
 	 */
 	@Test(expected = IllegalArgumentException.class)
-	public void testRequestStreamMusicFocus_invalidArg_nullContext() {
-		AudioFocusHelper.requestStreamMusicFocus(null, listener);
+	public void testRequestStreamAlarmFocus_invalidArg_nullContext() {
+		AudioFocusHelper.requestStreamAlarmFocus(null, listener);
 	}
 
 	/**
 	 * Test to verify that the correct exception is thrown when the {@code listener} argument of
-	 * {@link AudioFocusHelper#requestStreamMusicFocus(Context, OnAudioFocusChangeListener)} is
+	 * {@link AudioFocusHelper#requestStreamAlarmFocus(Context, OnAudioFocusChangeListener)} is
 	 * null.
 	 */
 	@Test(expected = IllegalArgumentException.class)
-	public void testRequestStreamMusicFocus_invalidArg_nullListener() {
-		AudioFocusHelper.requestStreamMusicFocus(context, null);
+	public void testRequestStreamAlarmFocus_invalidArg_nullListener() {
+		AudioFocusHelper.requestStreamAlarmFocus(context, null);
+	}
+
+	/**
+	 * Test to verify that the {@link AudioFocusHelper#requestStreamAlarmFocus(Context,
+	 * OnAudioFocusChangeListener)} method functions correctly when provided with valid arguments.
+	 */
+	@Test
+	public void testRequestStreamAlarmFocus_validArgs() {
+		boolean audioFocusGranted = AudioFocusHelper.requestStreamAlarmFocus(context, listener);
+		assertThat("Focus was not granted.", audioFocusGranted);
+	}
+
+	/**
+	 * Test to verify that the {@link AudioFocusHelper#requestStreamDtmfFocus(Context,
+	 * OnAudioFocusChangeListener)} method functions correctly when provided with valid arguments.
+	 */
+	@Test
+	public void testRequestStreamDtmfFocus_validArgs() {
+		boolean audioFocusGranted = AudioFocusHelper.requestStreamDtmfFocus(context, listener);
+		assertThat("Focus was not granted.", audioFocusGranted);
+	}
+
+	/**
+	 * Test to verify that the {@link AudioFocusHelper#requestStreamNotificationFocus(Context,
+	 * OnAudioFocusChangeListener)} method functions correctly when provided with valid arguments.
+	 */
+	@Test
+	public void testRequestStreamNotificationFocus_validArgs() {
+		boolean audioFocusGranted = AudioFocusHelper.requestStreamNotificationFocus(context,
+				listener);
+		assertThat("Focus was not granted.", audioFocusGranted);
 	}
 
 	/**
@@ -96,7 +127,37 @@ public class TestAudioFocusHelper {
 	@Test
 	public void testRequestStreamMusicFocus_validArgs() {
 		boolean audioFocusGranted = AudioFocusHelper.requestStreamMusicFocus(context, listener);
-		assertThat("Stream music focus was not granted.", audioFocusGranted);
+		assertThat("Focus was not granted.", audioFocusGranted);
+	}
+
+	/**
+	 * Test to verify that the {@link AudioFocusHelper#requestStreamRingFocus(Context,
+	 * OnAudioFocusChangeListener)} method functions correctly when provided with valid arguments.
+	 */
+	@Test
+	public void testRequestStreamRingFocus_validArgs() {
+		boolean audioFocusGranted = AudioFocusHelper.requestStreamRingFocus(context, listener);
+		assertThat("Focus was not granted.", audioFocusGranted);
+	}
+
+	/**
+	 * Test to verify that the {@link AudioFocusHelper#requestStreamSystemFocus(Context,
+	 * OnAudioFocusChangeListener)} method functions correctly when provided with valid arguments.
+	 */
+	@Test
+	public void testRequestStreamSystemFocus_validArgs() {
+		boolean audioFocusGranted = AudioFocusHelper.requestStreamSystemFocus(context, listener);
+		assertThat("Focus was not granted.", audioFocusGranted);
+	}
+
+	/**
+	 * Test to verify that the {@link AudioFocusHelper#requestStreamVoiceCallFocus(Context,
+	 * OnAudioFocusChangeListener)} method functions correctly when provided with valid arguments.
+	 */
+	@Test
+	public void testRequestStreamVoiceCallFocus_validArgs() {
+		boolean audioFocusGranted = AudioFocusHelper.requestStreamVoiceCallFocus(context, listener);
+		assertThat("Focus was not granted.", audioFocusGranted);
 	}
 
 	/**
