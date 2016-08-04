@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.matthewtamlin.android_utilities_library.utilities;
+package com.matthewtamlin.android_utilities_library.collections;
 
 import java.util.Collection;
 import java.util.HashMap;
