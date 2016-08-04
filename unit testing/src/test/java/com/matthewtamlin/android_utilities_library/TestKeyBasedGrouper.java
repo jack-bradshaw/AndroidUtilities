@@ -111,8 +111,7 @@ public class TestKeyBasedGrouper {
 	 */
 	@Test(expected = IllegalArgumentException.class)
 	public void testGroup_invalidArg_nullNewGroupSupplier() {
-		Grouper<String, Set<String>> letterCountGrouper = new KeyBasedGrouper<String, Set<String>>
-				(null, stringKeyGenerator);
+		new KeyBasedGrouper<>(null, stringKeyGenerator);
 	}
 
 	/**
@@ -121,8 +120,7 @@ public class TestKeyBasedGrouper {
 	 */
 	@Test(expected = IllegalArgumentException.class)
 	public void testGroup_invalidArg_nullGroupKeyGenerator() {
-		Grouper<String, Set<String>> letterCountGrouper = new KeyBasedGrouper<String, Set<String>>
-				(stringHashSetSupplier, null);
+		new KeyBasedGrouper<String, Set<String>>(stringHashSetSupplier, null);
 	}
 
 	/**
