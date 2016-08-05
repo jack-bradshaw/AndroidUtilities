@@ -1,5 +1,5 @@
 #AndroidUtilities
-This library contains various helper classes, utilities and views for use in Android development. To use the latest version, add `compile 'com.matthew-tamlin:android-utilities-library:2.1.0'` to your dependencies. Older versions are available in the [maven repo](https://bintray.com/matthewtamlin/maven/AndroidUtilities/view).
+This library contains various helper classes, collections and views for use in Android development. To use the latest version, add `compile 'com.matthew-tamlin:android-utilities-library:2.1.0'` to your dependencies. Older versions are available in the [maven repo](https://bintray.com/matthewtamlin/maven/AndroidUtilities/view).
 
 ## Helpers
 The helpers package contains classes with useful static methods, designed to eliminate boilerplate code when performing simple Android tasks. The following helper classes are available in the helpers package:
