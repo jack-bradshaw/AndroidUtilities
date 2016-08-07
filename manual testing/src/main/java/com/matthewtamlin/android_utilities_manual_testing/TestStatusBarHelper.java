@@ -46,7 +46,7 @@ public class TestStatusBarHelper extends AppCompatActivity {
 	 */
 	public void testShowStatusBar(final View v) {
 		StatusBarHelper.showStatusBar(getWindow());
-		Snackbar.make(rootView, "The status bar should be shown.", Snackbar.LENGTH_LONG).show();
+		Snackbar.make(rootView, "The status bar should now be shown.", Snackbar.LENGTH_LONG).show();
 	}
 
 	/**
@@ -58,6 +58,7 @@ public class TestStatusBarHelper extends AppCompatActivity {
 	 */
 	public void testHideStatusBar(final View v) {
 		StatusBarHelper.hideStatusBar(getWindow());
-		Snackbar.make(rootView, "The status bar should be hidden.", Snackbar.LENGTH_LONG).show();
+		Snackbar.make(rootView, "The status bar should now be hidden.", Snackbar.LENGTH_LONG)
+				.show();
 	}
 }
