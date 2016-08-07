@@ -16,7 +16,9 @@
 
 package com.matthewtamlin.android_utilities_manual_testing;
 
+import android.annotation.TargetApi;
 import android.os.Bundle;
+import android.support.annotation.RequiresApi;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -25,9 +27,13 @@ import android.view.Window;
 import com.matthewtamlin.android_utilities_library.helpers.StatusBarHelper;
 
 /**
- * Manual tests for the {@link StatusBarHelper} class.
+ * Manual tests for the {@link StatusBarHelper} class. These tests should be run on all versions of
+ * Android above 15 to ensure that functionality doesn't change.
  */
 public class TestStatusBarHelper extends AppCompatActivity {
+	/**
+	 * The root view of this Activity.
+	 */
 	private View rootView;
 
 	@Override
