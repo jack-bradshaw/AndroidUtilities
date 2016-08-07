@@ -30,6 +30,8 @@ import com.matthewtamlin.android_utilities_library.helpers.StatusBarHelper;
  * Manual tests for the {@link StatusBarHelper} class. These tests should be run on all versions of
  * Android above 15 to ensure that functionality doesn't change.
  */
+@RequiresApi(16) // For client
+@TargetApi(16) // For lint
 public class TestStatusBarHelper extends AppCompatActivity {
 	/**
 	 * The root view of this Activity.
