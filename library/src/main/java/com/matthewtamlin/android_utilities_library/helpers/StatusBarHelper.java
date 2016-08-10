@@ -28,15 +28,10 @@ import android.view.Window;
 @TargetApi(16) // For lint
 public abstract class StatusBarHelper {
 	/**
-	 * Flag for showing the status bar.
+	 * Passing this value to {@link android.support.v4.view.ViewPager.DecorView#setSystemUiVisibility(int)}
+	 * will show the status bar.
 	 */
-	private static final int UI_VISIBILITY_FLAG_SHOW = 0;
-
-	/**
-	 * Flag for hiding the status bar.
-	 */
-	private static final int UI_VISIBILITY_FLAG_HIDE =
-			View.SYSTEM_UI_FLAG_LAYOUT_STABLE | View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN;
+	private static final int SHOW_STATUS_BAR_FLAG = 0;
 
 	/**
 	 * Hides the status bar of the supplied Window.
@@ -44,6 +39,8 @@ public abstract class StatusBarHelper {
 	 * @param window
 	 * 		the Window containing the status bar to hide
 	 */
+	@RequiresApi(16) // For client
+	@TargetApi(16) // For lint
 	public static void hideStatusBar(final Window window) {
 		if (window == null) {
 			throw new IllegalArgumentException("window cannot be null");
@@ -59,11 +56,13 @@ public abstract class StatusBarHelper {
 	 * @param window
 	 * 		the Window containing the status bar to hide, not null
 	 */
+	@RequiresApi(16) // For client
+	@TargetApi(16) // For lint
 	public static void showStatusBar(final Window window) {
 		if (window == null) {
 			throw new IllegalArgumentException("window cannot be null");
 		}
 
-		window.getDecorView().setSystemUiVisibility(UI_VISIBILITY_FLAG_SHOW);
+		window.getDecorView().setSystemUiVisibility(SHOW_STATUS_BAR_FLAG);
 	}
 }
