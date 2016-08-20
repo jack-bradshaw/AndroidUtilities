@@ -177,7 +177,7 @@ public class TestArrayListWithCallbacks {
 		listInitThreeStrings.addOnItemRemovedListener(mockOnListChangedListener);
 		listInitThreeStrings.addOnListClearedListener(mockOnListChangedListener);
 
-		// Create an empty list and register the mock listeneres
+		// Create an empty list and register the mock listeners
 		listInitEmpty = new ArrayListWithCallbacks<>();
 		listInitEmpty.addOnItemAddedListener(mockOnItemAddedListener);
 		listInitEmpty.addOnItemRemovedListener(mockOnItemRemovedListener);
