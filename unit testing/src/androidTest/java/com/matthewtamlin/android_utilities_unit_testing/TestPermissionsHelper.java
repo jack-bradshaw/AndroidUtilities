@@ -149,7 +149,8 @@ public class TestPermissionsHelper {
 	 * 		the second array to concatenate, not null
 	 * @return the concatenated array, effectively [arr1, arr2]
 	 */
-	private String[] concatenateArrays(String[] arr1, String[] arr2) {
+	@SuppressWarnings("SameParameterValue") // Called only once to simplify readability
+	private String[] concatenateArrays(final String[] arr1, final String[] arr2) {
 		if (arr1 == null || arr2 == null) {
 			throw new IllegalArgumentException("both arrays must be non-null");
 		}
