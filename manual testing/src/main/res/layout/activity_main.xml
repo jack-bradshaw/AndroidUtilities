@@ -30,5 +30,6 @@ limitations under the License.
 		android:layout_height="wrap_content"
 		android:onClick="launchTestStatusBarHelperActivity"
 		android:text="Launch TestStatusBarHelperActivity"
-		android:textAllCaps="false"/>
+		android:textAllCaps="false"
+		tools:ignore="UnusedAttribute"/>
 </LinearLayout>

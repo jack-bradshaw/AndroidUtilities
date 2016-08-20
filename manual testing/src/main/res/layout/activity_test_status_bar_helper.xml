@@ -26,7 +26,7 @@ limitations under the License.
 	android:fitsSystemWindows="false"
 	android:orientation="vertical"
 	android:padding="16dp"
-	tools:ignore="HardcodedText">
+	tools:ignore="HardcodedText,Overdraw">
 
 	<Button
 		android:layout_width="wrap_content"

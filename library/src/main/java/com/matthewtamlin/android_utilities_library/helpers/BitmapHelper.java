@@ -16,6 +16,7 @@
 
 package com.matthewtamlin.android_utilities_library.helpers;
 
+import android.annotation.SuppressLint;
 import android.content.res.Resources;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -28,6 +29,8 @@ import java.io.File;
  * @deprecated use {@link BitmapEfficiencyHelper} instead
  */
 @Deprecated
+@SuppressWarnings("ALL") // It's deprecated, don't bother with warnings
+@SuppressLint("ALL") // It's deprecated, don't bother with lint
 public abstract class BitmapHelper {
 	/**
 	 * Calculates the largest sampling rate which is a power of two and keeps the scaled height and
@@ -107,6 +110,7 @@ public abstract class BitmapHelper {
 	 * 		the desired height of the returned Bitmap
 	 * @return the scaled Bitmap
 	 */
+	@SuppressWarnings("SameParameterValue")
 	public static Bitmap decodeSampledBitmapFromByteArray(final byte[] data, final int offset,
 			final int length, final int desWidth, final int desHeight) {
 		// Decode only the boundaries of the bitmap to get its dimensions
