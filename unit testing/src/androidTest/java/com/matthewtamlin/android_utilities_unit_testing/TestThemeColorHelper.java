@@ -61,7 +61,7 @@ public class TestThemeColorHelper {
 	 * Provides access to an Activity with the expected colors in the theme.
 	 */
 	@Rule
-	public ActivityTestRule<TestActivity> testActivityRule = new ActivityTestRule<>
+	public final ActivityTestRule<TestActivity> testActivityRule = new ActivityTestRule<>
 			(TestActivity.class);
 
 	/**
