@@ -21,7 +21,7 @@ import android.graphics.Color;
 /**
  * Helper class for working with colors.
  */
-public abstract class ColorHelper {
+public class ColorHelper {
 	/**
 	 * Blends two colours to produce a single output colour. No check is done to ensure the provided
 	 * colors are valid ARGB hex codes, and providing invalid codes will result in an undefined

@@ -24,7 +24,7 @@ import static android.content.pm.PackageManager.PERMISSION_GRANTED;
 /**
  * Helper class for working with permissions.
  */
-public abstract class PermissionsHelper {
+public class PermissionsHelper {
 	/**
 	 * Determines if the supplied Context has already been granted the specified permissions. For a
 	 * list of possible permissions, see {@link android.Manifest}.
