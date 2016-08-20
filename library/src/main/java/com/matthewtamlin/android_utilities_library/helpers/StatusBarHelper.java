@@ -26,7 +26,7 @@ import android.view.Window;
  */
 @RequiresApi(16) // For client
 @TargetApi(16) // For lint
-public abstract class StatusBarHelper {
+public class StatusBarHelper {
 	/**
 	 * Passing this value to {@link android.support.v4.view.ViewPager.DecorView#setSystemUiVisibility(int)}
 	 * will show the status bar.
