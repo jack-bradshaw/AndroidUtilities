@@ -228,6 +228,7 @@ public final class ArrayListWithCallbacks<T> extends ArrayList<T> {
 	 * @param listener
 	 * 		the listener to remove
 	 */
+	@SuppressWarnings("WeakerAccess")
 	public final void removeOnItemAddedListener(final OnItemAddedListener listener) {
 		onItemAddedListeners.remove(listener);
 	}
@@ -239,6 +240,7 @@ public final class ArrayListWithCallbacks<T> extends ArrayList<T> {
 	 * @param listener
 	 * 		the listener to remove
 	 */
+	@SuppressWarnings("WeakerAccess")
 	public final void removeOnItemRemovedListener(final OnItemRemovedListener listener) {
 		onItemRemovedListeners.remove(listener);
 	}
@@ -250,6 +252,7 @@ public final class ArrayListWithCallbacks<T> extends ArrayList<T> {
 	 * @param listener
 	 * 		the listener to remove
 	 */
+	@SuppressWarnings("WeakerAccess")
 	public final void removeOnListClearedListener(final OnListClearedListener listener) {
 		onListClearedListeners.remove(listener);
 	}
