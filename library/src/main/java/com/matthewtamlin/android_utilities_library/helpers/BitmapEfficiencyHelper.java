@@ -188,6 +188,7 @@ public class BitmapEfficiencyHelper {
 	 * @throws IllegalArgumentException
 	 * 		if {@code data} is null, or if either dimension is less than zero
 	 */
+	@SuppressWarnings("UnusedReturnValue")
 	public static Bitmap decodeFile(final File file, final int desWidth, final int desHeight) {
 		if (file == null) {
 			throw new IllegalArgumentException("file cannot be null");
