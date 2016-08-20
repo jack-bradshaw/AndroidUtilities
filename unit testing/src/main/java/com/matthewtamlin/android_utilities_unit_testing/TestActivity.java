@@ -18,6 +18,7 @@ public class TestActivity extends AppCompatActivity {
 	/**
 	 * @return the root view of the activity, null if {@link #onCreate(Bundle)} has not yet run
 	 */
+	@SuppressWarnings("unused")
 	public LinearLayout getRootView() {
 		return (LinearLayout) findViewById(R.id.activity_test_root);
 	}

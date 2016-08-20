@@ -16,6 +16,7 @@
 
 package com.matthewtamlin.android_utilities_library.helpers;
 
+import android.annotation.SuppressLint;
 import android.graphics.Color;
 import android.os.Build;
 import android.view.View;
@@ -28,6 +29,8 @@ import android.view.WindowManager;
  * @deprecated use {@link StatusBarHelper} instead.
  */
 @Deprecated
+@SuppressWarnings("ALL") // It's deprecated, don't bother with warnings
+@SuppressLint("ALL") // It's deprecated, don't bother with lint
 public final class SemiFullScreenHelper {
 	/**
 	 * To prevent instantiation, this constructor is private and throws an exception when invoked.

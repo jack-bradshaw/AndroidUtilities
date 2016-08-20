@@ -39,6 +39,7 @@ public class MainActivity extends AppCompatActivity {
 	 * @param v
 	 * 		the View which was clicked to initiate the test
 	 */
+	@SuppressWarnings("UnusedParameters")
 	public void launchTestStatusBarHelperActivity(final View v) {
 		startActivity(new Intent(this, TestStatusBarHelper.class));
 	}
