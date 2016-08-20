@@ -25,6 +25,7 @@ import com.matthewtamlin.android_utilities_library.R;
 /**
  * Utilities for extracting the primary, primary dark and accent colors from a theme.
  */
+@SuppressWarnings("SameParameterValue")
 public class ThemeColorHelper {
 	/**
 	 * Extracts the primary color from the current theme of the supplied Context.
