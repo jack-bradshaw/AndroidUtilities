@@ -3,7 +3,7 @@ apply plugin: 'com.android.library'
 ext {
 	PUBLISH_GROUP_ID = 'com.matthew-tamlin'
 	PUBLISH_ARTIFACT_ID = 'android-utilities'
-	PUBLISH_VERSION = '2.2.0'
+	PUBLISH_VERSION = '2.3.0'
 }
 
 android {
