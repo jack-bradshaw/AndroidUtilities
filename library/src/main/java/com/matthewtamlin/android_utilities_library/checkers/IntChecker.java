@@ -97,8 +97,8 @@ public class IntChecker {
 	 * @throws IllegalArgumentException
 	 * 		if {@code num} is not equal to {@code equalTo}
 	 */
-	public static int checkEqual(final int num, final int equalTo) {
-		return checkEqual(num, equalTo, DEFAULT_MESSAGE);
+	public static int checkEqualTo(final int num, final int equalTo) {
+		return checkEqualTo(num, equalTo, DEFAULT_MESSAGE);
 	}
 
 	/**
@@ -115,7 +115,7 @@ public class IntChecker {
 	 * @throws IllegalArgumentException
 	 * 		if {@code num} is not equal to {@code equalTo}
 	 */
-	public static int checkEqual(final int num, final int equalTo, final String message) {
+	public static int checkEqualTo(final int num, final int equalTo, final String message) {
 		if (num != equalTo) {
 			throw new IllegalArgumentException(message);
 		} else {
@@ -135,8 +135,8 @@ public class IntChecker {
 	 * @throws IllegalArgumentException
 	 * 		if {@code num} is equal to {@code notEqualTo}
 	 */
-	public static int checkNotEqual(final int num, final int notEqualTo) {
-		return checkNotEqual(num, notEqualTo, DEFAULT_MESSAGE);
+	public static int checkNotEqualTo(final int num, final int notEqualTo) {
+		return checkNotEqualTo(num, notEqualTo, DEFAULT_MESSAGE);
 	}
 
 	/**
@@ -153,7 +153,7 @@ public class IntChecker {
 	 * @throws IllegalArgumentException
 	 * 		if {@code num} is equal to {@code notEqualTo}
 	 */
-	public static int checkNotEqual(final int num, final int notEqualTo, final String message) {
+	public static int checkNotEqualTo(final int num, final int notEqualTo, final String message) {
 		if (num == notEqualTo) {
 			throw new IllegalArgumentException(message);
 		} else {
@@ -162,8 +162,9 @@ public class IntChecker {
 	}
 
 	/**
-	 * Checks that one integer is in the interval between two other integers (non-inclusive). If the
-	 * check passes then the integer being checked is returned, otherwise an exception is thrown.
+	 * Checks that one integer is in the interval between two other integers (inclusive of the
+	 * bounds). If the check passes then the integer being checked is returned, otherwise an
+	 * exception is thrown.
 	 *
 	 * @param num
 	 * 		the number to check
@@ -180,8 +181,9 @@ public class IntChecker {
 	}
 
 	/**
-	 * Checks that one integer is in the interval between two other integers (non-inclusive). If the
-	 * check passes then the integer being checked is returned, otherwise an exception is thrown.
+	 * Checks that one integer is in the interval between two other integers (inclusive of the
+	 * bounds). If the check passes then the integer being checked is returned, otherwise an
+	 * exception is thrown.
 	 *
 	 * @param num
 	 * 		the number to check
