@@ -16,12 +16,11 @@
 
 package com.matthewtamlin.android_utilities_unit_testing;
 
-import android.support.test.runner.AndroidJUnit4;
-
 import com.matthewtamlin.android_utilities_library.helpers.ColorHelper;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.junit.runners.JUnit4;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.is;
@@ -29,7 +28,7 @@ import static org.hamcrest.Matchers.is;
 /**
  * Unit tests for the {@link ColorHelper} class.
  */
-@RunWith(AndroidJUnit4.class)
+@RunWith(JUnit4.class)
 public class TestColorHelper {
 	/**
 	 * A color to use in testing, as an ARGB hex code. Corresponds to opaque white.
