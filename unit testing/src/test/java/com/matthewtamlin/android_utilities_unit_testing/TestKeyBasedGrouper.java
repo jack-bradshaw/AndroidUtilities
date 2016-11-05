@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.matthewtamlin.android_utilities_library;
+package com.matthewtamlin.android_utilities_unit_testing;
 
 import com.matthewtamlin.android_utilities_library.collections.Grouper;
 import com.matthewtamlin.android_utilities_library.collections.KeyBasedGrouper;
