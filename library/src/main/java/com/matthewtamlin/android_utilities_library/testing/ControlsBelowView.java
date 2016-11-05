@@ -23,7 +23,7 @@ public abstract class ControlsBelowView<V> extends TestHarness<V, FrameLayout> {
 	protected void onCreate(final @Nullable Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.controlsbelowview);
-		addTestViewToLayout();
+		getTestViewContainer().addView((View) getTestView());
 		initialiseControlHiding();
 	}
 
@@ -40,14 +40,6 @@ public abstract class ControlsBelowView<V> extends TestHarness<V, FrameLayout> {
 	@Override
 	public FrameLayout getTestViewContainer() {
 		return (FrameLayout) findViewById(R.id.controlsBelowView_testViewContainer);
-	}
-
-	/**
-	 * Adds the test view to the layout. This method will fail if the test view is not an instance
-	 * of the {@link View} class.
-	 */
-	private void addTestViewToLayout() {
-		getTestViewContainer().addView((View) getTestView());
 	}
 
 	/**
