@@ -16,9 +16,12 @@
 
 package com.matthewtamlin.android_utilities_library.checkers;
 
+import com.matthewtamlin.android_utilities_library.testing.Tested;
+
 /**
  * Utility for checking integer arguments without boilerplate code.
  */
+@Tested(testMethod = "automated", requiresInstrumentation = false)
 public class IntChecker {
 	/**
 	 * The exception message to use if no message is provided.

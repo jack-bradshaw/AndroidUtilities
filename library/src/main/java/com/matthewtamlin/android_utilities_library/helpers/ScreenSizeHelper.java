@@ -22,10 +22,13 @@ import android.content.res.Resources;
 import android.util.DisplayMetrics;
 import android.view.WindowManager;
 
+import com.matthewtamlin.android_utilities_library.testing.Tested;
+
 /**
  * Helper class for working with screen sizes.
  */
 @SuppressWarnings("WeakerAccess") // Library classes must be public
+@Tested(testMethod = "automated", requiresInstrumentation = true)
 public class ScreenSizeHelper {
 	/**
 	 * Returns the screen size as an enum constant.

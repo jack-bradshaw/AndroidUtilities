@@ -16,9 +16,12 @@
 
 package com.matthewtamlin.android_utilities_library.checkers;
 
+import com.matthewtamlin.android_utilities_library.testing.Tested;
+
 /**
  * Utility for implementing null guards without boilerplate code.
  */
+@Tested(testMethod = "automated", requiresInstrumentation = false)
 public class NullChecker {
 	/**
 	 * Checks if the supplied object is null. If the object is null, an IllegalArgumentException is

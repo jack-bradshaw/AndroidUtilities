@@ -21,10 +21,12 @@ import android.media.AudioManager;
 import android.media.AudioManager.OnAudioFocusChangeListener;
 
 import com.matthewtamlin.android_utilities_library.checkers.NullChecker;
+import com.matthewtamlin.android_utilities_library.testing.Tested;
 
 /**
  * Helper class for obtaining and abandoning audio focus.
  */
+@Tested(testMethod = "automated", requiresInstrumentation = true)
 public class AudioFocusHelper {
 	/**
 	 * Requests stream alarm audio-focus for the supplied listener.

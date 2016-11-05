@@ -16,11 +16,12 @@
 
 package com.matthewtamlin.android_utilities_unit_testing;
 
+import android.support.test.runner.AndroidJUnit4;
+
 import com.matthewtamlin.android_utilities_library.helpers.ColorHelper;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.junit.runners.JUnit4;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.is;
@@ -28,7 +29,7 @@ import static org.hamcrest.Matchers.is;
 /**
  * Unit tests for the {@link ColorHelper} class.
  */
-@RunWith(JUnit4.class)
+@RunWith(AndroidJUnit4.class)
 public class TestColorHelper {
 	/**
 	 * A color to use in testing, as an ARGB hex code. Corresponds to opaque white.
@@ -61,8 +62,8 @@ public class TestColorHelper {
 
 	/**
 	 * Test to verify that the {@link ColorHelper#blendColors(int, int, float)} method functions
-	 * correctly when provided with valid arguments. This test considered the case where the
-	 * ratio is zero.
+	 * correctly when provided with valid arguments. This test considered the case where the ratio
+	 * is zero.
 	 */
 	@Test
 	public void testBlendColors_validArgs_ratioOfZero() {
@@ -73,8 +74,8 @@ public class TestColorHelper {
 
 	/**
 	 * Test to verify that the {@link ColorHelper#blendColors(int, int, float)} method functions
-	 * correctly when provided with valid arguments. This test considered the case where the
-	 * ratio is one.
+	 * correctly when provided with valid arguments. This test considered the case where the ratio
+	 * is one.
 	 */
 	@Test
 	public void testBlendColors_validArgs_ratioOfOne() {
@@ -85,8 +86,8 @@ public class TestColorHelper {
 
 	/**
 	 * Test to verify that the {@link ColorHelper#blendColors(int, int, float)} method functions
-	 * correctly when provided with valid arguments. This test considered the case where the
-	 * ratio is between zero and one.
+	 * correctly when provided with valid arguments. This test considered the case where the ratio
+	 * is between zero and one.
 	 */
 	@Test
 	public void testBlendColors_validArgs_ratioBetweenZeroAndOne() {

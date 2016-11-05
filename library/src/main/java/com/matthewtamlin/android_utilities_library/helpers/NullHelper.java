@@ -16,9 +16,12 @@
 
 package com.matthewtamlin.android_utilities_library.helpers;
 
+import com.matthewtamlin.android_utilities_library.testing.Tested;
+
 /**
  * Helper class for working with null.
  */
+@Tested(testMethod = "automated", requiresInstrumentation = false)
 public class NullHelper {
 	/**
 	 * Determines whether or not two objects are equal, where one or both could be null. The result

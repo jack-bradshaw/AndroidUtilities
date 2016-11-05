@@ -21,11 +21,14 @@ import android.support.annotation.RequiresApi;
 import android.view.View;
 import android.view.Window;
 
+import com.matthewtamlin.android_utilities_library.testing.Tested;
+
 /**
  * Utilities for hiding and showing the status bar.
  */
 @RequiresApi(16) // For client
 @TargetApi(16) // For lint
+@Tested(testMethod = "manual", requiresInstrumentation = true)
 public class StatusBarHelper {
 	/**
 	 * Passing this value to {@link android.support.v4.view.ViewPager.DecorView#setSystemUiVisibility(int)}
