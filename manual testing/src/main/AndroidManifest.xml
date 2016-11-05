@@ -30,7 +30,7 @@ limitations under the License.
 		tools:ignore="GoogleAppIndexingWarning">
 
 		<activity
-			android:name=".MainActivity">
+			android:name=".LauncherActivity">
 
 			<intent-filter>
 				<action android:name="android.intent.action.MAIN"/>
