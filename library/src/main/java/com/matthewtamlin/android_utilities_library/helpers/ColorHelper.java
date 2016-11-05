@@ -18,9 +18,12 @@ package com.matthewtamlin.android_utilities_library.helpers;
 
 import android.graphics.Color;
 
+import com.matthewtamlin.android_utilities_library.testing.Tested;
+
 /**
  * Helper class for working with colors.
  */
+@Tested(testMethod = "automated", requiresInstrumentation = true)
 public class ColorHelper {
 	/**
 	 * Blends two colours to produce a single output colour. No check is done to ensure the provided

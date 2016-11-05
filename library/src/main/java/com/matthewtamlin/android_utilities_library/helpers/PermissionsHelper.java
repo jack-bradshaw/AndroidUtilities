@@ -19,11 +19,14 @@ package com.matthewtamlin.android_utilities_library.helpers;
 import android.content.Context;
 import android.support.v4.app.ActivityCompat;
 
+import com.matthewtamlin.android_utilities_library.testing.Tested;
+
 import static android.content.pm.PackageManager.PERMISSION_GRANTED;
 
 /**
  * Helper class for working with permissions.
  */
+@Tested(testMethod = "automated", requiresInstrumentation = true)
 public class PermissionsHelper {
 	/**
 	 * Determines if the supplied Context has already been granted the specified permissions. For a

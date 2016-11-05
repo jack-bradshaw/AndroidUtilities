@@ -20,10 +20,13 @@ import android.content.Context;
 import android.util.DisplayMetrics;
 import android.util.TypedValue;
 
+import com.matthewtamlin.android_utilities_library.testing.Tested;
+
 /**
  * Helper class for converting complex units to pixels.
  */
-@SuppressWarnings("WeakerAccess") // Library classes must be public
+@SuppressWarnings("WeakerAccess")
+@Tested(testMethod = "automated", requiresInstrumentation = true)
 public class DimensionHelper {
 	/**
 	 * Converts a dimension from display-independent pixels (dp) to pixels (px).

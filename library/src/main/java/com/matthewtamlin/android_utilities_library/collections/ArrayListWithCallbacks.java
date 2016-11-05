@@ -16,6 +16,8 @@
 
 package com.matthewtamlin.android_utilities_library.collections;
 
+import com.matthewtamlin.android_utilities_library.testing.Tested;
+
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashSet;
@@ -28,6 +30,7 @@ import java.util.Iterator;
  * @param <T>
  * 		the type of objects contained within this Collection
  */
+@Tested(testMethod = "automated", requiresInstrumentation = false)
 public final class ArrayListWithCallbacks<T> extends ArrayList<T> {
 	/**
 	 * Callback events are delivered to these listeners whenever one or more items are added to this

@@ -16,6 +16,8 @@
 
 package com.matthewtamlin.android_utilities_library.collections;
 
+import com.matthewtamlin.android_utilities_library.testing.Tested;
+
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -31,6 +33,7 @@ import java.util.Set;
  * @param <O>
  * 		the type to use for the groups
  */
+@Tested(testMethod = "automated", requiresInstrumentation = false)
 public final class KeyBasedGrouper<I, O extends Collection<? super I>> implements Grouper<I, O> {
 	/**
 	 * Supplies a new group when needed.
