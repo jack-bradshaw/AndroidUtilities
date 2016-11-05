@@ -26,7 +26,7 @@ import com.matthewtamlin.android_utilities_library.helpers.StatusBarHelper;
 /**
  * Launches the manual tests.
  */
-public class MainActivity extends AppCompatActivity {
+public class LauncherActivity extends AppCompatActivity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
