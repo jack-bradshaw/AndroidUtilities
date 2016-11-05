@@ -31,4 +31,9 @@ public @interface Tested {
 	 * @return a String describing the testing method (e.g. manual, automated)
 	 */
 	String testMethod();
+
+	/**
+	 * @return true if the tests cannot be run without instrumentation
+	 */
+	boolean requiresInstrumentation();
 }
