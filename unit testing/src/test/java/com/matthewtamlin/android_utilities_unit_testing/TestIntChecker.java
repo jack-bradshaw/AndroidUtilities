@@ -1,4 +1,4 @@
-package com.matthewtamlin.sliding_intro_screen_unit_testing;
+package com.matthewtamlin.android_utilities_unit_testing;
 
 import com.matthewtamlin.android_utilities_library.checkers.IntChecker;
 
