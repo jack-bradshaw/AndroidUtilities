@@ -33,8 +33,7 @@ public class ColorHelper {
 	 * @param color2
 	 * 		the second colour to blend, as an ARGB hex code
 	 * @param ratio
-	 * 		the proportion of {@code color2} to use in the blended result, between 0 and 1
-	 * 		(inclusive)
+	 * 		the proportion of {@code color2} to use in the blended result, between 0 and 1 (inclusive)
 	 * @return the ARGB code for the blended colour
 	 * @throws IllegalArgumentException
 	 * 		if {@code ratio} is not between 0 and 1 (inclusive)
@@ -56,5 +55,45 @@ public class ColorHelper {
 
 		// Compose the result from by combining the ARGB components
 		return Color.argb((int) a, (int) r, (int) g, (int) b);
+	}
+
+	/**
+	 * Determines whether text should be black or white, depending on whichever maximises contrast
+	 * with the background color.
+	 *
+	 * @param backgroundColor
+	 * 		the color of the background behind the text, as an ARGB hex code
+	 * @return white (0xFFFFFF) or black (0x000000)
+	 */
+	public static int calculateBestTextColor(final int backgroundColor) {
+		// sRGB [r, g, b]
+		final float[] preConversionValues = {((float) Color.red(backgroundColor)) / 255,
+				((float) Color.green(backgroundColor)) / 255,
+				((float) Color.blue(backgroundColor)) / 255};
+
+		// linear RGB [r', g', b']
+		final float[] postConversionValues = new float[3];
+
+		// sRGB to RGB according to https://goo.gl/vIj7TC
+		for (int i = 0; i < 3; i++) {
+			final float x = preConversionValues[i];
+
+			if (x <= 0.04045) {
+				postConversionValues[i] = (float) (x / 12.92);
+			} else {
+				postConversionValues[i] = (float) Math.pow((x + 0.055) / 1.055, 2.4);
+			}
+		}
+
+		// Luminance as derived from https://www.w3.org/TR/WCAG20/
+		final float luminance = (float) (0.2126 * postConversionValues[0] +
+				0.7152 * postConversionValues[1] +
+				0.0722 * postConversionValues[2]);
+
+		if (luminance > 0.179) {
+			return Color.BLACK;
+		} else {
+			return Color.WHITE;
+		}
 	}
 }
