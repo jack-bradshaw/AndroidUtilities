@@ -18,7 +18,7 @@ import static android.view.View.VISIBLE;
  * @param <V>
  * 		the type of view being tested
  */
-public abstract class ControlsAboveView<V> extends TestHarness<V, FrameLayout> {
+public abstract class ControlsAboveViewTestHarness<V> extends TestHarness<V, FrameLayout> {
 	@Override
 	protected void onCreate(final @Nullable Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);

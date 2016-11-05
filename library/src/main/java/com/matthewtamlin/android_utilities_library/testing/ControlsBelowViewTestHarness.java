@@ -13,33 +13,33 @@ import static android.view.View.GONE;
 import static android.view.View.VISIBLE;
 
 /**
- * A TestHarness which displays control buttons on top of the test view.
+ * A TestHarness which displays control buttons below the test view.
  *
  * @param <V>
  * 		the type of view being tested
  */
-public abstract class ControlsOverView<V> extends TestHarness<V, FrameLayout> {
+public abstract class ControlsBelowViewTestHarness<V> extends TestHarness<V, FrameLayout> {
 	@Override
 	protected void onCreate(final @Nullable Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.controlsoverview);
+		setContentView(R.layout.controlsbelowview);
 		getTestViewContainer().addView((View) getTestView());
 		initialiseControlHiding();
 	}
 
 	@Override
 	public View getRootView() {
-		return findViewById(R.id.controlsOverView_root);
+		return findViewById(R.id.controlsBelowView_root);
 	}
 
 	@Override
 	public LinearLayout getControlButtonContainer() {
-		return (LinearLayout) findViewById(R.id.controlsOverView_controlsContainer);
+		return (LinearLayout) findViewById(R.id.controlsBelowView_controlsContainer);
 	}
 
 	@Override
 	public FrameLayout getTestViewContainer() {
-		return (FrameLayout) findViewById(R.id.controlsOverView_testViewContainer);
+		return (FrameLayout) findViewById(R.id.controlsBelowView_testViewContainer);
 	}
 
 	/**
@@ -47,9 +47,9 @@ public abstract class ControlsOverView<V> extends TestHarness<V, FrameLayout> {
 	 */
 	private void initialiseControlHiding() {
 		final Button toggleControlVisibilityButton = (Button) findViewById(R.id
-				.controlsOverView_showHideControlsButton);
+				.controlsBelowView_hideShowControlsButton);
 		final LinearLayout controlButtonContainer = (LinearLayout) findViewById(R.id
-				.controlsOverView_controlsContainer);
+				.controlsBelowView_controlsContainer);
 
 		toggleControlVisibilityButton.setOnClickListener(new View.OnClickListener() {
 			@Override
