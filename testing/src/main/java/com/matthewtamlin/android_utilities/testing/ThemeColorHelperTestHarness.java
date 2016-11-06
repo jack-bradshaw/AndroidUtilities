@@ -14,22 +14,21 @@
  * limitations under the License.
  */
 
-buildscript {
-	repositories {
-		jcenter()
-	}
+package com.matthewtamlin.android_utilities.testing;
 
-	dependencies {
-		classpath 'com.android.tools.build:gradle:2.2.2'
-	}
-}
+import android.os.Bundle;
 
-allprojects {
-	repositories {
-		jcenter()
-	}
-}
+import com.matthewtamlin.android_utilities.library.helpers.ColorHelper;
+import com.matthewtamlin.android_utilities.library.testing.NoViewTestHarness;
 
-task clean(type: Delete) {
-	delete rootProject.buildDir
+/**
+ * A test harness for testing the {@link ColorHelper} class. The TestTheme is applied to
+ * facilitate testing.
+ */
+public class ThemeColorHelperTestHarness extends NoViewTestHarness {
+	@Override
+	protected final void onCreate(final Bundle savedInstanceState) {
+		setTheme(R.style.TestTheme);
+		super.onCreate(savedInstanceState);
+	}
 }

@@ -17,15 +17,8 @@ limitations under the License.
 -->
 
 <resources>
-	<!-->Custom attributes for the SquareImageView class<-->
-	<declare-styleable name="SquareImageView">
-		<!-->Which dimension which is derived from the other.<-->
-		<attr name="derivedDimension" format="enum">
-			<!-->The width of the ImageView is set to equal the height.<-->
-			<enum name="width" value="0"/>
-
-			<!-->The height of the ImageView is set to equal the width.<-->
-			<enum name="height" value="1"/>
-		</attr>
-	</declare-styleable>
+	<color name="colorPrimary">#FFFF0000</color>
+	<color name="colorPrimaryDark">#FF00FF00</color>
+	<color name="colorAccent">#FF0000FF</color>
+	<color name="colorDefault">#FFFFFF</color>
 </resources>

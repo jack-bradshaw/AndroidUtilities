@@ -14,22 +14,19 @@
  * limitations under the License.
  */
 
-buildscript {
-	repositories {
-		jcenter()
+package com.matthewtamlin.android_utilities.library.testing;
+
+import android.os.Bundle;
+import android.view.View;
+
+public class NoViewTestHarness extends ControlsOverViewTestHarness<View> {
+	@Override
+	protected void onCreate(final Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
 	}
 
-	dependencies {
-		classpath 'com.android.tools.build:gradle:2.2.2'
+	@Override
+	public View getTestView() {
+		return new View(this);
 	}
-}
-
-allprojects {
-	repositories {
-		jcenter()
-	}
-}
-
-task clean(type: Delete) {
-	delete rootProject.buildDir
 }

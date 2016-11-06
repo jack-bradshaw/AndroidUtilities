@@ -17,15 +17,10 @@ limitations under the License.
 -->
 
 <resources>
-	<!-->Custom attributes for the SquareImageView class<-->
-	<declare-styleable name="SquareImageView">
-		<!-->Which dimension which is derived from the other.<-->
-		<attr name="derivedDimension" format="enum">
-			<!-->The width of the ImageView is set to equal the height.<-->
-			<enum name="width" value="0"/>
-
-			<!-->The height of the ImageView is set to equal the width.<-->
-			<enum name="height" value="1"/>
-		</attr>
-	</declare-styleable>
+	<!-->Theme allows testing of the ThemeColorHelper class<-->
+	<style name="TestTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+		<item name="colorPrimary">@color/colorPrimary</item>
+		<item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+		<item name="colorAccent">@color/colorAccent</item>
+	</style>
 </resources>

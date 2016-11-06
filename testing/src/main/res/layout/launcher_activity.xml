@@ -16,16 +16,9 @@ See the License for the specific language governing permissions and
 limitations under the License.
 -->
 
-<resources>
-	<!-->Custom attributes for the SquareImageView class<-->
-	<declare-styleable name="SquareImageView">
-		<!-->Which dimension which is derived from the other.<-->
-		<attr name="derivedDimension" format="enum">
-			<!-->The width of the ImageView is set to equal the height.<-->
-			<enum name="width" value="0"/>
-
-			<!-->The height of the ImageView is set to equal the width.<-->
-			<enum name="height" value="1"/>
-		</attr>
-	</declare-styleable>
-</resources>
+<LinearLayout
+	android:id="@+id/launcher_activity_root"
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+	android:orientation="vertical"/>
