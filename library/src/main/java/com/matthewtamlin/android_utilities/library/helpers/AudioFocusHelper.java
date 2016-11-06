@@ -159,8 +159,19 @@ public class AudioFocusHelper {
 		am.abandonAudioFocus(listener);
 	}
 
+	/**
+	 * Requests audio focus for the supplied listener of the requested type.
+	 *
+	 * @param context
+	 * 		the Context in which {@code listener} is operating, not null
+	 * @param listener
+	 * 		the OnAudioFocusChangeListener which will lose audio focus, not null
+	 * @param streamType
+	 * 		the type of stream to request (see static fields of AudioManager)
+	 * @return true if focus was granted, false otherwise
+	 */
 	private static boolean requestStreamAudioFocus(final Context context, final
-			OnAudioFocusChangeListener listener, final int streamType) {
+	OnAudioFocusChangeListener listener, final int streamType) {
 		NullChecker.checkNonNull(context, "context cannot be null");
 		NullChecker.checkNonNull(listener, "listener cannot be null");
 
