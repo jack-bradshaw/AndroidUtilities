@@ -25,6 +25,8 @@ import com.matthewtamlin.android_utilities.library.collections.ArrayListWithCall
 import org.hamcrest.Matcher;
 import org.junit.Before;
 import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.junit.runners.JUnit4;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -47,6 +49,7 @@ import static org.mockito.Mockito.verify;
 /**
  * Unit tests for the {@link ArrayListWithCallbacks} class.
  */
+@RunWith(JUnit4.class)
 public class TestArrayListWithCallbacks {
 	/**
 	 * A constant which simplifies test writing and refactoring.
