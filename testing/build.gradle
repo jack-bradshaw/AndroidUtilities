@@ -37,15 +37,22 @@ dependencies {
  */
 task grantAndroidTestPermissions(type: Exec) {
 	// Permissions list is based on the contents of the instrumented tests
-	def permissions = ['android.permission.WRITE_EXTERNAL_STORAGE']
+	def permissionsToGrant = ['android.permission.WRITE_EXTERNAL_STORAGE', 'android.permission.NFC']
+	def permissionsToDeny = ['android.permission.ACCOUNT_MANAGER']
 
 	// Get the path to the adb shell
 	def androidPlugin = project.plugins.findPlugin("android")
 	def adb = androidPlugin.sdkHandler.sdkInfo?.adb
 
-	// Grant each permission
-	permissions.each {
+	// Grant the required permissions
+	permissionsToGrant.each {
 		commandLine "$adb", "shell", "pm", "grant", "com.matthewtamlin.android_utilities.testing",
+				"$it"
+	}
+
+	// Deny the necessary permissions
+	permissionsToDeny.each {
+		commandLine "$adb", "shell", "pm", "deny", "com.matthewtamlin.android_utilities.testing",
 				"$it"
 	}
 }
