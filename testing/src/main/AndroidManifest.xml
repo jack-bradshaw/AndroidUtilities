@@ -20,6 +20,9 @@ limitations under the License.
 	package="com.matthewtamlin.android_utilities.testing"
 	xmlns:android="http://schemas.android.com/apk/res/android">
 
+	<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+	<uses-permission android:name="android.permission.NFC"/>
+
 	<application
 		android:allowBackup="false"
 		android:icon="@mipmap/ic_launcher"
