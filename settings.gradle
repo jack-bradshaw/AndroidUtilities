@@ -1,1 +1,1 @@
-include ':library', ':unit testing', ':manual testing'
+include ':library', ':testing'
