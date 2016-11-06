@@ -2,12 +2,12 @@ apply plugin: 'com.android.application'
 
 android {
 	compileSdkVersion 24
-	buildToolsVersion "24.0.1"
+	buildToolsVersion "24.0.3"
 
 	defaultConfig {
 		minSdkVersion 11
 		targetSdkVersion 24
-		applicationId "com.matthewtamlin.android_utilities_manual_test_app"
+		applicationId "com.matthewtamlin.android_utilities.testing"
 	}
 }
 

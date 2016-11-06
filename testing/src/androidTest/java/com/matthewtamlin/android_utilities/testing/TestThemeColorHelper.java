@@ -14,14 +14,14 @@
  * limitations under the License.
  */
 
-package com.matthewtamlin.android_utilities;
+package com.matthewtamlin.android_utilities.testing;
 
 import android.app.Activity;
 import android.content.Context;
 import android.support.test.rule.ActivityTestRule;
 import android.support.test.runner.AndroidJUnit4;
 
-import com.matthewtamlin.android_utilities.helpers.ThemeColorHelper;
+import com.matthewtamlin.android_utilities.testing.helpers.ThemeColorHelper;
 
 import org.junit.Before;
 import org.junit.Rule;
