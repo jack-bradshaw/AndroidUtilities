@@ -14,14 +14,14 @@
  * limitations under the License.
  */
 
-package com.matthewtamlin.android_utilities.helpers;
+package com.matthewtamlin.android_utilities.library.helpers;
 
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.util.TypedValue;
 
-import com.matthewtamlin.android_utilities.R;
-import com.matthewtamlin.android_utilities.testing.Tested;
+import com.matthewtamlin.android_utilities.library.R;
+import com.matthewtamlin.android_utilities.library.testing.Tested;
 
 /**
  * Utilities for extracting the primary, primary dark and accent colors from a theme.

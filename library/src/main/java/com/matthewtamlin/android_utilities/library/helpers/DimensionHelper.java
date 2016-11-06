@@ -14,13 +14,13 @@
  * limitations under the License.
  */
 
-package com.matthewtamlin.android_utilities.helpers;
+package com.matthewtamlin.android_utilities.library.helpers;
 
 import android.content.Context;
 import android.util.DisplayMetrics;
 import android.util.TypedValue;
 
-import com.matthewtamlin.android_utilities.testing.Tested;
+import com.matthewtamlin.android_utilities.library.testing.Tested;
 
 /**
  * Helper class for converting complex units to pixels.

@@ -1,4 +1,4 @@
-package com.matthewtamlin.android_utilities.testing;
+package com.matthewtamlin.android_utilities.library.testing;
 
 import android.os.Bundle;
 import android.view.View;

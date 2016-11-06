@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.matthewtamlin.android_utilities.testing;
+package com.matthewtamlin.android_utilities.library.testing;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;

@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.matthewtamlin.android_utilities.helpers;
+package com.matthewtamlin.android_utilities.library.helpers;
 
 import android.annotation.SuppressLint;
 import android.content.res.Resources;

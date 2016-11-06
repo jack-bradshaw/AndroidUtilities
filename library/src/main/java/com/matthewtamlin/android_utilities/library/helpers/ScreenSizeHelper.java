@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.matthewtamlin.android_utilities.helpers;
+package com.matthewtamlin.android_utilities.library.helpers;
 
 import android.content.Context;
 import android.content.res.Configuration;
@@ -22,7 +22,7 @@ import android.content.res.Resources;
 import android.util.DisplayMetrics;
 import android.view.WindowManager;
 
-import com.matthewtamlin.android_utilities.testing.Tested;
+import com.matthewtamlin.android_utilities.library.testing.Tested;
 
 /**
  * Helper class for working with screen sizes.

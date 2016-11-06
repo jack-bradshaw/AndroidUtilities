@@ -14,9 +14,9 @@
  * limitations under the License.
  */
 
-package com.matthewtamlin.android_utilities.collections;
+package com.matthewtamlin.android_utilities.library.collections;
 
-import com.matthewtamlin.android_utilities.testing.Tested;
+import com.matthewtamlin.android_utilities.library.testing.Tested;
 
 import java.util.ArrayList;
 import java.util.Collection;

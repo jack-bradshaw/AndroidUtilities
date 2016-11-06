@@ -14,9 +14,9 @@
  * limitations under the License.
  */
 
-package com.matthewtamlin.android_utilities.checkers;
+package com.matthewtamlin.android_utilities.library.checkers;
 
-import com.matthewtamlin.android_utilities.testing.Tested;
+import com.matthewtamlin.android_utilities.library.testing.Tested;
 
 /**
  * Utility for implementing null guards without boilerplate code.

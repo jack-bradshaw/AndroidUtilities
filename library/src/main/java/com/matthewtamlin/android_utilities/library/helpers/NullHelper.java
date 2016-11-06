@@ -14,9 +14,9 @@
  * limitations under the License.
  */
 
-package com.matthewtamlin.android_utilities.helpers;
+package com.matthewtamlin.android_utilities.library.helpers;
 
-import com.matthewtamlin.android_utilities.testing.Tested;
+import com.matthewtamlin.android_utilities.library.testing.Tested;
 
 /**
  * Helper class for working with null.
