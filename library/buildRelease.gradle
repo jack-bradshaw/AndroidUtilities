@@ -1,6 +1,6 @@
 /*
- * This gradle script was designed to easily export Android library projects to AAR libraries. All 
- * credit for its creation goes to Blundell (see http://blog.blundellapps.co.uk).
+ * This gradle script was designed to easily export Android library projects to AAR libraries. It
+ * was adapted from a script released by Blundell (see http://blog.blundellapps.co.uk).
  */
 
 apply plugin: 'maven'
