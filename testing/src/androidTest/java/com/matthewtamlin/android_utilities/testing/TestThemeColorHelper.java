@@ -69,6 +69,9 @@ public class TestThemeColorHelper {
 	 */
 	private Activity activity;
 
+	/**
+	 * Initialises the testing environment and checks that all preconditions pass.
+	 */
 	@Before
 	public void init() {
 		activity = testActivityRule.getActivity();
