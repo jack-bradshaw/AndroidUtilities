@@ -23,8 +23,8 @@ import android.support.annotation.RequiresApi;
 import android.view.View;
 import android.widget.Button;
 
-import com.matthewtamlin.android_utilities.testing.helpers.StatusBarHelper;
-import com.matthewtamlin.android_utilities.testing.testing.NoViewTestHarness;
+import com.matthewtamlin.android_utilities.library.helpers.StatusBarHelper;
+import com.matthewtamlin.android_utilities.library.testing.NoViewTestHarness;
 
 @RequiresApi(16) // For client
 @TargetApi(16) // For lint

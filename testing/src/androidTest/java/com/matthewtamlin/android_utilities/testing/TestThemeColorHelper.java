@@ -21,7 +21,8 @@ import android.content.Context;
 import android.support.test.rule.ActivityTestRule;
 import android.support.test.runner.AndroidJUnit4;
 
-import com.matthewtamlin.android_utilities.testing.helpers.ThemeColorHelper;
+
+import com.matthewtamlin.android_utilities.library.helpers.ThemeColorHelper;
 
 import org.junit.Before;
 import org.junit.Rule;

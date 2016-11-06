@@ -16,11 +16,11 @@
 
 package com.matthewtamlin.android_utilities.testing;
 
-import com.matthewtamlin.android_utilities.testing.collections.ArrayListWithCallbacks;
-import com.matthewtamlin.android_utilities.testing.collections.ArrayListWithCallbacks.OnItemAddedListener;
-import com.matthewtamlin.android_utilities.testing.collections.ArrayListWithCallbacks.OnItemRemovedListener;
-import com.matthewtamlin.android_utilities.testing.collections.ArrayListWithCallbacks.OnListChangedListener;
-import com.matthewtamlin.android_utilities.testing.collections.ArrayListWithCallbacks.OnListClearedListener;
+import com.matthewtamlin.android_utilities.library.collections.ArrayListWithCallbacks;
+import com.matthewtamlin.android_utilities.library.collections.ArrayListWithCallbacks.OnItemAddedListener;
+import com.matthewtamlin.android_utilities.library.collections.ArrayListWithCallbacks.OnItemRemovedListener;
+import com.matthewtamlin.android_utilities.library.collections.ArrayListWithCallbacks.OnListChangedListener;
+import com.matthewtamlin.android_utilities.library.collections.ArrayListWithCallbacks.OnListClearedListener;
 
 import org.hamcrest.Matcher;
 import org.junit.Before;

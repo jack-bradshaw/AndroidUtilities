@@ -16,10 +16,11 @@
 
 package com.matthewtamlin.android_utilities.testing;
 
-import com.matthewtamlin.android_utilities.testing.collections.Grouper;
-import com.matthewtamlin.android_utilities.testing.collections.KeyBasedGrouper;
-import com.matthewtamlin.android_utilities.testing.collections.KeyBasedGrouper.GroupKeyGenerator;
-import com.matthewtamlin.android_utilities.testing.collections.KeyBasedGrouper.Supplier;
+
+import com.matthewtamlin.android_utilities.library.collections.Grouper;
+import com.matthewtamlin.android_utilities.library.collections.KeyBasedGrouper;
+import com.matthewtamlin.android_utilities.library.collections.KeyBasedGrouper.GroupKeyGenerator;
+import com.matthewtamlin.android_utilities.library.collections.KeyBasedGrouper.Supplier;
 
 import org.junit.Before;
 import org.junit.Test;
