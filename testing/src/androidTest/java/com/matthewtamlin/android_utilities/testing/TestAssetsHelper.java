@@ -20,7 +20,7 @@ import android.content.Context;
 import android.support.test.InstrumentationRegistry;
 import android.support.test.runner.AndroidJUnit4;
 
-import com.matthewtamlin.android_utilities.testing.helpers.AssetsHelper;
+import com.matthewtamlin.android_utilities.library.helpers.AssetsHelper;
 
 import org.junit.Before;
 import org.junit.Test;

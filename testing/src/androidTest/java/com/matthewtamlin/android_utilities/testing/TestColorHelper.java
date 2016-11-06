@@ -18,7 +18,8 @@ package com.matthewtamlin.android_utilities.testing;
 
 import android.support.test.runner.AndroidJUnit4;
 
-import com.matthewtamlin.android_utilities.testing.helpers.ColorHelper;
+
+import com.matthewtamlin.android_utilities.library.helpers.ColorHelper;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;

@@ -1,6 +1,6 @@
 package com.matthewtamlin.android_utilities.testing;
 
-import com.matthewtamlin.android_utilities.testing.checkers.IntChecker;
+import com.matthewtamlin.android_utilities.library.checkers.IntChecker;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;

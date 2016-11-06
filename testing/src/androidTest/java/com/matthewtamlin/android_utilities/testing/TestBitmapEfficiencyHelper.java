@@ -22,7 +22,7 @@ import android.graphics.BitmapFactory;
 import android.support.test.InstrumentationRegistry;
 import android.support.test.runner.AndroidJUnit4;
 
-import com.matthewtamlin.android_utilities.testing.helpers.BitmapEfficiencyHelper;
+import com.matthewtamlin.android_utilities.library.helpers.BitmapEfficiencyHelper;
 import com.matthewtamlin.android_utilities.testing.test.R;
 
 import org.junit.Before;

@@ -1,12 +1,11 @@
 package com.matthewtamlin.android_utilities.testing;
 
-import com.matthewtamlin.android_utilities.testing.helpers.NullHelper;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.JUnit4;
 
-import static com.matthewtamlin.android_utilities.testing.helpers.NullHelper.nullSafeEquals;
+import static com.matthewtamlin.android_utilities.library.helpers.NullHelper.nullSafeEquals;
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.MatcherAssert.assertThat;
 

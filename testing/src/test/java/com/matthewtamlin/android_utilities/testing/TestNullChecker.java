@@ -1,6 +1,7 @@
 package com.matthewtamlin.android_utilities.testing;
 
-import com.matthewtamlin.android_utilities.testing.checkers.NullChecker;
+
+import com.matthewtamlin.android_utilities.library.checkers.NullChecker;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
