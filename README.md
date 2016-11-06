@@ -13,6 +13,7 @@ The helpers package contains classes with useful static methods, designed to eli
 - `BitmapEfficiencyHelper`: Utility for efficiently decoding bitmap images.
 - `ColorHelper`: Utility for blending colors together.
 - `DimensionHelper`: Utility for converting complex dimensions (such as DP) to pixels.
+- `NullHelper`: Utility for working with null without boilerplate code.
 - `PermissionsHelper`: Utility for determining if a series of permissions have been granted. 
 - `ScreenSizeHelper`: Utility for querying information about the device screen size.
 - `StatusBarHelper`: Utility for hiding and showing the status bar. Functionality varies depending on SDK version.
@@ -21,10 +22,16 @@ The helpers package contains classes with useful static methods, designed to eli
 ## Collections
 The collections class contains three components: The `ArrayListWithCallbacks` class, the `Grouper` interface and the `KeyBasedGrouper` class.
  - `ArrayListWithCallbacks` is a subclass of the standard Java ArrayList which delivers callbacks to registered listeners whenever the Collection is modified.
- - `KeyBasedGrouper` implements the `Grouper` interface. It allows a Collection to be easily grouped into smaller Collections.
+ - `KeyBasedGrouper` implements the `Grouper` interface. It allows a contents of a Collection to be easily grouped into smaller Collections.
 
 ## Views
 There is currently one class in the views package: `SquareImageView`. This View is a simple extension of the ImageView class, which forces one of the dimensions (width or height) to equal the other.
+
+## Testing
+The testing package contains classes which are useful when testing Android projects. The package contains:
+- `@Tested`: An annotation for keeping track of which classes have been tested and how they were tested.
+- `TestHarness` interface and implementations: Activities which host a view and controls to interact with the view. This simplifies manual and automated testing of custom views simple. 
+-
 
 ## Licensing
 This library is licenced under the Apache v2.0 licence. Have a look at [the license](LICENSE) for details.
