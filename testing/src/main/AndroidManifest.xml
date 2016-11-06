@@ -35,6 +35,6 @@ limitations under the License.
 		</activity>
 
 		<activity android:name=".StatusBarHelperTestHarness"/>
-		<activity android:name=".ColorHelperTestHarness"/>
+		<activity android:name=".ThemeColorHelperTestHarness"/>
 	</application>
 </manifest>
