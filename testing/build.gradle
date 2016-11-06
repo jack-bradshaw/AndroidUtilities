@@ -8,6 +8,8 @@ android {
 		minSdkVersion 11
 		targetSdkVersion 24
 		applicationId "com.matthewtamlin.android_utilities.testing"
+
+		testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
 	}
 }
 
