@@ -14,14 +14,14 @@
  * limitations under the License.
  */
 
-package com.matthewtamlin.android_utilities.helpers;
+package com.matthewtamlin.android_utilities.library.helpers;
 
 import android.content.Context;
 import android.media.AudioManager;
 import android.media.AudioManager.OnAudioFocusChangeListener;
 
-import com.matthewtamlin.android_utilities.checkers.NullChecker;
-import com.matthewtamlin.android_utilities.testing.Tested;
+import com.matthewtamlin.android_utilities.library.checkers.NullChecker;
+import com.matthewtamlin.android_utilities.library.testing.Tested;
 
 /**
  * Helper class for obtaining and abandoning audio focus.

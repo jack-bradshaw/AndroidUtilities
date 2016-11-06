@@ -14,14 +14,14 @@
  * limitations under the License.
  */
 
-package com.matthewtamlin.android_utilities.helpers;
+package com.matthewtamlin.android_utilities.library.helpers;
 
 import android.content.Context;
 import android.content.res.AssetManager;
 import android.support.annotation.RequiresPermission;
 import android.util.Log;
 
-import com.matthewtamlin.android_utilities.testing.Tested;
+import com.matthewtamlin.android_utilities.library.testing.Tested;
 
 import java.io.Closeable;
 import java.io.File;

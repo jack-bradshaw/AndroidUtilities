@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.matthewtamlin.android_utilities.collections;
+package com.matthewtamlin.android_utilities.library.collections;
 
 import java.util.Collection;
 import java.util.Set;

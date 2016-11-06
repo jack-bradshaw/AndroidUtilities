@@ -14,14 +14,14 @@
  * limitations under the License.
  */
 
-package com.matthewtamlin.android_utilities.views;
+package com.matthewtamlin.android_utilities.library.views;
 
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.util.AttributeSet;
 import android.widget.ImageView;
 
-import com.matthewtamlin.android_utilities.R;
+import com.matthewtamlin.android_utilities.library.R;
 
 /**
  * An ImageView where one dimension is forced to equal the other. By default, the height is derived

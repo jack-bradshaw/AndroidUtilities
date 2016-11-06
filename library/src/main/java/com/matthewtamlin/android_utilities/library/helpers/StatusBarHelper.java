@@ -14,14 +14,14 @@
  * limitations under the License.
  */
 
-package com.matthewtamlin.android_utilities.helpers;
+package com.matthewtamlin.android_utilities.library.helpers;
 
 import android.annotation.TargetApi;
 import android.support.annotation.RequiresApi;
 import android.view.View;
 import android.view.Window;
 
-import com.matthewtamlin.android_utilities.testing.Tested;
+import com.matthewtamlin.android_utilities.library.testing.Tested;
 
 /**
  * Utilities for hiding and showing the status bar.
