@@ -18,6 +18,7 @@ package com.matthewtamlin.android_utilities.library.helpers;
 
 import android.annotation.TargetApi;
 import android.support.annotation.RequiresApi;
+import android.support.v4.view.ViewPager.DecorView;
 import android.view.View;
 import android.view.Window;
 
@@ -31,8 +32,7 @@ import com.matthewtamlin.android_utilities.library.testing.Tested;
 @Tested(testMethod = "manual", requiresInstrumentation = true)
 public class StatusBarHelper {
 	/**
-	 * Passing this value to {@link android.support.v4.view.ViewPager.DecorView#setSystemUiVisibility(int)}
-	 * will show the status bar.
+	 * Passing this value to {@link DecorView#setSystemUiVisibility(int)} will show the status bar.
 	 */
 	private static final int SHOW_STATUS_BAR_FLAG = 0;
 
