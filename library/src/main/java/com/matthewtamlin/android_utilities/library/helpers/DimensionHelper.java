@@ -25,7 +25,6 @@ import com.matthewtamlin.android_utilities.library.testing.Tested;
 /**
  * Helper class for converting complex units to pixels.
  */
-@Tested(testMethod = "automated", requiresInstrumentation = true)
 public class DimensionHelper {
 	/**
 	 * Converts a dimension from display-independent pixels (dp) to pixels (px).
