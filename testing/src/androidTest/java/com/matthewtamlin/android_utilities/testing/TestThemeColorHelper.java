@@ -58,12 +58,9 @@ public class TestThemeColorHelper {
 	 */
 	private int defaultColor;
 
-	/**
-	 * Provides access to an Activity with the expected colors in the theme.
-	 */
 	@Rule
-	public final ActivityTestRule<StatusBarHelperTestHarness> testActivityRule = new
-			ActivityTestRule<>(StatusBarHelperTestHarness.class);
+	public final ActivityTestRule<ThemeColorHelperTestHarness> testActivityRule = new
+			ActivityTestRule<>(ThemeColorHelperTestHarness.class);
 
 	/**
 	 * The Activity referenced by {@code testActivityRule}.
