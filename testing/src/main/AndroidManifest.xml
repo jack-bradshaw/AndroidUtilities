@@ -18,28 +18,22 @@ limitations under the License.
 
 <manifest
 	package="com.matthewtamlin.android_utilities_manual_testing"
-	xmlns:android="http://schemas.android.com/apk/res/android"
-	xmlns:tools="http://schemas.android.com/tools">
+	xmlns:android="http://schemas.android.com/apk/res/android">
 
 	<application
 		android:allowBackup="false"
 		android:icon="@mipmap/ic_launcher"
-		android:label="Manual Testing"
+		android:label="Android Utilities - Testing"
 		android:supportsRtl="true"
-		android:theme="@style/Theme.AppCompat.Light.DarkActionBar"
-		tools:ignore="GoogleAppIndexingWarning">
+		android:theme="@style/Theme.AppCompat.NoActionBar">
 
-		<activity
-			android:name=".LauncherActivity">
-
+		<activity android:name=".LauncherActivity">
 			<intent-filter>
 				<action android:name="android.intent.action.MAIN"/>
 				<category android:name="android.intent.category.LAUNCHER"/>
 			</intent-filter>
 		</activity>
 
-		<activity
-			android:name=".TestStatusBarHelper"
-			android:theme="@style/Theme.AppCompat.NoActionBar"/>
+		<activity android:name=".StatusBarHelperTestHarness"/>
 	</application>
 </manifest>
