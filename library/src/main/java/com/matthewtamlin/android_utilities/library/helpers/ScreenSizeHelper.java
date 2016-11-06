@@ -27,7 +27,6 @@ import com.matthewtamlin.android_utilities.library.testing.Tested;
 /**
  * Helper class for working with screen sizes.
  */
-@SuppressWarnings("WeakerAccess") // Library classes must be public
 @Tested(testMethod = "automated", requiresInstrumentation = true)
 public class ScreenSizeHelper {
 	/**

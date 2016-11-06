@@ -25,7 +25,6 @@ import com.matthewtamlin.android_utilities.library.testing.Tested;
 /**
  * Helper class for converting complex units to pixels.
  */
-@SuppressWarnings("WeakerAccess")
 @Tested(testMethod = "automated", requiresInstrumentation = true)
 public class DimensionHelper {
 	/**
