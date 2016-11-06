@@ -16,31 +16,39 @@
 
 package com.matthewtamlin.android_utilities_manual_testing;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
-
-import com.matthewtamlin.android_utilities_library.helpers.StatusBarHelper;
+import android.widget.Button;
+import android.widget.LinearLayout;
 
 /**
  * Launches the manual tests.
  */
+@SuppressLint("SetTextI18n")
 public class LauncherActivity extends AppCompatActivity {
 	@Override
-	protected void onCreate(Bundle savedInstanceState) {
+	protected void onCreate(final Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_main);
+		setContentView(R.layout.launcher_activity);
+
+		final LinearLayout rootView = (LinearLayout) findViewById(R.id.launcher_activity_root);
+		rootView.addView(createLaunchStatusBarHelperTestHarnessButton());
 	}
 
-	/**
-	 * Launches manual tests for the {@link StatusBarHelper} class.
-	 *
-	 * @param v
-	 * 		the View which was clicked to initiate the test
-	 */
-	@SuppressWarnings("UnusedParameters")
-	public void launchTestStatusBarHelperActivity(final View v) {
-		startActivity(new Intent(this, TestStatusBarHelper.class));
+	private Button createLaunchStatusBarHelperTestHarnessButton() {
+		final Button b = new Button(this);
+		b.setText("Launch StatusBarHelper test harness");
+
+		b.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(final View view) {
+				startActivity(new Intent(LauncherActivity.this, StatusBarHelperTestHarness.class));
+			}
+		});
+
+		return b;
 	}
 }
