@@ -68,20 +68,20 @@ public class TestPermissionsHelper {
 		context = InstrumentationRegistry.getContext();
 
 		// Check precondition 1: The context is not null
-		assertThat("Precondition 1 failed.", context, is(notNullValue()));
+		assertThat("Precondition 1 failed. Context is null.", context, is(notNullValue()));
 
 		// Check precondition 2: The context has been granted all permissions in GRANTED_PERMISSIONS
 		for (final String permission : GRANTED_PERMISSIONS) {
 			final boolean isGranted = (ContextCompat.checkSelfPermission(context, permission) ==
 					PERMISSION_GRANTED);
-			assertThat("Precondition 2 failed.", isGranted);
+			assertThat("Precondition 2 failed. Expected permissions not granted.", isGranted);
 		}
 
-		// Check precondition 3: The context has been denied all permissions in GRANTED_PERMISSIONS
+		// Check precondition 3: The context has been denied all permissions in DENIED_PERMISSIONS
 		for (final String permission : DENIED_PERMISSIONS) {
 			final boolean isGranted = (ContextCompat.checkSelfPermission(context, permission) ==
 					PERMISSION_GRANTED);
-			assertThat("Precondition 3 failed.", !isGranted);
+			assertThat("Precondition 3 failed. Expected permissions not denied", !isGranted);
 		}
 	}
 
