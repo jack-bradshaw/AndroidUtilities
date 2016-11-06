@@ -29,8 +29,8 @@ import java.io.File;
  * @deprecated use {@link BitmapEfficiencyHelper} instead
  */
 @Deprecated
-@SuppressWarnings("ALL") // It's deprecated, don't bother with warnings
-@SuppressLint("ALL") // It's deprecated, don't bother with lint
+@SuppressWarnings("ALL") // Ignore warnings on deprecated classes
+@SuppressLint("ALL") // Ignore lint on deprecated classes
 public abstract class BitmapHelper {
 	/**
 	 * Calculates the largest sampling rate which is a power of two and keeps the scaled height and
