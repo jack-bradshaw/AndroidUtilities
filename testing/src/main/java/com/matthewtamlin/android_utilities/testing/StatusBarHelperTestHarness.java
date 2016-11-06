@@ -34,8 +34,8 @@ public class StatusBarHelperTestHarness extends NoViewTestHarness {
 	protected void onCreate(final Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 
-		getControlButtonContainer().addView(createShowStatusBarButton());
-		getControlButtonContainer().addView(createHideStatusBarButton());
+		getControlsContainer().addView(createShowStatusBarButton());
+		getControlsContainer().addView(createHideStatusBarButton());
 	}
 
 	private Button createShowStatusBarButton() {

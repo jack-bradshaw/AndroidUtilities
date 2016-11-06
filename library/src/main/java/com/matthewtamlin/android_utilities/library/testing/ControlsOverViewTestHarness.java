@@ -33,7 +33,7 @@ public abstract class ControlsOverViewTestHarness<V> extends TestHarness<V, Fram
 	}
 
 	@Override
-	public LinearLayout getControlButtonContainer() {
+	public LinearLayout getControlsContainer() {
 		return (LinearLayout) findViewById(R.id.controlsOverView_controlsContainer);
 	}
 
