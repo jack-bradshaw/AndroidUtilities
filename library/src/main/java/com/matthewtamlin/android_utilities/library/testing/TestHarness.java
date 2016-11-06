@@ -7,7 +7,7 @@ import android.view.View;
 import android.widget.LinearLayout;
 
 /**
- * An activity which hosts a view to be tested, as well as buttons for interacting with the view.
+ * An activity which hosts a view to be tested, as well as controls for interacting with the view.
  *
  * @param <V>
  * 		the type of view being tested
@@ -26,9 +26,9 @@ public abstract class TestHarness<V, C> extends AppCompatActivity {
 	public abstract View getRootView();
 
 	/**
-	 * @return the view which contains the control buttons, not null
+	 * @return the view which contains the controls, not null
 	 */
-	public abstract LinearLayout getControlButtonContainer();
+	public abstract LinearLayout getControlsContainer();
 
 	/**
 	 * @return the view under test, not null
