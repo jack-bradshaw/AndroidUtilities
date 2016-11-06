@@ -68,11 +68,34 @@ public class SquareImageView extends ImageView {
 		init(attrs, 0, 0);
 	}
 
+	/**
+	 * Constructs a new SquareImageViewByWidth instance.
+	 *
+	 * @param context
+	 * 		the context this SquareImageViewByWidth is operating in, not null
+	 * @param attrs
+	 * 		configuration attributes, null allowed
+	 * @param defStyleAttr
+	 * 		an attribute in the current theme which supplies default attributes, pass 0	to ignore
+	 */
 	public SquareImageView(Context context, AttributeSet attrs, int defStyleAttr) {
 		super(context, attrs, defStyleAttr);
 		init(attrs, defStyleAttr, 0);
 	}
 
+	/**
+	 * Constructs a new SquareImageViewByWidth instance.
+	 *
+	 * @param context
+	 * 		the context this SquareImageViewByWidth is operating in, not null
+	 * @param attrs
+	 * 		configuration attributes, null allowed
+	 * @param defStyleAttr
+	 * 		an attribute in the current theme which supplies default attributes, pass 0	to ignore
+	 * @param defStyleRes
+	 * 		a resource which supplies default attributes, only used if {@code defStyleAttr}	is 0, pass
+	 * 		0 to ignore
+	 */
 	public SquareImageView(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
 		super(context, attrs, defStyleAttr);
 		init(attrs, defStyleAttr, defStyleRes);
