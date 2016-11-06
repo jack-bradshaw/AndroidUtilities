@@ -25,7 +25,7 @@ import android.widget.Button;
 import android.widget.LinearLayout;
 
 /**
- * Launches the manual tests.
+ * Provides access to the test harnesses.
  */
 @SuppressLint("SetTextI18n")
 public class LauncherActivity extends AppCompatActivity {
