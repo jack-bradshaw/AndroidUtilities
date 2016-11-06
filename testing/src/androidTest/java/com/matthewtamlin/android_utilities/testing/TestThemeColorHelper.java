@@ -20,6 +20,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.support.test.rule.ActivityTestRule;
 import android.support.test.runner.AndroidJUnit4;
+import android.support.v4.content.ContextCompat;
 
 import com.matthewtamlin.android_utilities.library.helpers.ThemeColorHelper;
 
@@ -38,24 +39,24 @@ import static org.hamcrest.Matchers.notNullValue;
 @RunWith(AndroidJUnit4.class)
 public class TestThemeColorHelper {
 	/**
-	 * The expected primary color in the theme of the test activity.
+	 * The expected primary color, as an ARGB hex code.
 	 */
-	private static final int EXPECTED_PRIMARY_COLOR = 0xFFFF0000;
+	private int primaryColor;
 
 	/**
-	 * The expected primary dark color in the theme of the test activity.
+	 * The expected primary dark color, as an ARGB hex code.
 	 */
-	private static final int EXPECTED_PRIMARY_DARK_COLOR = 0xFF00FF00;
+	private int primaryDarkColor;
 
 	/**
-	 * The expected accent color in the theme of the test activity.
+	 * The expected accent color, as an ARGB hex code.
 	 */
-	private static final int EXPECTED_ACCENT_COLOR = 0xFF0000FF;
+	private int accentColor;
 
 	/**
-	 * The default color to use in testing.
+	 * The expected default color, as an ARGB hex code.
 	 */
-	private static final int DEFAULT_COLOR = 0xFF123456;
+	private int defaultColor;
 
 	/**
 	 * Provides access to an Activity with the expected colors in the theme.
@@ -77,6 +78,11 @@ public class TestThemeColorHelper {
 		activity = testActivityRule.getActivity();
 
 		assertThat("Precondition 1 failed. The activity is null.", activity, is(notNullValue()));
+
+		primaryColor = ContextCompat.getColor(activity, R.color.colorPrimary);
+		primaryDarkColor = ContextCompat.getColor(activity, R.color.colorPrimaryDark);
+		accentColor = ContextCompat.getColor(activity, R.color.colorAccent);
+		defaultColor = ContextCompat.getColor(activity, R.color.colorDefault);
 	}
 
 	/**
@@ -85,7 +91,7 @@ public class TestThemeColorHelper {
 	 */
 	@Test(expected = IllegalArgumentException.class)
 	public void testGetPrimaryColor_invalidArg_nullContext() {
-		ThemeColorHelper.getPrimaryColor(null, DEFAULT_COLOR);
+		ThemeColorHelper.getPrimaryColor(null, defaultColor);
 	}
 
 	/**
@@ -94,9 +100,9 @@ public class TestThemeColorHelper {
 	 */
 	@Test
 	public void testGetPrimaryColor_validArgs() {
-		final int primaryColor = ThemeColorHelper.getPrimaryColor(activity, DEFAULT_COLOR);
+		final int primaryColor = ThemeColorHelper.getPrimaryColor(activity, defaultColor);
 
-		assertThat("Incorrect color returned.", primaryColor, is(EXPECTED_PRIMARY_COLOR));
+		assertThat("Incorrect color returned.", primaryColor, is(primaryColor));
 	}
 
 	/**
@@ -105,7 +111,7 @@ public class TestThemeColorHelper {
 	 */
 	@Test(expected = IllegalArgumentException.class)
 	public void testGetPrimaryDarkColor_invalidArg_nullContext() {
-		ThemeColorHelper.getPrimaryDarkColor(null, DEFAULT_COLOR);
+		ThemeColorHelper.getPrimaryDarkColor(null, defaultColor);
 	}
 
 	/**
@@ -115,9 +121,9 @@ public class TestThemeColorHelper {
 	@Test
 	public void testGetPrimaryDarkColor_validArgs() {
 		final int primaryDarkColor = ThemeColorHelper.getPrimaryDarkColor(activity,
-				DEFAULT_COLOR);
+				defaultColor);
 
-		assertThat("Incorrect color returned.", primaryDarkColor, is(EXPECTED_PRIMARY_DARK_COLOR));
+		assertThat("Incorrect color returned.", primaryDarkColor, is(primaryDarkColor));
 	}
 
 	/**
@@ -126,7 +132,7 @@ public class TestThemeColorHelper {
 	 */
 	@Test(expected = IllegalArgumentException.class)
 	public void testGetAccentColor_invalidArg_nullContext() {
-		ThemeColorHelper.getAccentColor(null, DEFAULT_COLOR);
+		ThemeColorHelper.getAccentColor(null, defaultColor);
 	}
 
 	/**
@@ -135,8 +141,8 @@ public class TestThemeColorHelper {
 	 */
 	@Test
 	public void testGetAccentColor_validArgs() {
-		final int accentColor = ThemeColorHelper.getAccentColor(activity, DEFAULT_COLOR);
+		final int accentColor = ThemeColorHelper.getAccentColor(activity, defaultColor);
 
-		assertThat("Incorrect color returned.", accentColor, is(EXPECTED_ACCENT_COLOR));
+		assertThat("Incorrect color returned.", accentColor, is(accentColor));
 	}
 }
