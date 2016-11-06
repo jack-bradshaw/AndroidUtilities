@@ -141,7 +141,7 @@ public class SquareImageView extends ImageView {
 	}
 
 	/**
-	 * Which dimension which is forced to equal the other.
+	 * The dimension which is forced to equal the other.
 	 */
 	private enum DerivedDimension {
 		WIDTH,
