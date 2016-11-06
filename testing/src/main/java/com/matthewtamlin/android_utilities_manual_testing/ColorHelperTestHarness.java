@@ -2,24 +2,15 @@ package com.matthewtamlin.android_utilities_manual_testing;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 
-/**
- * An Activity for use in instrumented unit testing.
- */
-public class ColorHelperTestHarness extends AppCompatActivity {
+import com.matthewtamlin.android_utilities_library.testing.NoViewTestHarness;
+
+public class ColorHelperTestHarness extends NoViewTestHarness {
 	@Override
 	protected final void onCreate(final Bundle savedInstanceState) {
 		setTheme(R.style.TestTheme);
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_test);
-	}
-
-	/**
-	 * @return the root view of the activity, null if {@link #onCreate(Bundle)} has not yet run
-	 */
-	@SuppressWarnings("unused")
-	public LinearLayout getRootView() {
-		return (LinearLayout) findViewById(R.id.activity_test_root);
 	}
 }
