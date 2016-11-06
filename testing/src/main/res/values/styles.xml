@@ -19,8 +19,8 @@ limitations under the License.
 <resources>
 	<!-->Theme allows testing of the ThemeColorHelper class<-->
 	<style name="TestTheme" parent="Theme.AppCompat.Light.DarkActionBar">
-		<item name="colorPrimary">#FFFF0000</item>
-		<item name="colorPrimaryDark">#FF00FF00</item>
-		<item name="colorAccent">#FF0000FF</item>
+		<item name="colorPrimary">@color/colorPrimary</item>
+		<item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+		<item name="colorAccent">@color/colorAccent</item>
 	</style>
 </resources>
