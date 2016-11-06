@@ -26,6 +26,9 @@ import android.widget.Button;
 import com.matthewtamlin.android_utilities.library.helpers.StatusBarHelper;
 import com.matthewtamlin.android_utilities.library.testing.NoViewTestHarness;
 
+/**
+ * Test Harness for testing the {@link StatusBarHelper} class.
+ */
 @RequiresApi(16) // For client
 @TargetApi(16) // For lint
 @SuppressLint("SetTextI18n") // Not important during testing
