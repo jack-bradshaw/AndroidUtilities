@@ -21,7 +21,6 @@ import android.content.Context;
 import android.support.test.rule.ActivityTestRule;
 import android.support.test.runner.AndroidJUnit4;
 
-
 import com.matthewtamlin.android_utilities.library.helpers.ThemeColorHelper;
 
 import org.junit.Before;
@@ -62,8 +61,8 @@ public class TestThemeColorHelper {
 	 * Provides access to an Activity with the expected colors in the theme.
 	 */
 	@Rule
-	public final ActivityTestRule<TestActivity> testActivityRule = new ActivityTestRule<>
-			(TestActivity.class);
+	public final ActivityTestRule<StatusBarHelperTestHarness> testActivityRule = new
+			ActivityTestRule<>(StatusBarHelperTestHarness.class);
 
 	/**
 	 * The Activity referenced by {@code testActivityRule}.
