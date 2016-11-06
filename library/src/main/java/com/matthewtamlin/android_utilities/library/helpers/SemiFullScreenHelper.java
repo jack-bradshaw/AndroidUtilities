@@ -29,8 +29,8 @@ import android.view.WindowManager;
  * @deprecated use {@link StatusBarHelper} instead.
  */
 @Deprecated
-@SuppressWarnings("ALL") // It's deprecated, don't bother with warnings
-@SuppressLint("ALL") // It's deprecated, don't bother with lint
+@SuppressWarnings("ALL") // Ignore warnings on deprecated classes
+@SuppressLint("ALL") // Ignore lint on deprecated classes
 public final class SemiFullScreenHelper {
 	/**
 	 * To prevent instantiation, this constructor is private and throws an exception when invoked.
