@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.matthewtamlin.android_utilities;
+package com.matthewtamlin.android_utilities.testing;
 
 import android.content.Context;
 import android.graphics.Bitmap;
@@ -22,8 +22,8 @@ import android.graphics.BitmapFactory;
 import android.support.test.InstrumentationRegistry;
 import android.support.test.runner.AndroidJUnit4;
 
-import com.matthewtamlin.android_utilities.helpers.BitmapEfficiencyHelper;
-import com.matthewtamlin.android_utilities.test.R;
+import com.matthewtamlin.android_utilities.testing.helpers.BitmapEfficiencyHelper;
+import com.matthewtamlin.android_utilities.testing.test.R;
 
 import org.junit.Before;
 import org.junit.Test;

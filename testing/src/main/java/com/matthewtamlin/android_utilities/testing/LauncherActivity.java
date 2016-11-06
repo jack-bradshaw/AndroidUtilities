@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.matthewtamlin.android_utilities;
+package com.matthewtamlin.android_utilities.testing;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;

@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.matthewtamlin.android_utilities;
+package com.matthewtamlin.android_utilities.testing;
 
 import android.annotation.SuppressLint;
 import android.annotation.TargetApi;
@@ -23,8 +23,8 @@ import android.support.annotation.RequiresApi;
 import android.view.View;
 import android.widget.Button;
 
-import com.matthewtamlin.android_utilities.helpers.StatusBarHelper;
-import com.matthewtamlin.android_utilities.testing.NoViewTestHarness;
+import com.matthewtamlin.android_utilities.testing.helpers.StatusBarHelper;
+import com.matthewtamlin.android_utilities.testing.testing.NoViewTestHarness;
 
 @RequiresApi(16) // For client
 @TargetApi(16) // For lint
