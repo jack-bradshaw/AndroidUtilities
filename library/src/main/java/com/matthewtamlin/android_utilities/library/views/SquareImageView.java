@@ -78,7 +78,8 @@ public class SquareImageView extends ImageView {
 	 * @param defStyleAttr
 	 * 		an attribute in the current theme which supplies default attributes, pass 0	to ignore
 	 */
-	public SquareImageView(Context context, AttributeSet attrs, int defStyleAttr) {
+	public SquareImageView(final Context context, final AttributeSet attrs, final int
+			defStyleAttr) {
 		super(context, attrs, defStyleAttr);
 		init(attrs, defStyleAttr, 0);
 	}
@@ -96,7 +97,8 @@ public class SquareImageView extends ImageView {
 	 * 		a resource which supplies default attributes, only used if {@code defStyleAttr}	is 0, pass
 	 * 		0 to ignore
 	 */
-	public SquareImageView(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
+	public SquareImageView(final Context context, final AttributeSet attrs, final int defStyleAttr,
+			final int defStyleRes) {
 		super(context, attrs, defStyleAttr);
 		init(attrs, defStyleAttr, defStyleRes);
 	}
