@@ -1,40 +1,50 @@
 #AndroidUtilities
-This library contains various helper classes, collections and views for use in Android development. Releases are made available through jCentre. Add `compile 'com.matthew-tamlin:android-utilities:2.2.0'` to your gradle build file to use the latest version. Older versions are available in the [maven repo](https://bintray.com/matthewtamlin/maven/AndroidUtilities/view).
+A library containing various utilities and views for use in Android development. The components of the library are divided into six packages: Checkers, collections, helpers, testing, uilities and views. Releases are made available through jCentre. Add `compile 'com.matthew-tamlin:android-utilities:2.5.0'` to your gradle build file to use the latest version. Older versions are available in the [maven repo](https://bintray.com/matthewtamlin/maven/AndroidUtilities/view).
 
 ## Checkers
-The checkers package contains classes for checking arguments without boilerplate code. The available checkers are:
-- `NullChecker`: Utility for checking if arguments are null.
-- `IntChecker`: Utility for checking if integer arguments meet numeric requirements.
+The checkers package contains classes for checking conditions without boilerplate code. The available checkers are:
+- `NullChecker`: Useful for checking if variables are null.
+- `IntChecker`: Useful for checking if integer variables meet numeric requirements.
 
 ## Helpers
-The helpers package contains classes with useful static methods, designed to eliminate boilerplate code when performing simple Android tasks. The available helpers are:
-- `AssetsHelper`: Utility for copying asset files from the assets space to a storage directory.
-- `AudioFocusHelper`: Utility for obtaining and abandoning audio focus.
-- `BitmapEfficiencyHelper`: Utility for efficiently decoding bitmap images.
-- `ColorHelper`: Utility for blending colors together.
-- `DimensionHelper`: Utility for converting complex dimensions (such as DP) to pixels.
-- `NullHelper`: Utility for working with null without boilerplate code.
-- `PermissionsHelper`: Utility for determining if a series of permissions have been granted. 
-- `ScreenSizeHelper`: Utility for querying information about the device screen size.
-- `StatusBarHelper`: Utility for hiding and showing the status bar. Functionality varies depending on SDK version.
-- `ThemeColorHelper`: Utility for querying the colors of a theme.
+The helpers package contains classes designed to eliminate boilerplate code when doing simple Android tasks. Helpers classes do not need to be instantiated and contain only static methods. The available helpers are:
+- `AssetsHelper`: Contains static methods for copying asset files from the assets space to a storage directory.
+- `AudioFocusHelper`: Contains static methods for obtaining and abandoning audio focus.
+- `BitmapEfficiencyHelper`: Contains static methods for efficiently decoding bitmap images.
+- `ColorHelper`: Contains static methods for blending colors together.
+- `DimensionHelper`: Contains static methods for converting complex dimensions (such as DP and SP) to pixels.
+- `NullHelper`: Contains static methods for safely working with variables which could be null.
+- `PermissionsHelper`: Contains static methods for determining if one or more permissions have been granted. 
+- `ScreenSizeHelper`: Contains static methods for getting information about the device screen size.
+- `StatusBarHelper`: Contains static methods for hiding and showing the status bar. Functionality varies depending on SDK version.
+- `ThemeColorHelper`: Contains static methods for getting the primary, primary dark and accent colors of the current theme.
 
 ## Collections
-The collections class contains three components: The `ArrayListWithCallbacks` class, the `Grouper` interface and the `KeyBasedGrouper` class.
- - `ArrayListWithCallbacks` is a subclass of the standard Java ArrayList which delivers callbacks to registered listeners whenever the Collection is modified.
- - `KeyBasedGrouper` implements the `Grouper` interface. It allows a contents of a Collection to be easily grouped into smaller Collections.
-
+The collections package contains custom collections as well as classes for working with collections. The package contains:
+ - `ArrayListWithCallbacks`: A subclass of ArrayList which delivers callbacks whenever the contents of the list are modified.
+ - `Grouper`: An interface definition for sorting the contents of a collection into a set of smaller collections.
+ - `KeyBasedGrouper`: A simple implementation of the Grouper interface.
+ 
 ## Views
-There is currently one class in the views package: `SquareImageView`. This View is a simple extension of the ImageView class, which forces one of the dimensions (width or height) to equal the other.
+There is currently one class in the views package: `SquareImageView`. This View is a subclass of the ImageView class which constrains the height and width to be equal.
 
 ## Testing
-The testing package contains classes which are useful when testing Android projects. The package contains:
-- `@Tested`: An annotation for keeping track of which classes have been tested and how they were tested.
-- `TestHarness` interface and implementations: Activities which host a view and controls to interact with the view. This simplifies manual and automated testing of custom views simple. 
--
+The testing package contains classes and annotations which are useful when testing Android projects. The contents are:
+- `@Tested`: An annotation for keeping track of which classes have been tested.
+- `TestHarness`: An abstract activity which hosts a view and a set of controls for interacting with the view. This simplifies the process of testing custom views, since the view can be directly manipulated. Several subclasses are provided, each with a different configuration.
+- `EspessoHelper`: Contains static methods for getting a ViewInteractor directly from a View object. 
+
+Test harnesses provide direct access to the test view object, but in some circumstances it is more helpful to have a ViewInteractor. The EspressoHelper is able to take a View and return a corresponding ViewInteractor, allowing test harnesses to be used in espresso testing. 
+
+## Utilities
+The utilities package contains useful classes which must be instantiated to be used. The package contains:
+- `UiThreadUtil`: An interface defintion for executing tasks on the UI thread. 
+- `LooperUiThreadUtil`: An implementation of the UiThreadUtil which uses Looper objects to post tasks.
+
+The UiThreadUtil interface can be used with depencency injection to allow a class to post events on the UI thread without directly depending on the Android framework. A mock UiThreadUtil can be injected during testing so that testing can be done without insrumentation, and a real UiThreadUtil can be injected in production.  
 
 ## Licensing
 This library is licenced under the Apache v2.0 licence. Have a look at [the license](LICENSE) for details.
 
 ## Compatibility
-This library is compatible with Android 11 and up. Version 2.0.0 breaks backward compatibility with previous versions.
+This library is compatible with Android 11 and up.

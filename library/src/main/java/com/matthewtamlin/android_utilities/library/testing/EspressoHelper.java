@@ -14,28 +14,20 @@
  * limitations under the License.
  */
 
-apply plugin: 'com.android.library'
+package com.matthewtamlin.android_utilities.library.testing;
 
-ext {
-	PUBLISH_GROUP_ID = 'com.matthew-tamlin'
-	PUBLISH_ARTIFACT_ID = 'android-utilities'
-	PUBLISH_VERSION = '2.5.0'
-}
 
-android {
-	compileSdkVersion 24
-	buildToolsVersion "24.0.3"
+import android.support.test.espresso.ViewInteraction;
+import android.view.View;
 
-	defaultConfig {
-		minSdkVersion 11
-		targetSdkVersion 24
+import com.matthewtamlin.android_utilities.library.R;
+
+import static android.support.test.espresso.Espresso.onView;
+import static android.support.test.espresso.matcher.ViewMatchers.withTagKey;
+
+public class EspressoHelper {
+	public static ViewInteraction viewToViewInteraction(final View view) {
+		view.setTag(R.id.espresso_util_conversion_tag, "test");
+		return onView(withTagKey(R.id.espresso_util_conversion_tag));
 	}
 }
-
-dependencies {
-	compile 'com.android.support:appcompat-v7:24.2.1'
-	compile 'com.android.support.test.espresso:espresso-core:2.2.2'
-}
-
-// Run 'clean build generateRelease' to build the AAR release
-apply from: 'buildRelease.gradle'

@@ -14,28 +14,17 @@
  * limitations under the License.
  */
 
-apply plugin: 'com.android.library'
+package com.matthewtamlin.android_utilities.library.utilities;
 
-ext {
-	PUBLISH_GROUP_ID = 'com.matthew-tamlin'
-	PUBLISH_ARTIFACT_ID = 'android-utilities'
-	PUBLISH_VERSION = '2.5.0'
+/**
+ * Provides access to the UI thread.
+ */
+public interface UiThreadUtil {
+	/**
+	 * Runs the supplied runnable on the UI thread of the current app.
+	 *
+	 * @param runnable
+	 * 		the runnable to execute, may be null
+	 */
+	public void runOnUiThread(Runnable runnable);
 }
-
-android {
-	compileSdkVersion 24
-	buildToolsVersion "24.0.3"
-
-	defaultConfig {
-		minSdkVersion 11
-		targetSdkVersion 24
-	}
-}
-
-dependencies {
-	compile 'com.android.support:appcompat-v7:24.2.1'
-	compile 'com.android.support.test.espresso:espresso-core:2.2.2'
-}
-
-// Run 'clean build generateRelease' to build the AAR release
-apply from: 'buildRelease.gradle'
