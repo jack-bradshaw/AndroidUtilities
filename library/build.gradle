@@ -19,7 +19,7 @@ apply plugin: 'com.android.library'
 ext {
 	PUBLISH_GROUP_ID = 'com.matthew-tamlin'
 	PUBLISH_ARTIFACT_ID = 'android-utilities'
-	PUBLISH_VERSION = '2.4.0'
+	PUBLISH_VERSION = '2.5.0'
 }
 
 android {
@@ -34,6 +34,7 @@ android {
 
 dependencies {
 	compile 'com.android.support:appcompat-v7:24.2.1'
+	compile 'com.android.support.test.espresso:espresso-core:2.2.2'
 }
 
 // Run 'clean build generateRelease' to build the AAR release
