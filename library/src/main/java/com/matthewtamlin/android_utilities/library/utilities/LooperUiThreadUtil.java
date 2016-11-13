@@ -8,7 +8,7 @@ import com.matthewtamlin.android_utilities.library.checkers.NullChecker;
 /**
  * Provides access to the UI thread using the main looper.
  */
-public class MainLooperUiThreadUtil implements UiThreadUtil {
+public class LooperUiThreadUtil implements UiThreadUtil {
 	@Override
 	public void runOnUiThread(final Runnable runnable) {
 		if (runnable != null) {
