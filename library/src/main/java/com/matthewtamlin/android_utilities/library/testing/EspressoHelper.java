@@ -21,12 +21,28 @@ import android.support.test.espresso.ViewInteraction;
 import android.view.View;
 
 import com.matthewtamlin.android_utilities.library.R;
+import com.matthewtamlin.android_utilities.library.checkers.NullChecker;
 
 import static android.support.test.espresso.Espresso.onView;
 import static android.support.test.espresso.matcher.ViewMatchers.withTagKey;
 
+/**
+ * Helper class for automated testing with Espresso.
+ */
 public class EspressoHelper {
+	/**
+	 * Takes a View object and returns a ViewInteractor which allows the View to be manipulated and
+	 * queried with the Espresso framework.
+	 *
+	 * @param view
+	 * 		the view to get a ViewInteractor for, not null
+	 * @return the ViewInteractor, not null
+	 * @throws IllegalArgumentException
+	 * 		if {@code view} is null
+	 */
 	public static ViewInteraction viewToViewInteraction(final View view) {
+		NullChecker.checkNonNull(view, "view cannot be null");
+
 		view.setTag(R.id.espresso_util_conversion_tag, "test");
 		return onView(withTagKey(R.id.espresso_util_conversion_tag));
 	}
