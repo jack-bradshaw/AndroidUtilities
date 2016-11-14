@@ -29,6 +29,7 @@ import static android.support.test.espresso.matcher.ViewMatchers.withTagKey;
 /**
  * Helper class for automated testing with Espresso.
  */
+
 public class EspressoHelper {
 	/**
 	 * Takes a View object and returns a ViewInteractor which allows the View to be manipulated and
