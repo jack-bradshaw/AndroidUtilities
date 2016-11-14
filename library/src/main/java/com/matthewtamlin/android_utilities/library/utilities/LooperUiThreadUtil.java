@@ -55,14 +55,14 @@ public class LooperUiThreadUtil implements UiThreadUtil {
 	 * @param looper
 	 * 		the looper to use, not null
 	 */
-	public LooperUiThreadUtil(final Looper looper) {
+	private LooperUiThreadUtil(final Looper looper) {
 		this.looper = NullChecker.checkNonNull(looper, "looper cannot be null");
 	}
 
 	@Override
 	public void runOnUiThread(final Runnable runnable) {
 		if (runnable != null) {
-			final Handler handler = new Handler(Looper.getMainLooper());
+			final Handler handler = new Handler(looper);
 			handler.post(runnable);
 		}
 	}
