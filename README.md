@@ -1,5 +1,5 @@
 #AndroidUtilities
-A library containing various utilities and views for use in Android development. The components of the library are divided into six packages: Checkers, collections, helpers, testing, uilities and views. Releases are made available through jCentre. Add `compile 'com.matthew-tamlin:android-utilities:2.5.0'` to your gradle build file to use the latest version. Older versions are available in the [maven repo](https://bintray.com/matthewtamlin/maven/AndroidUtilities/view).
+A library containing various utilities and views for use in Android development. The components of the library are divided into six packages: Checkers, collections, helpers, testing, utilities and views. Releases are made available through jCentre. Add `compile 'com.matthew-tamlin:android-utilities:2.5.0'` to your gradle build file to use the latest version. Older versions are available in the [maven repo](https://bintray.com/matthewtamlin/maven/AndroidUtilities/view).
 
 ## Checkers
 The checkers package contains classes for checking conditions without boilerplate code. The available checkers are:
@@ -32,16 +32,16 @@ There is currently one class in the views package: `SquareImageView`. This View 
 The testing package contains classes and annotations which are useful when testing Android projects. The contents are:
 - `@Tested`: An annotation for keeping track of which classes have been tested.
 - `TestHarness`: An abstract activity which hosts a view and a set of controls for interacting with the view. This simplifies the process of testing custom views, since the view can be directly manipulated. Several subclasses are provided, each with a different configuration.
-- `EspessoHelper`: Contains static methods for getting a ViewInteractor directly from a View object. 
+- `EspressoHelper`: Contains static methods for getting a ViewInteractor directly from a View object.
 
 Test harnesses provide direct access to the test view object, but in some circumstances it is more helpful to have a ViewInteractor. The EspressoHelper is able to take a View and return a corresponding ViewInteractor, allowing test harnesses to be used in espresso testing. 
 
 ## Utilities
 The utilities package contains useful classes which must be instantiated to be used. The package contains:
-- `UiThreadUtil`: An interface defintion for executing tasks on the UI thread. 
+- `UiThreadUtil`: An interface definition for executing tasks on the UI thread.
 - `LooperUiThreadUtil`: An implementation of the UiThreadUtil which uses Looper objects to post tasks.
 
-The UiThreadUtil interface can be used with depencency injection to allow a class to post events on the UI thread without directly depending on the Android framework. A mock UiThreadUtil can be injected during testing so that testing can be done without insrumentation, and a real UiThreadUtil can be injected in production.  
+The UiThreadUtil interface can be used with dependency injection to allow a class to post events on the UI thread without directly depending on the Android framework. A mock UiThreadUtil can be injected during testing so that testing can be done without instrumentation, and a real UiThreadUtil can be injected in production.
 
 ## Licensing
 This library is licenced under the Apache v2.0 licence. Have a look at [the license](LICENSE) for details.
