@@ -31,11 +31,6 @@ import android.widget.LinearLayout;
  * 		the type of view which contains the test view
  */
 public abstract class TestHarness<V, C> extends AppCompatActivity {
-	@Override
-	protected void onCreate(@Nullable Bundle savedInstanceState) {
-		super.onCreate(savedInstanceState);
-	}
-
 	/**
 	 * @return the root view of this Activity's layout, not null
 	 */
