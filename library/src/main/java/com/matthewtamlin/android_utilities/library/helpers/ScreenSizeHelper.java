@@ -22,8 +22,6 @@ import android.content.res.Resources;
 import android.util.DisplayMetrics;
 import android.view.WindowManager;
 
-import com.matthewtamlin.android_utilities.library.testing.Tested;
-
 /**
  * Helper class for working with screen sizes.
  */
@@ -139,7 +137,8 @@ public class ScreenSizeHelper {
 	 * @param context
 	 * 		a Context object which gives access to the current device configuration, not null
 	 * @return the width of the screen, measured in pixels
-	 * @throws IllegalArgumentException if {@code context} is null
+	 * @throws IllegalArgumentException
+	 * 		if {@code context} is null
 	 */
 	public static int getScreenWidthPx(final Context context) {
 		if (context == null) {
@@ -161,7 +160,8 @@ public class ScreenSizeHelper {
 	 * @param context
 	 * 		a Context object which gives access to the current device configuration, not null
 	 * @return the height of the screen, measured in pixels
-	 * @throws IllegalArgumentException if {@code context} is null
+	 * @throws IllegalArgumentException
+	 * 		if {@code context} is null
 	 */
 	public static int getScreenHeightPx(final Context context) {
 		if (context == null) {

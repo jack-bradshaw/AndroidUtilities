@@ -16,15 +16,11 @@
 
 package com.matthewtamlin.android_utilities.library.testing;
 
-import android.os.Bundle;
+import android.annotation.SuppressLint;
 import android.view.View;
 
+@SuppressLint("Registered") // Class is part of a public API and is not instantiated in this project
 public class NoViewTestHarness extends ControlsOverViewTestHarness<View> {
-	@Override
-	protected void onCreate(final Bundle savedInstanceState) {
-		super.onCreate(savedInstanceState);
-	}
-
 	@Override
 	public View getTestView() {
 		return new View(this);

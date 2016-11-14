@@ -97,9 +97,9 @@ public class TestThemeColorHelper {
 	 */
 	@Test
 	public void testGetPrimaryColor_validArgs() {
-		final int primaryColor = ThemeColorHelper.getPrimaryColor(activity, defaultColor);
+		final int color = ThemeColorHelper.getPrimaryColor(activity, defaultColor);
 
-		assertThat("Incorrect color returned.", primaryColor, is(primaryColor));
+		assertThat("Incorrect color returned.", color, is(primaryColor));
 	}
 
 	/**
@@ -117,10 +117,9 @@ public class TestThemeColorHelper {
 	 */
 	@Test
 	public void testGetPrimaryDarkColor_validArgs() {
-		final int primaryDarkColor = ThemeColorHelper.getPrimaryDarkColor(activity,
-				defaultColor);
+		final int color = ThemeColorHelper.getPrimaryDarkColor(activity, defaultColor);
 
-		assertThat("Incorrect color returned.", primaryDarkColor, is(primaryDarkColor));
+		assertThat("Incorrect color returned.", color, is(primaryDarkColor));
 	}
 
 	/**
@@ -138,8 +137,8 @@ public class TestThemeColorHelper {
 	 */
 	@Test
 	public void testGetAccentColor_validArgs() {
-		final int accentColor = ThemeColorHelper.getAccentColor(activity, defaultColor);
+		final int color = ThemeColorHelper.getAccentColor(activity, defaultColor);
 
-		assertThat("Incorrect color returned.", accentColor, is(accentColor));
+		assertThat("Incorrect color returned.", color, is(accentColor));
 	}
 }
