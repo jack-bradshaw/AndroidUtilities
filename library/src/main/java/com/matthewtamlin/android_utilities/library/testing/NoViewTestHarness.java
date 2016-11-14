@@ -17,7 +17,6 @@
 package com.matthewtamlin.android_utilities.library.testing;
 
 import android.annotation.SuppressLint;
-import android.os.Bundle;
 import android.view.View;
 
 @SuppressLint("Registered") // Class is part of a public API and is not instantiated in this project
