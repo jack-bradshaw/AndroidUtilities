@@ -1,5 +1,5 @@
 #AndroidUtilities
-A library containing various utilities and views for use in Android development. The components of the library are divided into five packages: Collections, helpers, testing, utilities and views. Releases are made available through jCentre. Add `compile 'com.matthew-tamlin:android-utilities:2.5.0'` to your gradle build file to use the latest version. Older versions are available in the [maven repo](https://bintray.com/matthewtamlin/maven/AndroidUtilities/view).
+A library containing various utilities and views for use in Android development. The components of the library are divided into five packages: Collections, helpers, testing, utilities and views. Releases are made available through jCentre. Add `compile 'com.matthew-tamlin:android-utilities:2.5.1'` to your gradle build file to use the latest version. Older versions are available in the [maven repo](https://bintray.com/matthewtamlin/maven/AndroidUtilities/view).
 
 ## Helpers
 The helpers package contains classes designed to eliminate boilerplate code when doing simple Android tasks. Helpers classes do not need to be instantiated and contain only static methods. The available helpers are:
