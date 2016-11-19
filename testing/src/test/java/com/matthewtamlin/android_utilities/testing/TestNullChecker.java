@@ -26,6 +26,8 @@ import static org.hamcrest.MatcherAssert.assertThat;
 
 /**
  * Unit tests for the {@link NullChecker} class.
+ *
+ * @deprecated class under test is deprecated
  */
 @RunWith(JUnit4.class)
 public class TestNullChecker {
