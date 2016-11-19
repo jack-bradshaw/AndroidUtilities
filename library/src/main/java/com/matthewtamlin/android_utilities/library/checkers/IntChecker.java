@@ -20,9 +20,12 @@ import com.matthewtamlin.android_utilities.library.testing.Tested;
 
 /**
  * Utility for checking integer arguments without boilerplate code.
+ *
+ * @deprecated functionality has been moved to a separate library: com .matthew-tamlin:java-utilities:1.1.0
  */
 @SuppressWarnings("SameParameterValue") // Not important as class is part of public API
 @Tested(testMethod = "automated", requiresInstrumentation = false)
+@Deprecated
 public class IntChecker {
 	/**
 	 * The exception message to use if no message is provided.
