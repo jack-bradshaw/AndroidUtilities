@@ -20,6 +20,8 @@ import com.matthewtamlin.android_utilities.library.testing.Tested;
 
 /**
  * Utility for implementing null guards without boilerplate code.
+ *
+ * @deprecated functionality has been moved to a separate library: com .matthew-tamlin:java-utilities:1.1.0
  */
 @Tested(testMethod = "automated", requiresInstrumentation = false)
 public class NullChecker {
