@@ -41,10 +41,19 @@ public class EspressoHelper {
 	 * @throws IllegalArgumentException
 	 * 		if {@code view} is null
 	 */
-	public static ViewInteraction viewToViewInteraction(final View view) {
+	public static synchronized ViewInteraction viewToViewInteraction(final View view) {
 		NullChecker.checkNonNull(view, "view cannot be null");
 
+		// Set the tag to uniquely identify the view
 		view.setTag(R.id.espresso_util_conversion_tag, "test");
-		return onView(withTagKey(R.id.espresso_util_conversion_tag));
+
+		// Find the view using the tag
+		final ViewInteraction viewInteraction = onView(withTagKey(R.id
+				.espresso_util_conversion_tag));
+
+		// Remove the tag so that it can be reused on other views
+		view.setTag(null);
+
+		return viewInteraction;
 	}
 }
