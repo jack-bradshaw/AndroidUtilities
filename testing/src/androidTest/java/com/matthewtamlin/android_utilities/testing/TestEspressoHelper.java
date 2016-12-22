@@ -28,7 +28,7 @@ public class TestEspressoHelper {
 			EspressoHelperTestHarness.class);
 
 	@Test
-	public void testViewToViewInteraction() {
+	public void testViewToViewInteraction_multipleViews() {
 		final EspressoHelperTestHarness activity = rule.getActivity();
 
 		final ViewInteraction tv1ViewInteraction = viewToViewInteraction(activity.getTextView1(),
