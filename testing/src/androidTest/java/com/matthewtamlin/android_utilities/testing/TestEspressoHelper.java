@@ -8,6 +8,8 @@ import android.support.test.runner.AndroidJUnit4;
 import android.view.View;
 import android.widget.TextView;
 
+import com.matthewtamlin.android_utilities.library.testing.EspressoHelper;
+
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -18,12 +20,24 @@ import static com.matthewtamlin.android_utilities.library.testing.EspressoHelper
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.MatcherAssert.assertThat;
 
+/**
+ * Unit tests for the {@link EspressoHelper} class.
+ */
 @RunWith(AndroidJUnit4.class)
 public class TestEspressoHelper {
+	/**
+	 * Hosts three text views, each with unique text (available as static constants of the
+	 * activity).
+	 */
 	@Rule
 	public ActivityTestRule<EspressoHelperTestHarness> rule = new ActivityTestRule<>(
 			EspressoHelperTestHarness.class);
 
+	/**
+	 * Test to ensure that the {@link EspressoHelper#viewToViewInteraction(View)} method functions
+	 * correctly when only one view is being converted. The test will only pass if the correct
+	 * ViewInteraction is returned, as determined by the text in the TextView it refers to.
+	 */
 	@Test
 	public void testViewToViewInteraction_singleView() {
 		final EspressoHelperTestHarness activity = rule.getActivity();
@@ -33,6 +47,12 @@ public class TestEspressoHelper {
 		tv1ViewInteraction.check(hasText(EspressoHelperTestHarness.TEXT_1));
 	}
 
+	/**
+	 * Test to ensure that the {@link EspressoHelper#viewToViewInteraction(View, String)} method
+	 * functions correctly when multiple view are being converted. The test will only pass if the
+	 * correct ViewInteractions are returned, as determined by the text in the TextViews they refer
+	 * to.
+	 */
 	@Test
 	public void testViewToViewInteraction_multipleViews() {
 		final EspressoHelperTestHarness activity = rule.getActivity();
@@ -49,6 +69,17 @@ public class TestEspressoHelper {
 		tv3ViewInteraction.check(matches(withText(EspressoHelperTestHarness.TEXT_3)));
 	}
 
+	/**
+	 * Creates a new ViewAssertion which checks that a TextView is displaying the specified text.
+	 * The returned ViewAssertion will throw an AssertionError if the view it is applied to is null
+	 * or is not a TextView. Furthermore, an AssertionError will be thrown if the TextView is not
+	 * displaying the expected text.
+	 *
+	 * @param expectedText
+	 * 		the text which is expected to be shown in the TextView this assertion is applied to, null
+	 * 		allowed
+	 * @return the ViewAssertion
+	 */
 	private ViewAssertion hasText(final CharSequence expectedText) {
 		return new ViewAssertion() {
 			@Override
