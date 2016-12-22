@@ -28,13 +28,17 @@ import static com.matthewtamlin.android_utilities.library.R.id.espresso_util_con
 import static org.hamcrest.Matchers.is;
 
 /**
- * Helper class for automated testing with Espresso.
+ * Helper class for automated testing with Espresso. Two methods are defined: {@link
+ * #viewToViewInteraction(View)} and {@link #viewToViewInteraction(View, String)}. The former can
+ * only be used once per view hierarchy, however the latter can be used any number of times. The
+ * only restriction is that the {@code uniqueTag} argument must be unique to the view hierarchy.
  */
-
 public class EspressoHelper {
 	/**
-	 * Takes a View object and returns a ViewInteractor which allows the View to be manipulated and
-	 * queried with the Espresso framework.
+	 * Takes a View object and returns a ViewInteractor which allows the view to be used with the
+	 * Espresso framework. This method can only be used on a single view in the view hierarchy. To
+	 * get ViewInteractors for multiple views, use {@link #viewToViewInteraction(View, String)}
+	 * instead.
 	 *
 	 * @param view
 	 * 		the view to get a ViewInteractor for, not null
@@ -53,11 +57,16 @@ public class EspressoHelper {
 	}
 
 	/**
-	 * Takes a View object and returns a ViewInteractor which allows the View to be manipulated and
-	 * queried with the Espresso framework.
+	 * Takes a View object and returns a ViewInteractor which allows the view to be used with the
+	 * Espresso framework. This method must be used instead of {@link #viewToViewInteraction(View)}
+	 * if more than one view in the current view hierarchy is being converted. The value passed to
+	 * the {@code uniqueTag} parameter may be any value, so long as each value is unique in the
+	 * current view hierarchy.
 	 *
 	 * @param view
 	 * 		the view to get a ViewInteractor for, not null
+	 * @param uniqueTag
+	 * 		a value which is unique for the current view hierarchy
 	 * @return the ViewInteractor, not null
 	 * @throws IllegalArgumentException
 	 * 		if {@code view} is null
