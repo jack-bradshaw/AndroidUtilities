@@ -21,6 +21,9 @@ import android.os.Looper;
 
 import com.matthewtamlin.android_utilities.library.checkers.NullChecker;
 
+import static com.matthewtamlin.android_utilities.library.checkers.NullChecker.checkNonNull;
+import static com.matthewtamlin.java_utilities.checkers.NullChecker.checkNotNull;
+
 /**
  * Provides access to the UI thread using a Looper.
  */
@@ -56,7 +59,7 @@ public class LooperUiThreadUtil implements UiThreadUtil {
 	 * 		the looper to use, not null
 	 */
 	private LooperUiThreadUtil(final Looper looper) {
-		this.looper = NullChecker.checkNonNull(looper, "looper cannot be null");
+		this.looper = checkNotNull(looper, "looper cannot be null");
 	}
 
 	@Override
