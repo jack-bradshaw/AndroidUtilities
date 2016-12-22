@@ -31,6 +31,7 @@ import org.junit.runner.RunWith;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 
+import static com.matthewtamlin.android_utilities.testing.test.R.raw.image;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.is;
 import static org.hamcrest.Matchers.lessThan;
@@ -45,7 +46,7 @@ public class TestBitmapEfficiencyHelper {
 	/**
 	 * The resource ID of a raw image resource for use in testing.
 	 */
-	private static final int TEST_RES_ID = R.raw.image;
+	private static final int TEST_RES_ID = image;
 
 	/**
 	 * Provides access to the Android system resources needed to run the tests.
