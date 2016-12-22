@@ -20,15 +20,12 @@ package com.matthewtamlin.android_utilities.library.testing;
 import android.support.test.espresso.ViewInteraction;
 import android.view.View;
 
-import static android.support.test.espresso.matcher.ViewMatchers.withTagValue;
-import static com.matthewtamlin.android_utilities.library.R.id.espresso_util_conversion_tag;
-import static org.hamcrest.Matchers.is;
-
-import com.matthewtamlin.android_utilities.library.R;
 import com.matthewtamlin.android_utilities.library.checkers.NullChecker;
 
 import static android.support.test.espresso.Espresso.onView;
 import static android.support.test.espresso.matcher.ViewMatchers.withTagKey;
+import static com.matthewtamlin.android_utilities.library.R.id.espresso_util_conversion_tag;
+import static org.hamcrest.Matchers.is;
 
 /**
  * Helper class for automated testing with Espresso.
