@@ -54,4 +54,25 @@ public class EspressoHelper {
 		// Find the view using the tag
 		return onView(withTagKey(espresso_util_conversion_tag));
 	}
+
+	/**
+	 * Takes a View object and returns a ViewInteractor which allows the View to be manipulated and
+	 * queried with the Espresso framework.
+	 *
+	 * @param view
+	 * 		the view to get a ViewInteractor for, not null
+	 * @return the ViewInteractor, not null
+	 * @throws IllegalArgumentException
+	 * 		if {@code view} is null
+	 */
+	public static synchronized ViewInteraction viewToViewInteraction(final View view,
+			final String uniqueTag) {
+		NullChecker.checkNonNull(view, "view cannot be null");
+
+		// Set the tag to uniquely identify the view
+		view.setTag(espresso_util_conversion_tag, uniqueTag);
+
+		// Find the view using the tag
+		return onView(withTagKey(espresso_util_conversion_tag, is((Object) uniqueTag)));
+	}
 }
