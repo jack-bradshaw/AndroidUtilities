@@ -58,6 +58,9 @@ public class TestThemeColorHelper {
 	 */
 	private int defaultColor;
 
+	/**
+	 * Hosts an activity with the expected colours as theme properties.
+	 */
 	@Rule
 	public final ActivityTestRule<ThemeColorHelperTestHarness> testActivityRule = new
 			ActivityTestRule<>(ThemeColorHelperTestHarness.class);
