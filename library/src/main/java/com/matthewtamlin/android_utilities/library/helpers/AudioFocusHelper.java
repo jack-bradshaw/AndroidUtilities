@@ -20,8 +20,9 @@ import android.content.Context;
 import android.media.AudioManager;
 import android.media.AudioManager.OnAudioFocusChangeListener;
 
-import com.matthewtamlin.android_utilities.library.checkers.NullChecker;
 import com.matthewtamlin.android_utilities.library.testing.Tested;
+
+import static com.matthewtamlin.java_utilities.checkers.NullChecker.checkNotNull;
 
 /**
  * Helper class for obtaining and abandoning audio focus.
@@ -152,8 +153,8 @@ public class AudioFocusHelper {
 	 */
 	public static void abandonFocus(final Context context,
 			final OnAudioFocusChangeListener listener) {
-		NullChecker.checkNonNull(context, "context cannot be null");
-		NullChecker.checkNonNull(listener, "listener cannot be null");
+		checkNotNull(context, "context cannot be null");
+		checkNotNull(listener, "listener cannot be null");
 
 		final AudioManager am = (AudioManager) context.getSystemService(Context.AUDIO_SERVICE);
 		am.abandonAudioFocus(listener);
@@ -172,8 +173,8 @@ public class AudioFocusHelper {
 	 */
 	private static boolean requestStreamAudioFocus(final Context context, final
 	OnAudioFocusChangeListener listener, final int streamType) {
-		NullChecker.checkNonNull(context, "context cannot be null");
-		NullChecker.checkNonNull(listener, "listener cannot be null");
+		checkNotNull(context, "context cannot be null");
+		checkNotNull(listener, "listener cannot be null");
 
 		final AudioManager am = (AudioManager) context.getSystemService(Context.AUDIO_SERVICE);
 		final int result = am.requestAudioFocus(listener, streamType, AudioManager.AUDIOFOCUS_GAIN);
