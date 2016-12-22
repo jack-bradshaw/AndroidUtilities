@@ -20,11 +20,11 @@ package com.matthewtamlin.android_utilities.library.testing;
 import android.support.test.espresso.ViewInteraction;
 import android.view.View;
 
-import com.matthewtamlin.android_utilities.library.checkers.NullChecker;
-
 import static android.support.test.espresso.Espresso.onView;
 import static android.support.test.espresso.matcher.ViewMatchers.withTagKey;
 import static com.matthewtamlin.android_utilities.library.R.id.espresso_util_conversion_tag;
+import static com.matthewtamlin.android_utilities.library.checkers.NullChecker.checkNonNull;
+import static com.matthewtamlin.java_utilities.checkers.NullChecker.checkNotNull;
 import static org.hamcrest.Matchers.is;
 
 /**
@@ -47,7 +47,7 @@ public class EspressoHelper {
 	 * 		if {@code view} is null
 	 */
 	public static synchronized ViewInteraction viewToViewInteraction(final View view) {
-		NullChecker.checkNonNull(view, "view cannot be null");
+		checkNotNull(view, "view cannot be null");
 
 		// Set the tag to uniquely identify the view
 		view.setTag(espresso_util_conversion_tag, "test");
@@ -73,7 +73,7 @@ public class EspressoHelper {
 	 */
 	public static synchronized ViewInteraction viewToViewInteraction(final View view,
 			final String uniqueTag) {
-		NullChecker.checkNonNull(view, "view cannot be null");
+		checkNonNull(view, "view cannot be null");
 
 		// Set the tag to uniquely identify the view
 		view.setTag(espresso_util_conversion_tag, uniqueTag);
