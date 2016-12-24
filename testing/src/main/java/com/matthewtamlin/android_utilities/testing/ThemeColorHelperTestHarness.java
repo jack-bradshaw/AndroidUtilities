@@ -18,8 +18,8 @@ package com.matthewtamlin.android_utilities.testing;
 
 import android.os.Bundle;
 
+import com.matthewtamlin.android_testing_tools.library.NoViewTestHarness;
 import com.matthewtamlin.android_utilities.library.helpers.ColorHelper;
-import com.matthewtamlin.android_utilities.library.testing.NoViewTestHarness;
 
 /**
  * A test harness for testing the {@link ColorHelper} class. The TestTheme is applied to
