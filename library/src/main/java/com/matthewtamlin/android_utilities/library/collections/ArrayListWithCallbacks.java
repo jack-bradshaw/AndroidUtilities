@@ -30,6 +30,7 @@ import java.util.Iterator;
  * @param <T>
  * 		the type of objects contained within this Collection
  */
+@SuppressWarnings("WeakerAccess") // Class is part of public API
 @Tested(testMethod = "automated", requiresInstrumentation = false)
 public final class ArrayListWithCallbacks<T> extends ArrayList<T> {
 	/**
