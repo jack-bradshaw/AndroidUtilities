@@ -26,12 +26,14 @@ android {
 	compileSdkVersion 25
 	buildToolsVersion "24.0.3"
 
+	//noinspection GroovyMissingReturnStatement
 	defaultConfig {
 		minSdkVersion 11
 		targetSdkVersion 25
 	}
 
 	// Allows espresso-core dependency to be used
+	//noinspection GroovyMissingReturnStatement
 	lintOptions {
 		disable 'InvalidPackage'
 	}
