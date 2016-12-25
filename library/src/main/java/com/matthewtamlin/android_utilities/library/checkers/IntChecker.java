@@ -23,7 +23,7 @@ import com.matthewtamlin.android_utilities.library.testing.Tested;
  *
  * @deprecated functionality has been moved to a separate library: com .matthew-tamlin:java-utilities:1.1.0
  */
-@SuppressWarnings("SameParameterValue") // Not important as class is part of public API
+@SuppressWarnings({"SameParameterValue", "WeakerAccess"}) // Class is part of public API
 @Tested(testMethod = "automated", requiresInstrumentation = false)
 @Deprecated
 public class IntChecker {

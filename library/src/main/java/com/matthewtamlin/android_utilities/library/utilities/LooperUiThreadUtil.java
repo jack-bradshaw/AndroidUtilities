@@ -19,9 +19,6 @@ package com.matthewtamlin.android_utilities.library.utilities;
 import android.os.Handler;
 import android.os.Looper;
 
-import com.matthewtamlin.android_utilities.library.checkers.NullChecker;
-
-import static com.matthewtamlin.android_utilities.library.checkers.NullChecker.checkNonNull;
 import static com.matthewtamlin.java_utilities.checkers.NullChecker.checkNotNull;
 
 /**
