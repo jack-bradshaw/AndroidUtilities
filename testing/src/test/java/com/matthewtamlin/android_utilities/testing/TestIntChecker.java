@@ -29,6 +29,7 @@ import static org.hamcrest.MatcherAssert.assertThat;
  *
  * @deprecated class under test is deprecated
  */
+@SuppressWarnings("deprecation")
 @RunWith(JUnit4.class)
 public class TestIntChecker {
 	/**
