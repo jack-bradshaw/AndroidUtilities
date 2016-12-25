@@ -23,8 +23,8 @@ import android.support.annotation.RequiresApi;
 import android.view.View;
 import android.widget.Button;
 
+import com.matthewtamlin.android_testing_tools.library.NoViewTestHarness;
 import com.matthewtamlin.android_utilities.library.helpers.StatusBarHelper;
-import com.matthewtamlin.android_utilities.library.testing.NoViewTestHarness;
 
 /**
  * Test Harness for testing the {@link StatusBarHelper} class.
