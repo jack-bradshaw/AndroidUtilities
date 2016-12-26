@@ -1,5 +1,5 @@
 #AndroidUtilities
-A library containing various utilities and views for use in Android development. The components of the library are divided into five packages: Collections, helpers, testing, utilities and views. Releases are made available through jCentre. Add `compile 'com.matthew-tamlin:android-utilities:2.6.0'` to your gradle build file to use the latest version. Older versions are available in the [maven repo](https://bintray.com/matthewtamlin/maven/AndroidUtilities/view).
+A library containing various utilities and views for use in Android development. The components of the library are divided into five packages: Collections, helpers, testing, utilities and views. Releases are made available through jCentre. Add `compile 'com.matthew-tamlin:android-utilities:3.0.0'` to your gradle build file to use the latest version. Older versions are available in the [maven repo](https://bintray.com/matthewtamlin/maven/AndroidUtilities/view).
 
 Important note: This library depends on code which will cause an InvalidPackage lint error. To disable this error, add the following to the android scope of the build.gradle file:
 
