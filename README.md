@@ -42,7 +42,7 @@ The utilities package contains useful classes which must be instantiated to be u
 The UiThreadUtil interface can be used with dependency injection to allow a class to post events on the UI thread without directly depending on the Android framework. A mock UiThreadUtil can be injected during testing so that testing can be done without instrumentation, and a real UiThreadUtil can be injected in production.
 
 ## Licensing
-This library is licenced under the Apache v2.0 licence. Have a look at [the license](LICENSE) for details.
+This library is licensed under the Apache v2.0 licence. Have a look at [the license](LICENSE) for details.
 
 ## Compatibility
 This library is compatible with Android 11 and up. The last major update removed most of the classes in the testing package, as these were causing InvalidPackage warnings. The classes have been moved to [a separate library](https://github.com/MatthewTamlin/AndroidTestingTools).
