@@ -25,11 +25,7 @@ Helpers classes do not need to be instantiated and contain only static methods. 
 There is currently one class in the views package: `SquareImageView`. This class extends ImageView and provides all the same core functionality, except it forces the height and width dimensions to be equal.
 
 ### Utilities
-The utilities package contains useful classes which must be instantiated to be used. The package contains:
-- `UiThreadUtil`: An interface definition for executing tasks on the UI thread.
-- `LooperUiThreadUtil`: An implementation of the UiThreadUtil which uses Looper objects to post tasks.
-
-The UiThreadUtil interface can be used with dependency injection to allow a class to post events on the UI thread without directly depending on the Android framework. A mock UiThreadUtil can be injected during testing so that testing can be done without instrumentation, and a real UiThreadUtil can be injected in production.
+The utilities package contains the `UiThreadUtil` interface and the `LooperUiThreadUtil` implementation. These components allow other classes to post tasks to the UI thread without directly referencing the Android framework. This allows easy testing of classes which would otherwise be difficult if not impossible to test. By using a mock/stub UiThreadUtil during testing and a real UiThreadUtil during production, classes can be tested against the JVM instead of against an Android instance.
 
 ## Licensing
 This library is licensed under the Apache v2.0 licence. Have a look at [the license](LICENSE) for details.
@@ -40,4 +36,4 @@ This library uses the following open source libraries as level 1 dependencies:
 - [Java Utilities](https://github.com/MatthewTamlin/JavaUtilities), licensed under the Apache 2.0 license.
 
 ## Compatibility
-This library is compatible with Android 11 and up. The last major update removed most of the classes in the testing package, as these were causing InvalidPackage warnings. The classes have been moved to [a separate library](https://github.com/MatthewTamlin/AndroidTestingTools).
+This library is compatible with Android 11 and up. The last major update significantly breaks backwards compatibility.
