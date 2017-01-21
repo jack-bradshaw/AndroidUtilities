@@ -20,14 +20,14 @@ import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 
-import com.matthewtamlin.android_utilities.library.testing.Tested;
+import com.matthewtamlin.java_utilities.testing.Tested;
 
 import java.io.File;
 
 /**
  * Helper class for efficiently decoding Bitmap images.
  */
-@Tested(testMethod = "automated", requiresInstrumentation = true)
+@Tested(testMethod = "automated")
 public class BitmapEfficiencyHelper {
 	/**
 	 * Calculates the sampling rate which can be used to decode a Bitmap by sub-sampling, such that

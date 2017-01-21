@@ -21,7 +21,7 @@ import android.content.res.AssetManager;
 import android.support.annotation.RequiresPermission;
 import android.util.Log;
 
-import com.matthewtamlin.android_utilities.library.testing.Tested;
+import com.matthewtamlin.java_utilities.testing.Tested;
 
 import java.io.Closeable;
 import java.io.File;
@@ -33,7 +33,7 @@ import java.io.OutputStream;
 /**
  * Helper class for copying asset files to a storage directory.
  */
-@Tested(testMethod = "automated", requiresInstrumentation = true)
+@Tested(testMethod = "automated")
 public class AssetsHelper {
 	/**
 	 * Used during debugging to identify this class.
