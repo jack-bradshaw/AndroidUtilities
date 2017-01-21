@@ -22,14 +22,15 @@ import android.support.v4.view.ViewPager.DecorView;
 import android.view.View;
 import android.view.Window;
 
-import com.matthewtamlin.android_utilities.library.testing.Tested;
+import com.matthewtamlin.java_utilities.testing.Tested;
+
 
 /**
  * Utilities for hiding and showing the status bar.
  */
 @RequiresApi(16) // For client
 @TargetApi(16) // For lint
-@Tested(testMethod = "manual", requiresInstrumentation = true)
+@Tested(testMethod = "manual")
 public class StatusBarHelper {
 	/**
 	 * Passing this value to {@link DecorView#setSystemUiVisibility(int)} will show the status bar.

@@ -21,13 +21,13 @@ import android.content.res.TypedArray;
 import android.util.TypedValue;
 
 import com.matthewtamlin.android_utilities.library.R;
-import com.matthewtamlin.android_utilities.library.testing.Tested;
+import com.matthewtamlin.java_utilities.testing.Tested;
 
 /**
  * Utilities for extracting the primary, primary dark and accent colors from a theme.
  */
 @SuppressWarnings("SameParameterValue")
-@Tested(testMethod = "automated", requiresInstrumentation = true)
+@Tested(testMethod = "automated")
 public class ThemeColorHelper {
 	/**
 	 * Extracts the primary color from the current theme of the supplied Context.
