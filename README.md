@@ -22,16 +22,8 @@ Helpers classes do not need to be instantiated and contain only static methods. 
 - `StatusBarHelper`: Contains static methods for hiding and showing the status bar. Functionality varies depending on SDK version.
 - `ThemeColorHelper`: Contains static methods for getting the primary, primary dark and accent colors of the current theme.
 
-### Collections
-The collections package contains custom collections as well as classes for working with collections. The package contains:
- - `Grouper`: An interface definition for sorting the contents of a collection into a set of smaller collections.
- - `KeyBasedGrouper`: A simple implementation of the Grouper interface.
- 
 ### Views
 There is currently one class in the views package: `SquareImageView`. This View is a subclass of the ImageView class which constrains the height and width to be equal.
-
-### Testing
-The testing package contains the `@Tested` annotation. This annotation allows you to keeping track of which classes have been tested, and whether or not the tests require the android framework. This package previously contained
 
 ### Utilities
 The utilities package contains useful classes which must be instantiated to be used. The package contains:
