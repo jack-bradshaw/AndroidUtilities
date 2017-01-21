@@ -1,8 +1,16 @@
+
+
 #AndroidUtilities
-A library containing various utilities and views for use in Android development. The components of the library are divided into five packages: Collections, helpers, testing, utilities and views. Releases are made available through jCentre. Add `compile 'com.matthew-tamlin:android-utilities:3.0.0'` to your gradle build file to use the latest version. Older versions are available in the [maven repo](https://bintray.com/matthewtamlin/maven/AndroidUtilities/view).
+Android developers regularly encounter situations where something which should be a simple one-line method call turns into a slog of boilerplate code, down casting and other messy practices. A simple solution is to create utility classes to encapsulate the mess, but when I did this I found myself regularly copying the same classes between all of my projects. To avoid manually copying files all the time, I created this library as a central repository for simple Android utilities.
+
+## Download
+Releases are made available through jCentre. Add `compile 'com.matthew-tamlin:android-utilities:3.0.0'` to your gradle build file to use the latest version. Older versions are available in the [maven repo](https://bintray.com/matthewtamlin/maven/AndroidUtilities/view).
  
-## Helpers
-The helpers package contains classes designed to eliminate boilerplate code when doing simple Android tasks. Helpers classes do not need to be instantiated and contain only static methods. The available helpers are:
+## Usage
+The library is divided into five packages: Helpers, collections, helpers, views, testing and utilities. 
+
+### Helpers
+Helpers classes do not need to be instantiated and contain only static methods. The available helpers are:
 - `AssetsHelper`: Contains static methods for copying asset files from the assets space to a storage directory.
 - `AudioFocusHelper`: Contains static methods for obtaining and abandoning audio focus.
 - `BitmapEfficiencyHelper`: Contains static methods for efficiently decoding bitmap images.
@@ -14,19 +22,18 @@ The helpers package contains classes designed to eliminate boilerplate code when
 - `StatusBarHelper`: Contains static methods for hiding and showing the status bar. Functionality varies depending on SDK version.
 - `ThemeColorHelper`: Contains static methods for getting the primary, primary dark and accent colors of the current theme.
 
-## Collections
+### Collections
 The collections package contains custom collections as well as classes for working with collections. The package contains:
- - `ArrayListWithCallbacks`: A subclass of ArrayList which delivers callbacks whenever the contents of the list are modified.
  - `Grouper`: An interface definition for sorting the contents of a collection into a set of smaller collections.
  - `KeyBasedGrouper`: A simple implementation of the Grouper interface.
  
-## Views
+### Views
 There is currently one class in the views package: `SquareImageView`. This View is a subclass of the ImageView class which constrains the height and width to be equal.
 
-## Testing
-The testing package contains the `@Tested` annotation. This annotation allows you to keeping track of which classes have been tested, and whether or not the tests require the android framework.
+### Testing
+The testing package contains the `@Tested` annotation. This annotation allows you to keeping track of which classes have been tested, and whether or not the tests require the android framework. This package previously contained
 
-## Utilities
+### Utilities
 The utilities package contains useful classes which must be instantiated to be used. The package contains:
 - `UiThreadUtil`: An interface definition for executing tasks on the UI thread.
 - `LooperUiThreadUtil`: An implementation of the UiThreadUtil which uses Looper objects to post tasks.
