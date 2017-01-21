@@ -1,6 +1,6 @@
 
 
-#AndroidUtilities
+# AndroidUtilities
 Android developers regularly encounter situations where something which should be a single method call turns into a slog of boilerplate code, down casting and other messy practices. A simple solution is to create utility classes to encapsulate the mess, however this can lead to regularly copying files between project which is not ideal. When I encountered this problem, I decided to create this library as a central repository for my utility classes.
 
 ## Download
