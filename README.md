@@ -11,16 +11,15 @@ The library is divided into five packages: Helpers, collections, helpers, views,
 
 ### Helpers
 Helpers classes do not need to be instantiated and contain only static methods. The available helpers are:
-- `AssetsHelper`: Contains static methods for copying asset files from the assets space to a storage directory.
-- `AudioFocusHelper`: Contains static methods for obtaining and abandoning audio focus.
-- `BitmapEfficiencyHelper`: Contains static methods for efficiently decoding bitmap images.
-- `ColorHelper`: Contains static methods for blending colors together.
-- `DimensionHelper`: Contains static methods for converting complex dimensions (such as DP and SP) to pixels.
-- `NullHelper`: Contains static methods for safely working with variables which could be null.
-- `PermissionsHelper`: Contains static methods for determining if one or more permissions have been granted. 
-- `ScreenSizeHelper`: Contains static methods for getting information about the device screen size.
-- `StatusBarHelper`: Contains static methods for hiding and showing the status bar. Functionality varies depending on SDK version.
-- `ThemeColorHelper`: Contains static methods for getting the primary, primary dark and accent colors of the current theme.
+- `AssetsHelper`: Useful for copying asset files from the assets space to a storage directory.
+- `AudioFocusHelper`: Reduces boilerplate code when obtaining and abandoning audio focus.
+- `BitmapEfficiencyHelper`: Simplifies the process of loading bitmaps into memory efficiently.
+- `ColorHelper`: Contains methods for working with colors.
+- `DimensionHelper`: Simplifies the process of converting complex dimensions (e.g. DP) to pixels.
+- `PermissionsHelper`: Provides a mechanism for easily determining if particular permissions have been granted. 
+- `ScreenSizeHelper`: Contains methors to query the current screen size.
+- `StatusBarHelper`: Can be used to easily hiding/show the status bar. Functionality varies depending on SDK version.
+- `ThemeColorHelper`: Simplifies the process of getting the primary, primary dark and accent colors of the current theme.
 
 ### Views
 There is currently one class in the views package: `SquareImageView`. This View is a subclass of the ImageView class which constrains the height and width to be equal.
