@@ -22,7 +22,7 @@ Helpers classes do not need to be instantiated and contain only static methods. 
 - `ThemeColorHelper`: Simplifies the process of getting the primary, primary dark and accent colors of the current theme.
 
 ### Views
-There is currently one class in the views package: `SquareImageView`. This View is a subclass of the ImageView class which constrains the height and width to be equal.
+There is currently one class in the views package: `SquareImageView`. This class extends ImageView and provides all the same core functionality, except it forces the height and width dimensions to be equal.
 
 ### Utilities
 The utilities package contains useful classes which must be instantiated to be used. The package contains:
