@@ -7,7 +7,7 @@ Android developers regularly encounter situations where something which should b
 Releases are made available through jCentre. Add `compile 'com.matthew-tamlin:android-utilities:4.0.0'` to your gradle build file to use the latest version. Older versions are available in the [maven repo](https://bintray.com/matthewtamlin/maven/AndroidUtilities/view).
  
 ## Usage
-The library is divided into five packages: Helpers, collections, helpers, views, testing and utilities. 
+The library is divided into three packages: Helpers, views, and utilities. 
 
 ### Helpers
 Helpers classes do not need to be instantiated and contain only static methods. The available helpers are:
