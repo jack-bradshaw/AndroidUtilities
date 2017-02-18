@@ -73,7 +73,7 @@ public class BitmapEfficiencyHelper {
 	 * matching the image dimensions to the desired dimensions as best as possible. The dimensions
 	 * of the returned image always exceeds or matches the supplied dimensions.
 	 *
-	 * @param context
+	 * @param res
 	 * 		provides access to the resource to decode, not null
 	 * @param resId
 	 * 		the ID of the resource to decode
