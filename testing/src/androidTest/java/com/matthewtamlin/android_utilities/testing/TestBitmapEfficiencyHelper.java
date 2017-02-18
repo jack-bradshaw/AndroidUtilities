@@ -17,6 +17,7 @@
 package com.matthewtamlin.android_utilities.testing;
 
 import android.content.Context;
+import android.content.res.Resources;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.support.test.InstrumentationRegistry;
@@ -31,6 +32,7 @@ import org.junit.runner.RunWith;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 
+import static com.matthewtamlin.android_utilities.library.helpers.BitmapEfficiencyHelper.decodeResource;
 import static com.matthewtamlin.android_utilities.testing.test.R.raw.image;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.is;
@@ -147,55 +149,55 @@ public class TestBitmapEfficiencyHelper {
 
 	/**
 	 * Test to verify that the correct exception is thrown when the {@code context} argument of
-	 * {@link BitmapEfficiencyHelper#decodeResource(Context, int, int, int)} is null.
+	 * {@link BitmapEfficiencyHelper#decodeResource(Resources, int, int, int)} is null.
 	 */
 	@Test(expected = IllegalArgumentException.class)
 	public void testDecodeResource_invalidArg_nullContext() {
-		BitmapEfficiencyHelper.decodeResource(null, TEST_RES_ID, 10, 10);
+		decodeResource(null, TEST_RES_ID, 10, 10);
 	}
 
 	/**
 	 * Test to verify that the correct exception is thrown when the {@code desWidth} argument of
-	 * {@link BitmapEfficiencyHelper#decodeResource(Context, int, int, int)} is negative.
+	 * {@link BitmapEfficiencyHelper#decodeResource(Resources, int, int, int)} is negative.
 	 */
 	@Test(expected = IllegalArgumentException.class)
 	public void testDecodeResource_invalidArg_negativeWidth() {
-		BitmapEfficiencyHelper.decodeResource(context, TEST_RES_ID, -1, 10);
+		decodeResource(context.getResources(), TEST_RES_ID, -1, 10);
 	}
 
 	/**
 	 * Test to verify that the correct exception is thrown when the {@code desHeight} argument of
-	 * {@link BitmapEfficiencyHelper#decodeResource(Context, int, int, int)} is negative.
+	 * {@link BitmapEfficiencyHelper#decodeResource(Resources, int, int, int)} is negative.
 	 */
 	@Test(expected = IllegalArgumentException.class)
 	public void testDecodeResource_invalidArg_negativeHeight() {
-		BitmapEfficiencyHelper.decodeResource(context, TEST_RES_ID, 10, -1);
+		decodeResource(context.getResources(), TEST_RES_ID, 10, -1);
 	}
 
 	/**
 	 * Test to verify that no image is returned when the {@code redId} argument of {@link
-	 * BitmapEfficiencyHelper#decodeResource(Context, int, int, int)} does not reference an existing
-	 * resource.
+	 * BitmapEfficiencyHelper#decodeResource(Resources, int, int, int)} does not reference an
+	 * existing resource.
 	 */
 	@Test
 	public void testDecodeResource_nonExistentResource() {
 		final int badResId = 1000;
 
-		final Bitmap image = BitmapEfficiencyHelper.decodeResource(context, badResId, 10, 10);
+		final Bitmap image = decodeResource(context.getResources(), badResId, 10, 10);
 
 		assertThat("Somehow a Bitmap was decoded.", image, is(nullValue()));
 	}
 
 	/**
-	 * Test to verify that the {@link BitmapEfficiencyHelper#decodeResource(Context, int, int, int)}
-	 * method functions correctly when provided with valid arguments.
+	 * Test to verify that the {@link BitmapEfficiencyHelper#decodeResource(Resources, int, int,
+	 * int)} method functions correctly when provided with valid arguments.
 	 */
 	@Test
 	public void testDecodeResource_validArgs() {
 		final int testWidth = fullSizeImage.getWidth() / 2;
 		final int testHeight = fullSizeImage.getHeight() / 2;
 
-		final Bitmap decodedImage = BitmapEfficiencyHelper.decodeResource(context, TEST_RES_ID,
+		final Bitmap decodedImage = decodeResource(context.getResources(), TEST_RES_ID,
 				testWidth, testHeight);
 
 		assertThat("Decoded image should not be null.", decodedImage, is(notNullValue()));
