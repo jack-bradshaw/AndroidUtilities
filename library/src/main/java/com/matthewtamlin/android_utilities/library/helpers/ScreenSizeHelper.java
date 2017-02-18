@@ -198,7 +198,7 @@ public class ScreenSizeHelper {
 		LARGE,
 
 		/**
-		 * The screen width is approximately 720dp and the screen height is approximately 960dp.=
+		 * The screen width is approximately 720dp and the screen height is approximately 960dp.
 		 */
 		EXTRA_LARGE,
 
