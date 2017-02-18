@@ -56,17 +56,16 @@ public class AssetsHelper {
 	 * 		if either {@code context}, {@code assetFiles} or {@code targetDirectory} is null
 	 */
 	@RequiresPermission(allOf = android.Manifest.permission.WRITE_EXTERNAL_STORAGE)
-	public static void copyAssetsToDirectory(final Context context, final String[] assetFiles,
+	public static void copyAssetsToDirectory(final AssetManager assetsManager,
+			final String[] assetFiles,
 			final File targetDirectory) throws IOException {
-		if (context == null) {
-			throw new IllegalArgumentException("context cannot be null");
+		if (assetsManager == null) {
+			throw new IllegalArgumentException("assetsManager cannot be null");
 		} else if (assetFiles == null) {
 			throw new IllegalArgumentException("assetFiles cannot be null");
 		} else if (targetDirectory == null) {
 			throw new IllegalArgumentException("targetDirectory cannot be null");
 		}
-
-		final AssetManager assetManager = context.getAssets();
 
 		for (final String filename : assetFiles) {
 			// Create a new file in the output directory to receive the asset data
@@ -79,7 +78,7 @@ public class AssetsHelper {
 			try {
 				// IOExceptions may be thrown
 				streamToTargetFile = new FileOutputStream(fileInTargetDirectory);
-				streamFromAssets = assetManager.open(filename);
+				streamFromAssets = assetsManager.open(filename);
 				copyFile(streamFromAssets, streamToTargetFile);
 			} finally {
 				// An IOException is probably unrecoverable so just abort and close the streams
