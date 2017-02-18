@@ -16,7 +16,6 @@
 
 package com.matthewtamlin.android_utilities.library.helpers;
 
-import android.content.Context;
 import android.content.res.AssetManager;
 import android.support.annotation.RequiresPermission;
 import android.util.Log;
