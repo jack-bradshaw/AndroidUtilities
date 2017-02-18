@@ -17,6 +17,7 @@
 package com.matthewtamlin.android_utilities.testing;
 
 import android.content.Context;
+import android.content.res.AssetManager;
 import android.support.test.InstrumentationRegistry;
 import android.support.test.runner.AndroidJUnit4;
 
@@ -104,7 +105,7 @@ public class TestAssetsHelper {
 
 	/**
 	 * Test to verify that the correct exception is thrown when the {@code context} argument of
-	 * {@link AssetsHelper#copyAssetsToDirectory(Context, String[], File)} is null.
+	 * {@link AssetsHelper#copyAssetsToDirectory(AssetManager, String[], File)} is null.
 	 *
 	 * @throws Exception
 	 * 		should not occur in this test, but declared by signature of called method
@@ -117,7 +118,7 @@ public class TestAssetsHelper {
 
 	/**
 	 * Test to verify that the correct exception is thrown when the {@code assets} argument of
-	 * {@link AssetsHelper#copyAssetsToDirectory(Context, String[], File)} is null.
+	 * {@link AssetsHelper#copyAssetsToDirectory(AssetManager, String[], File)} is null.
 	 *
 	 * @throws Exception
 	 * 		should not occur in this test, but declared by signature of called method
@@ -125,12 +126,12 @@ public class TestAssetsHelper {
 	@Test(expected = IllegalArgumentException.class)
 	@SuppressWarnings("MissingPermission")
 	public void testCopyAssetsToDirectory_invalidArg_nullAssets() throws Exception {
-		AssetsHelper.copyAssetsToDirectory(context, null, OUTPUT_DIR);
+		AssetsHelper.copyAssetsToDirectory(context.getAssets(), null, OUTPUT_DIR);
 	}
 
 	/**
 	 * Test to verify that the correct exception is thrown when the {@code targetDirectory} argument
-	 * of {@link AssetsHelper#copyAssetsToDirectory(Context, String[], File)} is null.
+	 * of {@link AssetsHelper#copyAssetsToDirectory(AssetManager, String[], File)} is null.
 	 *
 	 * @throws Exception
 	 * 		should not occur in this test, but declared by signature of called method
@@ -138,12 +139,12 @@ public class TestAssetsHelper {
 	@Test(expected = IllegalArgumentException.class)
 	@SuppressWarnings("MissingPermission")
 	public void testCopyAssetsToDirectory_invalidArg_nullTargetDirectory() throws Exception {
-		AssetsHelper.copyAssetsToDirectory(context, ASSETS_TO_COPY, null);
+		AssetsHelper.copyAssetsToDirectory(context.getAssets(), ASSETS_TO_COPY, null);
 	}
 
 	/**
-	 * Test to verify that the {@link AssetsHelper#copyAssetsToDirectory(Context, String[], File)}
-	 * method functions correctly when provided with valid arguments.
+	 * Test to verify that the {@link AssetsHelper#copyAssetsToDirectory(AssetManager, String[],
+	 * File)} method functions correctly when provided with valid arguments.
 	 *
 	 * @throws Exception
 	 * 		the method under test may throw this exception if some operation fails
@@ -151,7 +152,7 @@ public class TestAssetsHelper {
 	@Test
 	@SuppressWarnings("MissingPermission")
 	public void testCopyAssetsToDirectory_validArgs() throws Exception {
-		AssetsHelper.copyAssetsToDirectory(context, ASSETS_TO_COPY, OUTPUT_DIR);
+		AssetsHelper.copyAssetsToDirectory(context.getAssets(), ASSETS_TO_COPY, OUTPUT_DIR);
 
 		// Get the Files in the output directory as an ArrayList for ease of use (compared to array)
 		final List<File> filesInOutputDir = new ArrayList<>(Arrays.asList(OUTPUT_DIR.listFiles()));
