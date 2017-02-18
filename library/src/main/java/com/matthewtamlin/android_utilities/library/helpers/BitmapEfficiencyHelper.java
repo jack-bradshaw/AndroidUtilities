@@ -17,6 +17,7 @@
 package com.matthewtamlin.android_utilities.library.helpers;
 
 import android.content.Context;
+import android.content.res.Resources;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 
@@ -72,7 +73,7 @@ public class BitmapEfficiencyHelper {
 	 * matching the image dimensions to the desired dimensions as best as possible. The dimensions
 	 * of the returned image always exceeds or matches the supplied dimensions.
 	 *
-	 * @param context
+	 * @param res
 	 * 		provides access to the resource to decode, not null
 	 * @param resId
 	 * 		the ID of the resource to decode
@@ -84,10 +85,12 @@ public class BitmapEfficiencyHelper {
 	 * @throws IllegalArgumentException
 	 * 		if {@code context} is null, or if either dimension is less than zero
 	 */
-	public static Bitmap decodeResource(final Context context, final int resId, final int desWidth,
+	public static Bitmap decodeResource(final Resources res,
+			final int resId,
+			final int desWidth,
 			final int desHeight) {
-		if (context == null) {
-			throw new IllegalArgumentException("context cannot be null");
+		if (res == null) {
+			throw new IllegalArgumentException("res cannot be null");
 		} else if (desWidth < 0 || desHeight < 0) {
 			throw new IllegalArgumentException("both dimensions must be greater than zero");
 		}
@@ -95,7 +98,7 @@ public class BitmapEfficiencyHelper {
 		// Decode only the boundaries of the image to get its dimensions
 		final BitmapFactory.Options options = new BitmapFactory.Options();
 		options.inJustDecodeBounds = true;
-		BitmapFactory.decodeResource(context.getResources(), resId, options);
+		BitmapFactory.decodeResource(res, resId, options);
 
 		// Decode the full image using sub-sampling
 		final int rawWidth = options.outWidth;
@@ -103,7 +106,7 @@ public class BitmapEfficiencyHelper {
 		options.inSampleSize = calculateSamplingRate(rawWidth, rawHeight, desWidth, desHeight);
 		options.inJustDecodeBounds = false; // Decode the full image
 		options.inScaled = false;
-		return BitmapFactory.decodeResource(context.getResources(), resId, options);
+		return BitmapFactory.decodeResource(res, resId, options);
 	}
 
 	/**
