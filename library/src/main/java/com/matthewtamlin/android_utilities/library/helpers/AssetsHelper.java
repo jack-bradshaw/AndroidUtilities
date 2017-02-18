@@ -44,8 +44,8 @@ public class AssetsHelper {
 	/**
 	 * Copies specified asset resources to the supplied directory.
 	 *
-	 * @param context
-	 * 		the Context containing the assets to copy, not null
+	 * @param assetsManager
+	 * 		provides access to the application's assets, not null
 	 * @param assetFiles
 	 * 		the filenames of the asset files to copy, not null
 	 * @param targetDirectory
