@@ -52,7 +52,7 @@ public class AssetsHelper {
 	 * @throws IOException
 	 * 		if a general IO based error occurs while copying the files
 	 * @throws IllegalArgumentException
-	 * 		if either {@code context}, {@code assetFiles} or {@code targetDirectory} is null
+	 * 		if either {@code assetsManager}, {@code assetFiles} or {@code targetDirectory} is null
 	 */
 	@RequiresPermission(allOf = android.Manifest.permission.WRITE_EXTERNAL_STORAGE)
 	public static void copyAssetsToDirectory(final AssetManager assetsManager,
