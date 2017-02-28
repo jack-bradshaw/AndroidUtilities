@@ -88,6 +88,27 @@ public class AssetsHelper {
 	}
 
 	/**
+	 * Copies specified asset resource to the supplied directory.
+	 *
+	 * @param assetsManager
+	 * 		provides access to the application's assets, not null
+	 * @param assetFile
+	 * 		the filename of the asset file to copy, not null
+	 * @param targetDirectory
+	 * 		the directory to copy the asset file to, not null
+	 * @throws IOException
+	 * 		if a general IO based error occurs while copying the files
+	 * @throws IllegalArgumentException
+	 * 		if either {@code assetManager}, {@code assetFile} or {@code targetDirectory} is null
+	 */
+	@RequiresPermission(allOf = android.Manifest.permission.WRITE_EXTERNAL_STORAGE)
+	public static void copyAssetToDirectory(final AssetManager assetsManager,
+			final String assetFile,
+			final File targetDirectory) throws IOException {
+		copyAssetsToDirectory(assetsManager, new String[]{assetFile}, targetDirectory);
+	}
+
+	/**
 	 * Copies a file from the source stream to the target stream.
 	 *
 	 * @param source
