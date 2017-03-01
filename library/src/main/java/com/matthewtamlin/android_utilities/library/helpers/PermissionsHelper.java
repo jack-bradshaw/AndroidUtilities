@@ -40,7 +40,7 @@ public class PermissionsHelper {
 	 * @throws IllegalArgumentException
 	 * 		if {@code context} is null, or if {@code permissions} is null
 	 */
-	public static boolean permissionsAlreadyGranted(final Context context, final String[]
+	public static boolean permissionsAlreadyGranted(final Context context, final String...
 			permissions) {
 		if (context == null) {
 			throw new IllegalArgumentException("context cannot be null");
