@@ -45,10 +45,10 @@ public class AssetsHelper {
 	 *
 	 * @param assetsManager
 	 * 		provides access to the application's assets, not null
-	 * @param assetFiles
-	 * 		the filenames of the asset files to copy, not null
 	 * @param targetDirectory
 	 * 		the directory to copy the asset files to, not null
+	 * @param assetFiles
+	 * 		the filenames of the asset files to copy (including extension), not null
 	 * @throws IOException
 	 * 		if a general IO based error occurs while copying the files
 	 * @throws IllegalArgumentException
@@ -56,8 +56,8 @@ public class AssetsHelper {
 	 */
 	@RequiresPermission(allOf = android.Manifest.permission.WRITE_EXTERNAL_STORAGE)
 	public static void copyAssetsToDirectory(final AssetManager assetsManager,
-			final String[] assetFiles,
-			final File targetDirectory) throws IOException {
+			final File targetDirectory,
+			final String... assetFiles) throws IOException {
 		if (assetsManager == null) {
 			throw new IllegalArgumentException("assetsManager cannot be null");
 		} else if (assetFiles == null) {
@@ -85,27 +85,6 @@ public class AssetsHelper {
 				closeStream(streamToTargetFile);
 			}
 		}
-	}
-
-	/**
-	 * Copies specified asset resource to the supplied directory.
-	 *
-	 * @param assetsManager
-	 * 		provides access to the application's assets, not null
-	 * @param assetFile
-	 * 		the filename of the asset file to copy, not null
-	 * @param targetDirectory
-	 * 		the directory to copy the asset file to, not null
-	 * @throws IOException
-	 * 		if a general IO based error occurs while copying the files
-	 * @throws IllegalArgumentException
-	 * 		if either {@code assetManager}, {@code assetFile} or {@code targetDirectory} is null
-	 */
-	@RequiresPermission(allOf = android.Manifest.permission.WRITE_EXTERNAL_STORAGE)
-	public static void copyAssetToDirectory(final AssetManager assetsManager,
-			final String assetFile,
-			final File targetDirectory) throws IOException {
-		copyAssetsToDirectory(assetsManager, new String[]{assetFile}, targetDirectory);
 	}
 
 	/**
