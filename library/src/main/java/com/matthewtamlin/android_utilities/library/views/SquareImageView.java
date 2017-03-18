@@ -24,8 +24,7 @@ import android.widget.ImageView;
 import com.matthewtamlin.android_utilities.library.R;
 
 /**
- * An ImageView where one dimension is forced to equal the other. By default, the height is derived
- * from the width.
+ * An ImageView where one dimension is constrained so that both width and height are equal.
  */
 public class SquareImageView extends ImageView {
 	/**
