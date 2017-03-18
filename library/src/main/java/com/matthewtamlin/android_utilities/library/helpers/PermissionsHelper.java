@@ -64,4 +64,6 @@ public class PermissionsHelper {
 		// Only return true if every requested permission is granted
 		return (permissions.length == countPermissionsGranted);
 	}
+
+	//TODO put in check for at least one permission
 }
