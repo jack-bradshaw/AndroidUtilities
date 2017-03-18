@@ -56,21 +56,21 @@ public class AssetsHelper {
 			final File targetDirectory,
 			final String... assets)
 			throws IOException {
+
 		checkNotNull(assetsManager, "assetsManager cannot be null");
 		checkNotNull(targetDirectory, "targetDirectory cannot be null");
 		checkNotNull(assets, "assetFiles cannot be null");
 
 		for (final String filename : assets) {
-			// Create a new file in the output directory to receive the asset data
 			final File fileInTargetDirectory = new File(targetDirectory, filename);
 
-			// Initialise streams outside of try block so that they can be closed later
 			InputStream streamFromAssets = null;
 			OutputStream streamToTargetFile = null;
 
 			try {
 				streamToTargetFile = new FileOutputStream(fileInTargetDirectory);
 				streamFromAssets = assetsManager.open(filename);
+
 				copyFile(streamFromAssets, streamToTargetFile);
 			} finally {
 				if (streamFromAssets != null) {
