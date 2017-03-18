@@ -42,8 +42,10 @@ public class AudioFocusHelper {
 	 * @throws IllegalArgumentException
 	 * 		if {@code listener} is null
 	 */
-	public static boolean requestStreamAlarmFocus(final Context context,
+	public static boolean requestStreamAlarmFocus(
+			final Context context,
 			final OnAudioFocusChangeListener listener) {
+
 		return requestStreamAudioFocus(context, listener, AudioManager.STREAM_ALARM);
 	}
 
@@ -60,8 +62,10 @@ public class AudioFocusHelper {
 	 * @throws IllegalArgumentException
 	 * 		if {@code listener} is null
 	 */
-	public static boolean requestStreamDtmfFocus(final Context context,
+	public static boolean requestStreamDtmfFocus(
+			final Context context,
 			final OnAudioFocusChangeListener listener) {
+
 		return requestStreamAudioFocus(context, listener, AudioManager.STREAM_DTMF);
 	}
 
@@ -78,8 +82,10 @@ public class AudioFocusHelper {
 	 * @throws IllegalArgumentException
 	 * 		if {@code listener} is null
 	 */
-	public static boolean requestStreamNotificationFocus(final Context context,
+	public static boolean requestStreamNotificationFocus(
+			final Context context,
 			final OnAudioFocusChangeListener listener) {
+
 		return requestStreamAudioFocus(context, listener, AudioManager.STREAM_NOTIFICATION);
 	}
 
@@ -96,8 +102,10 @@ public class AudioFocusHelper {
 	 * @throws IllegalArgumentException
 	 * 		if {@code listener} is null
 	 */
-	public static boolean requestStreamMusicFocus(final Context context,
+	public static boolean requestStreamMusicFocus(
+			final Context context,
 			final OnAudioFocusChangeListener listener) {
+
 		return requestStreamAudioFocus(context, listener, AudioManager.STREAM_MUSIC);
 	}
 
@@ -114,8 +122,10 @@ public class AudioFocusHelper {
 	 * @throws IllegalArgumentException
 	 * 		if {@code listener} is null
 	 */
-	public static boolean requestStreamRingFocus(final Context context,
+	public static boolean requestStreamRingFocus(
+			final Context context,
 			final OnAudioFocusChangeListener listener) {
+
 		return requestStreamAudioFocus(context, listener, AudioManager.STREAM_RING);
 	}
 
@@ -132,8 +142,10 @@ public class AudioFocusHelper {
 	 * @throws IllegalArgumentException
 	 * 		if {@code listener} is null
 	 */
-	public static boolean requestStreamSystemFocus(final Context context,
+	public static boolean requestStreamSystemFocus(
+			final Context context,
 			final OnAudioFocusChangeListener listener) {
+
 		return requestStreamAudioFocus(context, listener, AudioManager.STREAM_SYSTEM);
 	}
 
@@ -150,8 +162,10 @@ public class AudioFocusHelper {
 	 * @throws IllegalArgumentException
 	 * 		if {@code listener} is null
 	 */
-	public static boolean requestStreamVoiceCallFocus(final Context context,
+	public static boolean requestStreamVoiceCallFocus(
+			final Context context,
 			final OnAudioFocusChangeListener listener) {
+
 		return requestStreamAudioFocus(context, listener, AudioManager.STREAM_VOICE_CALL);
 	}
 
@@ -167,8 +181,10 @@ public class AudioFocusHelper {
 	 * @throws IllegalArgumentException
 	 * 		if {@code listener} is null
 	 */
-	public static void abandonFocus(final Context context,
+	public static void abandonFocus(
+			final Context context,
 			final OnAudioFocusChangeListener listener) {
+
 		checkNotNull(context, "context cannot be null");
 		checkNotNull(listener, "listener cannot be null");
 
@@ -191,8 +207,11 @@ public class AudioFocusHelper {
 	 * @throws IllegalArgumentException
 	 * 		if {@code listener} is null
 	 */
-	private static boolean requestStreamAudioFocus(final Context context, final
-	OnAudioFocusChangeListener listener, final int streamType) {
+	private static boolean requestStreamAudioFocus(
+			final Context context,
+			final OnAudioFocusChangeListener listener,
+			final int streamType) {
+		
 		checkNotNull(context, "context cannot be null");
 		checkNotNull(listener, "listener cannot be null");
 
