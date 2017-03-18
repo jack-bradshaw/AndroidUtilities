@@ -21,7 +21,7 @@ import android.graphics.Color;
 import com.matthewtamlin.java_utilities.testing.Tested;
 
 /**
- * Utilities for working with colors.
+ * Various helper methods for working with colors.
  */
 @Tested(testMethod = "automated")
 public class ColorHelper {
