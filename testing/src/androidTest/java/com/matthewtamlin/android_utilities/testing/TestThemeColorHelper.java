@@ -56,8 +56,6 @@ public class TestThemeColorHelper {
 	public void init() {
 		activity = testActivityRule.getActivity();
 
-		assertThat("Precondition 1 failed. The activity is null.", activity, is(notNullValue()));
-
 		primaryColor = ContextCompat.getColor(activity, R.color.colorPrimary);
 		primaryDarkColor = ContextCompat.getColor(activity, R.color.colorPrimaryDark);
 		accentColor = ContextCompat.getColor(activity, R.color.colorAccent);
