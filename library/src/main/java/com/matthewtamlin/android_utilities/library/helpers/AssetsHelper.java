@@ -85,16 +85,18 @@ public class AssetsHelper {
 	}
 
 	/**
-	 * Copies a file from the source stream to the target stream.
+	 * Copies data from the source stream to the target stream.
 	 *
 	 * @param source
-	 * 		the source of the data to copy, not null
+	 * 		the stream to copy from, not null
 	 * @param target
-	 * 		the target to copy data to, not null
+	 * 		the stream to copy to, not null
 	 * @throws IOException
-	 * 		if a general IO based error occurs while transferring data
+	 * 		if an unspecified IO error occurs while copying data
 	 * @throws IllegalArgumentException
-	 * 		if either {@code source} or {@code target} is null
+	 * 		if {@code source} is null
+	 * @throws IllegalArgumentException
+	 * 		if {@code target} is null
 	 */
 	private static void copyFile(final InputStream source, final OutputStream target) throws
 			IOException {
@@ -118,7 +120,7 @@ public class AssetsHelper {
 	}
 
 	/**
-	 * Closes a stream. Exceptions are logged if the stream cannot be closed.
+	 * Closes a stream.
 	 *
 	 * @param stream
 	 * 		the stream to close, not null
