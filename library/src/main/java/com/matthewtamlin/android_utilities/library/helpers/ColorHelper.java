@@ -60,13 +60,12 @@ public class ColorHelper {
 	}
 
 	/**
-	 * Determines whether text should be black or white, depending on whichever maximises contrast
-	 * with the background color.
+	 * Calculates the text color which maximises readability against a colored background.
 	 *
 	 * @param backgroundColor
 	 * 		the color of the background behind the text, as an ARGB hex code
 	 *
-	 * @return white (0xFFFFFF) or black (0x000000)
+	 * @return the text color to use, either white (0xFFFFFF) or black (0x000000)
 	 */
 	public static int calculateBestTextColor(final int backgroundColor) {
 		// sRGB [r, g, b]
