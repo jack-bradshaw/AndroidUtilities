@@ -27,21 +27,15 @@ import com.matthewtamlin.android_utilities.library.R;
  * An ImageView where one dimension is constrained so that both width and height are equal.
  */
 public class SquareImageView extends ImageView {
-	/**
-	 * The derived dimension to use if none is supplied.
-	 */
 	private static final Dimension DEFAULT_DERIVED_DIMENSION = Dimension.HEIGHT;
 
-	/**
-	 * The dimension which is forced to equal the other.
-	 */
 	private Dimension derivedDimension;
 
 	/**
-	 * Constructs a new SquareImageViewByWidth instance.
+	 * Constructs a new SquareImageViewByWidth.
 	 *
 	 * @param context
-	 * 		the context this View is operating in, not null
+	 * 		the context this view is operating in, not null
 	 */
 	public SquareImageView(final Context context) {
 		super(context);
@@ -49,10 +43,10 @@ public class SquareImageView extends ImageView {
 	}
 
 	/**
-	 * Constructs a new SquareImageViewByWidth instance.
+	 * Constructs a new SquareImageViewByWidth.
 	 *
 	 * @param context
-	 * 		the context this SquareImageViewByWidth is operating in, not null
+	 * 		the context this view is operating in, not null
 	 * @param attrs
 	 * 		configuration attributes, null allowed
 	 */
@@ -62,10 +56,10 @@ public class SquareImageView extends ImageView {
 	}
 
 	/**
-	 * Constructs a new SquareImageViewByWidth instance.
+	 * Constructs a new SquareImageViewByWidth.
 	 *
 	 * @param context
-	 * 		the context this SquareImageViewByWidth is operating in, not null
+	 * 		the context this view is operating in, not null
 	 * @param attrs
 	 * 		configuration attributes, null allowed
 	 * @param defStyleAttr
@@ -78,10 +72,10 @@ public class SquareImageView extends ImageView {
 	}
 
 	/**
-	 * Constructs a new SquareImageViewByWidth instance.
+	 * Constructs a new SquareImageViewByWidth.
 	 *
 	 * @param context
-	 * 		the context this SquareImageViewByWidth is operating in, not null
+	 * 		the context this view is operating in, not null
 	 * @param attrs
 	 * 		configuration attributes, null allowed
 	 * @param defStyleAttr
