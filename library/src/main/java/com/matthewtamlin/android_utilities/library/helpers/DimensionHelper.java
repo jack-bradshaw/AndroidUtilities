@@ -32,9 +32,13 @@ public class DimensionHelper {
 	 * 		a Context object containing the display metrics to base the conversion on, not null
 	 * @param dpValue
 	 * 		the dimension to convert, measured in display-independent pixels, not less than zero
+	 *
 	 * @return the supplied dimension converted to pixels
+	 *
 	 * @throws IllegalArgumentException
-	 * 		if {@code context} is null or if {@code dpValue} is less than zero
+	 * 		if {@code context} is null
+	 * @throws IllegalArgumentException
+	 * 		if {@code dpValue} is less than zero
 	 */
 	public static int dpToPx(final Context context, final int dpValue) {
 		checkArguments(context, dpValue, "dpValue");
@@ -50,9 +54,13 @@ public class DimensionHelper {
 	 * 		a Context object containing the display metrics to base the conversion on, not null
 	 * @param spValue
 	 * 		the dimension to convert, measured in scaled pixels, not less than zero
+	 *
 	 * @return the supplied dimension converted to pixels
+	 *
 	 * @throws IllegalArgumentException
-	 * 		if {@code context} is null or if {@code spValue} is less than zero
+	 * 		if {@code context} is null
+	 * @throws IllegalArgumentException
+	 * 		if {@code spValue} is less than zero
 	 */
 	public static float spToPx(final Context context, final float spValue) {
 		checkArguments(context, spValue, "spValue");
@@ -68,9 +76,13 @@ public class DimensionHelper {
 	 * 		a Context object containing the display metrics to base the conversion on, not null
 	 * @param inValue
 	 * 		the dimension to convert, measured in inches, not less than zero
+	 *
 	 * @return the supplied dimension converted to pixels
+	 *
+	 *@throws IllegalArgumentException
+	 * 		if {@code context} is null
 	 * @throws IllegalArgumentException
-	 * 		if {@code context} is null or if {@code inValue} is less than zero
+	 * 		if {@code inValue} is less than zero
 	 */
 	public static float inToPx(final Context context, final float inValue) {
 		checkArguments(context, inValue, "inValue");
@@ -86,9 +98,13 @@ public class DimensionHelper {
 	 * 		a Context object containing the display metrics to base the conversion on, not null
 	 * @param mmValue
 	 * 		the dimension to convert, measured in millimetres, not less than zero
+	 *
 	 * @return the supplied dimension converted to pixels
+	 *
 	 * @throws IllegalArgumentException
-	 * 		if {@code context} is null or if {@code mmValue} is less than zero
+	 * 		if {@code context} is null
+	 * @throws IllegalArgumentException
+	 * 		if {@code mmValue} is less than zero
 	 */
 	public static float mmToPx(final Context context, final float mmValue) {
 		checkArguments(context, mmValue, "mmValue");
@@ -104,9 +120,13 @@ public class DimensionHelper {
 	 * 		a Context object containing the display metrics to base the conversion on, not null
 	 * @param ptValue
 	 * 		the dimension to convert, measured in points, not less than zero
+	 *
 	 * @return the supplied dimension converted to pixels
+	 *
 	 * @throws IllegalArgumentException
-	 * 		if {@code context} is null or if {@code ptValue} is less than zero
+	 * 		if {@code context} is null
+	 * @throws IllegalArgumentException
+	 * 		if {@code ptValue} is less than zero
 	 */
 	public static float ptToPx(final Context context, final float ptValue) {
 		checkArguments(context, ptValue, "ptValue");
