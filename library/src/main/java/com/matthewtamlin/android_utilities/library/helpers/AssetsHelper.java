@@ -40,7 +40,7 @@ public class AssetsHelper {
 	 * 		provides access to the assets, not null
 	 * @param targetDirectory
 	 * 		the directory to copy the assets to, not null
-	 * @param assetFiles
+	 * @param assets
 	 * 		the names of the assets to copy (including any extensions), not null
 	 * @throws IOException
 	 * 		if an unspecified IO error occurs while writing to the target directory
@@ -51,14 +51,16 @@ public class AssetsHelper {
 	 * @throws IllegalArgumentException
 	 * 		if {@code targetDirectory} is null
 	 */
-	public static void copyAssetsToDirectory(final AssetManager assetsManager,
+	public static void copyAssetsToDirectory(
+			final AssetManager assetsManager,
 			final File targetDirectory,
-			final String... assetFiles) throws IOException {
+			final String... assets)
+			throws IOException {
 		checkNotNull(assetsManager, "assetsManager cannot be null");
 		checkNotNull(targetDirectory, "targetDirectory cannot be null");
-		checkNotNull(assetFiles, "assetFiles cannot be null");
+		checkNotNull(assets, "assetFiles cannot be null");
 
-		for (final String filename : assetFiles) {
+		for (final String filename : assets) {
 			// Create a new file in the output directory to receive the asset data
 			final File fileInTargetDirectory = new File(targetDirectory, filename);
 
