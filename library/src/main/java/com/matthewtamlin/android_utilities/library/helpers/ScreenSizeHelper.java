@@ -38,7 +38,6 @@ public class ScreenSizeHelper {
 	public static ScreenSize getScreenSize(final Context context) {
 		checkNotNull(context, "context cannot be null");
 
-		// Getting the config requires a bitwise AND operation
 		final Resources res = context.getResources();
 		int config = res.getConfiguration().screenLayout & Configuration.SCREENLAYOUT_SIZE_MASK;
 
