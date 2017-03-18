@@ -113,7 +113,7 @@ public class TestAssetsHelper {
 	@Test(expected = IllegalArgumentException.class)
 	@SuppressWarnings("MissingPermission")
 	public void testCopyAssetsToDirectory_invalidArg_nullContext() throws Exception {
-		AssetsHelper.copyAssetsToDirectory(null, ASSETS_TO_COPY, OUTPUT_DIR);
+		AssetsHelper.copyAssetsToDirectory(null, OUTPUT_DIR, ASSETS_TO_COPY);
 	}
 
 	/**
@@ -126,7 +126,7 @@ public class TestAssetsHelper {
 	@Test(expected = IllegalArgumentException.class)
 	@SuppressWarnings("MissingPermission")
 	public void testCopyAssetsToDirectory_invalidArg_nullAssets() throws Exception {
-		AssetsHelper.copyAssetsToDirectory(context.getAssets(), null, OUTPUT_DIR);
+		AssetsHelper.copyAssetsToDirectory(context.getAssets(), OUTPUT_DIR, null);
 	}
 
 	/**
@@ -139,7 +139,7 @@ public class TestAssetsHelper {
 	@Test(expected = IllegalArgumentException.class)
 	@SuppressWarnings("MissingPermission")
 	public void testCopyAssetsToDirectory_invalidArg_nullTargetDirectory() throws Exception {
-		AssetsHelper.copyAssetsToDirectory(context.getAssets(), ASSETS_TO_COPY, null);
+		AssetsHelper.copyAssetsToDirectory(context.getAssets(), null, ASSETS_TO_COPY);
 	}
 
 	/**
@@ -153,7 +153,7 @@ public class TestAssetsHelper {
 	@Test
 	@SuppressWarnings("MissingPermission")
 	public void testCopyAssetsToDirectory_validArgs() throws Exception {
-		AssetsHelper.copyAssetsToDirectory(context.getAssets(), ASSETS_TO_COPY, OUTPUT_DIR);
+		AssetsHelper.copyAssetsToDirectory(context.getAssets(), OUTPUT_DIR, ASSETS_TO_COPY);
 
 		// Get the Files in the output directory as an ArrayList for ease of use (compared to array)
 		final List<File> filesInOutputDir = new ArrayList<>(Arrays.asList(OUTPUT_DIR.listFiles()));
