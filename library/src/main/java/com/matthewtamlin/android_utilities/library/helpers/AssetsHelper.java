@@ -132,8 +132,8 @@ public class AssetsHelper {
 
 		try {
 			stream.close();
-		} catch (IOException e) {
-			Timber.e("[Error closing stream: " + stream + "]", e);
+		} catch (final IOException e) {
+			Timber.e("Error closing output stream.", e);
 		}
 	}
 }
