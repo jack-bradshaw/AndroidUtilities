@@ -42,6 +42,7 @@ public class AssetsHelper {
 	 * 		the directory to copy the assets to, not null
 	 * @param assets
 	 * 		the names of the assets to copy (including any extensions), not null
+	 *
 	 * @throws IOException
 	 * 		if an unspecified IO error occurs while writing to the target directory
 	 * @throws IllegalArgumentException
@@ -91,6 +92,7 @@ public class AssetsHelper {
 	 * 		the stream to copy from, not null
 	 * @param target
 	 * 		the stream to copy to, not null
+	 *
 	 * @throws IOException
 	 * 		if an unspecified IO error occurs while copying data
 	 * @throws IllegalArgumentException
