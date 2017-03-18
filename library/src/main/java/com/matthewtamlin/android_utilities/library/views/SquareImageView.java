@@ -28,12 +28,6 @@ import com.matthewtamlin.android_utilities.library.R;
  */
 public class SquareImageView extends ImageView {
 	/**
-	 * Used to identify this class during debugging.
-	 */
-	@SuppressWarnings("unused")
-	private static final String TAG = "[SquareImageView]";
-
-	/**
 	 * The derived dimension to use if none is supplied.
 	 */
 	private static final DerivedDimension DEFAULT_DERIVED_DIMENSION = DerivedDimension.HEIGHT;
