@@ -24,21 +24,16 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
 
+import com.matthewtamlin.android_testing_tools.library.harnesses.Control;
+import com.matthewtamlin.android_testing_tools.library.harnesses.EmptyTestHarness;
+
 /**
  * Provides access to the test harnesses.
  */
 @SuppressLint("SetTextI18n")
-public class LauncherActivity extends AppCompatActivity {
-	@Override
-	protected void onCreate(final Bundle savedInstanceState) {
-		super.onCreate(savedInstanceState);
-		setContentView(R.layout.launcher_activity);
-
-		final LinearLayout rootView = (LinearLayout) findViewById(R.id.launcher_activity_root);
-		rootView.addView(createLaunchStatusBarHelperTestHarnessButton());
-	}
-
-	private Button createLaunchStatusBarHelperTestHarnessButton() {
+public class LauncherActivity extends EmptyTestHarness {
+	@Control(1)
+	public Button createLaunchStatusBarHelperTestHarnessButton() {
 		final Button b = new Button(this);
 		b.setText("Launch StatusBarHelper test harness");
 
