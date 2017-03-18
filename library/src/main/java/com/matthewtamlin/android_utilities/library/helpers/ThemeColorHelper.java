@@ -24,18 +24,20 @@ import com.matthewtamlin.android_utilities.library.R;
 import com.matthewtamlin.java_utilities.testing.Tested;
 
 /**
- * Extracts the primary, primary dark and accent colors from the current theme.
+ * Gets the core colors from the current theme.
  */
 @Tested(testMethod = "automated")
 public class ThemeColorHelper {
 	/**
-	 * Extracts the primary color from the current theme of the supplied Context.
+	 * Gets the primary color from the current theme of the supplied Context.
 	 *
 	 * @param context
-	 * 		the Context containing the theme to query, not null
+	 * 		the Context to get the color from, not null
 	 * @param defaultColor
 	 * 		the color to return if no primary color is found, as an ARGB hex code
-	 * @return the primary color, or the default color if none is found
+	 *
+	 * @return the primary color as an ARGB hex code, or the default color if none is found
+	 *
 	 * @throws IllegalArgumentException
 	 * 		if {@code context} is null
 	 */
@@ -48,13 +50,15 @@ public class ThemeColorHelper {
 	}
 
 	/**
-	 * Extracts the primary dark color from the current theme of the supplied Context.
+	 * Gets the primary dark color from the current theme of the supplied Context.
 	 *
 	 * @param context
-	 * 		the Context containing the theme to query, not null
+	 * 		the Context to get the color from, not null
 	 * @param defaultColor
 	 * 		the color to return if no primary dark color is found, as an ARGB hex code
-	 * @return the primary dark color, or the default color if none is found
+	 *
+	 * @return the primary dark color as an ARGB hex code, or the default color if none is found
+	 *
 	 * @throws IllegalArgumentException
 	 * 		if {@code context} is null
 	 */
@@ -67,13 +71,15 @@ public class ThemeColorHelper {
 	}
 
 	/**
-	 * Extracts the accent color from the current theme of the supplied Context.
+	 * Gets the accent color from the current theme of the supplied Context.
 	 *
 	 * @param context
-	 * 		the Context containing the theme to query, not null
+	 * 		the Context to get the color from, not null
 	 * @param defaultColor
 	 * 		the color to return if no accent color is found, as an ARGB hex code
-	 * @return the accent color, or the default color if none is found
+	 *
+	 * @return the accent color as an ARGB hex code, or the default color if none is found
+	 *
 	 * @throws IllegalArgumentException
 	 * 		if {@code context} is null
 	 */
@@ -86,15 +92,17 @@ public class ThemeColorHelper {
 	}
 
 	/**
-	 * Extracts a color from the current theme of the supplied Context.
+	 * Gets a color from the current theme of the supplied Context.
 	 *
 	 * @param context
-	 * 		the Context containing the theme to query, not null
+	 * 		the Context to get the color from, not null
 	 * @param defaultColor
 	 * 		the color to return if no color is found, as an ARGB hex code
 	 * @param colorAttr
-	 * 		an attribute in the current theme which specifies the color to return
-	 * @return the specified color, or the default color if none is found
+	 * 		an attribute in the current theme which identifies the color to return
+	 *
+	 * @return the color as an ARGB hex code, or the default color if none is found
+	 *
 	 * @throws IllegalArgumentException
 	 * 		if {@code context} is null
 	 */
