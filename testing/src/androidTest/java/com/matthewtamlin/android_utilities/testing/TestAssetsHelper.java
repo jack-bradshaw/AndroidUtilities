@@ -36,7 +36,7 @@ import java.util.List;
 import static org.hamcrest.MatcherAssert.assertThat;
 
 /**
- * Unit tests for the {@link AssetsHelper} class.
+ * Automated tests for the {@link AssetsHelper} class.
  */
 @RunWith(AndroidJUnit4.class)
 public class TestAssetsHelper {
@@ -105,7 +105,7 @@ public class TestAssetsHelper {
 
 	/**
 	 * Test to verify that the correct exception is thrown when the {@code context} argument of
-	 * {@link AssetsHelper#copyAssetsToDirectory(AssetManager, String[], File)} is null.
+	 * {@link AssetsHelper#copyAssetsToDirectory(AssetManager, File, String...)} is null.
 	 *
 	 * @throws Exception
 	 * 		should not occur in this test, but declared by signature of called method
@@ -118,7 +118,7 @@ public class TestAssetsHelper {
 
 	/**
 	 * Test to verify that the correct exception is thrown when the {@code assets} argument of
-	 * {@link AssetsHelper#copyAssetsToDirectory(AssetManager, String[], File)} is null.
+	 * {@link AssetsHelper#copyAssetsToDirectory(AssetManager, File, String...)} is null.
 	 *
 	 * @throws Exception
 	 * 		should not occur in this test, but declared by signature of called method
@@ -131,7 +131,7 @@ public class TestAssetsHelper {
 
 	/**
 	 * Test to verify that the correct exception is thrown when the {@code targetDirectory} argument
-	 * of {@link AssetsHelper#copyAssetsToDirectory(AssetManager, String[], File)} is null.
+	 * of {@link AssetsHelper#copyAssetsToDirectory(AssetManager, File, String...)} is null.
 	 *
 	 * @throws Exception
 	 * 		should not occur in this test, but declared by signature of called method
@@ -143,8 +143,9 @@ public class TestAssetsHelper {
 	}
 
 	/**
-	 * Test to verify that the {@link AssetsHelper#copyAssetsToDirectory(AssetManager, String[],
-	 * File)} method functions correctly when provided with valid arguments.
+	 * Test to verify that the
+	 * {@link AssetsHelper#copyAssetsToDirectory(AssetManager, File, String...)} method functions
+	 * correctly when provided with valid arguments.
 	 *
 	 * @throws Exception
 	 * 		the method under test may throw this exception if some operation fails
