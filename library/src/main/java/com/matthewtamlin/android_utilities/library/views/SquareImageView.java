@@ -125,7 +125,7 @@ public class SquareImageView extends ImageView {
 	}
 
 	@Override
-	protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
+	protected void onMeasure(final int widthMeasureSpec, final int heightMeasureSpec) {
 		super.onMeasure(widthMeasureSpec, heightMeasureSpec);
 
 		final int dimensions = derivedDimension == Dimension.WIDTH ?
