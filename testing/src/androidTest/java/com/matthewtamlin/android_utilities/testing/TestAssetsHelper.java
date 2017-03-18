@@ -40,34 +40,15 @@ import static org.hamcrest.MatcherAssert.assertThat;
  */
 @RunWith(AndroidJUnit4.class)
 public class TestAssetsHelper {
-	/**
-	 * Specifies which assets should be copied from the assets space to the output directory.
-	 */
 	private static final String[] ASSETS_TO_COPY = {"small test file.txt", "large test file.txt"};
 
-	/**
-	 * Specifies which assets should not be copied from the asset space to the output directory.
-	 */
 	private static final String[] ASSETS_TO_IGNORE = {"image.png"};
 
-	/**
-	 * The directory to copy the assets to.
-	 */
 	private static final File OUTPUT_DIR = InstrumentationRegistry.getTargetContext()
 			.getExternalFilesDir("/TestAssetsHelper");
 
-	/**
-	 * Provides access to the Android system resources needed to run the tests.
-	 */
 	private Context context;
-
-	/**
-	 * Initialises the testing environment, and verifies that all preconditions are satisfied before
-	 * testing begins.
-	 *
-	 * @throws IOException
-	 * 		may be thrown during setup, which will result in tests being aborted
-	 */
+	
 	@Before
 	@SuppressWarnings("ConstantConditions") // Mitigated manually
 	public void setup() throws IOException {
