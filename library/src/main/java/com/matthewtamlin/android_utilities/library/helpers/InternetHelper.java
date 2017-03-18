@@ -4,6 +4,7 @@ import android.content.Context;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 
+import static android.net.ConnectivityManager.TYPE_MOBILE;
 import static android.net.ConnectivityManager.TYPE_WIFI;
 import static com.matthewtamlin.java_utilities.checkers.NullChecker.checkNotNull;
 
@@ -68,7 +69,7 @@ public class InternetHelper {
 		if (info == null) {
 			return false;
 		} else {
-			return info.isConnected() && info.getType() == TYPE_WIFI;
+			return info.isConnected() && info.getType() == TYPE_MOBILE;
 		}
 	}
 
