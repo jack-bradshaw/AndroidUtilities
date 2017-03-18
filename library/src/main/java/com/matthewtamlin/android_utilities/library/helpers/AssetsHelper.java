@@ -98,8 +98,11 @@ public class AssetsHelper {
 	 * @throws IllegalArgumentException
 	 * 		if {@code target} is null
 	 */
-	private static void copyData(final InputStream source, final OutputStream target) throws
-			IOException {
+	private static void copyData(
+			final InputStream source,
+			final OutputStream target)
+			throws IOException {
+		
 		if (source == null) {
 			throw new IllegalArgumentException("source cannot be null");
 		} else if (target == null) {
