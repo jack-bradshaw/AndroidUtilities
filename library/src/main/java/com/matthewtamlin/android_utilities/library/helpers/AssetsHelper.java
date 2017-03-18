@@ -29,17 +29,15 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 
+import timber.log.Timber;
+
+import static android.content.ContentValues.TAG;
+
 /**
  * Helper class for copying asset files to a storage directory.
  */
 @Tested(testMethod = "automated")
 public class AssetsHelper {
-	/**
-	 * Used during debugging to identify this class.
-	 */
-	@SuppressWarnings("unused")
-	private static final String TAG = "[AssetsHelper]";
-
 	/**
 	 * Copies specified asset resources to the supplied directory.
 	 *
@@ -135,7 +133,7 @@ public class AssetsHelper {
 		try {
 			stream.close();
 		} catch (IOException e) {
-			Log.e(TAG, "[Error closing stream: " + stream + "]", e);
+			Timber.e("[Error closing stream: " + stream + "]", e);
 		}
 	}
 }
