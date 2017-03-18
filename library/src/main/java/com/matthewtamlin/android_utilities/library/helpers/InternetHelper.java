@@ -65,6 +65,7 @@ public class InternetHelper {
 		ETHERNET,
 		MOCK,
 		MOBILE_DUN,
+		VPN,
 		OTHER,
 	}
 }
