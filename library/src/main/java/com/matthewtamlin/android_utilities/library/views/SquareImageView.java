@@ -135,9 +135,6 @@ public class SquareImageView extends ImageView {
 		setMeasuredDimension(dimensions, dimensions);
 	}
 
-	/**
-	 * The dimension which is forced to equal the other.
-	 */
 	private enum Dimension {
 		WIDTH,
 		HEIGHT
