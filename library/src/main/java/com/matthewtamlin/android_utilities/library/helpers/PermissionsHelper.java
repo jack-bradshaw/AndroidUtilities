@@ -16,6 +16,7 @@
 
 package com.matthewtamlin.android_utilities.library.helpers;
 
+import android.Manifest.permission;
 import android.content.Context;
 import android.support.v4.app.ActivityCompat;
 
@@ -30,22 +31,25 @@ import static com.matthewtamlin.java_utilities.checkers.NullChecker.checkNotNull
 @Tested(testMethod = "automated")
 public class PermissionsHelper {
 	/**
-	 * Determines if the supplied Context has already been granted the specified permissions. For a
-	 * list of possible permissions, see {@link android.Manifest}.
+	 * Checks if the supplied Context has been granted all of the supplied permissions.
 	 *
 	 * @param context
-	 * 		the Context to check the permission status of, not null
+	 * 		the Context to check for, not null
 	 * @param permissions
-	 * 		the permissions to check, not null
+	 * 		the permissions to check (see {@link permission}, not null
+	 *
 	 * @return true if all of the specified permissions have been granted, false otherwise
+	 *
 	 * @throws IllegalArgumentException
-	 * 		if {@code context} is null, or if {@code permissions} is null
+	 * 		if {@code context} is null
+	 * @throws IllegalArgumentException
+	 * 		if {@code permissions} is null
 	 */
 	public static boolean permissionsAlreadyGranted(final Context context, final String...
 			permissions) {
 		checkNotNull(context, "context cannot be null.");
 		checkNotNull(permissions, "permissions cannot be null.");
-		
+
 		for (final String permission : permissions) {
 			if (ActivityCompat.checkSelfPermission(context, permission) != PERMISSION_GRANTED) {
 				return false;
