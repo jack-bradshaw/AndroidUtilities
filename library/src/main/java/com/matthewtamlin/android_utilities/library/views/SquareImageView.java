@@ -30,12 +30,12 @@ public class SquareImageView extends ImageView {
 	/**
 	 * The derived dimension to use if none is supplied.
 	 */
-	private static final DerivedDimension DEFAULT_DERIVED_DIMENSION = DerivedDimension.HEIGHT;
+	private static final Dimension DEFAULT_DERIVED_DIMENSION = Dimension.HEIGHT;
 
 	/**
 	 * The dimension which is forced to equal the other.
 	 */
-	private DerivedDimension derivedDimension;
+	private Dimension derivedDimension;
 
 	/**
 	 * Constructs a new SquareImageViewByWidth instance.
@@ -115,7 +115,7 @@ public class SquareImageView extends ImageView {
 		// The derived dimension is encoded as an integer corresponding to an enum ordinal
 		final int attrValue = attributes.getInt(R.styleable.SquareImageView_derivedDimension,
 				DEFAULT_DERIVED_DIMENSION.ordinal());
-		derivedDimension = DerivedDimension.values()[attrValue];
+		derivedDimension = Dimension.values()[attrValue];
 
 		// Necessary, apparently
 		attributes.recycle();
@@ -126,7 +126,7 @@ public class SquareImageView extends ImageView {
 		super.onMeasure(widthMeasureSpec, heightMeasureSpec);
 
 		final int dimensions =
-				derivedDimension == DerivedDimension.WIDTH ?
+				derivedDimension == Dimension.WIDTH ?
 						getMeasuredHeight() :
 						getMeasuredWidth();
 
@@ -136,7 +136,7 @@ public class SquareImageView extends ImageView {
 	/**
 	 * The dimension which is forced to equal the other.
 	 */
-	private enum DerivedDimension {
+	private enum Dimension {
 		WIDTH,
 		HEIGHT
 	}
