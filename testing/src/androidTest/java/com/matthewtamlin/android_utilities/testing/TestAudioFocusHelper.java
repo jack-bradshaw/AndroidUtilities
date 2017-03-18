@@ -32,8 +32,8 @@ import static org.hamcrest.MatcherAssert.assertThat;
 /**
  * Unit tests for the {@link AudioFocusHelper} class.
  * <p/>
- * Unit testing is not able to fully cover the {@link AudioFocusHelper#abandonFocus(Context,
- * OnAudioFocusChangeListener)} method, because Google's implementation of the AudioManager fails to
+ * Unit testing is not able to cover the {@link AudioFocusHelper#abandonFocus(Context,
+ * OnAudioFocusChangeListener)} method because Google's implementation of the AudioManager fails to
  * deliver callbacks to the correct OnAudioFocusChangeListener under testing conditions.
  */
 @RunWith(AndroidJUnit4.class)

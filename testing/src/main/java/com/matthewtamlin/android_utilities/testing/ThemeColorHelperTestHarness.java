@@ -18,14 +18,14 @@ package com.matthewtamlin.android_utilities.testing;
 
 import android.os.Bundle;
 
-import com.matthewtamlin.android_testing_tools.library.NoViewTestHarness;
+import com.matthewtamlin.android_testing_tools.library.harnesses.EmptyTestHarness;
 import com.matthewtamlin.android_utilities.library.helpers.ColorHelper;
 
 /**
  * A test harness for testing the {@link ColorHelper} class. The TestTheme is applied to
  * facilitate testing.
  */
-public class ThemeColorHelperTestHarness extends NoViewTestHarness {
+public class ThemeColorHelperTestHarness extends EmptyTestHarness {
 	@Override
 	protected final void onCreate(final Bundle savedInstanceState) {
 		setTheme(R.style.TestTheme);
