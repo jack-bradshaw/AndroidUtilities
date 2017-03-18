@@ -22,6 +22,7 @@ import android.support.v4.app.ActivityCompat;
 import com.matthewtamlin.java_utilities.testing.Tested;
 
 import static android.content.pm.PackageManager.PERMISSION_GRANTED;
+import static com.matthewtamlin.java_utilities.checkers.NullChecker.checkNotNull;
 
 /**
  * Checks if permissions have been granted.
@@ -42,27 +43,16 @@ public class PermissionsHelper {
 	 */
 	public static boolean permissionsAlreadyGranted(final Context context, final String...
 			permissions) {
-		if (context == null) {
-			throw new IllegalArgumentException("context cannot be null");
-		} else if (permissions == null) {
-			throw new IllegalArgumentException("permissions cannot be null");
-		}
-
-		// Record of how many permission are granted, for comparison with how many were requested
-		int countPermissionsGranted = 0;
-
-		// Check each requested permission and record the result
+		checkNotNull(context, "context cannot be null.");
+		checkNotNull(permissions, "permissions cannot be null.");
+		
 		for (final String permission : permissions) {
-			if (ActivityCompat.checkSelfPermission(context, permission) == PERMISSION_GRANTED) {
-				countPermissionsGranted++;
-			} else {
-				// No point checking the rest if one has already failed
-				break;
+			if (ActivityCompat.checkSelfPermission(context, permission) != PERMISSION_GRANTED) {
+				return false;
 			}
 		}
 
-		// Only return true if every requested permission is granted
-		return (permissions.length == countPermissionsGranted);
+		return true;
 	}
 
 	//TODO put in check for at least one permission
