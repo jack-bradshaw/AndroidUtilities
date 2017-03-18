@@ -50,28 +50,3 @@ dependencies {
 	androidTestCompile 'com.google.dexmaker:dexmaker-mockito:1.2'
 	androidTestCompile 'com.android.support:support-annotations:25.2.0' // Resolves conflict
 }
-
-/**
- * Task to grant the permissions required by the instrumented tests.
- */
-task grantAndroidTestPermissions(type: Exec) {
-	// Permissions list is based on the contents of the instrumented tests
-	def permissionsToGrant = ['android.permission.WRITE_EXTERNAL_STORAGE', 'android.permission.NFC']
-	def permissionsToDeny = ['android.permission.ACCOUNT_MANAGER']
-
-	// Get the path to the adb shell
-	def androidPlugin = project.plugins.findPlugin("android")
-	def adb = androidPlugin.sdkHandler.sdkInfo?.adb
-
-	// Grant the required permissions
-	permissionsToGrant.each {
-		commandLine "$adb", "shell", "pm", "grant", "com.matthewtamlin.android_utilities.testing",
-				"$it"
-	}
-
-	// Deny the necessary permissions
-	permissionsToDeny.each {
-		commandLine "$adb", "shell", "pm", "deny", "com.matthewtamlin.android_utilities.testing",
-				"$it"
-	}
-}
