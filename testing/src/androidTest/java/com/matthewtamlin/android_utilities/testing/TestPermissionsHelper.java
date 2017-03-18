@@ -52,15 +52,8 @@ public class TestPermissionsHelper {
 	 */
 	private static final String[] DENIED_PERMISSIONS = {Manifest.permission.ACCOUNT_MANAGER};
 
-	/**
-	 * Provides access to the Android system resources needed to run the tests.
-	 */
 	private Context context;
 
-	/**
-	 * Initialises the testing environment, and verifies that all preconditions are satisfied before
-	 * testing begins.
-	 */
 	@Before
 	public void setup() {
 		context = InstrumentationRegistry.getContext();
