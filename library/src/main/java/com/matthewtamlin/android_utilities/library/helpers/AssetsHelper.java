@@ -17,8 +17,6 @@
 package com.matthewtamlin.android_utilities.library.helpers;
 
 import android.content.res.AssetManager;
-import android.support.annotation.RequiresPermission;
-import android.util.Log;
 
 import com.matthewtamlin.java_utilities.testing.Tested;
 
@@ -31,26 +29,28 @@ import java.io.OutputStream;
 
 import timber.log.Timber;
 
-import static android.content.ContentValues.TAG;
-
 /**
- * Helper class for copying asset files to a storage directory.
+ * Copies files from assets to a directory.
  */
 @Tested(testMethod = "automated")
 public class AssetsHelper {
 	/**
-	 * Copies specified asset resources to the supplied directory.
+	 * Copies one or more assets to a directory.
 	 *
 	 * @param assetsManager
-	 * 		provides access to the application's assets, not null
+	 * 		provides access to the assets, not null
 	 * @param targetDirectory
-	 * 		the directory to copy the asset files to, not null
+	 * 		the directory to copy the assets to, not null
 	 * @param assetFiles
-	 * 		the filenames of the asset files to copy (including extension), not null
+	 * 		the names of the assets to copy (including any extensions), not null
 	 * @throws IOException
-	 * 		if a general IO based error occurs while copying the files
+	 * 		if a general IO error occurs while copying the files
 	 * @throws IllegalArgumentException
-	 * 		if either {@code assetsManager}, {@code assetFiles} or {@code targetDirectory} is null
+	 * 		if {@code assetsManager} is null
+	 * @throws IllegalArgumentException
+	 * 		if {@code assetFiles} is null
+	 * @throws IllegalArgumentException
+	 * 		if {@code targetDirectory} is null
 	 */
 	public static void copyAssetsToDirectory(final AssetManager assetsManager,
 			final File targetDirectory,
