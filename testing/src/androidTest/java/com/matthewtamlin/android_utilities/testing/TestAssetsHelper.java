@@ -49,7 +49,6 @@ public class TestAssetsHelper {
 	private Context context;
 
 	@Before
-	@SuppressWarnings("ConstantConditions") // Mitigated manually
 	public void setup() throws IOException {
 		context = InstrumentationRegistry.getContext();
 
@@ -77,7 +76,6 @@ public class TestAssetsHelper {
 	 * 		should not occur in this test, but declared by signature of called method
 	 */
 	@Test(expected = IllegalArgumentException.class)
-	@SuppressWarnings("MissingPermission")
 	public void testCopyAssetsToDirectory_invalidArg_nullContext() throws Exception {
 		AssetsHelper.copyAssetsToDirectory(null, OUTPUT_DIR, ASSETS_TO_COPY);
 	}
@@ -90,7 +88,6 @@ public class TestAssetsHelper {
 	 * 		should not occur in this test, but declared by signature of called method
 	 */
 	@Test(expected = IllegalArgumentException.class)
-	@SuppressWarnings("MissingPermission")
 	public void testCopyAssetsToDirectory_invalidArg_nullAssets() throws Exception {
 		AssetsHelper.copyAssetsToDirectory(context.getAssets(), OUTPUT_DIR, null);
 	}
@@ -103,7 +100,6 @@ public class TestAssetsHelper {
 	 * 		should not occur in this test, but declared by signature of called method
 	 */
 	@Test(expected = IllegalArgumentException.class)
-	@SuppressWarnings("MissingPermission")
 	public void testCopyAssetsToDirectory_invalidArg_nullTargetDirectory() throws Exception {
 		AssetsHelper.copyAssetsToDirectory(context.getAssets(), null, ASSETS_TO_COPY);
 	}
@@ -117,7 +113,6 @@ public class TestAssetsHelper {
 	 * 		the method under test may throw this exception if some operation fails
 	 */
 	@Test
-	@SuppressWarnings("MissingPermission")
 	public void testCopyAssetsToDirectory_validArgs() throws Exception {
 		AssetsHelper.copyAssetsToDirectory(context.getAssets(), OUTPUT_DIR, ASSETS_TO_COPY);
 
