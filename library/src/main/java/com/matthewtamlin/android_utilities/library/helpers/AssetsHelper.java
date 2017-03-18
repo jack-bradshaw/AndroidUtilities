@@ -44,7 +44,7 @@ public class AssetsHelper {
 	 * @param assetFiles
 	 * 		the names of the assets to copy (including any extensions), not null
 	 * @throws IOException
-	 * 		if a general IO error occurs while copying the files
+	 * 		if an unspecified IO error occurs while writing to the target directory
 	 * @throws IllegalArgumentException
 	 * 		if {@code assetsManager} is null
 	 * @throws IllegalArgumentException
