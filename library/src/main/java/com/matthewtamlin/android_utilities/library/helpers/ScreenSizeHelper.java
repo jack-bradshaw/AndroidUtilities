@@ -57,7 +57,7 @@ public class ScreenSizeHelper {
 	}
 
 	/**
-	 * Returns the width of this device's screen, measured in pixels.
+	 * Gets the screen width of this device.
 	 *
 	 * @param context
 	 * 		a Context which gives access to the current device configuration, not null
@@ -82,7 +82,7 @@ public class ScreenSizeHelper {
 	}
 
 	/**
-	 * Returns the approximate height of this device's screen, measured in pixels.
+	 * Gets the screen height of this device.
 	 *
 	 * @param context
 	 * 		a Context which gives access to the current device configuration, not null
