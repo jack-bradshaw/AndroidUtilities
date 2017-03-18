@@ -62,23 +62,23 @@ public class AssetsHelper {
 		checkNotNull(assets, "assetFiles cannot be null");
 
 		for (final String filename : assets) {
-			final File fileInTargetDirectory = new File(targetDirectory, filename);
+			final File targetFile = new File(targetDirectory, filename);
 
-			InputStream streamFromAssets = null;
-			OutputStream streamToTargetFile = null;
+			InputStream fromAssets = null;
+			OutputStream toTarget = null;
 
 			try {
-				streamToTargetFile = new FileOutputStream(fileInTargetDirectory);
-				streamFromAssets = assetsManager.open(filename);
+				fromAssets = assetsManager.open(filename);
+				toTarget = new FileOutputStream(targetFile);
 
-				copyFile(streamFromAssets, streamToTargetFile);
+				copyFile(fromAssets, toTarget);
 			} finally {
-				if (streamFromAssets != null) {
-					streamFromAssets.close();
+				if (fromAssets != null) {
+					fromAssets.close();
 				}
 
-				if (streamToTargetFile != null) {
-					streamToTargetFile.close();
+				if (toTarget != null) {
+					toTarget.close();
 				}
 			}
 		}
