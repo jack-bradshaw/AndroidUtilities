@@ -42,17 +42,13 @@ public class ScreenSizeHelper {
 		final Resources res = context.getResources();
 		int config = res.getConfiguration().screenLayout & Configuration.SCREENLAYOUT_SIZE_MASK;
 
-		// Convert the configuration to an enum constant
-		if (config == Configuration.SCREENLAYOUT_SIZE_XLARGE) {
-			return ScreenSize.EXTRA_LARGE;
-		} else if (config == Configuration.SCREENLAYOUT_SIZE_LARGE) {
-			return ScreenSize.LARGE;
-		} else if (config == Configuration.SCREENLAYOUT_SIZE_NORMAL) {
-			return ScreenSize.NORMAL;
-		} else if (config == Configuration.SCREENLAYOUT_SIZE_SMALL) {
-			return ScreenSize.SMALL;
-		} else {
-			return ScreenSize.UNDEFINED;
+		switch (config) {
+			case Configuration.SCREENLAYOUT_SIZE_XLARGE: return ScreenSize.EXTRA_LARGE;
+			case Configuration.SCREENLAYOUT_SIZE_LARGE: return ScreenSize.LARGE;
+			case Configuration.SCREENLAYOUT_SIZE_NORMAL: return ScreenSize.NORMAL;
+			case Configuration.SCREENLAYOUT_SIZE_SMALL: return ScreenSize.SMALL;
+
+			default: return ScreenSize.UNDEFINED;
 		}
 	}
 
