@@ -44,11 +44,10 @@ public class TestAssetsHelper {
 
 	private static final String[] ASSETS_TO_IGNORE = {"image.png"};
 
-	private static final File OUTPUT_DIR = InstrumentationRegistry.getTargetContext()
-			.getExternalFilesDir("/TestAssetsHelper");
+	private static final File OUTPUT_DIR = InstrumentationRegistry.getTargetContext().getFilesDir();
 
 	private Context context;
-	
+
 	@Before
 	@SuppressWarnings("ConstantConditions") // Mitigated manually
 	public void setup() throws IOException {
