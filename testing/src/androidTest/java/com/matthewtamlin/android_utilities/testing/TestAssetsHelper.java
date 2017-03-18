@@ -53,26 +53,19 @@ public class TestAssetsHelper {
 	public void setup() throws IOException {
 		context = InstrumentationRegistry.getContext();
 
-		// Check precondition 1: All assets under test are contained within the Context's assets
 		final List<String> assets = new ArrayList<>(Arrays.asList(context.getAssets().list("")));
-		final List<String> assetsUnderTest = new ArrayList<>();
-		System.out.println(assets);
-		assetsUnderTest.addAll(Arrays.asList(ASSETS_TO_COPY));
-		assetsUnderTest.addAll(Arrays.asList(ASSETS_TO_IGNORE));
-		assertThat("Precondition 4 failed. The assets folder does not contain all assets needed " +
-				"for the test.", assets.containsAll(assetsUnderTest));
+		assertThat("Missing expected asset.", assets.contains(ASSETS_TO_COPY[0]));
+		assertThat("Missing expected asset.", assets.contains(ASSETS_TO_COPY[1]));
+		assertThat("Unexpected asset exists.", !assets.contains(ASSETS_TO_IGNORE[0]));
 
-		// Check precondition 2: The output directory exists or can be created
-		if (!OUTPUT_DIR.isDirectory()) {
+		if (!OUTPUT_DIR.exists()) {
 			final boolean outputDirWasCreated = OUTPUT_DIR.mkdir();
-			assertThat("Precondition 5 failed. Output directory not created.", outputDirWasCreated);
+			assertThat("Output directory could not be created.", outputDirWasCreated);
 		}
 
-		// Check precondition 3: All files in the output directory are deleted
 		for (final File f : OUTPUT_DIR.listFiles()) {
 			final boolean fileDeletedSuccessfully = f.delete();
-			assertThat("Precondition 6 failed. Existing files in the output directory could not " +
-					"be deleted.", fileDeletedSuccessfully);
+			assertThat("Failed to delete all files in output directory.", fileDeletedSuccessfully);
 		}
 	}
 
