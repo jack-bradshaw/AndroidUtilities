@@ -92,13 +92,13 @@ public class SquareImageView extends ImageView {
 			final AttributeSet attrs,
 			final int defStyleAttr,
 			final int defStyleRes) {
-		
+
 		super(context, attrs, defStyleAttr);
 		init(attrs, defStyleAttr, defStyleRes);
 	}
 
 	/**
-	 * Unpacks the attributes, taking into account styling and themes.
+	 * Initialises the view. This method should only be called from a constructor.
 	 *
 	 * @param attrs
 	 * 		configuration attributes, null allowed
