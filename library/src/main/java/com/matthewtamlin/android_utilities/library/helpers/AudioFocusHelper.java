@@ -36,7 +36,9 @@ public class AudioFocusHelper {
 	 * 		the Context in which {@code listener} is operating, not null
 	 * @param listener
 	 * 		the OnAudioFocusChangeListener to receive the audio focus, not null
+	 *
 	 * @return true if audio focus is granted, false otherwise
+	 *
 	 * @throws IllegalArgumentException
 	 * 		if {@code context} is null
 	 * @throws IllegalArgumentException
@@ -56,7 +58,9 @@ public class AudioFocusHelper {
 	 * 		the Context in which {@code listener} is operating, not null
 	 * @param listener
 	 * 		the OnAudioFocusChangeListener to receive the audio focus, not null
+	 *
 	 * @return true if audio focus is granted, false otherwise
+	 *
 	 * @throws IllegalArgumentException
 	 * 		if {@code context} is null
 	 * @throws IllegalArgumentException
@@ -76,7 +80,9 @@ public class AudioFocusHelper {
 	 * 		the Context in which {@code listener} is operating, not null
 	 * @param listener
 	 * 		the OnAudioFocusChangeListener to receive the audio focus, not null
+	 *
 	 * @return true if audio focus is granted, false otherwise
+	 *
 	 * @throws IllegalArgumentException
 	 * 		if {@code context} is null
 	 * @throws IllegalArgumentException
@@ -96,7 +102,9 @@ public class AudioFocusHelper {
 	 * 		the Context in which {@code listener} is operating, not null
 	 * @param listener
 	 * 		the OnAudioFocusChangeListener to receive the audio focus, not null
+	 *
 	 * @return true if audio focus is granted, false otherwise
+	 *
 	 * @throws IllegalArgumentException
 	 * 		if {@code context} is null
 	 * @throws IllegalArgumentException
@@ -116,7 +124,9 @@ public class AudioFocusHelper {
 	 * 		the Context in which {@code listener} is operating, not null
 	 * @param listener
 	 * 		the OnAudioFocusChangeListener to receive the audio focus, not null
+	 *
 	 * @return true if audio focus is granted, false otherwise
+	 *
 	 * @throws IllegalArgumentException
 	 * 		if {@code context} is null
 	 * @throws IllegalArgumentException
@@ -136,7 +146,9 @@ public class AudioFocusHelper {
 	 * 		the Context in which {@code listener} is operating, not null
 	 * @param listener
 	 * 		the OnAudioFocusChangeListener to receive the audio focus, not null
+	 *
 	 * @return true if audio focus is granted, false otherwise
+	 *
 	 * @throws IllegalArgumentException
 	 * 		if {@code context} is null
 	 * @throws IllegalArgumentException
@@ -156,7 +168,9 @@ public class AudioFocusHelper {
 	 * 		the Context in which {@code listener} is operating, not null
 	 * @param listener
 	 * 		the OnAudioFocusChangeListener to receive the audio focus, not null
+	 *
 	 * @return true if audio focus is granted, false otherwise
+	 *
 	 * @throws IllegalArgumentException
 	 * 		if {@code context} is null
 	 * @throws IllegalArgumentException
@@ -176,6 +190,7 @@ public class AudioFocusHelper {
 	 * 		the Context in which {@code listener} is operating, not null
 	 * @param listener
 	 * 		the OnAudioFocusChangeListener which will lose audio focus, not null
+	 *
 	 * @throws IllegalArgumentException
 	 * 		if {@code context} is null
 	 * @throws IllegalArgumentException
@@ -201,7 +216,9 @@ public class AudioFocusHelper {
 	 * 		the OnAudioFocusChangeListener to receive the audio focus, not null
 	 * @param streamType
 	 * 		the type of stream to request (see static fields of AudioManager)
+	 *
 	 * @return true if focus was granted, false otherwise
+	 *
 	 * @throws IllegalArgumentException
 	 * 		if {@code context} is null
 	 * @throws IllegalArgumentException
