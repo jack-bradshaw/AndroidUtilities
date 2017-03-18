@@ -41,30 +41,16 @@ import static org.hamcrest.Matchers.notNullValue;
 import static org.hamcrest.Matchers.nullValue;
 
 /**
- * Unit tests for the {@link BitmapEfficiencyHelper} class.
+ * Automated tests for the {@link BitmapEfficiencyHelper} class.
  */
 @RunWith(AndroidJUnit4.class)
 public class TestBitmapEfficiencyHelper {
-	/**
-	 * The resource ID of a raw image resource for use in testing.
-	 */
 	private static final int TEST_RES_ID = image;
 
-	/**
-	 * Provides access to the Android system resources needed to run the tests.
-	 */
 	private Context context;
 
-	/**
-	 * A full size image (decoded from the raw resource) which can be used to measure the
-	 * effectiveness of the class under test.
-	 */
 	private Bitmap fullSizeImage;
 
-	/**
-	 * Initialises the testing environment, and verifies that all preconditions are satisfied before
-	 * testing begins.
-	 */
 	@Before
 	public void setup() {
 		// Using the target context provides access to the raw resources
