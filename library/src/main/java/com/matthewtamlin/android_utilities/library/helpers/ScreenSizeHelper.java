@@ -27,7 +27,7 @@ import android.view.WindowManager;
  */
 public class ScreenSizeHelper {
 	/**
-	 * Gets the screen size.
+	 * Gets the approximate screen size.
 	 *
 	 * @param context
 	 * 		a Context which gives access to the current device configuration, not null
