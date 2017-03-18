@@ -21,8 +21,7 @@ import android.content.res.TypedArray;
 import android.util.AttributeSet;
 import android.widget.ImageView;
 
-import com.matthewtamlin.android_utilities.library.R;
-
+import static com.matthewtamlin.android_utilities.library.R.styleable.SquareImageView;
 import static com.matthewtamlin.android_utilities.library.R.styleable.SquareImageView_derivedDimension;
 
 /**
@@ -111,8 +110,11 @@ public class SquareImageView extends ImageView {
 	 * 		0 to ignore
 	 */
 	private void init(final AttributeSet attrs, final int defStyleAttr, final int defStyleRes) {
-		final TypedArray attributes = getContext().obtainStyledAttributes(attrs,
-				R.styleable.SquareImageView, defStyleAttr, defStyleRes);
+		final TypedArray attributes = getContext().obtainStyledAttributes(
+				attrs,
+				SquareImageView,
+				defStyleAttr,
+				defStyleRes);
 
 		final int constrainedDimensionOrdinal = attributes.getInt(
 				SquareImageView_derivedDimension,
@@ -126,10 +128,9 @@ public class SquareImageView extends ImageView {
 	protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
 		super.onMeasure(widthMeasureSpec, heightMeasureSpec);
 
-		final int dimensions =
-				derivedDimension == Dimension.WIDTH ?
-						getMeasuredHeight() :
-						getMeasuredWidth();
+		final int dimensions = derivedDimension == Dimension.WIDTH ?
+				getMeasuredHeight() :
+				getMeasuredWidth();
 
 		setMeasuredDimension(dimensions, dimensions);
 	}
