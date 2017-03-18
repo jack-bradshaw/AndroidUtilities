@@ -40,7 +40,6 @@ import static org.hamcrest.Matchers.notNullValue;
  * WRITE_EXTERNAL_STORAGE} permission.</li> <li>The test context has been granted the {@code NFC}
  * permission.</li><li>The test has been denied the {@code ACCOUNT_MANAGER} permission.</li></ul>
  */
-//TODO make a gradle task run before unit tests execute
 @RunWith(AndroidJUnit4.class)
 public class TestPermissionsHelper {
 	/**
