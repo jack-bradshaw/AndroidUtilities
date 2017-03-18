@@ -98,4 +98,6 @@ public class ColorHelper {
 			return Color.WHITE;
 		}
 	}
+
+	//TODO add method to create random color
 }
