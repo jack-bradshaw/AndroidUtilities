@@ -25,7 +25,7 @@ import android.view.WindowManager;
 import static com.matthewtamlin.java_utilities.checkers.NullChecker.checkNotNull;
 
 /**
- * Helper class for working with screen sizes.
+ * Utilities for quantifying the device screen size.
  */
 public class ScreenSizeHelper {
 	/**
