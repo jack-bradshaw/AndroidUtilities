@@ -41,35 +41,21 @@ import static org.hamcrest.Matchers.notNullValue;
 import static org.hamcrest.Matchers.nullValue;
 
 /**
- * Unit tests for the {@link BitmapEfficiencyHelper} class.
+ * Automated tests for the {@link BitmapEfficiencyHelper} class.
  */
 @RunWith(AndroidJUnit4.class)
 public class TestBitmapEfficiencyHelper {
-	/**
-	 * The resource ID of a raw image resource for use in testing.
-	 */
-	private static final int TEST_RES_ID = image;
+	private static final int IMAGE_RES_ID = image;
 
-	/**
-	 * Provides access to the Android system resources needed to run the tests.
-	 */
 	private Context context;
 
-	/**
-	 * A full size image (decoded from the raw resource) which can be used to measure the
-	 * effectiveness of the class under test.
-	 */
 	private Bitmap fullSizeImage;
 
-	/**
-	 * Initialises the testing environment, and verifies that all preconditions are satisfied before
-	 * testing begins.
-	 */
 	@Before
 	public void setup() {
 		// Using the target context provides access to the raw resources
 		context = InstrumentationRegistry.getTargetContext();
-		fullSizeImage = BitmapFactory.decodeResource(context.getResources(), TEST_RES_ID);
+		fullSizeImage = BitmapFactory.decodeResource(context.getResources(), IMAGE_RES_ID);
 
 		assertThat("Precondition 1 failed.", context, is(notNullValue()));
 		assertThat("Precondition 2 failed.", fullSizeImage, is(notNullValue()));
@@ -153,7 +139,7 @@ public class TestBitmapEfficiencyHelper {
 	 */
 	@Test(expected = IllegalArgumentException.class)
 	public void testDecodeResource_invalidArg_nullContext() {
-		decodeResource(null, TEST_RES_ID, 10, 10);
+		decodeResource(null, IMAGE_RES_ID, 10, 10);
 	}
 
 	/**
@@ -162,7 +148,7 @@ public class TestBitmapEfficiencyHelper {
 	 */
 	@Test(expected = IllegalArgumentException.class)
 	public void testDecodeResource_invalidArg_negativeWidth() {
-		decodeResource(context.getResources(), TEST_RES_ID, -1, 10);
+		decodeResource(context.getResources(), IMAGE_RES_ID, -1, 10);
 	}
 
 	/**
@@ -171,7 +157,7 @@ public class TestBitmapEfficiencyHelper {
 	 */
 	@Test(expected = IllegalArgumentException.class)
 	public void testDecodeResource_invalidArg_negativeHeight() {
-		decodeResource(context.getResources(), TEST_RES_ID, 10, -1);
+		decodeResource(context.getResources(), IMAGE_RES_ID, 10, -1);
 	}
 
 	/**
@@ -197,7 +183,7 @@ public class TestBitmapEfficiencyHelper {
 		final int testWidth = fullSizeImage.getWidth() / 2;
 		final int testHeight = fullSizeImage.getHeight() / 2;
 
-		final Bitmap decodedImage = decodeResource(context.getResources(), TEST_RES_ID,
+		final Bitmap decodedImage = decodeResource(context.getResources(), IMAGE_RES_ID,
 				testWidth, testHeight);
 
 		assertThat("Decoded image should not be null.", decodedImage, is(notNullValue()));
