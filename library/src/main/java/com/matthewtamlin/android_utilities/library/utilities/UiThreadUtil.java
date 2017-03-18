@@ -19,13 +19,12 @@ package com.matthewtamlin.android_utilities.library.utilities;
 /**
  * Provides access to the UI thread.
  */
-@SuppressWarnings("WeakerAccess") // Class is part of public API
 public interface UiThreadUtil {
 	/**
-	 * Runs the supplied runnable on the UI thread of the current app.
+	 * Submits the supplied runnable to the UI thread.
 	 *
 	 * @param runnable
-	 * 		the runnable to execute, may be null
+	 * 		the runnable to submit, may be null
 	 */
 	public void runOnUiThread(Runnable runnable);
 }

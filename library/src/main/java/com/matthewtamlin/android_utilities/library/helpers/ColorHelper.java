@@ -21,52 +21,50 @@ import android.graphics.Color;
 import com.matthewtamlin.java_utilities.testing.Tested;
 
 /**
- * Helper class for working with colors.
+ * Various helper methods for working with colors.
  */
 @Tested(testMethod = "automated")
 public class ColorHelper {
 	/**
-	 * Blends two colours to produce a single output colour. No check is done to ensure the provided
-	 * colors are valid ARGB hex codes, and providing invalid codes will result in an undefined
-	 * result. The blend works individually combining the ARGB components of the supplied colors and
-	 * then synthesising the components back into one color.
+	 * Blends two colors together using the individual ARGB channels. The {@code ratio} argument
+	 * controls the proportion of each colour to use in the resulting color. Supplying a ratio of 0
+	 * would result in color1 being returned, and supplying a ratio of 1 would result in color2
+	 * being returned. The resulting colour varies linearly for ratios between 0 and 1.
 	 *
 	 * @param color1
-	 * 		the first colour to blend, as an ARGB hex code
+	 * 		the first color to blend, as an ARGB hex code
 	 * @param color2
-	 * 		the second colour to blend, as an ARGB hex code
+	 * 		the second color to blend, as an ARGB hex code
 	 * @param ratio
-	 * 		the proportion of {@code color2} to use in the blended result, between 0 and 1 (inclusive)
+	 * 		the ratio of color1 to color2, as a value between 0 and 1 (inclusive)
+	 *
 	 * @return the ARGB code for the blended colour
+	 *
 	 * @throws IllegalArgumentException
 	 * 		if {@code ratio} is not between 0 and 1 (inclusive)
 	 */
-	@SuppressWarnings("SameParameterValue")
 	public static int blendColors(final int color1, final int color2, final float ratio) {
 		if (ratio < 0 || ratio > 1) {
 			throw new IllegalArgumentException("ratio must be between 0 and 1 (inclusive)");
 		}
 
-		// Calculate the inverse ratio once and cache the result to improve time performance
 		final float inverseRatio = 1f - ratio;
 
-		// Combine the colors using the ARGB components
 		final float a = (Color.alpha(color1) * inverseRatio) + (Color.alpha(color2) * ratio);
 		final float r = (Color.red(color1) * inverseRatio) + (Color.red(color2) * ratio);
 		final float g = (Color.green(color1) * inverseRatio) + (Color.green(color2) * ratio);
 		final float b = (Color.blue(color1) * inverseRatio) + (Color.blue(color2) * ratio);
 
-		// Compose the result from by combining the ARGB components
 		return Color.argb((int) a, (int) r, (int) g, (int) b);
 	}
 
 	/**
-	 * Determines whether text should be black or white, depending on whichever maximises contrast
-	 * with the background color.
+	 * Calculates the text color which maximises readability against a colored background.
 	 *
 	 * @param backgroundColor
 	 * 		the color of the background behind the text, as an ARGB hex code
-	 * @return white (0xFFFFFF) or black (0x000000)
+	 *
+	 * @return the text color to use, either white (0xFFFFFF) or black (0x000000)
 	 */
 	public static int calculateBestTextColor(final int backgroundColor) {
 		// sRGB [r, g, b]
@@ -99,4 +97,6 @@ public class ColorHelper {
 			return Color.WHITE;
 		}
 	}
+
+	//TODO add method to create random color
 }

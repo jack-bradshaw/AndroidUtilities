@@ -25,7 +25,7 @@ import com.matthewtamlin.java_utilities.testing.Tested;
 import static com.matthewtamlin.java_utilities.checkers.NullChecker.checkNotNull;
 
 /**
- * Helper class for obtaining and abandoning audio focus.
+ * Obtains and abandons audio focus.
  */
 @Tested(testMethod = "automated")
 public class AudioFocusHelper {
