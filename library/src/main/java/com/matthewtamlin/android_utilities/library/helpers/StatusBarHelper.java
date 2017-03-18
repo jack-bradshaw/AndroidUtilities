@@ -29,6 +29,7 @@ import com.matthewtamlin.java_utilities.testing.Tested;
  * Utilities for hiding and showing the status bar.
  */
 @RequiresApi(16) // For client
+@Deprecated
 @TargetApi(16) // For lint
 @Tested(testMethod = "manual")
 public class StatusBarHelper {
