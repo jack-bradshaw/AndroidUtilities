@@ -20,7 +20,7 @@ public class InternetHelper {
 	 *
 	 * @return the type of the current internet connection, null if there is none
 	 */
-	public static boolean getInternetConnectionType(final Context context) {
+	public static ConnectionType getInternetConnectionType(final Context context) {
 		checkNotNull(context, "context cannot be null.");
 
 		final NetworkInfo info = getNetworkInfo(context);
