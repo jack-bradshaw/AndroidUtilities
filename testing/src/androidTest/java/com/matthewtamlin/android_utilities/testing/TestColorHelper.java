@@ -28,7 +28,7 @@ import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.is;
 
 /**
- * Unit tests for the {@link ColorHelper} class.
+ * Automated tests for the {@link ColorHelper} class.
  */
 @RunWith(AndroidJUnit4.class)
 public class TestColorHelper {
