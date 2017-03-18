@@ -20,6 +20,8 @@ import android.graphics.Color;
 
 import com.matthewtamlin.java_utilities.testing.Tested;
 
+import java.util.Random;
+
 /**
  * Various helper methods for working with colors.
  */
@@ -98,5 +100,22 @@ public class ColorHelper {
 		}
 	}
 
-	//TODO add method to create random color
+	/**
+	 * Creates a random color.
+	 *
+	 * @param randomiseTransparency
+	 * 		true to randomise the alpha channel, false to make the alpha channel always 255
+	 *
+	 * @return a random color as an ARGB hex code
+	 */
+	public static int createRandomColor(final boolean randomiseTransparency) {
+		final Random random = new Random();
+
+		final int a = randomiseTransparency ? random.nextInt(256) : 255;
+		final int r = random.nextInt(256);
+		final int g = random.nextInt(256);
+		final int b = random.nextInt(256);
+
+		return Color.argb(a, r, g, b);
+	}
 }
