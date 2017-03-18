@@ -24,7 +24,7 @@ import com.matthewtamlin.android_utilities.library.R;
 import com.matthewtamlin.java_utilities.testing.Tested;
 
 /**
- * Utilities for extracting the primary, primary dark and accent colors from a theme.
+ * Extracts the primary, primary dark and accent colors from the current theme.
  */
 @SuppressWarnings("SameParameterValue")
 @Tested(testMethod = "automated")
