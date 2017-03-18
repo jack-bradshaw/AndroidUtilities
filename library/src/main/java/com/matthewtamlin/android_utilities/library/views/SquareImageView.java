@@ -117,7 +117,6 @@ public class SquareImageView extends ImageView {
 		final int constrainedDimensionOrdinal = attributes.getInt(
 				SquareImageView_derivedDimension,
 				DEFAULT_DERIVED_DIMENSION.ordinal());
-
 		derivedDimension = Dimension.values()[constrainedDimensionOrdinal];
 
 		attributes.recycle();
