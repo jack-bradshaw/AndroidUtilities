@@ -36,7 +36,7 @@ import java.util.List;
 import static org.hamcrest.MatcherAssert.assertThat;
 
 /**
- * Unit tests for the {@link AssetsHelper} class.
+ * Automated tests for the {@link AssetsHelper} class.
  */
 @RunWith(AndroidJUnit4.class)
 public class TestAssetsHelper {
@@ -105,7 +105,7 @@ public class TestAssetsHelper {
 
 	/**
 	 * Test to verify that the correct exception is thrown when the {@code context} argument of
-	 * {@link AssetsHelper#copyAssetsToDirectory(AssetManager, String[], File)} is null.
+	 * {@link AssetsHelper#copyAssetsToDirectory(AssetManager, File, String...)} is null.
 	 *
 	 * @throws Exception
 	 * 		should not occur in this test, but declared by signature of called method
@@ -113,12 +113,12 @@ public class TestAssetsHelper {
 	@Test(expected = IllegalArgumentException.class)
 	@SuppressWarnings("MissingPermission")
 	public void testCopyAssetsToDirectory_invalidArg_nullContext() throws Exception {
-		AssetsHelper.copyAssetsToDirectory(null, ASSETS_TO_COPY, OUTPUT_DIR);
+		AssetsHelper.copyAssetsToDirectory(null, OUTPUT_DIR, ASSETS_TO_COPY);
 	}
 
 	/**
 	 * Test to verify that the correct exception is thrown when the {@code assets} argument of
-	 * {@link AssetsHelper#copyAssetsToDirectory(AssetManager, String[], File)} is null.
+	 * {@link AssetsHelper#copyAssetsToDirectory(AssetManager, File, String...)} is null.
 	 *
 	 * @throws Exception
 	 * 		should not occur in this test, but declared by signature of called method
@@ -126,12 +126,12 @@ public class TestAssetsHelper {
 	@Test(expected = IllegalArgumentException.class)
 	@SuppressWarnings("MissingPermission")
 	public void testCopyAssetsToDirectory_invalidArg_nullAssets() throws Exception {
-		AssetsHelper.copyAssetsToDirectory(context.getAssets(), null, OUTPUT_DIR);
+		AssetsHelper.copyAssetsToDirectory(context.getAssets(), OUTPUT_DIR, null);
 	}
 
 	/**
 	 * Test to verify that the correct exception is thrown when the {@code targetDirectory} argument
-	 * of {@link AssetsHelper#copyAssetsToDirectory(AssetManager, String[], File)} is null.
+	 * of {@link AssetsHelper#copyAssetsToDirectory(AssetManager, File, String...)} is null.
 	 *
 	 * @throws Exception
 	 * 		should not occur in this test, but declared by signature of called method
@@ -139,12 +139,13 @@ public class TestAssetsHelper {
 	@Test(expected = IllegalArgumentException.class)
 	@SuppressWarnings("MissingPermission")
 	public void testCopyAssetsToDirectory_invalidArg_nullTargetDirectory() throws Exception {
-		AssetsHelper.copyAssetsToDirectory(context.getAssets(), ASSETS_TO_COPY, null);
+		AssetsHelper.copyAssetsToDirectory(context.getAssets(), null, ASSETS_TO_COPY);
 	}
 
 	/**
-	 * Test to verify that the {@link AssetsHelper#copyAssetsToDirectory(AssetManager, String[],
-	 * File)} method functions correctly when provided with valid arguments.
+	 * Test to verify that the
+	 * {@link AssetsHelper#copyAssetsToDirectory(AssetManager, File, String...)} method functions
+	 * correctly when provided with valid arguments.
 	 *
 	 * @throws Exception
 	 * 		the method under test may throw this exception if some operation fails
@@ -152,7 +153,7 @@ public class TestAssetsHelper {
 	@Test
 	@SuppressWarnings("MissingPermission")
 	public void testCopyAssetsToDirectory_validArgs() throws Exception {
-		AssetsHelper.copyAssetsToDirectory(context.getAssets(), ASSETS_TO_COPY, OUTPUT_DIR);
+		AssetsHelper.copyAssetsToDirectory(context.getAssets(), OUTPUT_DIR, ASSETS_TO_COPY);
 
 		// Get the Files in the output directory as an ArrayList for ease of use (compared to array)
 		final List<File> filesInOutputDir = new ArrayList<>(Arrays.asList(OUTPUT_DIR.listFiles()));
