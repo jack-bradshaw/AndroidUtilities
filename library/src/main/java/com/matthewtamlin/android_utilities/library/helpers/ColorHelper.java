@@ -43,7 +43,6 @@ public class ColorHelper {
 	 * @throws IllegalArgumentException
 	 * 		if {@code ratio} is not between 0 and 1 (inclusive)
 	 */
-	@SuppressWarnings("SameParameterValue")
 	public static int blendColors(final int color1, final int color2, final float ratio) {
 		if (ratio < 0 || ratio > 1) {
 			throw new IllegalArgumentException("ratio must be between 0 and 1 (inclusive)");
