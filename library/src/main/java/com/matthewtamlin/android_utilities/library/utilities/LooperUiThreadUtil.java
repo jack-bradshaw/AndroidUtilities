@@ -25,14 +25,19 @@ import static com.matthewtamlin.java_utilities.checkers.NullChecker.checkNotNull
  * Provides access to the UI thread using a Looper.
  */
 public class LooperUiThreadUtil implements UiThreadUtil {
+	/**
+	 * The looper which provides UI thread access.
+	 */
 	private final Looper looper;
 
 	/**
-	 * Constructs a new LooperUiThreadUtil which uses the supplied looper.
+	 * Constructs a new LooperUiThreadUtil which uses the supplied looper to access the UI thread.
 	 *
 	 * @param looper
 	 * 		the looper to use, not null
+	 *
 	 * @return the new LooperUiThreadUtil, not null
+	 *
 	 * @throws IllegalArgumentException
 	 * 		if {@code looper} is null
 	 */
@@ -41,7 +46,7 @@ public class LooperUiThreadUtil implements UiThreadUtil {
 	}
 
 	/**
-	 * Constructs a new LooperUiThreadUtil which uses the main looper of the calling application.
+	 * Constructs a new LooperUiThreadUtil which uses the main looper to access the UI thread.
 	 *
 	 * @return the new LooperUiThreadUtil, not null
 	 */
