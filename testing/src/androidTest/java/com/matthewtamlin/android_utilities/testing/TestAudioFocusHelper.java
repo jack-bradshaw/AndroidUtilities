@@ -30,28 +30,14 @@ import org.junit.runner.RunWith;
 import static org.hamcrest.MatcherAssert.assertThat;
 
 /**
- * Unit tests for the {@link AudioFocusHelper} class.
- * <p/>
- * Unit testing is not able to cover the {@link AudioFocusHelper#abandonFocus(Context,
- * OnAudioFocusChangeListener)} method because Google's implementation of the AudioManager fails to
- * deliver callbacks to the correct OnAudioFocusChangeListener under testing conditions.
+ * Automated tests for the {@link AudioFocusHelper} class.
  */
 @RunWith(AndroidJUnit4.class)
 public class TestAudioFocusHelper {
-	/**
-	 * Provides access to the Android system resources needed to run the tests.
-	 */
 	private Context context;
 
-	/**
-	 * The target listener for use during testing.
-	 */
 	private OnAudioFocusChangeListener listener;
 
-	/**
-	 * Initialises the testing environment, and verifies that all preconditions are satisfied before
-	 * testing begins.
-	 */
 	@Before
 	public void setup() {
 		context = InstrumentationRegistry.getTargetContext();
