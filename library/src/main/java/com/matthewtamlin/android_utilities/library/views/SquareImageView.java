@@ -28,9 +28,9 @@ import static com.matthewtamlin.android_utilities.library.R.styleable.SquareImag
  * An ImageView where one dimension is constrained so that both width and height are equal.
  */
 public class SquareImageView extends ImageView {
-	private static final Dimension DEFAULT_DERIVED_DIMENSION = Dimension.HEIGHT;
+	private static final Dimension DEFAULT_CONSTRAINED_DIMENSION = Dimension.HEIGHT;
 
-	private Dimension derivedDimension;
+	private Dimension constrainedDimension;
 
 	/**
 	 * Constructs a new SquareImageViewByWidth.
@@ -118,8 +118,8 @@ public class SquareImageView extends ImageView {
 
 		final int constrainedDimensionOrdinal = attributes.getInt(
 				SquareImageView_derivedDimension,
-				DEFAULT_DERIVED_DIMENSION.ordinal());
-		derivedDimension = Dimension.values()[constrainedDimensionOrdinal];
+				DEFAULT_CONSTRAINED_DIMENSION.ordinal());
+		constrainedDimension = Dimension.values()[constrainedDimensionOrdinal];
 
 		attributes.recycle();
 	}
@@ -128,7 +128,7 @@ public class SquareImageView extends ImageView {
 	protected void onMeasure(final int widthMeasureSpec, final int heightMeasureSpec) {
 		super.onMeasure(widthMeasureSpec, heightMeasureSpec);
 
-		final int dimensions = derivedDimension == Dimension.WIDTH ?
+		final int dimensions = constrainedDimension == Dimension.WIDTH ?
 				getMeasuredHeight() :
 				getMeasuredWidth();
 
