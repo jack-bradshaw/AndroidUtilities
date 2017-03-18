@@ -25,7 +25,6 @@ import android.view.WindowManager;
 /**
  * Helper class for working with screen sizes.
  */
-@SuppressWarnings("WeakerAccess") // Class is part of public API
 public class ScreenSizeHelper {
 	/**
 	 * Returns the screen size as an enum constant.
