@@ -40,66 +40,31 @@ import static org.hamcrest.MatcherAssert.assertThat;
  */
 @RunWith(AndroidJUnit4.class)
 public class TestAssetsHelper {
-	/**
-	 * Specifies which assets should be copied from the assets space to the output directory.
-	 */
 	private static final String[] ASSETS_TO_COPY = {"small test file.txt", "large test file.txt"};
 
-	/**
-	 * Specifies which assets should not be copied from the asset space to the output directory.
-	 */
 	private static final String[] ASSETS_TO_IGNORE = {"image.png"};
 
-	/**
-	 * The directory to copy the assets to.
-	 */
-	private static final File OUTPUT_DIR = InstrumentationRegistry.getTargetContext()
-			.getExternalFilesDir("/TestAssetsHelper");
+	private static final File OUTPUT_DIR = InstrumentationRegistry.getTargetContext().getFilesDir();
 
-	/**
-	 * Provides access to the Android system resources needed to run the tests.
-	 */
 	private Context context;
 
-	/**
-	 * Initialises the testing environment, and verifies that all preconditions are satisfied before
-	 * testing begins.
-	 *
-	 * @throws IOException
-	 * 		may be thrown during setup, which will result in tests being aborted
-	 */
 	@Before
-	@SuppressWarnings("ConstantConditions") // Mitigated manually
 	public void setup() throws IOException {
-		// Use this context instead of the target context so that the assets can be accessed
 		context = InstrumentationRegistry.getContext();
 
-		// Check precondition 1: Context is not null
-		assertThat("Precondition 1 failed. The target context is null.", context != null);
-
-		// Check precondition 2: The output directory is not a file
-		assertThat("Precondition 3 failed. The output directory is a file.", !OUTPUT_DIR.isFile());
-
-		// Check precondition 3: All assets under test are contained within the Context's assets
 		final List<String> assets = new ArrayList<>(Arrays.asList(context.getAssets().list("")));
-		final List<String> assetsUnderTest = new ArrayList<>();
-		System.out.println(assets);
-		assetsUnderTest.addAll(Arrays.asList(ASSETS_TO_COPY));
-		assetsUnderTest.addAll(Arrays.asList(ASSETS_TO_IGNORE));
-		assertThat("Precondition 4 failed. The assets folder does not contain all assets needed " +
-				"for the test.", assets.containsAll(assetsUnderTest));
+		assertThat("Missing expected asset.", assets.contains(ASSETS_TO_COPY[0]));
+		assertThat("Missing expected asset.", assets.contains(ASSETS_TO_COPY[1]));
+		assertThat("Unexpected asset exists.", !assets.contains(ASSETS_TO_IGNORE[0]));
 
-		// Check precondition 4: The output directory exists or can be created
-		if (!OUTPUT_DIR.isDirectory()) {
+		if (!OUTPUT_DIR.exists()) {
 			final boolean outputDirWasCreated = OUTPUT_DIR.mkdir();
-			assertThat("Precondition 5 failed. Output directory not created.", outputDirWasCreated);
+			assertThat("Output directory could not be created.", outputDirWasCreated);
 		}
 
-		// Check precondition 5: All files in the output directory are deleted
 		for (final File f : OUTPUT_DIR.listFiles()) {
 			final boolean fileDeletedSuccessfully = f.delete();
-			assertThat("Precondition 6 failed. Existing files in the output directory could not " +
-					"be deleted.", fileDeletedSuccessfully);
+			assertThat("Failed to delete all files in output directory.", fileDeletedSuccessfully);
 		}
 	}
 
@@ -111,7 +76,6 @@ public class TestAssetsHelper {
 	 * 		should not occur in this test, but declared by signature of called method
 	 */
 	@Test(expected = IllegalArgumentException.class)
-	@SuppressWarnings("MissingPermission")
 	public void testCopyAssetsToDirectory_invalidArg_nullContext() throws Exception {
 		AssetsHelper.copyAssetsToDirectory(null, OUTPUT_DIR, ASSETS_TO_COPY);
 	}
@@ -124,7 +88,6 @@ public class TestAssetsHelper {
 	 * 		should not occur in this test, but declared by signature of called method
 	 */
 	@Test(expected = IllegalArgumentException.class)
-	@SuppressWarnings("MissingPermission")
 	public void testCopyAssetsToDirectory_invalidArg_nullAssets() throws Exception {
 		AssetsHelper.copyAssetsToDirectory(context.getAssets(), OUTPUT_DIR, null);
 	}
@@ -137,7 +100,6 @@ public class TestAssetsHelper {
 	 * 		should not occur in this test, but declared by signature of called method
 	 */
 	@Test(expected = IllegalArgumentException.class)
-	@SuppressWarnings("MissingPermission")
 	public void testCopyAssetsToDirectory_invalidArg_nullTargetDirectory() throws Exception {
 		AssetsHelper.copyAssetsToDirectory(context.getAssets(), null, ASSETS_TO_COPY);
 	}
@@ -151,7 +113,6 @@ public class TestAssetsHelper {
 	 * 		the method under test may throw this exception if some operation fails
 	 */
 	@Test
-	@SuppressWarnings("MissingPermission")
 	public void testCopyAssetsToDirectory_validArgs() throws Exception {
 		AssetsHelper.copyAssetsToDirectory(context.getAssets(), OUTPUT_DIR, ASSETS_TO_COPY);
 

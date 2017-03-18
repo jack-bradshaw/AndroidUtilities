@@ -22,7 +22,6 @@ import android.support.test.InstrumentationRegistry;
 import android.support.test.runner.AndroidJUnit4;
 import android.support.v4.content.ContextCompat;
 
-
 import com.matthewtamlin.android_utilities.library.helpers.PermissionsHelper;
 
 import org.junit.Before;
@@ -31,14 +30,11 @@ import org.junit.runner.RunWith;
 
 import static android.content.pm.PackageManager.PERMISSION_GRANTED;
 import static org.hamcrest.MatcherAssert.assertThat;
-import static org.hamcrest.Matchers.is;
-import static org.hamcrest.Matchers.notNullValue;
 
 /**
- * Unit tests for the {@link PermissionsHelper} class. The tests will fail if any of the following
- * prerequisites are not met: <ul><li>The test context has been granted the {@code
- * WRITE_EXTERNAL_STORAGE} permission.</li> <li>The test context has been granted the {@code NFC}
- * permission.</li><li>The test has been denied the {@code ACCOUNT_MANAGER} permission.</li></ul>
+ * Automated tests for the {@link PermissionsHelper} class. These tests require the following
+ * permissions:<ul><li>{@code WRITE_EXTERNAL_STORAGE} granted</li> <li>{@code NFC} granted</li>
+ * <li>{@code ACCOUNT_MANAGER} denied</li></ul>
  */
 @RunWith(AndroidJUnit4.class)
 public class TestPermissionsHelper {
@@ -53,34 +49,22 @@ public class TestPermissionsHelper {
 	 */
 	private static final String[] DENIED_PERMISSIONS = {Manifest.permission.ACCOUNT_MANAGER};
 
-	/**
-	 * Provides access to the Android system resources needed to run the tests.
-	 */
 	private Context context;
 
-	/**
-	 * Initialises the testing environment, and verifies that all preconditions are satisfied before
-	 * testing begins.
-	 */
 	@Before
 	public void setup() {
 		context = InstrumentationRegistry.getContext();
 
-		// Check precondition 1: The context is not null
-		assertThat("Precondition 1 failed. Context is null.", context, is(notNullValue()));
-
-		// Check precondition 2: The context has been granted all permissions in GRANTED_PERMISSIONS
 		for (final String permission : GRANTED_PERMISSIONS) {
 			final boolean isGranted = (ContextCompat.checkSelfPermission(context, permission) ==
 					PERMISSION_GRANTED);
-			assertThat("Precondition 2 failed. Expected permissions not granted.", isGranted);
+			assertThat("Permission not granted: " + permission, isGranted);
 		}
 
-		// Check precondition 3: The context has been denied all permissions in DENIED_PERMISSIONS
 		for (final String permission : DENIED_PERMISSIONS) {
 			final boolean isGranted = (ContextCompat.checkSelfPermission(context, permission) ==
 					PERMISSION_GRANTED);
-			assertThat("Precondition 3 failed. Expected permissions not denied", !isGranted);
+			assertThat("Permission granted: " + permission, !isGranted);
 		}
 	}
 
@@ -147,9 +131,9 @@ public class TestPermissionsHelper {
 	 * 		the first array to concatenate, not null
 	 * @param arr2
 	 * 		the second array to concatenate, not null
+	 *
 	 * @return the concatenated array, effectively [arr1, arr2]
 	 */
-	@SuppressWarnings("SameParameterValue") // Called only once to simplify readability
 	private String[] concatenateArrays(final String[] arr1, final String[] arr2) {
 		if (arr1 == null || arr2 == null) {
 			throw new IllegalArgumentException("both arrays must be non-null");
