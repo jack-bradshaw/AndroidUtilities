@@ -33,47 +33,6 @@ public class InternetHelper {
 	}
 
 	/**
-	 * Checks if an internet connection is currently available via wifi.
-	 *
-	 * @param context
-	 * 		the querying context, not null
-	 *
-	 * @return true if an internet connection is currently available via wifi, false otherwise
-	 */
-	public static boolean usingWifi(final Context context) {
-		checkNotNull(context, "context cannot be null.");
-
-		final NetworkInfo info = getNetworkInfo(context);
-
-		if (info == null) {
-			return false;
-		} else {
-			return info.isConnected() && info.getType() == TYPE_WIFI;
-		}
-	}
-
-	/**
-	 * Checks if an internet connection is currently available via mobile data.
-	 *
-	 * @param context
-	 * 		the querying context, not null
-	 *
-	 * @return true if an internet connection is currently available via mobile data, false
-	 * otherwise
-	 */
-	public static boolean usingMobileData(final Context context) {
-		checkNotNull(context, "context cannot be null.");
-
-		final NetworkInfo info = getNetworkInfo(context);
-
-		if (info == null) {
-			return false;
-		} else {
-			return info.isConnected() && info.getType() == TYPE_MOBILE;
-		}
-	}
-
-	/**
 	 * @param context
 	 * 		a context, not null
 	 *
