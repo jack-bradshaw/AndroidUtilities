@@ -107,7 +107,7 @@ public class ScreenSizeHelper {
 	}
 
 	/**
-	 * Enumerates the possible screen sizes, as specified in {@link Configuration}.
+	 * The possible screen sizes according to {@link Configuration}.
 	 */
 	public enum ScreenSize {
 		/**
