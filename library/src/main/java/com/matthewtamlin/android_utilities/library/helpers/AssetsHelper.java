@@ -20,14 +20,11 @@ import android.content.res.AssetManager;
 
 import com.matthewtamlin.java_utilities.testing.Tested;
 
-import java.io.Closeable;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
-
-import timber.log.Timber;
 
 /**
  * Copies files from assets to a directory.
@@ -72,14 +69,17 @@ public class AssetsHelper {
 			OutputStream streamToTargetFile = null;
 
 			try {
-				// IOExceptions may be thrown
 				streamToTargetFile = new FileOutputStream(fileInTargetDirectory);
 				streamFromAssets = assetsManager.open(filename);
 				copyFile(streamFromAssets, streamToTargetFile);
 			} finally {
-				// An IOException is probably unrecoverable so just abort and close the streams
-				closeStream(streamFromAssets);
-				closeStream(streamToTargetFile);
+				if (streamFromAssets != null) {
+					streamFromAssets.close();
+				}
+
+				if (streamToTargetFile != null) {
+					streamToTargetFile.close();
+				}
 			}
 		}
 	}
@@ -116,26 +116,6 @@ public class AssetsHelper {
 		while (numberOfBytesRead != -1) {
 			target.write(buffer, 0, numberOfBytesRead);
 			numberOfBytesRead = source.read(buffer); // read the next "lot" of data
-		}
-	}
-
-	/**
-	 * Closes a stream.
-	 *
-	 * @param stream
-	 * 		the stream to close, not null
-	 * @throws IllegalArgumentException
-	 * 		if {@code stream} is null
-	 */
-	private static void closeStream(final Closeable stream) {
-		if (stream == null) {
-			throw new IllegalArgumentException("stream cannot be null");
-		}
-
-		try {
-			stream.close();
-		} catch (final IOException e) {
-			Timber.e("Error closing output stream.", e);
 		}
 	}
 }
