@@ -4,8 +4,14 @@ import android.content.Context;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 
+import static android.net.ConnectivityManager.TYPE_BLUETOOTH;
+import static android.net.ConnectivityManager.TYPE_DUMMY;
+import static android.net.ConnectivityManager.TYPE_ETHERNET;
 import static android.net.ConnectivityManager.TYPE_MOBILE;
+import static android.net.ConnectivityManager.TYPE_MOBILE_DUN;
+import static android.net.ConnectivityManager.TYPE_VPN;
 import static android.net.ConnectivityManager.TYPE_WIFI;
+import static com.matthewtamlin.android_utilities.library.helpers.InternetHelper.ConnectionType.*;
 import static com.matthewtamlin.java_utilities.checkers.NullChecker.checkNotNull;
 
 /**
@@ -13,63 +19,32 @@ import static com.matthewtamlin.java_utilities.checkers.NullChecker.checkNotNull
  */
 public class InternetHelper {
 	/**
-	 * Checks if an internet connection is currently available.
+	 * Checks if an internet connection is currently available and returns the type.
 	 *
 	 * @param context
 	 * 		the querying context, not null
 	 *
-	 * @return true if there is an available connection, false otherwise
+	 * @return the type of the current internet connection, null if there is none
 	 */
-	public static boolean internetConnectionAvailable(final Context context) {
+	public static ConnectionType getInternetConnectionType(final Context context) {
 		checkNotNull(context, "context cannot be null.");
 
 		final NetworkInfo info = getNetworkInfo(context);
 
 		if (info == null) {
-			return false;
+			return null;
 		} else {
-			return info.isConnected();
-		}
-	}
+			switch (info.getType()) {
+				case TYPE_MOBILE: return MOBILE;
+				case TYPE_WIFI: return WIFI;
+				case TYPE_BLUETOOTH: return BLUETOOTH;
+				case TYPE_DUMMY: return MOCK;
+				case TYPE_ETHERNET: return ETHERNET;
+				case TYPE_MOBILE_DUN: return MOBILE_DUN;
+				case TYPE_VPN: return VPN;
 
-	/**
-	 * Checks if an internet connection is currently available via wifi.
-	 *
-	 * @param context
-	 * 		the querying context, not null
-	 *
-	 * @return true if an internet connection is currently available via wifi, false otherwise
-	 */
-	public static boolean usingWifi(final Context context) {
-		checkNotNull(context, "context cannot be null.");
-
-		final NetworkInfo info = getNetworkInfo(context);
-
-		if (info == null) {
-			return false;
-		} else {
-			return info.isConnected() && info.getType() == TYPE_WIFI;
-		}
-	}
-
-	/**
-	 * Checks if an internet connection is currently available via mobile data.
-	 *
-	 * @param context
-	 * 		the querying context, not null
-	 *
-	 * @return true if an internet connection is currently available via mobile data, false
-	 * otherwise
-	 */
-	public static boolean usingMobileData(final Context context) {
-		checkNotNull(context, "context cannot be null.");
-
-		final NetworkInfo info = getNetworkInfo(context);
-
-		if (info == null) {
-			return false;
-		} else {
-			return info.isConnected() && info.getType() == TYPE_MOBILE;
+				default: return UNKNOWN;
+			}
 		}
 	}
 
@@ -84,5 +59,16 @@ public class InternetHelper {
 				.getSystemService(Context.CONNECTIVITY_SERVICE);
 
 		return connectivityManager.getActiveNetworkInfo();
+	}
+
+	public enum ConnectionType {
+		WIFI,
+		MOBILE,
+		BLUETOOTH,
+		ETHERNET,
+		MOCK,
+		MOBILE_DUN,
+		VPN,
+		UNKNOWN,
 	}
 }
