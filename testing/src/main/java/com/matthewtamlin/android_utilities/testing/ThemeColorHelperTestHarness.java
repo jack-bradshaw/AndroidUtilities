@@ -18,7 +18,6 @@ package com.matthewtamlin.android_utilities.testing;
 
 import android.os.Bundle;
 
-import com.matthewtamlin.android_testing_tools.library.NoViewTestHarness;
 import com.matthewtamlin.android_testing_tools.library.harnesses.EmptyTestHarness;
 import com.matthewtamlin.android_utilities.library.helpers.ColorHelper;
 
