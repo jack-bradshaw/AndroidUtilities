@@ -23,6 +23,8 @@ import android.widget.ImageView;
 
 import com.matthewtamlin.android_utilities.library.R;
 
+import static com.matthewtamlin.android_utilities.library.R.styleable.SquareImageView_derivedDimension;
+
 /**
  * An ImageView where one dimension is constrained so that both width and height are equal.
  */
@@ -112,11 +114,11 @@ public class SquareImageView extends ImageView {
 		final TypedArray attributes = getContext().obtainStyledAttributes(attrs,
 				R.styleable.SquareImageView, defStyleAttr, defStyleRes);
 
-		final int attrValue = attributes.getInt(
-				R.styleable.SquareImageView_derivedDimension,
+		final int constrainedDimensionOrdinal = attributes.getInt(
+				SquareImageView_derivedDimension,
 				DEFAULT_DERIVED_DIMENSION.ordinal());
 
-		derivedDimension = Dimension.values()[attrValue];
+		derivedDimension = Dimension.values()[constrainedDimensionOrdinal];
 
 		attributes.recycle();
 	}
