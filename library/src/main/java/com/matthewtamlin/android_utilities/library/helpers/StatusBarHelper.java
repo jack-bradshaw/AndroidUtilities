@@ -46,6 +46,7 @@ public class StatusBarHelper {
 	 */
 	@RequiresApi(16) // For client
 	@TargetApi(16) // For lint
+	@Deprecated
 	public static void hideStatusBar(final Window window) {
 		if (window == null) {
 			throw new IllegalArgumentException("window cannot be null");
@@ -63,6 +64,7 @@ public class StatusBarHelper {
 	 */
 	@RequiresApi(16) // For client
 	@TargetApi(16) // For lint
+	@Deprecated
 	public static void showStatusBar(final Window window) {
 		if (window == null) {
 			throw new IllegalArgumentException("window cannot be null");
