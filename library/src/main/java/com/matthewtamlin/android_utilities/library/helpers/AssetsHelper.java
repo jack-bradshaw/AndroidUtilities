@@ -71,7 +71,7 @@ public class AssetsHelper {
 				fromAssets = assetsManager.open(filename);
 				toTarget = new FileOutputStream(targetFile);
 
-				copyFile(fromAssets, toTarget);
+				copyData(fromAssets, toTarget);
 			} finally {
 				if (fromAssets != null) {
 					fromAssets.close();
@@ -98,7 +98,7 @@ public class AssetsHelper {
 	 * @throws IllegalArgumentException
 	 * 		if {@code target} is null
 	 */
-	private static void copyFile(final InputStream source, final OutputStream target) throws
+	private static void copyData(final InputStream source, final OutputStream target) throws
 			IOException {
 		if (source == null) {
 			throw new IllegalArgumentException("source cannot be null");
