@@ -41,6 +41,9 @@ public class InternetHelper {
 				case TYPE_DUMMY: return MOCK;
 				case TYPE_ETHERNET: return ETHERNET;
 				case TYPE_MOBILE_DUN: return MOBILE_DUN;
+				case TYPE_VPN: return VPN;
+
+				default: return UNKNOWN;
 			}
 		}
 	}
