@@ -4,8 +4,14 @@ import android.content.Context;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 
+import static android.net.ConnectivityManager.TYPE_BLUETOOTH;
+import static android.net.ConnectivityManager.TYPE_DUMMY;
+import static android.net.ConnectivityManager.TYPE_ETHERNET;
 import static android.net.ConnectivityManager.TYPE_MOBILE;
+import static android.net.ConnectivityManager.TYPE_MOBILE_DUN;
+import static android.net.ConnectivityManager.TYPE_VPN;
 import static android.net.ConnectivityManager.TYPE_WIFI;
+import static com.matthewtamlin.android_utilities.library.helpers.InternetHelper.ConnectionType.*;
 import static com.matthewtamlin.java_utilities.checkers.NullChecker.checkNotNull;
 
 /**
@@ -26,9 +32,16 @@ public class InternetHelper {
 		final NetworkInfo info = getNetworkInfo(context);
 
 		if (info == null) {
-			return false;
+			return null;
 		} else {
-			return info.isConnected();
+			switch (info.getType()) {
+				case TYPE_MOBILE: return MOBILE;
+				case TYPE_WIFI: return WIFI;
+				case TYPE_BLUETOOTH: return BLUETOOTH;
+				case TYPE_DUMMY: return MOCK;
+				case TYPE_ETHERNET: return ETHERNET;
+				case TYPE_MOBILE_DUN: return MOBILE_DUN;
+			}
 		}
 	}
 
