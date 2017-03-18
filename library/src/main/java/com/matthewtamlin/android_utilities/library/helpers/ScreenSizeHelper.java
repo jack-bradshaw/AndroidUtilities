@@ -57,11 +57,13 @@ public class ScreenSizeHelper {
 	}
 
 	/**
-	 * Returns the approximate width of this device's screen, measured in pixels.
+	 * Returns the width of this device's screen, measured in pixels.
 	 *
 	 * @param context
-	 * 		a Context object which gives access to the current device configuration, not null
+	 * 		a Context which gives access to the current device configuration, not null
+	 *
 	 * @return the width of the screen, measured in pixels
+	 *
 	 * @throws IllegalArgumentException
 	 * 		if {@code context} is null
 	 */
