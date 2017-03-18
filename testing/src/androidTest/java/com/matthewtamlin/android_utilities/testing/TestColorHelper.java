@@ -32,15 +32,8 @@ import static org.hamcrest.Matchers.is;
  */
 @RunWith(AndroidJUnit4.class)
 public class TestColorHelper {
-	/**
-	 * A color to use in testing, as an ARGB hex code. Corresponds to opaque white.
-	 */
 	private static final int color1 = 0xFFFFFFFF;
 
-	/**
-	 * A color to use in testing, as an ARGB hex code. Corresponds to transparent black. I wonder if
-	 * it's still technically black if it's completely transparent...
-	 */
 	private static final int color2 = 0x00000000;
 
 	/**
