@@ -85,4 +85,14 @@ public class InternetHelper {
 
 		return connectivityManager.getActiveNetworkInfo();
 	}
+
+	public enum ConnectionType {
+		WIFI,
+		MOBILE,
+		BLUETOOTH,
+		ETHERNET,
+		MOCK,
+		MOBILE_DUN,
+		OTHER,
+	}
 }
