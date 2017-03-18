@@ -11,41 +11,39 @@ import static android.net.ConnectivityManager.TYPE_WIFI;
  */
 public class InternetHelper {
 	public static boolean connectedToInternet(final Context context) {
-		final ConnectivityManager connectivityManager = (ConnectivityManager) context
-				.getSystemService(Context.CONNECTIVITY_SERVICE);
+		final NetworkInfo info = getNetworkInfo(context);
 
-		final NetworkInfo activeNetworkInfo = connectivityManager.getActiveNetworkInfo();
-
-		if (activeNetworkInfo == null) {
+		if (info == null) {
 			return false;
 		} else {
-			return activeNetworkInfo.isConnected();
+			return info.isConnected();
 		}
 	}
 
 	public static boolean connectedToWifi(final Context context) {
-		final ConnectivityManager connectivityManager = (ConnectivityManager) context
-				.getSystemService(Context.CONNECTIVITY_SERVICE);
+		final NetworkInfo info = getNetworkInfo(context);
 
-		final NetworkInfo activeNetworkInfo = connectivityManager.getActiveNetworkInfo();
-
-		if (activeNetworkInfo == null) {
+		if (info == null) {
 			return false;
 		} else {
-			return activeNetworkInfo.isConnected() && activeNetworkInfo.getType() == TYPE_WIFI;
+			return info.isConnected() && info.getType() == TYPE_WIFI;
 		}
 	}
 
 	public static boolean connectedToMobileData(final Context context) {
+		final NetworkInfo info = getNetworkInfo(context);
+
+		if (info == null) {
+			return false;
+		} else {
+			return info.isConnected() && info.getType() == TYPE_WIFI;
+		}
+	}
+
+	private static NetworkInfo getNetworkInfo(final Context context) {
 		final ConnectivityManager connectivityManager = (ConnectivityManager) context
 				.getSystemService(Context.CONNECTIVITY_SERVICE);
 
-		final NetworkInfo activeNetworkInfo = connectivityManager.getActiveNetworkInfo();
-
-		if (activeNetworkInfo == null) {
-			return false;
-		} else {
-			return activeNetworkInfo.isConnected() && activeNetworkInfo.getType() == TYPE_WIFI;
-		}
+		return connectivityManager.getActiveNetworkInfo();
 	}
 }
