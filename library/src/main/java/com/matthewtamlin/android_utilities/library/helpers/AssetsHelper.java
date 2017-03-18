@@ -26,6 +26,8 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 
+import static com.matthewtamlin.java_utilities.checkers.NullChecker.checkNotNull;
+
 /**
  * Copies files from assets to a directory.
  */
@@ -52,13 +54,9 @@ public class AssetsHelper {
 	public static void copyAssetsToDirectory(final AssetManager assetsManager,
 			final File targetDirectory,
 			final String... assetFiles) throws IOException {
-		if (assetsManager == null) {
-			throw new IllegalArgumentException("assetsManager cannot be null");
-		} else if (assetFiles == null) {
-			throw new IllegalArgumentException("assetFiles cannot be null");
-		} else if (targetDirectory == null) {
-			throw new IllegalArgumentException("targetDirectory cannot be null");
-		}
+		checkNotNull(assetsManager, "assetsManager cannot be null");
+		checkNotNull(targetDirectory, "targetDirectory cannot be null");
+		checkNotNull(assetFiles, "assetFiles cannot be null");
 
 		for (final String filename : assetFiles) {
 			// Create a new file in the output directory to receive the asset data
