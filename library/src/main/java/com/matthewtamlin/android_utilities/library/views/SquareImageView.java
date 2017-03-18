@@ -109,16 +109,15 @@ public class SquareImageView extends ImageView {
 	 * 		0 to ignore
 	 */
 	private void init(final AttributeSet attrs, final int defStyleAttr, final int defStyleRes) {
-		// Use a TypedArray to process attrs
 		final TypedArray attributes = getContext().obtainStyledAttributes(attrs,
 				R.styleable.SquareImageView, defStyleAttr, defStyleRes);
 
-		// The derived dimension is encoded as an integer corresponding to an enum ordinal
-		final int attrValue = attributes.getInt(R.styleable.SquareImageView_derivedDimension,
+		final int attrValue = attributes.getInt(
+				R.styleable.SquareImageView_derivedDimension,
 				DEFAULT_DERIVED_DIMENSION.ordinal());
+
 		derivedDimension = Dimension.values()[attrValue];
 
-		// Necessary, apparently
 		attributes.recycle();
 	}
 
