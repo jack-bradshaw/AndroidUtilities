@@ -18,7 +18,7 @@ apply plugin: 'com.android.application'
 
 android {
 	compileSdkVersion 25
-	buildToolsVersion "24.0.3"
+	buildToolsVersion '25.0.2'
 
 	defaultConfig {
 		minSdkVersion 12
@@ -35,7 +35,7 @@ android {
 
 dependencies {
 	compile project(':library')
-	compile 'com.android.support:appcompat-v7:25.1.0'
+	compile 'com.android.support:appcompat-v7:25.2.0'
 	compile 'org.hamcrest:hamcrest-library:1.3'
 	compile 'com.matthew-tamlin:android-testing-tools:1.0.0'
 
@@ -48,30 +48,5 @@ dependencies {
 	androidTestCompile 'org.mockito:mockito-core:1.10.19'
 	androidTestCompile 'com.google.dexmaker:dexmaker:1.2'
 	androidTestCompile 'com.google.dexmaker:dexmaker-mockito:1.2'
-	androidTestCompile 'com.android.support:support-annotations:25.1.0' // Resolves conflict
-}
-
-/**
- * Task to grant the permissions required by the instrumented tests.
- */
-task grantAndroidTestPermissions(type: Exec) {
-	// Permissions list is based on the contents of the instrumented tests
-	def permissionsToGrant = ['android.permission.WRITE_EXTERNAL_STORAGE', 'android.permission.NFC']
-	def permissionsToDeny = ['android.permission.ACCOUNT_MANAGER']
-
-	// Get the path to the adb shell
-	def androidPlugin = project.plugins.findPlugin("android")
-	def adb = androidPlugin.sdkHandler.sdkInfo?.adb
-
-	// Grant the required permissions
-	permissionsToGrant.each {
-		commandLine "$adb", "shell", "pm", "grant", "com.matthewtamlin.android_utilities.testing",
-				"$it"
-	}
-
-	// Deny the necessary permissions
-	permissionsToDeny.each {
-		commandLine "$adb", "shell", "pm", "deny", "com.matthewtamlin.android_utilities.testing",
-				"$it"
-	}
+	androidTestCompile 'com.android.support:support-annotations:25.2.0' // Resolves conflict
 }
