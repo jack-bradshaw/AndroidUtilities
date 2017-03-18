@@ -38,7 +38,9 @@ public class AudioFocusHelper {
 	 * 		the OnAudioFocusChangeListener to receive the audio focus, not null
 	 * @return true if audio focus is granted, false otherwise
 	 * @throws IllegalArgumentException
-	 * 		if {@code context} or {@code listener} is null
+	 * 		if {@code context} is null
+	 * @throws IllegalArgumentException
+	 * 		if {@code listener} is null
 	 */
 	public static boolean requestStreamAlarmFocus(final Context context,
 			final OnAudioFocusChangeListener listener) {
@@ -54,7 +56,9 @@ public class AudioFocusHelper {
 	 * 		the OnAudioFocusChangeListener to receive the audio focus, not null
 	 * @return true if audio focus is granted, false otherwise
 	 * @throws IllegalArgumentException
-	 * 		if {@code context} or {@code listener} is null
+	 * 		if {@code context} is null
+	 * @throws IllegalArgumentException
+	 * 		if {@code listener} is null
 	 */
 	public static boolean requestStreamDtmfFocus(final Context context,
 			final OnAudioFocusChangeListener listener) {
@@ -70,7 +74,9 @@ public class AudioFocusHelper {
 	 * 		the OnAudioFocusChangeListener to receive the audio focus, not null
 	 * @return true if audio focus is granted, false otherwise
 	 * @throws IllegalArgumentException
-	 * 		if {@code context} or {@code listener} is null
+	 * 		if {@code context} is null
+	 * @throws IllegalArgumentException
+	 * 		if {@code listener} is null
 	 */
 	public static boolean requestStreamNotificationFocus(final Context context,
 			final OnAudioFocusChangeListener listener) {
@@ -86,7 +92,9 @@ public class AudioFocusHelper {
 	 * 		the OnAudioFocusChangeListener to receive the audio focus, not null
 	 * @return true if audio focus is granted, false otherwise
 	 * @throws IllegalArgumentException
-	 * 		if {@code context} or {@code listener} is null
+	 * 		if {@code context} is null
+	 * @throws IllegalArgumentException
+	 * 		if {@code listener} is null
 	 */
 	public static boolean requestStreamMusicFocus(final Context context,
 			final OnAudioFocusChangeListener listener) {
@@ -102,7 +110,9 @@ public class AudioFocusHelper {
 	 * 		the OnAudioFocusChangeListener to receive the audio focus, not null
 	 * @return true if audio focus is granted, false otherwise
 	 * @throws IllegalArgumentException
-	 * 		if {@code context} or {@code listener} is null
+	 * 		if {@code context} is null
+	 * @throws IllegalArgumentException
+	 * 		if {@code listener} is null
 	 */
 	public static boolean requestStreamRingFocus(final Context context,
 			final OnAudioFocusChangeListener listener) {
@@ -118,7 +128,9 @@ public class AudioFocusHelper {
 	 * 		the OnAudioFocusChangeListener to receive the audio focus, not null
 	 * @return true if audio focus is granted, false otherwise
 	 * @throws IllegalArgumentException
-	 * 		if {@code context} or {@code listener} is null
+	 * 		if {@code context} is null
+	 * @throws IllegalArgumentException
+	 * 		if {@code listener} is null
 	 */
 	public static boolean requestStreamSystemFocus(final Context context,
 			final OnAudioFocusChangeListener listener) {
@@ -134,7 +146,9 @@ public class AudioFocusHelper {
 	 * 		the OnAudioFocusChangeListener to receive the audio focus, not null
 	 * @return true if audio focus is granted, false otherwise
 	 * @throws IllegalArgumentException
-	 * 		if {@code context} or {@code listener} is null
+	 * 		if {@code context} is null
+	 * @throws IllegalArgumentException
+	 * 		if {@code listener} is null
 	 */
 	public static boolean requestStreamVoiceCallFocus(final Context context,
 			final OnAudioFocusChangeListener listener) {
@@ -149,7 +163,9 @@ public class AudioFocusHelper {
 	 * @param listener
 	 * 		the OnAudioFocusChangeListener which will lose audio focus, not null
 	 * @throws IllegalArgumentException
-	 * 		if {@code context} or {@code listener} is null
+	 * 		if {@code context} is null
+	 * @throws IllegalArgumentException
+	 * 		if {@code listener} is null
 	 */
 	public static void abandonFocus(final Context context,
 			final OnAudioFocusChangeListener listener) {
@@ -161,15 +177,19 @@ public class AudioFocusHelper {
 	}
 
 	/**
-	 * Requests audio focus for the supplied listener of the requested type.
+	 * Requests a particular type of audio focus for the supplied listener.
 	 *
 	 * @param context
 	 * 		the Context in which {@code listener} is operating, not null
 	 * @param listener
-	 * 		the OnAudioFocusChangeListener which will lose audio focus, not null
+	 * 		the OnAudioFocusChangeListener to receive the audio focus, not null
 	 * @param streamType
 	 * 		the type of stream to request (see static fields of AudioManager)
 	 * @return true if focus was granted, false otherwise
+	 * @throws IllegalArgumentException
+	 * 		if {@code context} is null
+	 * @throws IllegalArgumentException
+	 * 		if {@code listener} is null
 	 */
 	private static boolean requestStreamAudioFocus(final Context context, final
 	OnAudioFocusChangeListener listener, final int streamType) {
