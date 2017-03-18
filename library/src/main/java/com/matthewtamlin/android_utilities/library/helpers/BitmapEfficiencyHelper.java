@@ -25,7 +25,7 @@ import com.matthewtamlin.java_utilities.testing.Tested;
 import java.io.File;
 
 /**
- * Helper class for efficiently decoding Bitmap images.
+ * Decodes bitmaps efficiently.
  */
 @Tested(testMethod = "automated")
 public class BitmapEfficiencyHelper {
