@@ -23,6 +23,8 @@ import android.util.TypedValue;
 import com.matthewtamlin.android_utilities.library.R;
 import com.matthewtamlin.java_utilities.testing.Tested;
 
+import static com.matthewtamlin.java_utilities.checkers.NullChecker.checkNotNull;
+
 /**
  * Gets the core colors from the current theme.
  */
@@ -42,9 +44,7 @@ public class ThemeColorHelper {
 	 * 		if {@code context} is null
 	 */
 	public static int getPrimaryColor(final Context context, final int defaultColor) {
-		if (context == null) {
-			throw new IllegalArgumentException("context cannot be null");
-		}
+		checkNotNull(context, "context cannot be null.");
 
 		return getColor(context, defaultColor, R.attr.colorPrimary);
 	}
@@ -63,9 +63,7 @@ public class ThemeColorHelper {
 	 * 		if {@code context} is null
 	 */
 	public static int getPrimaryDarkColor(final Context context, final int defaultColor) {
-		if (context == null) {
-			throw new IllegalArgumentException("context cannot be null");
-		}
+		checkNotNull(context, "context cannot be null.");
 
 		return getColor(context, defaultColor, R.attr.colorPrimaryDark);
 	}
@@ -84,9 +82,7 @@ public class ThemeColorHelper {
 	 * 		if {@code context} is null
 	 */
 	public static int getAccentColor(final Context context, final int defaultColor) {
-		if (context == null) {
-			throw new IllegalArgumentException("context cannot be null");
-		}
+		checkNotNull(context, "context cannot be null.");
 
 		return getColor(context, defaultColor, R.attr.colorAccent);
 	}
@@ -108,9 +104,7 @@ public class ThemeColorHelper {
 	 */
 	private static int getColor(final Context context, final int defaultColor, final int
 			colorAttr) {
-		if (context == null) {
-			throw new IllegalArgumentException("context cannot be null");
-		}
+		checkNotNull(context, "context cannot be null.");
 
 		final TypedValue v = new TypedValue();
 		final TypedArray a = context.obtainStyledAttributes(v.data, new int[]{colorAttr});
