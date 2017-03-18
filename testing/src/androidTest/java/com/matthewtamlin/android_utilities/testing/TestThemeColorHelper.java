@@ -38,6 +38,10 @@ import static org.hamcrest.Matchers.notNullValue;
  */
 @RunWith(AndroidJUnit4.class)
 public class TestThemeColorHelper {
+	@Rule
+	public final ActivityTestRule<ThemeColorHelperTestHarness> testActivityRule = new
+			ActivityTestRule<>(ThemeColorHelperTestHarness.class);
+
 	private int primaryColor;
 
 	private int primaryDarkColor;
@@ -45,10 +49,6 @@ public class TestThemeColorHelper {
 	private int accentColor;
 
 	private int defaultColor;
-
-	@Rule
-	public final ActivityTestRule<ThemeColorHelperTestHarness> testActivityRule = new
-			ActivityTestRule<>(ThemeColorHelperTestHarness.class);
 
 	private Activity activity;
 
