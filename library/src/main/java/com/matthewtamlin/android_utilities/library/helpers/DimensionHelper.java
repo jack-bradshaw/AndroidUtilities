@@ -26,7 +26,6 @@ import static com.matthewtamlin.java_utilities.checkers.NullChecker.checkNotNull
 /**
  * Helper class for converting complex units to pixels.
  */
-@SuppressWarnings("WeakerAccess") // Class is part of public API
 public class DimensionHelper {
 	/**
 	 * Converts a dimension from display-independent pixels (dp) to pixels (px).
