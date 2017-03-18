@@ -20,7 +20,6 @@ import android.content.Context;
 import android.content.res.TypedArray;
 import android.support.v7.widget.AppCompatImageView;
 import android.util.AttributeSet;
-import android.widget.ImageView;
 
 import static com.matthewtamlin.android_utilities.library.R.styleable.SquareImageView;
 import static com.matthewtamlin.android_utilities.library.R.styleable.SquareImageView_derivedDimension;
