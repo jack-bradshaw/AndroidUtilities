@@ -65,12 +65,10 @@ public class ScreenSizeHelper {
 	public static int getScreenWidthPx(final Context context) {
 		checkNotNull(context, "context cannot be null");
 
-		// Pass a DisplayMetrics object into a WindowManager to receive display information
 		final DisplayMetrics metrics = new DisplayMetrics();
 		final WindowManager wm = (WindowManager) context.getSystemService(Context.WINDOW_SERVICE);
 		wm.getDefaultDisplay().getMetrics(metrics);
 
-		// Query the DisplayMetrics object to obtain the approximate screen width
 		return metrics.widthPixels;
 	}
 
@@ -88,12 +86,10 @@ public class ScreenSizeHelper {
 	public static int getScreenHeightPx(final Context context) {
 		checkNotNull(context, "context cannot be null");
 
-		// Pass a DisplayMetrics object into a WindowManager to receive display information
 		final DisplayMetrics metrics = new DisplayMetrics();
 		final WindowManager wm = (WindowManager) context.getSystemService(Context.WINDOW_SERVICE);
 		wm.getDefaultDisplay().getMetrics(metrics);
 
-		// Query the DisplayMetrics object to obtain the approximate screen height
 		return metrics.heightPixels;
 	}
 
