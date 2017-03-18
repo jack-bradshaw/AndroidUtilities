@@ -24,7 +24,7 @@ import com.matthewtamlin.java_utilities.testing.Tested;
 import static android.content.pm.PackageManager.PERMISSION_GRANTED;
 
 /**
- * Helper class for working with permissions.
+ * Checks if permissions have been granted.
  */
 @Tested(testMethod = "automated")
 public class PermissionsHelper {
