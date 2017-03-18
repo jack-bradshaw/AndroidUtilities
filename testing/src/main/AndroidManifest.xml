@@ -29,15 +29,5 @@ limitations under the License.
 		android:label="Android Utilities - Testing"
 		android:supportsRtl="true"
 		android:theme="@style/Theme.AppCompat.NoActionBar">
-
-		<activity android:name=".LauncherActivity">
-			<intent-filter>
-				<action android:name="android.intent.action.MAIN"/>
-				<category android:name="android.intent.category.LAUNCHER"/>
-			</intent-filter>
-		</activity>
-
-		<activity android:name=".StatusBarHelperTestHarness"/>
-		<activity android:name=".ThemeColorHelperTestHarness"/>
 	</application>
 </manifest>
