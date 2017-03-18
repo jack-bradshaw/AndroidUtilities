@@ -13,12 +13,12 @@ import static com.matthewtamlin.java_utilities.checkers.NullChecker.checkNotNull
  */
 public class InternetHelper {
 	/**
-	 * Checks if an internet connection is currently available.
+	 * Checks if an internet connection is currently available and returns the type.
 	 *
 	 * @param context
 	 * 		the querying context, not null
 	 *
-	 * @return true if there is an available connection, false otherwise
+	 * @return the type of the current internet connection, null if there is none
 	 */
 	public static boolean internetConnectionAvailable(final Context context) {
 		checkNotNull(context, "context cannot be null.");
