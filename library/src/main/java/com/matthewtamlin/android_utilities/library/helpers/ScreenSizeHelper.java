@@ -22,6 +22,8 @@ import android.content.res.Resources;
 import android.util.DisplayMetrics;
 import android.view.WindowManager;
 
+import static com.matthewtamlin.java_utilities.checkers.NullChecker.checkNotNull;
+
 /**
  * Helper class for working with screen sizes.
  */
@@ -34,9 +36,7 @@ public class ScreenSizeHelper {
 	 * @return the size of the device screen according to the current configuration
 	 */
 	public static ScreenSize getScreenSize(final Context context) {
-		if (context == null) {
-			throw new IllegalArgumentException("context cannot be null");
-		}
+		checkNotNull(context, "context cannot be null");
 
 		// Getting the config requires a bitwise AND operation (Wow! Such OOP! Many good design!)
 		final Resources res = context.getResources();
@@ -68,9 +68,7 @@ public class ScreenSizeHelper {
 	 * 		if {@code context} is null
 	 */
 	public static int getScreenWidthPx(final Context context) {
-		if (context == null) {
-			throw new IllegalArgumentException("context cannot be null");
-		}
+		checkNotNull(context, "context cannot be null");
 
 		// Pass a DisplayMetrics object into a WindowManager to receive display information
 		final DisplayMetrics metrics = new DisplayMetrics();
@@ -93,9 +91,7 @@ public class ScreenSizeHelper {
 	 * 		if {@code context} is null
 	 */
 	public static int getScreenHeightPx(final Context context) {
-		if (context == null) {
-			throw new IllegalArgumentException("context cannot be null");
-		}
+		checkNotNull(context, "context cannot be null");
 
 		// Pass a DisplayMetrics object into a WindowManager to receive display information
 		final DisplayMetrics metrics = new DisplayMetrics();
