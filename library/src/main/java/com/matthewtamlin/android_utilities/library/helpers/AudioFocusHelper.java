@@ -211,12 +211,13 @@ public class AudioFocusHelper {
 			final Context context,
 			final OnAudioFocusChangeListener listener,
 			final int streamType) {
-		
+
 		checkNotNull(context, "context cannot be null");
 		checkNotNull(listener, "listener cannot be null");
 
 		final AudioManager am = (AudioManager) context.getSystemService(Context.AUDIO_SERVICE);
 		final int result = am.requestAudioFocus(listener, streamType, AudioManager.AUDIOFOCUS_GAIN);
-		return (result == AudioManager.AUDIOFOCUS_REQUEST_GRANTED);
+
+		return result == AudioManager.AUDIOFOCUS_REQUEST_GRANTED;
 	}
 }
