@@ -27,10 +27,10 @@ import android.view.WindowManager;
  */
 public class ScreenSizeHelper {
 	/**
-	 * Returns the screen size as an enum constant.
+	 * Gets the screen size.
 	 *
 	 * @param context
-	 * 		a Context object which gives access to the current device configuration, not null
+	 * 		a Context which gives access to the current device configuration, not null
 	 * @return the size of the device screen according to the current configuration
 	 */
 	public static ScreenSize getScreenSize(final Context context) {
