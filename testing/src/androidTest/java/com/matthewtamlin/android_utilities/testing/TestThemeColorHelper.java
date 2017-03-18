@@ -38,41 +38,20 @@ import static org.hamcrest.Matchers.notNullValue;
  */
 @RunWith(AndroidJUnit4.class)
 public class TestThemeColorHelper {
-	/**
-	 * The expected primary color, as an ARGB hex code.
-	 */
 	private int primaryColor;
 
-	/**
-	 * The expected primary dark color, as an ARGB hex code.
-	 */
 	private int primaryDarkColor;
 
-	/**
-	 * The expected accent color, as an ARGB hex code.
-	 */
 	private int accentColor;
 
-	/**
-	 * The expected default color, as an ARGB hex code.
-	 */
 	private int defaultColor;
 
-	/**
-	 * Hosts an activity with the expected colours as theme properties.
-	 */
 	@Rule
 	public final ActivityTestRule<ThemeColorHelperTestHarness> testActivityRule = new
 			ActivityTestRule<>(ThemeColorHelperTestHarness.class);
 
-	/**
-	 * The Activity referenced by {@code testActivityRule}.
-	 */
 	private Activity activity;
 
-	/**
-	 * Initialises the testing environment and checks that all preconditions pass.
-	 */
 	@Before
 	public void init() {
 		activity = testActivityRule.getActivity();
