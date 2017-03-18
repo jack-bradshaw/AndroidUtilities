@@ -111,7 +111,7 @@ public class ThemeColorHelper {
 		final int color = a.getColor(0, defaultColor);
 
 		a.recycle();
-		
+
 		return color;
 	}
 }
