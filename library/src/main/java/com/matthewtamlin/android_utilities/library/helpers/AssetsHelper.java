@@ -110,10 +110,10 @@ public class AssetsHelper {
 
 		int numberOfBytesRead = source.read(buffer);
 
-		// If the buffer received data, write data from the buffer to the output stream
+		// While the buffer has data, write to the output stream from the buffer
 		while (numberOfBytesRead != -1) {
 			target.write(buffer, 0, numberOfBytesRead);
-			numberOfBytesRead = source.read(buffer); // read the next "lot" of data
+			numberOfBytesRead = source.read(buffer);
 		}
 	}
 }
