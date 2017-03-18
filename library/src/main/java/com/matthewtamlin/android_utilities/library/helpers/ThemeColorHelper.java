@@ -26,7 +26,6 @@ import com.matthewtamlin.java_utilities.testing.Tested;
 /**
  * Extracts the primary, primary dark and accent colors from the current theme.
  */
-@SuppressWarnings("SameParameterValue")
 @Tested(testMethod = "automated")
 public class ThemeColorHelper {
 	/**
