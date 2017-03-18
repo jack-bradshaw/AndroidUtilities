@@ -51,16 +51,9 @@ public class TestAssetsHelper {
 	@Before
 	@SuppressWarnings("ConstantConditions") // Mitigated manually
 	public void setup() throws IOException {
-		// Use this context instead of the target context so that the assets can be accessed
 		context = InstrumentationRegistry.getContext();
 
-		// Check precondition 1: Context is not null
-		assertThat("Precondition 1 failed. The target context is null.", context != null);
-
-		// Check precondition 2: The output directory is not a file
-		assertThat("Precondition 3 failed. The output directory is a file.", !OUTPUT_DIR.isFile());
-
-		// Check precondition 3: All assets under test are contained within the Context's assets
+		// Check precondition 1: All assets under test are contained within the Context's assets
 		final List<String> assets = new ArrayList<>(Arrays.asList(context.getAssets().list("")));
 		final List<String> assetsUnderTest = new ArrayList<>();
 		System.out.println(assets);
@@ -69,13 +62,13 @@ public class TestAssetsHelper {
 		assertThat("Precondition 4 failed. The assets folder does not contain all assets needed " +
 				"for the test.", assets.containsAll(assetsUnderTest));
 
-		// Check precondition 4: The output directory exists or can be created
+		// Check precondition 2: The output directory exists or can be created
 		if (!OUTPUT_DIR.isDirectory()) {
 			final boolean outputDirWasCreated = OUTPUT_DIR.mkdir();
 			assertThat("Precondition 5 failed. Output directory not created.", outputDirWasCreated);
 		}
 
-		// Check precondition 5: All files in the output directory are deleted
+		// Check precondition 3: All files in the output directory are deleted
 		for (final File f : OUTPUT_DIR.listFiles()) {
 			final boolean fileDeletedSuccessfully = f.delete();
 			assertThat("Precondition 6 failed. Existing files in the output directory could not " +
