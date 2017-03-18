@@ -35,10 +35,9 @@ import static org.hamcrest.Matchers.is;
 import static org.hamcrest.Matchers.notNullValue;
 
 /**
- * Unit tests for the {@link PermissionsHelper} class. The tests will fail if any of the following
- * prerequisites are not met: <ul><li>The test context has been granted the {@code
- * WRITE_EXTERNAL_STORAGE} permission.</li> <li>The test context has been granted the {@code NFC}
- * permission.</li><li>The test has been denied the {@code ACCOUNT_MANAGER} permission.</li></ul>
+ * Automated tests for the {@link PermissionsHelper} class. These tests require the following
+ * permissions:<ul><li>{@code WRITE_EXTERNAL_STORAGE} granted</li> <li>{@code NFC} granted</li>
+ * <li>{@code ACCOUNT_MANAGER} denied</li></ul>
  */
 @RunWith(AndroidJUnit4.class)
 public class TestPermissionsHelper {
