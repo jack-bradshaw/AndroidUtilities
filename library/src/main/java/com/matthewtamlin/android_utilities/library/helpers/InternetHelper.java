@@ -35,4 +35,17 @@ public class InternetHelper {
 			return activeNetworkInfo.isConnected() && activeNetworkInfo.getType() == TYPE_WIFI;
 		}
 	}
+
+	public static boolean connectedToMobileData(final Context context) {
+		final ConnectivityManager connectivityManager = (ConnectivityManager) context
+				.getSystemService(Context.CONNECTIVITY_SERVICE);
+
+		final NetworkInfo activeNetworkInfo = connectivityManager.getActiveNetworkInfo();
+
+		if (activeNetworkInfo == null) {
+			return false;
+		} else {
+			return activeNetworkInfo.isConnected() && activeNetworkInfo.getType() == TYPE_WIFI;
+		}
+	}
 }
