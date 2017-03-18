@@ -102,17 +102,12 @@ public class AssetsHelper {
 			final InputStream source,
 			final OutputStream target)
 			throws IOException {
-		
-		if (source == null) {
-			throw new IllegalArgumentException("source cannot be null");
-		} else if (target == null) {
-			throw new IllegalArgumentException("target cannot be null");
-		}
 
-		// Data is moved from the input stream to the output stream through buffer
+		checkNotNull(source, "source cannot be null.");
+		checkNotNull(target, "target cannot be null.");
+
 		final byte[] buffer = new byte[1024];
 
-		// Read data into the buffer from the source
 		int numberOfBytesRead = source.read(buffer);
 
 		// If the buffer received data, write data from the buffer to the output stream
