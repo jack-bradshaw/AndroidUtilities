@@ -54,7 +54,6 @@ public class AssetsHelper {
 	 * @throws IllegalArgumentException
 	 * 		if either {@code assetsManager}, {@code assetFiles} or {@code targetDirectory} is null
 	 */
-	@RequiresPermission(allOf = android.Manifest.permission.WRITE_EXTERNAL_STORAGE)
 	public static void copyAssetsToDirectory(final AssetManager assetsManager,
 			final File targetDirectory,
 			final String... assetFiles) throws IOException {
