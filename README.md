@@ -212,8 +212,68 @@ Layout example:
 </LinearLayout>
 ```
 
-### Utilities
-The utilities package contains the `UiThreadUtil` interface and the `LooperUiThreadUtil` implementation. These components allow other classes to post tasks to the UI thread without directly referencing the Android framework. This allows easy testing of classes which would otherwise be difficult if not impossible to test. By using a mock/stub UiThreadUtil during testing and a real UiThreadUtil during production, classes can be tested against the JVM instead of against an Android instance.
+## Utilities
+The utilities package contains the UiThreadUtil interface and the LooperUiThreadUtil class. The UiThreadUtil interface provides access to the main thread without depending on the Android frmework, which allows controllers and other logic-containing classes to use concurrently without sacraficing testability. For example, consider the following controller:
+```java
+public class Controller {
+	private final UiThreadUtil threadUtil;
+	private final CustomView view;
+	
+	public Controller(UiThreadUtil threadUtil, final CustomView view) {
+		this.threadUtil = threadUtil;
+		this.view = view;
+	}
+	
+	public void respondToSomeEvent() {
+		threadUtil.runOnUiThread(new Runnable() {
+			@Override
+			public void run() {
+				view.doSomething();
+			}
+		}	
+	}
+}
+```
+
+The controller can be tested against the JVM by injecting mocks/stubs:
+```java
+@Test
+public void testRespondToSomeEvent() {
+	// Create a UiThreadUtil which executes Runnables on the calling thread
+	UiThreadUtil stubThreadUtil = new UiThreadUtil() {
+		@Override
+		public void runOnUiThread(Runnable runnable) {
+			runnable.run();
+		}
+	}
+	
+	// Using Mockito framework
+	CustomView mockCustomView = mock(CustomView.class);
+	
+	// Pass stub/mock implementations to controller
+	Controller c = new Controller(stubThreadUtil, mockCustomView);
+	c.respondToSomething();
+	
+	// Verify expected behaviour
+	verify(mockCustomView, times(1)).doSomething();
+}
+```
+
+The controller can also be used in production by injecting real objects:
+```java
+public class MyActivity extends AppCompatActivity {
+	@Override
+	public void onCreate(@Nullable Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.my_layout);
+		
+		CustomView view = (CustomView) findViewById(R.id.my_custom_view);
+		UiThreadUtil threadUtil = LooperThreadUtil.createUsingMainLooper();
+	
+		Controller c = new Controller(threadUtil, view);
+	}
+}
+```
 
 ## Licensing
 This library is licensed under the Apache v2.0 licence. Have a look at [the license](LICENSE) for details.
