@@ -96,10 +96,12 @@ public class BitmapEfficiencyHelper {
 	 * @throws IllegalArgumentException
 	 * 		if any dimension is less than zero
 	 */
-	public static Bitmap decodeResource(final Resources res,
+	public static Bitmap decodeResource(
+			final Resources res,
 			final int resId,
 			final int desWidth,
 			final int desHeight) {
+		
 		if (res == null) {
 			throw new IllegalArgumentException("res cannot be null");
 		} else if (desWidth < 0 || desHeight < 0) {
