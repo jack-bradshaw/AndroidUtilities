@@ -213,21 +213,25 @@ public class BitmapEfficiencyHelper {
 	}
 
 	/**
-	 * Decodes an image from a File. The memory consumed by the decoded image is reduced by matching
-	 * the image dimensions to the desired dimensions as best as possible. The dimensions of the
-	 * returned image always exceeds or matches the supplied dimensions.
+	 * Decodes an image from a file. The memory consumed by the decoded image is reduced by
+	 * matching the image dimensions to the desired dimensions as best as possible. The
+	 * dimensions of the returned image always exceed or match the supplied dimensions.
 	 *
 	 * @param file
-	 * 		a File containing compressed image data, not null
+	 * 		a file containing compressed image data, not null
 	 * @param desWidth
 	 * 		the desired width of the returned image, measured in pixels, not less than zero
 	 * @param desHeight
 	 * 		the desired height of the returned image, measured in pixels, not less than zero
 	 *
-	 * @return the decoded image, null if the image could not be decoded
+	 * @return the decoded image, or null if the image could not be decoded
 	 *
 	 * @throws IllegalArgumentException
-	 * 		if {@code data} is null, or if either dimension is less than zero
+	 * 		if {@code data} is null
+	 * @throws IllegalArgumentException
+	 * 		if {@code desWidth} is less than zero
+	 * @throws IllegalArgumentException
+	 * 		if {@code desHeight} is less than zero
 	 */
 	public static Bitmap decodeFile(final File file, final int desWidth, final int desHeight) {
 		if (file == null) {
