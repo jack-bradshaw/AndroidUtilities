@@ -61,14 +61,49 @@ public class InternetHelper {
 		return connectivityManager.getActiveNetworkInfo();
 	}
 
+	/**
+	 * The different internet connection types available to an Android device.
+	 */
 	public enum ConnectionType {
+		/**
+		 * The device is routing all traffic through a WIFI network.
+		 */
 		WIFI,
+
+		/**
+		 * The device is routing all traffic through the mobile data connection.
+		 */
 		MOBILE,
+
+		/**
+		 * The device is routing all traffic through a bluetooth connection.
+		 */
 		BLUETOOTH,
+
+		/**
+		 * The device is routing all traffic through an ethernet connection.
+		 */
 		ETHERNET,
+
+		/**
+		 * The internet connection is being mocked at a low level. <b>Not for use in production.</b>
+		 */
 		MOCK,
+
+		/**
+		 * The device is routing all traffic through a dial up mobile data connection.
+		 */
 		MOBILE_DUN,
+
+		/**
+		 * The device is routing all traffic through a VPN. The actual nature of the connection is
+		 * obscured.
+		 */
 		VPN,
+
+		/**
+		 * The device has an active internet connection, but its nature is unknown.
+		 */
 		UNKNOWN,
 	}
 }
