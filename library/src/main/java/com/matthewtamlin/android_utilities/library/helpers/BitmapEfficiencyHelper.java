@@ -144,9 +144,15 @@ public class BitmapEfficiencyHelper {
 	 * @return the decoded image, or null if the image could not be decoded
 	 *
 	 * @throws IllegalArgumentException
-	 * 		if {@code data} is null; if {@code offset} is less than zero; if {@code length} is less
-	 * 		than zero or greater than {@code data.length - offset}; or if either dimension is less than
-	 * 		zero
+	 * 		if {@code data} is null
+	 * @throws IllegalArgumentException
+	 * 		if {@code offset} is not within the size limits of the data array
+	 * @throws IllegalArgumentException
+	 * 		if {@code length} is less than zero or greater than {@code data.length - offset}
+	 * @throws IllegalArgumentException
+	 * 		if {@code desWidth} is less than zero
+	 * @throws IllegalArgumentException
+	 * 		if {@code desHeight} is less than zero
 	 */
 	public static Bitmap decodeByteArray(final byte[] data, final int offset, final int length,
 			final int desWidth, final int desHeight) {
