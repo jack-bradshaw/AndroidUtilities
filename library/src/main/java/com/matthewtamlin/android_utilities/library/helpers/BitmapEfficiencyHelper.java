@@ -234,11 +234,9 @@ public class BitmapEfficiencyHelper {
 	 * 		if {@code desHeight} is less than zero
 	 */
 	public static Bitmap decodeFile(final File file, final int desWidth, final int desHeight) {
-		if (file == null) {
-			throw new IllegalArgumentException("file cannot be null");
-		} else if (desWidth < 0 || desHeight < 0) {
-			throw new IllegalArgumentException("both dimensions must be greater than zero");
-		}
+		checkNotNull(file, "file cannot be null.");
+		checkGreaterThanOrEqualTo(desWidth, 0, "desWidth must be at least zero.");
+		checkGreaterThanOrEqualTo(desHeight, 0, "desHeight must be at least zero.");
 
 		// Decode only the boundaries of the image to get its dimensions
 		final BitmapFactory.Options options = new BitmapFactory.Options();
