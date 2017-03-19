@@ -227,7 +227,7 @@ public class BitmapEfficiencyHelper {
 	 * @return the decoded image, or null if the image could not be decoded
 	 *
 	 * @throws IllegalArgumentException
-	 * 		if {@code data} is null
+	 * 		if {@code file} is null
 	 * @throws IllegalArgumentException
 	 * 		if {@code desWidth} is less than zero
 	 * @throws IllegalArgumentException
