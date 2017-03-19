@@ -24,6 +24,9 @@ import com.matthewtamlin.java_utilities.testing.Tested;
 
 import java.io.File;
 
+import static com.matthewtamlin.java_utilities.checkers.IntChecker.checkGreaterThanOrEqualTo;
+import static com.matthewtamlin.java_utilities.checkers.NullChecker.checkNotNull;
+
 /**
  * Decodes bitmaps efficiently.
  */
@@ -101,12 +104,10 @@ public class BitmapEfficiencyHelper {
 			final int resId,
 			final int desWidth,
 			final int desHeight) {
-		
-		if (res == null) {
-			throw new IllegalArgumentException("res cannot be null");
-		} else if (desWidth < 0 || desHeight < 0) {
-			throw new IllegalArgumentException("both dimensions must be greater than zero");
-		}
+
+		checkNotNull(res, "res cannot be null.");
+		checkGreaterThanOrEqualTo(desWidth, 0, "desWidth must be at least zero.");
+		checkGreaterThanOrEqualTo(desHeight, 0, "desHeight must be at least zero.");
 
 		// Decode only the boundaries of the image to get its dimensions
 		final BitmapFactory.Options options = new BitmapFactory.Options();
