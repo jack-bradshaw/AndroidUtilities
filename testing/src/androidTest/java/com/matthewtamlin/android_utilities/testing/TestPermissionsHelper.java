@@ -145,7 +145,7 @@ public class TestPermissionsHelper {
 	@Test
 	public void testCountGrantedPermissions_emptyPermissionsSupplied() {
 		final int count = PermissionsHelper.countGrantedPermissions(context);
-		assertThat(count, is(2));
+		assertThat(count, is(0));
 	}
 
 	/**
