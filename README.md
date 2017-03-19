@@ -1,25 +1,184 @@
-
-
 # AndroidUtilities
 Android developers regularly encounter situations where something which should be a single method call turns into a slog of boilerplate code, down casting and other messy practices. A simple solution is to create utility classes to encapsulate the mess, however this can lead to regularly copying files between project which is not ideal. When I encountered this problem, I decided to create this library as a central repository for my utility classes.
 
 ## Download
 Releases are made available through jCentre. Add `compile 'com.matthew-tamlin:android-utilities:5.0.0'` to your gradle build file to use the latest version. Older versions are available in the [maven repo](https://bintray.com/matthewtamlin/maven/AndroidUtilities/view).
  
-## Usage
-The library is divided into three packages: Helpers, views, and utilities. 
+## Helpers
+The helpers package contains the following classes:
+- AssetsHelper
+- AudioFocusHelper
+- BitmapEfficiencyHelper
+- ColorHelper
+- DimensionHelper
+- InternetHelper
+- PermissionsHelper
+- ScreenSizeHelper
+- ThemeColorHelper
 
-### Helpers
-Helpers classes do not need to be instantiated and contain only static methods. The available helpers are:
-- `AssetsHelper`: Useful for copying asset files from the assets space to a storage directory.
-- `AudioFocusHelper`: Reduces boilerplate code when obtaining and abandoning audio focus.
-- `BitmapEfficiencyHelper`: Simplifies the process of loading bitmaps into memory efficiently.
-- `ColorHelper`: Contains methods for working with colors.
-- `DimensionHelper`: Simplifies the process of converting complex dimensions (e.g. DP) to pixels.
-- `PermissionsHelper`: Provides a mechanism for easily determining if particular permissions have been granted. 
-- `ScreenSizeHelper`: Contains methors to query the current screen size.
-- `StatusBarHelper`: Can be used to easily hiding/show the status bar. Functionality varies depending on SDK version.
-- `ThemeColorHelper`: Simplifies the process of getting the primary, primary dark and accent colors of the current theme.
+### AssetsHelper
+Provides a simple means of copying assets to a file directory.
+```java
+AssetsManager manager = context.getAssets();
+File targetDir = context.getFilesDir();
+
+// You can copy just one asset
+AssetsHelper.copyAssetsToDirectory(manager, targetDir, "picture.png");
+
+// Or you can copy multiple assets using var-args
+AssetsHelper.copyAssetsToDirectory(manager, targetDir, "db_config.xml", "default_values");
+```
+
+### AudioFocusHelper
+Reduces boilerplate code when obtaining and abandoning audio focus.
+```java
+AudioFocusHelper.requestStreamAlarmFocus(context, new OnAudioFocusChangeListener() {
+    @Override
+    public void onAudioFocusChange(int focusChange) {
+		// Do something
+	});
+    
+AudioFocusHelper.abandonFocus(context, new OnAudioFocusChangeListener() {
+    @Override
+    public void onAudioFocusChange(int focusChange) {
+		// Do something else
+	});
+```
+
+### BitmapEfficiencyHelper
+Encapsulates the complexities and boilerplate code of efficiently decoding artwork.
+```java
+ImageView imageView = (ImageView) context.findViewById(R.id.image_view);
+
+Bitmap image = BitmapEfficiencyHelper.decodeResource(
+    context.getResoures(), 
+    R.raw.image, 
+    imageView.getWidth(), 
+    imageView.getHeight());
+
+imageView.setImageBitmap(image);
+```
+
+### ColorHelper
+Provides several useful methods for working with colors.
+
+To gradually change the color of something:
+```java
+FrameLayout layout = (FrameLayout) context.findViewById(R.id.layout);
+
+final int startColor = Color.RED;
+final int endColor = Color.BLUE;
+
+ValueAnimator animator = ValueAnimator.ofFloat(0, 1);
+animator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
+			@Override
+			public void onAnimationUpdate(final ValueAnimator animation) {
+				ColorHelper.blendColors(startColor, endColor, animation.getAnimatedFraction());
+			}
+		});
+```
+
+To generate random colors:
+```java
+// The transparency can be fixed at fully opaque
+int randomColorWithFullOpacity = ColorHelper.createRandomColor(false);
+
+// Or it can be randomised just like the RGB channels
+int randomColorWithRandomOpacity = ColorHelper.createRandomColor(true);
+```
+
+To pick the text color to use against a colored background:
+```java
+// Some view directly behind the text
+int backgroundColor = someView.getBackgroundColor();
+
+// Returns white or black, whichever maximises readability of the text
+int textColor = ColorHelper.calculateBestTextColor(backgroundColor);
+```
+
+### DimensionHelper
+Converts complex units such as DP and SP to pixels.
+```java
+DimensionHelper.dpToPx(context, someDpInteger);
+DimensionHelper.spToPx(context, someSpInteger);
+DimensionHelper.ptToPx(context, somePtInteger);
+```
+
+### InternetHelper
+Provides information about the current internet connection (if any).
+```java
+ConnectionType connType = InternetHelper.getInternetConnectionType(context);
+
+if (connType == null) {
+    disableUpload();
+} else if (connType == ConnectionType.WIFI) {
+    enableFullUpload();
+} else {
+    enableCompressedUpload();
+}
+```
+
+### PermissionsHelper
+Makes querying app permissions simpler.
+
+To count the number of granted permissions:
+```
+String[] locationPermissions = new String() {
+    Manifest.permission.ACCESS_FINE_LOCATION, 
+    Manifest.permission.ACCESS_COARSE_LOCATION};
+    
+if (PermissionsHelper.countGrantedPermissions(context, locationPermissions) > 0) {
+    enableLocationFeatures();
+} else {
+    requestPermissions();
+}
+```
+
+To check if all permissions are granted:
+```
+String[] takeAndSavePhotoPermissions = new String() {
+    Manifest.permission.CAMERA,
+    Manifest.permission.WRITE_EXTERNAL_STORAGE};
+    
+if (PermissionsHelper.checkAllPermissionsGranted(context, takeAndSavePhotoPermissions)) {
+    startCamera();
+} else {
+    requestPermissions();
+}
+```
+
+### ScreenSizeHelper
+Provides information about the device screen.
+
+To get the physical dimensions of the screen:
+```java
+int screenWidth = ScreenSizeHelper.getScreenWidth(context);
+int screenHeight = ScreenSizeHelper.getScreenHeight(context);
+```
+
+To make layout decisions based on the screen size category
+```java
+public int getLayoutResId(Context context) {
+    ScreenSize size = ScreenSizeHelper.getScreenSize(context);
+
+    switch (size) {
+        case SMALL: return R.id.this_screen_is_too_small;
+        case NORMAL: return R.id.this_screen_is_just_right;
+        case LARGE: return R.id.this_screen_is_too_large;
+        default: return R.id.dont_play_with_bears;
+    }
+}
+```
+
+### ThemeColorHelper
+Makes it easy to get the primary, primary dark and accent colors of the current theme.
+```java
+int defaultColor = Color.WHITE;
+
+int primaryColor = ThemeColorHelper.getPrimaryColor(context, defaultColor);
+int primaryDarkColor = ThemeColorHelper.getPrimaryDarkColor(context, defaultColor);
+int accentColor = ThemeColorHelper.getAccentColor(context, defaultColor);
+```
 
 ### Views
 There is currently one class in the views package: `SquareImageView`. This class extends ImageView and provides all the same core functionality, except it forces the height and width dimensions to be equal.
