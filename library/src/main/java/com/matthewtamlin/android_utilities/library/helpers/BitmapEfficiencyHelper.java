@@ -25,6 +25,8 @@ import com.matthewtamlin.java_utilities.testing.Tested;
 import java.io.File;
 
 import static com.matthewtamlin.java_utilities.checkers.IntChecker.checkGreaterThanOrEqualTo;
+import static com.matthewtamlin.java_utilities.checkers.IntChecker.checkLessThan;
+import static com.matthewtamlin.java_utilities.checkers.IntChecker.checkLessThanOrEqualTo;
 import static com.matthewtamlin.java_utilities.checkers.NullChecker.checkNotNull;
 
 /**
@@ -156,15 +158,14 @@ public class BitmapEfficiencyHelper {
 	 */
 	public static Bitmap decodeByteArray(final byte[] data, final int offset, final int length,
 			final int desWidth, final int desHeight) {
-		if (data == null) {
-			throw new IllegalArgumentException("data cannot be null");
-		} else if (offset < 0) {
-			throw new IllegalArgumentException("offset cannot be less than zero");
-		} else if (length < 0) {
-			throw new IllegalArgumentException("length cannot be less than zero");
-		} else if (desWidth < 0 || desHeight < 0) {
-			throw new IllegalArgumentException("both dimensions must be greater than zero");
-		}
+		checkNotNull(data, "data cannot be null.");
+		checkGreaterThanOrEqualTo(offset, 0, "offset must be at least zero.");
+		checkLessThan(offset, data.length, "offset must be less than " + data.length);
+		checkGreaterThanOrEqualTo(length, 0, "length must be at least zero.");
+		checkLessThanOrEqualTo(length, data.length - offset, "length must be at most " +
+				(data.length - offset));
+		checkGreaterThanOrEqualTo(desWidth, 0, "desWidth must be at least zero.");
+		checkGreaterThanOrEqualTo(desHeight, 0, "desHeight must be at least zero.");
 
 		// Decode only the boundaries of the image to get its dimensions
 		final BitmapFactory.Options options = new BitmapFactory.Options();
