@@ -195,7 +195,7 @@ public class BitmapEfficiencyHelper {
 	 * @param desHeight
 	 * 		the desired height of the decoded image, measured in pixels, not less than zero
 	 *
-	 * @return the decoded image, null if the image could not be decoded
+	 * @return the decoded image, or null if the image could not be decoded
 	 *
 	 * @throws IllegalArgumentException
 	 * 		if {@code data} is null
