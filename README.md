@@ -219,7 +219,7 @@ public class Controller {
 	private final UiThreadUtil threadUtil;
 	private final CustomView view;
 	
-	public Controller(UiThreadUtil threadUtil, final CustomView view) {
+	public Controller(UiThreadUtil threadUtil, CustomView view) {
 		this.threadUtil = threadUtil;
 		this.view = view;
 	}
