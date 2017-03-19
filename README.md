@@ -252,7 +252,7 @@ public void testRespondToSomeEvent() {
 	
 	// Pass stub/mock implementations to controller
 	Controller c = new Controller(stubThreadUtil, mockCustomView);
-	c.respondToSomething();
+	c.respondToSomeEvent();
 	
 	// Verify expected behaviour
 	verify(mockCustomView, times(1)).doSomething();
