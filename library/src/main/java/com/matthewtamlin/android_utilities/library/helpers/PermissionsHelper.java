@@ -47,7 +47,7 @@ public class PermissionsHelper {
 	 */
 	public static boolean checkAllPermissionsGranted(
 			final Context context,
-			final String...	permissions) {
+			final String... permissions) {
 
 		checkNotNull(context, "context cannot be null.");
 		checkNotNull(permissions, "permissions cannot be null.");
