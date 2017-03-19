@@ -78,7 +78,7 @@ public class BitmapEfficiencyHelper {
 	/**
 	 * Decodes an image from a resource. The memory consumed by the decoded image is reduced by
 	 * matching the image dimensions to the desired dimensions as best as possible. The dimensions
-	 * of the returned image always exceeds or matches the supplied dimensions.
+	 * of the returned image always exceed or matche the supplied dimensions.
 	 *
 	 * @param res
 	 * 		provides access to the resource to decode, not null
@@ -92,7 +92,9 @@ public class BitmapEfficiencyHelper {
 	 * @return the decoded image, null if the image could not be decoded
 	 *
 	 * @throws IllegalArgumentException
-	 * 		if {@code context} is null, or if either dimension is less than zero
+	 * 		if {@code context} is null
+	 * @throws IllegalArgumentException
+	 * 		if any dimension is less than zero
 	 */
 	public static Bitmap decodeResource(final Resources res,
 			final int resId,
