@@ -73,7 +73,7 @@ public class TestPermissionsHelper {
 	 * {@link PermissionsHelper#checkAllPermissionsGranted(Context, String[])} is null.
 	 */
 	@Test(expected = IllegalArgumentException.class)
-	public void testallPermissionsGranted_invalidArg_nullContext() {
+	public void testAllPermissionsGranted_invalidArg_nullContext() {
 		PermissionsHelper.checkAllPermissionsGranted(null, GRANTED_PERMISSIONS);
 	}
 
@@ -82,7 +82,7 @@ public class TestPermissionsHelper {
 	 * {@link PermissionsHelper#checkAllPermissionsGranted(Context, String[])} is null.
 	 */
 	@Test(expected = IllegalArgumentException.class)
-	public void testallPermissionsGranted_invalidArg_nullPermissions() {
+	public void testAllPermissionsGranted_invalidArg_nullPermissions() {
 		PermissionsHelper.checkAllPermissionsGranted(context, null);
 	}
 
@@ -92,7 +92,7 @@ public class TestPermissionsHelper {
 	 * considered the case where all of the passed permissions are granted.
 	 */
 	@Test
-	public void testallPermissionsGranted_validArgs_usingOnlyGrantedPermissions() {
+	public void testAllPermissionsGranted_validArgs_usingOnlyGrantedPermissions() {
 		final boolean permissionsAreGranted = PermissionsHelper.checkAllPermissionsGranted
 				(context, GRANTED_PERMISSIONS);
 		assertThat("Some permissions have been denied unexpectedly.", permissionsAreGranted);
@@ -104,7 +104,7 @@ public class TestPermissionsHelper {
 	 * considered the case where all of the passed permissions are denied.
 	 */
 	@Test
-	public void testallPermissionsGranted_validArgs_usingOnlyDeniedPermissions() {
+	public void testAllPermissionsGranted_validArgs_usingOnlyDeniedPermissions() {
 		final boolean permissionsAreGranted = PermissionsHelper.checkAllPermissionsGranted
 				(context, DENIED_PERMISSIONS);
 		assertThat("Some permissions have been granted unexpectedly.", !permissionsAreGranted);
@@ -116,7 +116,7 @@ public class TestPermissionsHelper {
 	 * considered the case where some of the passed permissions are granted and some are denied.
 	 */
 	@Test
-	public void testallPermissionsGranted_validArgs_usingMixedPermissions() {
+	public void testAllPermissionsGranted_validArgs_usingMixedPermissions() {
 		final String[] allPermissions = concatenateArrays(GRANTED_PERMISSIONS, DENIED_PERMISSIONS);
 
 		final boolean permissionsAreGranted = PermissionsHelper.checkAllPermissionsGranted
