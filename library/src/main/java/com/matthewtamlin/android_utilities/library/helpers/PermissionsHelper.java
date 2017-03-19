@@ -82,7 +82,7 @@ public class PermissionsHelper {
 		int grantedPermissions = 0;
 
 		for (final String permission : permissions) {
-			if (ActivityCompat.checkSelfPermission(context, permission) != PERMISSION_GRANTED) {
+			if (ActivityCompat.checkSelfPermission(context, permission) == PERMISSION_GRANTED) {
 				grantedPermissions++;
 			}
 		}
