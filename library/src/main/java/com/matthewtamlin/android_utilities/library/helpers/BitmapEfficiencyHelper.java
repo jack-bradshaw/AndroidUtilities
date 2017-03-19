@@ -30,12 +30,14 @@ import java.io.File;
 @Tested(testMethod = "automated")
 public class BitmapEfficiencyHelper {
 	/**
-	 * Calculates the sampling rate which can be used to decode a Bitmap by sub-sampling, such that
-	 * all of the following conditions are satisfied: <ul><li>The sampling rate is a power of
-	 * two.</li><li>The height and width of the sub-sampled Bitmap are greater than the desired
-	 * height and width respectively.</li><li>The dimensions of the sub-sampled Bitmap are as small
-	 * as possible.</li></ul>. If no sub-sampling is possible without violating the above
-	 * constraints, a sampling rate of 1 is returned.
+	 * Calculates the sampling rate which can be used to subsample an image to the desired
+	 * dimensions. The sampling rate will satisfy all of the following criteria:
+	 * <ul> <li>The sampling rate is a power of two.</li> <li>The height of the subsampled image
+	 * will be at least the desired height. </li> <li>The width of the subsampled image will
+	 * be at least the desired width.</li> </ul>.
+	 * <p>
+	 * If no sub-sampling is possible without violating one or more conditions, a sampling rate of
+	 * 1 is returned.
 	 *
 	 * @param rawWidth
 	 * 		the inherent width of the image before scaling, measured in pixels, not less than zero
@@ -45,7 +47,9 @@ public class BitmapEfficiencyHelper {
 	 * 		the desired width of the image after scaling, measured in pixels, not less than zero
 	 * @param desHeight
 	 * 		the desired height of the image after scaling, measured in pixels, not less than zero
-	 * @return the sampling rate to sub-sample with
+	 *
+	 * @return the sampling rate
+	 *
 	 * @throws IllegalArgumentException
 	 * 		if any argument is less than zero
 	 */
@@ -80,7 +84,9 @@ public class BitmapEfficiencyHelper {
 	 * 		the desired width of the decoded image, measured in pixels, not less than zero
 	 * @param desHeight
 	 * 		the desired height of the decoded image, measured in pixels, not less than zero
+	 *
 	 * @return the decoded image, null if the image could not be decoded
+	 *
 	 * @throws IllegalArgumentException
 	 * 		if {@code context} is null, or if either dimension is less than zero
 	 */
@@ -125,7 +131,9 @@ public class BitmapEfficiencyHelper {
 	 * 		the desired width of the decoded image, measured in pixels, not less than zero
 	 * @param desHeight
 	 * 		the desired height of the decoded image, measured in pixels, not less than zero
+	 *
 	 * @return the decoded image, null if the image could not be decoded
+	 *
 	 * @throws IllegalArgumentException
 	 * 		if {@code data} is null; if {@code offset} is less than zero; if {@code length} is less
 	 * 		than zero or greater than {@code data.length - offset}; or if either dimension is less than
@@ -169,7 +177,9 @@ public class BitmapEfficiencyHelper {
 	 * 		the desired width of the decoded image, measured in pixels, not less than zero
 	 * @param desHeight
 	 * 		the desired height of the decoded image, measured in pixels, not less than zero
+	 *
 	 * @return the decoded image, null if the image could not be decoded
+	 *
 	 * @throws IllegalArgumentException
 	 * 		if {@code data} is null, or if desired dimension is less than zero
 	 */
@@ -189,7 +199,9 @@ public class BitmapEfficiencyHelper {
 	 * 		the desired width of the returned image, measured in pixels, not less than zero
 	 * @param desHeight
 	 * 		the desired height of the returned image, measured in pixels, not less than zero
+	 *
 	 * @return the decoded image, null if the image could not be decoded
+	 *
 	 * @throws IllegalArgumentException
 	 * 		if {@code data} is null, or if either dimension is less than zero
 	 */
