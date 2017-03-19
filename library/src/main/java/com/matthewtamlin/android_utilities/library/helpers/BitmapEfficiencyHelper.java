@@ -178,6 +178,7 @@ public class BitmapEfficiencyHelper {
 		options.inSampleSize = calculateSamplingRate(rawWidth, rawHeight, desWidth, desHeight);
 		options.inJustDecodeBounds = false; // Decode the full image
 		options.inScaled = false;
+
 		return BitmapFactory.decodeByteArray(data, offset, length, options);
 	}
 
