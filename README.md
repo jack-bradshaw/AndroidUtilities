@@ -285,4 +285,4 @@ This library uses the following open source libraries as level 1 dependencies:
 - [Timber](https://github.com/JakeWharton/timber), licensed under the Apache 2.0 license.
 
 ## Compatibility
-This library is compatible with Android 11 and up. The last major update significantly breaks backwards compatibility.
+This library is compatible with Android 11 and up.
