@@ -61,5 +61,32 @@ public class PermissionsHelper {
 		return true;
 	}
 
-	//TODO put in check for at least one permission
+	/**
+	 * Counts how many of the supplied permissions have already been granted to the supplied
+	 * context.
+	 *
+	 * @param context
+	 * 		the context to check for, not null
+	 * @param permissions
+	 * 		the permissions to check (see {@link permission}, not null
+	 *
+	 * @return the number of granted permissions
+	 */
+	public static int countGrantedPermissions(
+			final Context context,
+			final String... permissions) {
+
+		checkNotNull(context, "context cannot be null.");
+		checkNotNull(permissions, "permissions cannot be null.");
+
+		int grantedPermissions = 0;
+
+		for (final String permission : permissions) {
+			if (ActivityCompat.checkSelfPermission(context, permission) != PERMISSION_GRANTED) {
+				grantedPermissions++;
+			}
+		}
+
+		return grantedPermissions;
+	}
 }
