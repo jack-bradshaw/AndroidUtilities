@@ -198,13 +198,17 @@ public class BitmapEfficiencyHelper {
 	 * @return the decoded image, null if the image could not be decoded
 	 *
 	 * @throws IllegalArgumentException
-	 * 		if {@code data} is null, or if desired dimension is less than zero
+	 * 		if {@code data} is null
+	 * @throws IllegalArgumentException
+	 * 		if {@code desWidth} is less than zero
+	 * @throws IllegalArgumentException
+	 * 		if {@code desHeight} is less than zero
 	 */
 	public static Bitmap decodeByteArray(
 			final byte[] data,
 			final int desWidth,
 			final int desHeight) {
-		
+
 		return decodeByteArray(data, 0, data.length, desWidth, desHeight);
 	}
 
