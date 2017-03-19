@@ -30,6 +30,7 @@ import org.junit.runner.RunWith;
 
 import static android.content.pm.PackageManager.PERMISSION_GRANTED;
 import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.Matchers.is;
 
 /**
  * Automated tests for the {@link PermissionsHelper} class. These tests require the following
@@ -122,6 +123,29 @@ public class TestPermissionsHelper {
 		final boolean permissionsAreGranted = PermissionsHelper.checkAllPermissionsGranted
 				(context, allPermissions);
 		assertThat("Some permissions have been granted unexpectedly.", !permissionsAreGranted);
+	}
+
+	@Test(expected = IllegalArgumentException.class)
+	public void testCountGrantedPermissions_nullContext() {
+		PermissionsHelper.countGrantedPermissions(null, GRANTED_PERMISSIONS);
+	}
+
+	@Test(expected = IllegalArgumentException.class)
+	public void testCountGrantedPermissions_nullPermissions() {
+		PermissionsHelper.countGrantedPermissions(context, null);
+	}
+
+	@Test
+	public void testCountGrantedPermissions_nonEmptyPermissionsSupplied() {
+		final String[] allPerms = concatenateArrays(GRANTED_PERMISSIONS, DENIED_PERMISSIONS);
+		final int count = PermissionsHelper.countGrantedPermissions(context, allPerms);
+		assertThat(count, is(2));
+	}
+
+	@Test
+	public void testCountGrantedPermissions_emptyPermissionsSupplied() {
+		final int count = PermissionsHelper.countGrantedPermissions(context);
+		assertThat(count, is(2));
 	}
 
 	/**
