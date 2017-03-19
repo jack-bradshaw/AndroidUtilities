@@ -73,7 +73,10 @@ ValueAnimator animator = ValueAnimator.ofFloat(0, 1);
 animator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
 			@Override
 			public void onAnimationUpdate(final ValueAnimator animation) {
-				ColorHelper.blendColors(startColor, endColor, animation.getAnimatedFraction());
+				ColorHelper.blendColors(
+					startColor, 
+					endColor, 
+					animation.getAnimatedFraction());
 			}
 		});
 ```
