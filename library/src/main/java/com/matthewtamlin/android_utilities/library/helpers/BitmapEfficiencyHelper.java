@@ -51,7 +51,7 @@ public class BitmapEfficiencyHelper {
 	 * @return the sampling rate
 	 *
 	 * @throws IllegalArgumentException
-	 * 		if any argument is less than zero
+	 * 		if any dimension is less than zero
 	 */
 	public static int calculateSamplingRate(
 			final int rawWidth,
