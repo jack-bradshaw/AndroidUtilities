@@ -70,56 +70,56 @@ public class TestPermissionsHelper {
 
 	/**
 	 * Test to verify that the correct exception is thrown when the {@code context} argument of
-	 * {@link PermissionsHelper#permissionsAlreadyGranted(Context, String[])} is null.
+	 * {@link PermissionsHelper#checkAllPermissionsGranted(Context, String[])} is null.
 	 */
 	@Test(expected = IllegalArgumentException.class)
-	public void testPermissionsAlreadyGranted_invalidArg_nullContext() {
-		PermissionsHelper.permissionsAlreadyGranted(null, GRANTED_PERMISSIONS);
+	public void testallPermissionsGranted_invalidArg_nullContext() {
+		PermissionsHelper.checkAllPermissionsGranted(null, GRANTED_PERMISSIONS);
 	}
 
 	/**
 	 * Test to verify that the correct exception is thrown when the {@code permissions} argument of
-	 * {@link PermissionsHelper#permissionsAlreadyGranted(Context, String[])} is null.
+	 * {@link PermissionsHelper#checkAllPermissionsGranted(Context, String[])} is null.
 	 */
 	@Test(expected = IllegalArgumentException.class)
-	public void testPermissionsAlreadyGranted_invalidArg_nullPermissions() {
-		PermissionsHelper.permissionsAlreadyGranted(context, null);
+	public void testallPermissionsGranted_invalidArg_nullPermissions() {
+		PermissionsHelper.checkAllPermissionsGranted(context, null);
 	}
 
 	/**
-	 * Test to verify that the {@link PermissionsHelper#permissionsAlreadyGranted(Context,
+	 * Test to verify that the {@link PermissionsHelper#checkAllPermissionsGranted(Context,
 	 * String[])} method functions correctly when provided with valid arguments. This test
 	 * considered the case where all of the passed permissions are granted.
 	 */
 	@Test
-	public void testPermissionsAlreadyGranted_validArgs_usingOnlyGrantedPermissions() {
-		final boolean permissionsAreGranted = PermissionsHelper.permissionsAlreadyGranted
+	public void testallPermissionsGranted_validArgs_usingOnlyGrantedPermissions() {
+		final boolean permissionsAreGranted = PermissionsHelper.checkAllPermissionsGranted
 				(context, GRANTED_PERMISSIONS);
 		assertThat("Some permissions have been denied unexpectedly.", permissionsAreGranted);
 	}
 
 	/**
-	 * Test to verify that the {@link PermissionsHelper#permissionsAlreadyGranted(Context,
+	 * Test to verify that the {@link PermissionsHelper#checkAllPermissionsGranted(Context,
 	 * String[])} method functions correctly when provided with valid arguments. This test
 	 * considered the case where all of the passed permissions are denied.
 	 */
 	@Test
-	public void testPermissionsAlreadyGranted_validArgs_usingOnlyDeniedPermissions() {
-		final boolean permissionsAreGranted = PermissionsHelper.permissionsAlreadyGranted
+	public void testallPermissionsGranted_validArgs_usingOnlyDeniedPermissions() {
+		final boolean permissionsAreGranted = PermissionsHelper.checkAllPermissionsGranted
 				(context, DENIED_PERMISSIONS);
 		assertThat("Some permissions have been granted unexpectedly.", !permissionsAreGranted);
 	}
 
 	/**
-	 * Test to verify that the {@link PermissionsHelper#permissionsAlreadyGranted(Context,
+	 * Test to verify that the {@link PermissionsHelper#checkAllPermissionsGranted(Context,
 	 * String[])} method functions correctly when provided with valid arguments. This test
 	 * considered the case where some of the passed permissions are granted and some are denied.
 	 */
 	@Test
-	public void testPermissionsAlreadyGranted_validArgs_usingMixedPermissions() {
+	public void testallPermissionsGranted_validArgs_usingMixedPermissions() {
 		final String[] allPermissions = concatenateArrays(GRANTED_PERMISSIONS, DENIED_PERMISSIONS);
 
-		final boolean permissionsAreGranted = PermissionsHelper.permissionsAlreadyGranted
+		final boolean permissionsAreGranted = PermissionsHelper.checkAllPermissionsGranted
 				(context, allPermissions);
 		assertThat("Some permissions have been granted unexpectedly.", !permissionsAreGranted);
 	}
