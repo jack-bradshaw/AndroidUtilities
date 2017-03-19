@@ -55,7 +55,7 @@ public class TestAssetsHelper {
 		final List<String> assets = new ArrayList<>(Arrays.asList(context.getAssets().list("")));
 		assertThat("Missing expected asset.", assets.contains(ASSETS_TO_COPY[0]));
 		assertThat("Missing expected asset.", assets.contains(ASSETS_TO_COPY[1]));
-		assertThat("Unexpected asset exists.", !assets.contains(ASSETS_TO_IGNORE[0]));
+		assertThat("Missing expected asset.", assets.contains(ASSETS_TO_IGNORE[0]));
 
 		if (!OUTPUT_DIR.exists()) {
 			final boolean outputDirWasCreated = OUTPUT_DIR.mkdir();
