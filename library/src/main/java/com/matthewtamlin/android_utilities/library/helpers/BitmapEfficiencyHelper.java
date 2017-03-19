@@ -185,7 +185,7 @@ public class BitmapEfficiencyHelper {
 	/**
 	 * Decodes an image from an array of compressed image data. The memory consumed by the decoded
 	 * image is reduced by matching the image dimensions to the desired dimensions as best as
-	 * possible. The dimensions of the returned image always exceeds or matches the supplied
+	 * possible. The dimensions of the returned image always exceed or match the supplied
 	 * dimensions.
 	 *
 	 * @param data
