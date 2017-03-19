@@ -29,5 +29,7 @@ limitations under the License.
 		android:label="Android Utilities - Testing"
 		android:supportsRtl="true"
 		android:theme="@style/Theme.AppCompat.NoActionBar">
+
+		<activity android:name=".ThemeColorHelperTestHarness"/>
 	</application>
 </manifest>
