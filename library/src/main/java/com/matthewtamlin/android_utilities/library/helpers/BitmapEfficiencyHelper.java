@@ -58,9 +58,9 @@ public class BitmapEfficiencyHelper {
 			final int rawHeight,
 			final int desWidth,
 			final int desHeight) {
-		
+
 		if (rawWidth < 0 || rawHeight < 0 || desWidth < 0 || desHeight < 0) {
-			throw new IllegalArgumentException("all dimensions must be greater than zero");
+			throw new IllegalArgumentException("All dimensions must be greater than zero.");
 		}
 
 		// Based on the power-of-two requirement
