@@ -165,10 +165,10 @@ public int getLayoutResId(Context context) {
     ScreenSize size = ScreenSizeHelper.getScreenSize(context);
 
     switch (size) {
-        case SMALL: return R.id.this_screen_is_too_small;
-        case NORMAL: return R.id.this_screen_is_just_right;
-        case LARGE: return R.id.this_screen_is_too_large;
-        default: return R.id.dont_play_with_bears;
+        case SMALL: return R.layout.this_screen_is_too_small;
+        case NORMAL: return R.layout.this_screen_is_just_right;
+        case LARGE: return R.layout.this_screen_is_too_large;
+        default: return R.layout.dont_play_with_bears;
     }
 }
 ```
