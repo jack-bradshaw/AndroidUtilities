@@ -183,8 +183,34 @@ int primaryDarkColor = ThemeColorHelper.getPrimaryDarkColor(context, defaultColo
 int accentColor = ThemeColorHelper.getAccentColor(context, defaultColor);
 ```
 
-### Views
-There is currently one class in the views package: `SquareImageView`. This class extends ImageView and provides all the same core functionality, except it forces the height and width dimensions to be equal.
+## Views
+There is currently one class in the views package: SquareImageView. 
+
+SquareImageView is an ImageView which constrains the dimensions so that the height and width are always equal. The XML attribute `derivedDimension` specifies which dimension adjusts to match the other. Currently the dependent dimension cannot be changed programatically (this will probably change in a future release).
+
+Layout example:
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:app="http://schemas.android.com/apk/res-auto"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+	android:orientation="vertical">
+	
+	<!-- The width will always equal the height -->
+	<com.matthewtamlin.android_utilities.library.views.SquareImageView
+		android:layout_width="0dp"
+		android:layout_height="wrap_content"
+		app:derivedDimension="width"/>
+
+	<!-- The height will always equal the width -->
+	<com.matthewtamlin.android_utilities.library.views.SquareImageView
+		android:layout_width="wrap_content"
+		android:layout_height="0dp"
+		app:derivedDimension="height"/>
+</LinearLayout>
+```
 
 ### Utilities
 The utilities package contains the `UiThreadUtil` interface and the `LooperUiThreadUtil` implementation. These components allow other classes to post tasks to the UI thread without directly referencing the Android framework. This allows easy testing of classes which would otherwise be difficult if not impossible to test. By using a mock/stub UiThreadUtil during testing and a real UiThreadUtil during production, classes can be tested against the JVM instead of against an Android instance.
