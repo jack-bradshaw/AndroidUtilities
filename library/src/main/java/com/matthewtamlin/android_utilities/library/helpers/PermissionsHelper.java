@@ -45,7 +45,7 @@ public class PermissionsHelper {
 	 * @throws IllegalArgumentException
 	 * 		if {@code permissions} is null
 	 */
-	public static boolean permissionsAlreadyGranted(
+	public static boolean checkAllPermissionsGranted(
 			final Context context,
 			final String...	permissions) {
 
