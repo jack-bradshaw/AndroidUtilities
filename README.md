@@ -186,7 +186,7 @@ int accentColor = ThemeColorHelper.getAccentColor(context, defaultColor);
 ## Views
 There is currently one class in the views package: SquareImageView. 
 
-SquareImageView is an ImageView which constrains the dimensions so that the height and width are always equal. The XML attribute `derivedDimension` specifies which dimension adjusts to match the other. Currently the dependent dimension cannot be changed programatically (this will probably change in a future release).
+SquareImageView is an ImageView which forces the dimensions to be equal. The XML attribute `derivedDimension` specifies which dimension adjusts to match the other. Currently the derived dimension cannot be changed programatically, but this will probably change in a future release.
 
 Layout example:
 ```xml
