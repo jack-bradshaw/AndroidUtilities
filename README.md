@@ -235,7 +235,7 @@ public class Controller {
 }
 ```
 
-The controller can be tested against the JVM by injecting mocks/stubs:
+The controller can be tested against the JVM by passing mocks/stubs to the constructor: 
 ```java
 @Test
 public void testRespondToSomeEvent() {
@@ -259,7 +259,7 @@ public void testRespondToSomeEvent() {
 }
 ```
 
-The controller can also be used in production by injecting real objects:
+The same controller can be used in production by passing real objects instead:
 ```java
 public class MyActivity extends AppCompatActivity {
 	@Override
