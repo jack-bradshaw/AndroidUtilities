@@ -159,7 +159,7 @@ int screenWidth = ScreenSizeHelper.getScreenWidth(context);
 int screenHeight = ScreenSizeHelper.getScreenHeight(context);
 ```
 
-To make layout decisions based on the screen size category
+To get the screen size bucket:
 ```java
 public int getLayoutResId(Context context) {
     ScreenSize size = ScreenSizeHelper.getScreenSize(context);
