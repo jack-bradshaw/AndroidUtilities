@@ -188,7 +188,7 @@ There is currently one class in the views package: SquareImageView.
 
 SquareImageView is an ImageView which forces the dimensions to be equal. The XML attribute `derivedDimension` specifies which dimension adjusts to match the other. Currently the derived dimension cannot be changed programatically, but this will probably change in a future release.
 
-Layout example:
+Use the view in a layout as follows:
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
