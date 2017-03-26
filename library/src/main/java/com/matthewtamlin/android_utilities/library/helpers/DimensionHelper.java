@@ -42,7 +42,7 @@ public class DimensionHelper {
 	 * @throws IllegalArgumentException
 	 * 		if {@code dpValue} is less than zero
 	 */
-	public static int dpToPx(final Context context, final int dpValue) {
+	public static float dpToPx(final Context context, final int dpValue) {
 		checkNotNull(context, "context cannot be null.");
 		checkGreaterThanOrEqualTo(dpValue, 0, "dpValue must be at least 0.");
 
