@@ -44,7 +44,7 @@ public class DimensionHelper {
 	 */
 	public static float dpToPx(final Context context, final float dpValue) {
 		checkNotNull(context, "context cannot be null.");
-		checkGreaterThanOrEqualTo(dpValue, 0, "dpValue must be at least 0.");
+		checkGreaterThanOrEqualTo((int) dpValue, 0, "dpValue must be at least 0.");
 
 		final DisplayMetrics metrics = context.getResources().getDisplayMetrics();
 		return (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, dpValue, metrics);
