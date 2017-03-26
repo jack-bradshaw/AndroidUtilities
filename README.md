@@ -2,7 +2,7 @@
 Android developers regularly encounter situations where something which should be a simple method call turns into a slog of boilerplate code, down casting and other messy practices. A simple solution is to create utility classes to encapsulate the mess, however this can lead to regularly copying files between project which is not ideal. When I encountered this problem, I decided to create this library as a central repository for my utility classes.
 
 ## Download
-Releases are made available through jCentre. Add `compile 'com.matthew-tamlin:android-utilities:5.0.0'` to your gradle build file to use the latest version. Older versions are available in the [maven repo](https://bintray.com/matthewtamlin/maven/AndroidUtilities/view).
+Releases are made available through jCentre. Add `compile 'com.matthew-tamlin:android-utilities:5.0.1'` to your gradle build file to use the latest version. Older versions are available in the [maven repo](https://bintray.com/matthewtamlin/maven/AndroidUtilities/view).
  
 ## Helpers
 The helpers package contains the following classes:
