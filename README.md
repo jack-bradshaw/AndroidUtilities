@@ -102,9 +102,9 @@ int textColor = ColorHelper.calculateBestTextColor(backgroundColor);
 ### DimensionHelper
 Converts complex units such as DP and SP to pixels.
 ```java
-DimensionHelper.dpToPx(context, someDpInteger);
-DimensionHelper.spToPx(context, someSpInteger);
-DimensionHelper.ptToPx(context, somePtInteger);
+DimensionHelper.dpToPx(context, someDpDimension);
+DimensionHelper.spToPx(context, someSpDimension);
+DimensionHelper.ptToPx(context, somePtDimension);
 ```
 
 ### InternetHelper
