@@ -26,7 +26,7 @@ public interface UiThreadUtil {
 	 * @param runnable
 	 * 		the runnable to submit, cannot be null
 	 */
-	public void runOnUiThreadWithDelay(Runnable runnable);
+	public void runOnUiThread(Runnable runnable);
 
 	/**
 	 * Submits the supplied runnable to the UI thread with an initial delay.

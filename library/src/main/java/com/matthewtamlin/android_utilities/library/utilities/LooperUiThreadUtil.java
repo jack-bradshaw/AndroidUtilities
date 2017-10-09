@@ -65,7 +65,7 @@ public class LooperUiThreadUtil implements UiThreadUtil {
 	}
 
 	@Override
-	public void runOnUiThreadWithDelay(final Runnable runnable) {
+	public void runOnUiThread(final Runnable runnable) {
 		if (runnable != null) {
 			final Handler handler = new Handler(looper);
 			handler.post(runnable);
