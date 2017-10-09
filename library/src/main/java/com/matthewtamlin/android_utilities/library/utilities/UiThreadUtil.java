@@ -24,7 +24,7 @@ public interface UiThreadUtil {
 	 * Submits the supplied runnable to the UI thread.
 	 *
 	 * @param runnable
-	 * 		the runnable to submit, may be null
+	 * 		the runnable to submit, cannot be null
 	 */
 	public void runOnUiThread(Runnable runnable);
 }
