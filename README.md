@@ -10,10 +10,10 @@ repositories {
 
 dependencies {
 	// For Android Gradle plugin 3.0.0+ projects:
-	implementation 'com.matthew-tamlin:android-utilities:5.1.0'
+	implementation 'com.matthew-tamlin:android-utilities:5.1.2'
 
 	// For older projects:
-	compile 'com.matthew-tamlin:android-utilities:5.1.0'
+	compile 'com.matthew-tamlin:android-utilities:5.1.2'
 }
 ```
 
