@@ -12,7 +12,6 @@ The helpers package contains the following classes:
 - ColorHelper
 - DimensionHelper
 - InternetHelper
-- PermissionsHelper
 - ScreenSizeHelper
 - ThemeColorHelper
 
@@ -121,35 +120,6 @@ if (connType == null) {
 }
 ```
 
-### PermissionsHelper
-Makes querying app permissions simpler.
-
-To count the number of granted permissions:
-```
-String[] locationPermissions = new String() {
-    Manifest.permission.ACCESS_FINE_LOCATION, 
-    Manifest.permission.ACCESS_COARSE_LOCATION};
-    
-if (PermissionsHelper.countGrantedPermissions(context, locationPermissions) > 0) {
-    enableLocationFeatures();
-} else {
-    requestPermissions();
-}
-```
-
-To check if all permissions are granted:
-```
-String[] takeAndSavePhotoPermissions = new String() {
-    Manifest.permission.CAMERA,
-    Manifest.permission.WRITE_EXTERNAL_STORAGE};
-    
-if (PermissionsHelper.checkAllPermissionsGranted(context, takeAndSavePhotoPermissions)) {
-    startCamera();
-} else {
-    requestPermissions();
-}
-```
-
 ### ScreenSizeHelper
 Provides information about the device screen.
 
@@ -181,98 +151,6 @@ int defaultColor = Color.WHITE;
 int primaryColor = ThemeColorHelper.getPrimaryColor(context, defaultColor);
 int primaryDarkColor = ThemeColorHelper.getPrimaryDarkColor(context, defaultColor);
 int accentColor = ThemeColorHelper.getAccentColor(context, defaultColor);
-```
-
-## Views
-There is currently one class in the views package: SquareImageView. 
-
-SquareImageView is an ImageView which forces the dimensions to be equal. The XML attribute `derivedDimension` specifies which dimension adjusts to match the other. Currently the derived dimension cannot be changed programatically, but this will probably change in a future release.
-
-Use the view in a layout as follows:
-```xml
-<?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-	xmlns:android="http://schemas.android.com/apk/res/android"
-	xmlns:app="http://schemas.android.com/apk/res-auto"
-	android:layout_width="match_parent"
-	android:layout_height="match_parent"
-	android:orientation="vertical">
-	
-	<!-- The width will always equal the height -->
-	<com.matthewtamlin.android_utilities.library.views.SquareImageView
-		android:layout_width="0dp"
-		android:layout_height="wrap_content"
-		app:derivedDimension="width"/>
-
-	<!-- The height will always equal the width -->
-	<com.matthewtamlin.android_utilities.library.views.SquareImageView
-		android:layout_width="wrap_content"
-		android:layout_height="0dp"
-		app:derivedDimension="height"/>
-</LinearLayout>
-```
-
-## Utilities
-The utilities package contains the UiThreadUtil interface and the LooperUiThreadUtil class. The UiThreadUtil interface provides access to the main thread without depending on the Android frmework, which allows controllers and other logic-containing classes to use concurrently without sacraficing testability. For example, consider the following controller:
-```java
-public class Controller {
-	private final UiThreadUtil threadUtil;
-	private final CustomView view;
-	
-	public Controller(UiThreadUtil threadUtil, CustomView view) {
-		this.threadUtil = threadUtil;
-		this.view = view;
-	}
-	
-	public void respondToSomeEvent() {
-		threadUtil.runOnUiThread(new Runnable() {
-			@Override
-			public void run() {
-				view.doSomething();
-			}
-		}	
-	}
-}
-```
-
-The controller can be tested against the JVM by passing mocks/stubs to the constructor: 
-```java
-@Test
-public void testRespondToSomeEvent() {
-	// Create a UiThreadUtil which executes Runnables on the calling thread
-	UiThreadUtil stubThreadUtil = new UiThreadUtil() {
-		@Override
-		public void runOnUiThread(Runnable runnable) {
-			runnable.run();
-		}
-	}
-	
-	// Using Mockito framework
-	CustomView mockCustomView = mock(CustomView.class);
-	
-	// Pass stub/mock implementations to controller
-	Controller c = new Controller(stubThreadUtil, mockCustomView);
-	c.respondToSomeEvent();
-	
-	// Verify expected behaviour
-	verify(mockCustomView, times(1)).doSomething();
-}
-```
-
-The same controller can be used in production by passing real objects instead:
-```java
-public class MyActivity extends AppCompatActivity {
-	@Override
-	public void onCreate(@Nullable Bundle savedInstanceState) {
-		super.onCreate(savedInstanceState);
-		setContentView(R.layout.my_layout);
-		
-		CustomView view = (CustomView) findViewById(R.id.my_custom_view);
-		UiThreadUtil threadUtil = LooperThreadUtil.createUsingMainLooper();
-	
-		Controller c = new Controller(threadUtil, view);
-	}
-}
 ```
 
 ## Licensing
