@@ -1,8 +1,23 @@
 # AndroidUtilities
 Simple utilities I've found to be userful in Android apps and libraries.
 
-## Download
-Releases are made available through jCentre. Add `compile 'com.matthew-tamlin:android-utilities:5.0.1'` to your gradle build file to use the latest version. Older versions are available in the [maven repo](https://bintray.com/matthewtamlin/maven/AndroidUtilities/view).
+## Dependency
+To use the framework, add the following to your gradle build file:
+```groovy
+repositories {
+	jcenter()
+}
+
+dependencies {
+	// For Android Gradle plugin 3.0.0+ projects:
+	implementation 'com.matthew-tamlin:android-utilities:5.1.0'
+
+	// For older projects:
+	compile 'com.matthew-tamlin:android-utilities:5.1.0'
+}
+```
+
+Older versions are available in the [maven repo](https://bintray.com/matthewtamlin/maven/AndroidUtilities/view).
  
 ## Helpers
 The helpers package contains the following classes:
