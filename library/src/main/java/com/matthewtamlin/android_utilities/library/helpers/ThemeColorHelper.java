@@ -28,7 +28,6 @@ import static com.matthewtamlin.java_utilities.checkers.NullChecker.checkNotNull
 /**
  * Gets the core colors from the current theme.
  */
-@Tested(testMethod = "automated")
 public class ThemeColorHelper {
 	/**
 	 * Gets the primary color from the current theme of the supplied Context.
