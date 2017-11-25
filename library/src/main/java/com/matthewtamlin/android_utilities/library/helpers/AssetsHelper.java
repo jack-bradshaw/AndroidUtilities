@@ -31,7 +31,6 @@ import static com.matthewtamlin.java_utilities.checkers.NullChecker.checkNotNull
 /**
  * Copies files from assets to a directory.
  */
-@Tested(testMethod = "automated")
 public class AssetsHelper {
 	/**
 	 * Copies one or more assets to a directory.

@@ -26,6 +26,8 @@ import static com.matthewtamlin.android_utilities.library.R.styleable.SquareImag
 
 /**
  * An ImageView where one dimension is constrained so that both width and height are equal.
+ *
+ * @deprecated consider migrating to a ConstraintLayout based UI instead of using this class
  */
 public class SquareImageView extends AppCompatImageView {
 	private static final Dimension DEFAULT_CONSTRAINED_DIMENSION = Dimension.HEIGHT;
