@@ -41,7 +41,7 @@ task buildRelease(dependsOn: ':library:buildRelease')
 ext {
 	groupId = 'com.matthew-tamlin'
 	artifactId = 'android-utilities'
-	versionNumber = '5.1.1'
+	versionNumber = '5.1.2'
 }
 
 subprojects { project ->
