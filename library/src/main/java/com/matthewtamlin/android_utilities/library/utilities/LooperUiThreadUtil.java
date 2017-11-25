@@ -23,7 +23,10 @@ import static com.matthewtamlin.java_utilities.checkers.NullChecker.checkNotNull
 
 /**
  * Provides access to the UI thread using a Looper.
+ *
+ * @deprecated consider migrating to an RxJava based architecture instead of using this class
  */
+@Deprecated
 public class LooperUiThreadUtil implements UiThreadUtil {
 	/**
 	 * The looper which provides UI thread access.

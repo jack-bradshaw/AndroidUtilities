@@ -18,7 +18,10 @@ package com.matthewtamlin.android_utilities.library.utilities;
 
 /**
  * Provides access to the UI thread.
+ *
+ * @deprecated consider migrating to an RxJava based architecture instead of using this class
  */
+@Deprecated
 public interface UiThreadUtil {
 	/**
 	 * Submits the supplied runnable to the UI thread.
