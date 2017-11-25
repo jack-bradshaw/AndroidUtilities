@@ -32,7 +32,6 @@ import static com.matthewtamlin.java_utilities.checkers.NullChecker.checkNotNull
 /**
  * Decodes bitmaps efficiently.
  */
-@Tested(testMethod = "automated")
 public class BitmapEfficiencyHelper {
 	/**
 	 * Calculates the sampling rate which can be used to subsample an image to the desired
