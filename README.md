@@ -278,11 +278,5 @@ public class MyActivity extends AppCompatActivity {
 ## Licensing
 This library is licensed under the Apache v2.0 licence. Have a look at [the license](LICENSE) for details.
 
-## Dependencies and Attribution
-This library uses the following open source libraries as level 1 dependencies:
-- [Android Support Library](https://developer.android.com/topic/libraries/support-library/index.html), licensed under the Apache 2.0 license.
-- [Java Utilities](https://github.com/MatthewTamlin/JavaUtilities), licensed under the Apache 2.0 license.
-- [Timber](https://github.com/JakeWharton/timber), licensed under the Apache 2.0 license.
-
 ## Compatibility
 This library is compatible with Android 11 and up.
