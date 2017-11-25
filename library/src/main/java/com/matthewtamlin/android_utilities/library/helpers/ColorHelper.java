@@ -25,7 +25,6 @@ import java.util.Random;
 /**
  * Various helper methods for working with colors.
  */
-@Tested(testMethod = "automated")
 public class ColorHelper {
 	/**
 	 * Blends two colors together using the individual ARGB channels. The {@code ratio} argument
