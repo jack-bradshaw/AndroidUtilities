@@ -27,7 +27,6 @@ import static com.matthewtamlin.java_utilities.checkers.NullChecker.checkNotNull
 /**
  * Obtains and abandons audio focus.
  */
-@Tested(testMethod = "automated")
 public class AudioFocusHelper {
 	/**
 	 * Requests stream alarm audio-focus for the supplied listener.
