@@ -1,8 +1,23 @@
 # AndroidUtilities
-Android developers regularly encounter situations where something which should be a simple method call turns into a slog of boilerplate code, down casting and other messy practices. A simple solution is to create utility classes to encapsulate the mess, however this can lead to regularly copying files between project which is not ideal. When I encountered this problem, I decided to create this library as a central repository for my utility classes.
+Simple utilities I've found to be userful in Android apps and libraries.
 
-## Download
-Releases are made available through jCentre. Add `compile 'com.matthew-tamlin:android-utilities:5.0.1'` to your gradle build file to use the latest version. Older versions are available in the [maven repo](https://bintray.com/matthewtamlin/maven/AndroidUtilities/view).
+## Dependency
+To use the framework, add the following to your gradle build file:
+```groovy
+repositories {
+	jcenter()
+}
+
+dependencies {
+	// For Android Gradle plugin 3.0.0+ projects:
+	implementation 'com.matthew-tamlin:android-utilities:5.1.2'
+
+	// For older projects:
+	compile 'com.matthew-tamlin:android-utilities:5.1.2'
+}
+```
+
+Older versions are available in the [maven repo](https://bintray.com/matthewtamlin/maven/AndroidUtilities/view).
  
 ## Helpers
 The helpers package contains the following classes:
@@ -12,7 +27,6 @@ The helpers package contains the following classes:
 - ColorHelper
 - DimensionHelper
 - InternetHelper
-- PermissionsHelper
 - ScreenSizeHelper
 - ThemeColorHelper
 
@@ -121,35 +135,6 @@ if (connType == null) {
 }
 ```
 
-### PermissionsHelper
-Makes querying app permissions simpler.
-
-To count the number of granted permissions:
-```
-String[] locationPermissions = new String() {
-    Manifest.permission.ACCESS_FINE_LOCATION, 
-    Manifest.permission.ACCESS_COARSE_LOCATION};
-    
-if (PermissionsHelper.countGrantedPermissions(context, locationPermissions) > 0) {
-    enableLocationFeatures();
-} else {
-    requestPermissions();
-}
-```
-
-To check if all permissions are granted:
-```
-String[] takeAndSavePhotoPermissions = new String() {
-    Manifest.permission.CAMERA,
-    Manifest.permission.WRITE_EXTERNAL_STORAGE};
-    
-if (PermissionsHelper.checkAllPermissionsGranted(context, takeAndSavePhotoPermissions)) {
-    startCamera();
-} else {
-    requestPermissions();
-}
-```
-
 ### ScreenSizeHelper
 Provides information about the device screen.
 
@@ -183,106 +168,8 @@ int primaryDarkColor = ThemeColorHelper.getPrimaryDarkColor(context, defaultColo
 int accentColor = ThemeColorHelper.getAccentColor(context, defaultColor);
 ```
 
-## Views
-There is currently one class in the views package: SquareImageView. 
-
-SquareImageView is an ImageView which forces the dimensions to be equal. The XML attribute `derivedDimension` specifies which dimension adjusts to match the other. Currently the derived dimension cannot be changed programatically, but this will probably change in a future release.
-
-Use the view in a layout as follows:
-```xml
-<?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-	xmlns:android="http://schemas.android.com/apk/res/android"
-	xmlns:app="http://schemas.android.com/apk/res-auto"
-	android:layout_width="match_parent"
-	android:layout_height="match_parent"
-	android:orientation="vertical">
-	
-	<!-- The width will always equal the height -->
-	<com.matthewtamlin.android_utilities.library.views.SquareImageView
-		android:layout_width="0dp"
-		android:layout_height="wrap_content"
-		app:derivedDimension="width"/>
-
-	<!-- The height will always equal the width -->
-	<com.matthewtamlin.android_utilities.library.views.SquareImageView
-		android:layout_width="wrap_content"
-		android:layout_height="0dp"
-		app:derivedDimension="height"/>
-</LinearLayout>
-```
-
-## Utilities
-The utilities package contains the UiThreadUtil interface and the LooperUiThreadUtil class. The UiThreadUtil interface provides access to the main thread without depending on the Android frmework, which allows controllers and other logic-containing classes to use concurrently without sacraficing testability. For example, consider the following controller:
-```java
-public class Controller {
-	private final UiThreadUtil threadUtil;
-	private final CustomView view;
-	
-	public Controller(UiThreadUtil threadUtil, CustomView view) {
-		this.threadUtil = threadUtil;
-		this.view = view;
-	}
-	
-	public void respondToSomeEvent() {
-		threadUtil.runOnUiThread(new Runnable() {
-			@Override
-			public void run() {
-				view.doSomething();
-			}
-		}	
-	}
-}
-```
-
-The controller can be tested against the JVM by passing mocks/stubs to the constructor: 
-```java
-@Test
-public void testRespondToSomeEvent() {
-	// Create a UiThreadUtil which executes Runnables on the calling thread
-	UiThreadUtil stubThreadUtil = new UiThreadUtil() {
-		@Override
-		public void runOnUiThread(Runnable runnable) {
-			runnable.run();
-		}
-	}
-	
-	// Using Mockito framework
-	CustomView mockCustomView = mock(CustomView.class);
-	
-	// Pass stub/mock implementations to controller
-	Controller c = new Controller(stubThreadUtil, mockCustomView);
-	c.respondToSomeEvent();
-	
-	// Verify expected behaviour
-	verify(mockCustomView, times(1)).doSomething();
-}
-```
-
-The same controller can be used in production by passing real objects instead:
-```java
-public class MyActivity extends AppCompatActivity {
-	@Override
-	public void onCreate(@Nullable Bundle savedInstanceState) {
-		super.onCreate(savedInstanceState);
-		setContentView(R.layout.my_layout);
-		
-		CustomView view = (CustomView) findViewById(R.id.my_custom_view);
-		UiThreadUtil threadUtil = LooperThreadUtil.createUsingMainLooper();
-	
-		Controller c = new Controller(threadUtil, view);
-	}
-}
-```
-
 ## Licensing
 This library is licensed under the Apache v2.0 licence. Have a look at [the license](LICENSE) for details.
 
-## Dependencies and Attribution
-This library uses the following open source libraries as level 1 dependencies:
-- [Android Support Library](https://developer.android.com/topic/libraries/support-library/index.html), licensed under the Apache 2.0 license.
-- [Java Utilities](https://github.com/MatthewTamlin/JavaUtilities), licensed under the Apache 2.0 license.
-- [Timber](https://github.com/JakeWharton/timber), licensed under the Apache 2.0 license.
-
 ## Compatibility
-This library is compatible with Android 11 and up.
+This library is compatible with Android 14 and up.
