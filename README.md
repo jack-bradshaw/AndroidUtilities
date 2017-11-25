@@ -2,7 +2,7 @@
 Simple utilities I've found to be userful in Android apps and libraries.
 
 ## Dependency
-To use the framework, add the following to your gradle build file:
+To use the library, add the following to your gradle build file:
 ```groovy
 repositories {
 	jcenter()
