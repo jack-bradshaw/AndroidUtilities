@@ -279,4 +279,4 @@ public class MyActivity extends AppCompatActivity {
 This library is licensed under the Apache v2.0 licence. Have a look at [the license](LICENSE) for details.
 
 ## Compatibility
-This library is compatible with Android 11 and up.
+This library is compatible with Android 14 and up.
