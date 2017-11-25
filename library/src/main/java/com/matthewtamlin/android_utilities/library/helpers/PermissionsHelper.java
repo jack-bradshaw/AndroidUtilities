@@ -27,7 +27,10 @@ import static com.matthewtamlin.java_utilities.checkers.NullChecker.checkNotNull
 
 /**
  * Checks if permissions have been granted.
+ *
+ * @deprecated consider migrating to a dedicated permissions library such as Nammu instead of using this class
  */
+@Deprecated
 @Tested(testMethod = "automated")
 public class PermissionsHelper {
 	/**
