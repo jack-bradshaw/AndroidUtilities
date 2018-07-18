@@ -164,8 +164,5 @@ int primaryDarkColor = ThemeColorHelper.getPrimaryDarkColor(context, defaultColo
 int accentColor = ThemeColorHelper.getAccentColor(context, defaultColor);
 ```
 
-## Licensing
-This library is licensed under the Apache v2.0 licence. Have a look at [the license](LICENSE) for details.
-
 ## Compatibility
 This library is compatible with Android 14 and up.
