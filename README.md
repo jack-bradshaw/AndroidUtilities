@@ -5,11 +5,11 @@ Simple utilities I've found to be userful in Android apps and libraries.
 To use the library, add the following to your gradle build file:
 ```groovy
 repositories {
-	jcenter()
+  jcenter()
 }
 
 dependencies {
-    implementation 'com.matthew-tamlin:android-utilities:5.1.2'
+  implementation 'com.matthew-tamlin:android-utilities:5.1.2'
 }
 ```
 
@@ -43,16 +43,16 @@ AssetsHelper.copyAssetsToDirectory(manager, targetDir, "db_config.xml", "default
 Reduces boilerplate code when obtaining and abandoning audio focus.
 ```java
 AudioFocusHelper.requestStreamAlarmFocus(context, new OnAudioFocusChangeListener() {
-    @Override
-    public void onAudioFocusChange(int focusChange) {
-		// Do something
-	});
+  @Override
+  public void onAudioFocusChange(int focusChange) {
+    // Do something
+  });
     
 AudioFocusHelper.abandonFocus(context, new OnAudioFocusChangeListener() {
-    @Override
-    public void onAudioFocusChange(int focusChange) {
-		// Do something else
-	});
+  @Override
+  public void onAudioFocusChange(int focusChange) {
+    // Do something else
+  });
 ```
 
 ### BitmapEfficiencyHelper
@@ -81,14 +81,14 @@ final int endColor = Color.BLUE;
 
 ValueAnimator animator = ValueAnimator.ofFloat(0, 1);
 animator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
-			@Override
-			public void onAnimationUpdate(final ValueAnimator animation) {
-				ColorHelper.blendColors(
-					startColor, 
-					endColor, 
-					animation.getAnimatedFraction());
-			}
-		});
+    @Override
+    public void onAnimationUpdate(final ValueAnimator animation) {
+        ColorHelper.blendColors(
+        startColor, 
+        endColor, 
+        animation.getAnimatedFraction());
+    }
+});
 ```
 
 To generate random colors:
