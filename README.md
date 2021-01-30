@@ -1,6 +1,8 @@
 # AndroidUtilities
 Simple utilities I've found to be userful in Android apps and libraries.
 
+**SUPPORT NOTICE: This library is now STABLE. It is no longer under active development, however pull requests from others are still being accepted.**
+
 ## Dependency
 To use the library, add the following to your gradle build file:
 ```groovy
